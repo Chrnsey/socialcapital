@@ -4,10 +4,11 @@
 // Replace the two values below with the ones from your Supabase dashboard:
 //   Dashboard -> Project Settings -> API
 //     "Project URL"          -> SUPABASE_URL
-//     "anon" / "public" key  -> SUPABASE_ANON_KEY
+//     "publishable" key      -> SUPABASE_ANON_KEY
+//        (older projects call this the "anon" key - same thing)
 //
 // IMPORTANT: there is a THIRD key on that page called `service_role`.
-// It ignores every security rule. Never put it in this file or any other
+// (on newer projects it starts with sb_secret_). It ignores every security rule. Never put it in this file or any other
 // file in this project. If it ever leaks, anyone can read and delete
 // everything in your database.
 //
@@ -17,6 +18,6 @@
 // ===========================================================================
 
 window.SC_CONFIG = {
-  SUPABASE_URL: "PASTE_YOUR_PROJECT_URL_HERE",
-  SUPABASE_ANON_KEY: "PASTE_YOUR_ANON_KEY_HERE"
+  SUPABASE_URL: "https://fxrgobqnaiuafzcafyzh.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_6pmrdoUNlLEzZxB2tjMDSA_l4kh2CgR"
 };
