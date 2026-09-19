@@ -1,13 +1,13 @@
 {
   "hero": {
     "title": "Everyone deserves a network",
-    "body": "Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.",
+    "body": "Social Capital connects you with real professionals. With people working in tech, finance, law, healthcare, trades, media and more. All of whom have agreed to talk. \n\nAsk a question, hear their story, or get them to visit your school. The mentors are here to provide guidance and help level the playing field.",
     "cta_primary": "See who we're looking for"
   },
   "teasers": {
     "tag": "Who we're looking for",
     "title": "The people who make this work",
-    "body": "The directory is being built right now. These are the kinds of people we're asking to join — and if one of them sounds like you, we'd like to hear from you.",
+    "body": "The directory is being built right now. These are the kinds of people we're asking to join; if one of them sounds like you, we'd like to hear from you!",
     "note": "Real profiles appear here as mentors join.",
     "items": [
       {
@@ -37,6 +37,6 @@
   },
   "cta": {
     "title": "Want this at your school?",
-    "body": "Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free."
+    "body": "Social Capital only works once a school's registered. If yours isn't, tell your guidance counsellor, registration only takes a few minutes."
   }
 }
