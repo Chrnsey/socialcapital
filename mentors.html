@@ -161,6 +161,11 @@
     .form-row { grid-template-columns: 1fr; }
     footer { flex-direction: column; align-items: flex-start; }
   }
+
+  .form-status { font-size: 0.85rem; margin-top: 0.85rem; line-height: 1.5; }
+  .form-status.ok { color: var(--green-deep); }
+  .form-status.error { color: var(--ink); font-weight: 600; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>
 </head>
 <body>
@@ -177,8 +182,8 @@
 
 <section class="hero" style="border-bottom: none;">
   <p class="hero-kicker">For individual professionals — no employer involved</p>
-  <h1>Give a few hours. Change what someone thinks is possible.</h1>
-  <p>You don't need to be sent by a company, and there's no minimum commitment. Answer a few messages a term, meet a student for a chat, or give one talk at a school. You decide how far it goes.</p>
+  <h1 data-sc-text="hero.title">Give a few hours. Change what someone thinks is possible.</h1>
+  <p data-sc-text="hero.body">You don't need to be sent by a company, and there's no minimum commitment. Answer a few messages a term, meet a student for a chat, or give one talk at a school. You decide how far it goes.</p>
   <div class="hero-actions">
     <a href="#signup" class="btn">Sign up as a mentor</a>
     <a href="businesses.html" class="text-link">Signing up on behalf of a company?</a>
@@ -210,44 +215,50 @@
 </section>
 
 <section>
-  <p class="section-tag">From a mentor already doing this</p>
+  <p class="section-tag" data-sc-text="quote.tag">Why this exists</p>
   <div class="quote-block">
-    "It's maybe an hour a term. It's not a big ask, but I remember exactly what it would've meant to me at that age — just someone answering the phone."
-    <div class="quote-attr">— Aoife Kelly, Software Engineer, Google Dublin</div>
+    <span data-sc-text="quote.body">[Your words go here — a sentence or two on why you started Social Capital. Edit this in the CMS; it's the one bit of the site that should sound like a person rather than an organisation.]</span>
+    <div class="quote-attr" data-sc-text="quote.attribution">— Jack, founder, Social Capital</div>
   </div>
 </section>
 
 <div class="signup" id="signup">
-  <h2>Sign up</h2>
-  <p>Takes about two minutes. We'll follow up before you're listed anywhere, so there's no risk of being contacted before you're ready.</p>
-  <div class="signup-form">
+  <h2 data-sc-text="signup.title">Sign up</h2>
+  <p data-sc-text="signup.body">Takes about two minutes. We'll follow up before you're listed anywhere, so there's no risk of being contacted before you're ready.</p>
+  <form class="signup-form" data-sc-form="mentor_signup" novalidate>
     <div class="form-row">
       <div class="form-group">
-        <label>First name</label>
-        <input type="text" placeholder="First name">
+        <label for="m_first">First name</label>
+        <input type="text" id="m_first" name="first_name" placeholder="First name" required autocomplete="given-name">
       </div>
       <div class="form-group">
-        <label>Last name</label>
-        <input type="text" placeholder="Last name">
+        <label for="m_last">Last name</label>
+        <input type="text" id="m_last" name="last_name" placeholder="Last name" required autocomplete="family-name">
       </div>
     </div>
     <div class="form-group">
-      <label>Email address</label>
-      <input type="email" placeholder="your@email.com">
+      <label for="m_email">Email address</label>
+      <input type="email" id="m_email" name="email" placeholder="your@email.com" required autocomplete="email">
     </div>
     <div class="form-group">
-      <label>Industry / sector</label>
-      <select>
+      <label for="m_industry">Industry / sector</label>
+      <select id="m_industry" name="industry" required>
         <option value="">Select your field</option>
-        <option>Technology</option><option>Healthcare</option><option>Law</option>
-        <option>Finance</option><option>Trades</option><option>Media</option>
-        <option>Education</option><option>Engineering</option>
-        <option>Public sector</option><option>Other</option>
+        <option value="technology">Technology</option>
+        <option value="healthcare">Healthcare</option>
+        <option value="law">Law</option>
+        <option value="finance">Finance</option>
+        <option value="trades">Trades</option>
+        <option value="media">Media &amp; communications</option>
+        <option value="education">Education</option>
+        <option value="engineering">Engineering</option>
+        <option value="public_sector">Public sector</option>
+        <option value="other">Other</option>
       </select>
     </div>
     <div class="form-group">
-      <label>Experience level</label>
-      <select>
+      <label for="m_level">Experience level</label>
+      <select id="m_level" name="experience_level" required>
         <option value="">Select level</option>
         <option>Junior (0–5 years)</option>
         <option>Mid-level (5–15 years)</option>
@@ -255,17 +266,21 @@
       </select>
     </div>
     <div class="form-group">
-      <label>Open to school talks?</label>
-      <select>
+      <label for="m_talks">Open to school talks?</label>
+      <select id="m_talks" name="open_to_talks" required>
         <option value="">Select an option</option>
         <option>Yes, happy to</option>
         <option>Maybe, tell me more first</option>
         <option>Not right now — contact only</option>
       </select>
     </div>
-    <button class="signup-submit" onclick="showConfirm()">Sign up as a mentor</button>
-    <div class="signup-confirm" id="signupConfirm">Thanks — we'll be in touch before you're listed anywhere.</div>
-  </div>
+    <div class="hp-field" aria-hidden="true">
+      <label for="m_hp">Leave this field empty</label>
+      <input type="text" id="m_hp" name="_hp" tabindex="-1" autocomplete="off">
+    </div>
+    <button type="submit" class="signup-submit">Sign up as a mentor</button>
+    <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
+  </form>
 </div>
 
 <footer>
@@ -281,10 +296,11 @@
   </div>
 </footer>
 
-<script>
-function showConfirm() {
-  document.getElementById('signupConfirm').classList.add('active');
-}
-</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/content.js"></script>
+<script>SCContent.load("mentors");</script>
 </body>
 </html>

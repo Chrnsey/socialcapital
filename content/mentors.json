@@ -1,0 +1,15 @@
+{
+  "hero": {
+    "title": "Give a few hours. Change what someone thinks is possible.",
+    "body": "You don't need to be sent by a company, and there's no minimum commitment. Answer a few messages a term, meet a student for a chat, or give one talk at a school. You decide how far it goes."
+  },
+  "quote": {
+    "tag": "Why this exists",
+    "body": "[Your words go here — a sentence or two on why you started Social Capital. This is the one bit of the site that should sound like a person rather than an organisation.]",
+    "attribution": "— Jack, founder, Social Capital"
+  },
+  "signup": {
+    "title": "Sign up",
+    "body": "Takes about two minutes. We'll follow up before you're listed anywhere, so there's no risk of being contacted before you're ready."
+  }
+}

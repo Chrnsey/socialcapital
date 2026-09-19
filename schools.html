@@ -268,6 +268,13 @@
 
   .main-site { display: block; }
   .main-site.hidden { display: none; }
+
+  .form-status { font-size: 0.85rem; margin-top: 0.85rem; line-height: 1.5; }
+  .form-status.ok { color: var(--green-deep); }
+  .form-status.error { color: var(--ink); font-weight: 600; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+  .dir-empty { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; max-width: 52ch; }
+  .mentor-talks { display: block; font-size: 0.75rem; color: var(--green-deep); margin-top: 0.3rem; }
 </style>
 </head>
 <body>
@@ -286,8 +293,8 @@
 
   <section class="hero" style="border-bottom: none;">
     <p class="hero-kicker">A directory for DEIS schools across Ireland</p>
-    <h1>Give your students a network worth having.</h1>
-    <p>Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free.</p>
+    <h1 data-sc-text="hero.title">Give your students a network worth having.</h1>
+    <p data-sc-text="hero.body">Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free.</p>
     <div class="hero-actions">
       <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
       <a href="#how-it-works" class="text-link">See how it works</a>
@@ -300,7 +307,7 @@
 
   <section id="how-it-works">
     <p class="section-tag">How it works</p>
-    <h2>What a school actually gets</h2>
+    <h2 data-sc-text="how.title">What a school actually gets</h2>
     <p class="section-body">A guidance counsellor registers the school, gets a login, and from there can browse the directory or ask us to arrange a talk. That's the whole process.</p>
     <div class="how-list">
       <div class="how-item">
@@ -360,7 +367,7 @@
   </section>
 
   <div class="bottom-cta">
-    <h2>Ready to register?</h2>
+    <h2 data-sc-text="cta.title">Ready to register?</h2>
     <p>Registering takes a few minutes. Once you're in, your guidance counsellor has full access and can request a talk any time.</p>
     <div class="cta-group">
       <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
@@ -389,30 +396,58 @@
     <button class="modal-close" onclick="closeModal('schoolModal')">×</button>
     <h3>Register your school</h3>
     <p>Fill in your details and we'll be in touch within two working days to get your school set up with full access.</p>
-    <div class="form-group">
-      <label>School name</label>
-      <input type="text" placeholder="e.g. St. Mary's CBS, Dublin">
-    </div>
-    <div class="form-group">
-      <label>Your name</label>
-      <input type="text" placeholder="Guidance counsellor or principal">
-    </div>
-    <div class="form-group">
-      <label>Email address</label>
-      <input type="email" placeholder="yourname@school.ie">
-    </div>
-    <div class="form-group">
-      <label>County</label>
-      <select>
-        <option value="">Select county</option>
-        <option>Dublin</option><option>Cork</option><option>Galway</option>
-        <option>Limerick</option><option>Waterford</option><option>Kilkenny</option>
-        <option>Clare</option><option>Mayo</option><option>Sligo</option>
-        <option>Donegal</option><option>Tipperary</option><option>Kerry</option>
-        <option>Other</option>
-      </select>
-    </div>
-    <button class="modal-submit">Send registration request</button>
+    <form data-sc-form="school_registration" novalidate>
+      <div class="form-group">
+        <label for="s_school">School name</label>
+        <input type="text" id="s_school" name="school_name" placeholder="e.g. St. Mary's CBS, Dublin" required>
+      </div>
+      <div class="form-group">
+        <label for="s_contact">Your name</label>
+        <input type="text" id="s_contact" name="contact_name" placeholder="Guidance counsellor or principal" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="s_email">Email address</label>
+        <input type="email" id="s_email" name="email" placeholder="yourname@school.ie" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="s_county">County</label>
+        <select id="s_county" name="county" required>
+          <option value="">Select county</option>
+          <option>Carlow</option>
+          <option>Cavan</option>
+          <option>Clare</option>
+          <option>Cork</option>
+          <option>Donegal</option>
+          <option>Dublin</option>
+          <option>Galway</option>
+          <option>Kerry</option>
+          <option>Kildare</option>
+          <option>Kilkenny</option>
+          <option>Laois</option>
+          <option>Leitrim</option>
+          <option>Limerick</option>
+          <option>Longford</option>
+          <option>Louth</option>
+          <option>Mayo</option>
+          <option>Meath</option>
+          <option>Monaghan</option>
+          <option>Offaly</option>
+          <option>Roscommon</option>
+          <option>Sligo</option>
+          <option>Tipperary</option>
+          <option>Waterford</option>
+          <option>Westmeath</option>
+          <option>Wexford</option>
+          <option>Wicklow</option>
+        </select>
+      </div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="s_hp">Leave this field empty</label>
+        <input type="text" id="s_hp" name="_hp" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="modal-submit">Send registration request</button>
+      <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 
@@ -421,16 +456,15 @@
   <div class="login-box">
     <p class="section-tag" style="margin-bottom: 0.5rem;">School portal</p>
     <h2>Sign in</h2>
-    <p>Enter your school login details to access the full mentor directory.</p>
-    <div class="form-group">
-      <label>School email</label>
-      <input type="email" placeholder="yourname@school.ie" id="loginEmail">
-    </div>
-    <div class="form-group">
-      <label>Password</label>
-      <input type="password" placeholder="••••••••" id="loginPass">
-    </div>
-    <button class="modal-submit" onclick="doLogin()" style="margin-top: 0.75rem;">Sign in</button>
+    <p>We'll email you a link that signs you in — no password to remember. Only schools we've approved can open the directory.</p>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="loginEmail">School email</label>
+        <input type="email" id="loginEmail" name="email" placeholder="yourname@school.ie" required autocomplete="email">
+      </div>
+      <button type="submit" class="modal-submit" style="margin-top: 0.75rem;">Email me a sign-in link</button>
+      <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
+    </form>
     <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
       Not yet registered? <span style="color: var(--ink); cursor: pointer; text-decoration: underline;" onclick="goBackAndOpenSchool()">Register your school</span>
     </p>
@@ -453,37 +487,14 @@
   <div class="dir-header">
     <div class="dir-header-inner">
       <h2>Mentor directory</h2>
-      <p>Browse by industry to find mentors, read about each sector, and request a speaker for your school.</p>
+      <p>Browse by industry to find mentors and read about each sector. To arrange a talk at your school, email <a href="mailto:hello@socialcapital.ie">hello@socialcapital.ie</a> and we'll organise it.</p>
     </div>
   </div>
 
   <div class="dir-body">
     <p class="dir-section-title">Choose an industry</p>
     <div class="industry-cards" id="industryCards">
-      <div class="industry-card" onclick="openIndustry('tech')">
-        <div class="industry-card-left"><h4>Technology</h4><span>12 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
-      <div class="industry-card" onclick="openIndustry('healthcare')">
-        <div class="industry-card-left"><h4>Healthcare</h4><span>8 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
-      <div class="industry-card" onclick="openIndustry('law')">
-        <div class="industry-card-left"><h4>Law</h4><span>6 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
-      <div class="industry-card" onclick="openIndustry('finance')">
-        <div class="industry-card-left"><h4>Finance</h4><span>9 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
-      <div class="industry-card" onclick="openIndustry('trades')">
-        <div class="industry-card-left"><h4>Trades</h4><span>5 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
-      <div class="industry-card" onclick="openIndustry('media')">
-        <div class="industry-card-left"><h4>Media & communications</h4><span>7 mentors available</span></div>
-        <span class="industry-card-arrow">›</span>
-      </div>
+      <p class="dir-empty">Loading sectors…</p>
     </div>
 
     <div class="mentor-view" id="mentorView">
@@ -498,62 +509,15 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/directory.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/content.js"></script>
 <script>
-const industries = {
-  tech: {
-    title: 'Technology',
-    summary: 'Technology is one of Ireland\'s fastest-growing sectors, home to the European headquarters of Google, Meta, Apple, and hundreds of Irish-founded companies. Roles range from software engineering and UX design to product management and data science. You don\'t need to have studied computer science — many people enter through bootcamps, apprenticeships, or by switching from another field.',
-    mentors: [
-      { name: 'Aoife Kelly', initials: 'AK', role: 'Software Engineer, Google Dublin', level: 'junior', years: '3 years in industry' },
-      { name: 'Declan Murphy', initials: 'DM', role: 'Head of Product, Intercom', level: 'senior', years: '14 years in industry' },
-      { name: 'Sinéad O\'Brien', initials: 'SO', role: 'UX Designer, Stripe', level: 'junior', years: '4 years in industry' },
-      { name: 'Ciarán Walsh', initials: 'CW', role: 'CTO, Irish tech startup', level: 'senior', years: '18 years in industry' },
-    ]
-  },
-  healthcare: {
-    title: 'Healthcare',
-    summary: 'Healthcare in Ireland covers medicine, nursing, physiotherapy, pharmacy, occupational therapy, and many more roles. The sector is one of the most stable and rewarding career paths, with strong demand across public and private settings. Routes into healthcare vary widely — from direct university entry to postgraduate conversion programmes.',
-    mentors: [
-      { name: 'Dr. Niamh Ryan', initials: 'NR', role: 'GP, South Dublin', level: 'senior', years: '12 years in practice' },
-      { name: 'Liam Brennan', initials: 'LB', role: 'Staff Nurse, Beaumont Hospital', level: 'junior', years: '2 years in industry' },
-      { name: 'Orla Fitzgerald', initials: 'OF', role: 'Physiotherapist, HSE', level: 'junior', years: '4 years in industry' },
-    ]
-  },
-  law: {
-    title: 'Law',
-    summary: 'A legal career in Ireland can take many forms — solicitor, barrister, legal executive, or working in-house at a company. The traditional route is a law degree followed by professional training, but there are also graduate entry options. Law firms range from large international practices in Dublin to smaller general practice firms throughout the country.',
-    mentors: [
-      { name: 'Eimear Doherty', initials: 'ED', role: 'Solicitor, A&L Goodbody', level: 'junior', years: '3 years qualified' },
-      { name: 'Patrick Connolly', initials: 'PC', role: 'Senior Partner, McCann FitzGerald', level: 'senior', years: '22 years in practice' },
-    ]
-  },
-  finance: {
-    title: 'Finance',
-    summary: 'Ireland\'s financial services sector is one of the largest in Europe. Careers span investment banking, accountancy, insurance, fintech, and the public sector. Routes in include accounting qualifications (ACA, ACCA, CIMA), financial planning certifications, and direct entry graduate programmes at banks and investment firms.',
-    mentors: [
-      { name: 'Caoimhe Lynch', initials: 'CL', role: 'Analyst, Bank of Ireland', level: 'junior', years: '2 years in industry' },
-      { name: 'Brian Farrell', initials: 'BF', role: 'Finance Director, Kerry Group', level: 'senior', years: '20 years in industry' },
-      { name: 'Maeve Sheridan', initials: 'MS', role: 'Accountant, Grant Thornton', level: 'junior', years: '5 years in practice' },
-    ]
-  },
-  trades: {
-    title: 'Trades',
-    summary: 'Skilled trades are among the most in-demand careers in Ireland, with electricians, plumbers, carpenters, and construction professionals commanding strong salaries. Entry is typically through a SOLAS apprenticeship — you earn while you learn, with no college fees. Trades offer long-term job security, the option to become self-employed, and increasingly, routes into project management and business ownership.',
-    mentors: [
-      { name: 'Kevin O\'Sullivan', initials: 'KO', role: 'Master Electrician, self-employed', level: 'senior', years: '16 years in trade' },
-      { name: 'Jake Reilly', initials: 'JR', role: 'Apprentice Plumber, year 3', level: 'junior', years: '2 years in apprenticeship' },
-    ]
-  },
-  media: {
-    title: 'Media & communications',
-    summary: 'Media and communications covers journalism, broadcasting, PR, marketing, content creation, and digital media. Ireland has a strong tradition in journalism and broadcasting (RTÉ, Virgin Media, Irish Times, Independent), as well as a growing marketing and PR industry. Routes in include journalism degrees, communications programmes, and increasingly, building a presence online.',
-    mentors: [
-      { name: 'Rachel Byrne', initials: 'RB', role: 'Journalist, The Irish Times', level: 'junior', years: '3 years in industry' },
-      { name: 'Fionnuala Moran', initials: 'FM', role: 'Head of Communications, Irish NGO', level: 'senior', years: '15 years in industry' },
-      { name: 'Dylan Carey', initials: 'DC', role: 'Content Manager, Dublin agency', level: 'junior', years: '4 years in industry' },
-    ]
-  }
-};
+SCContent.load("schools");
 
 function openSchoolModal() { document.getElementById('schoolModal').classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
@@ -564,60 +528,27 @@ function openLogin() {
   document.getElementById('directoryPage').classList.remove('active');
 }
 
-function goBack() {
+function goBack() { SCAuth.signOut(); }
+
+function goBackAndOpenSchool() {
   document.getElementById('mainSite').classList.remove('hidden');
   document.getElementById('loginPage').classList.remove('active');
   document.getElementById('directoryPage').classList.remove('active');
-  history.replaceState(null, '', 'schools.html');
+  setTimeout(openSchoolModal, 100);
 }
 
-function goBackAndOpenSchool() {
-  goBack();
-  setTimeout(() => openSchoolModal(), 100);
-}
+function closeIndustry() { SCDirectory.closeSector(); }
 
-function doLogin() {
-  const email = document.getElementById('loginEmail').value;
-  const pass = document.getElementById('loginPass').value;
-  if (!email || !pass) { alert('Please enter your email and password.'); return; }
-  const schoolName = email.split('@')[1]?.split('.')[0] || 'Your School';
-  document.getElementById('schoolName').textContent = schoolName.charAt(0).toUpperCase() + schoolName.slice(1);
-  document.getElementById('loginPage').classList.remove('active');
-  document.getElementById('directoryPage').classList.add('active');
-  closeIndustry();
-}
+document.addEventListener('DOMContentLoaded', function () {
+  document.getElementById('loginForm')
+    .addEventListener('submit', SCAuth.sendLink);
+});
 
-function openIndustry(key) {
-  const data = industries[key];
-  if (!data) return;
-  document.getElementById('mentorViewTitle').textContent = data.title;
-  document.getElementById('sectorSummary').textContent = data.summary;
-  const list = document.getElementById('mentorList');
-  list.innerHTML = data.mentors.map(m => `
-    <div class="mentor-card">
-      <div class="mentor-avatar">${m.initials}</div>
-      <div class="mentor-info">
-        <h4>${m.name}</h4>
-        <p>${m.role}</p>
-        <span class="mentor-badge ${m.level === 'junior' ? 'junior' : ''}">${m.level === 'junior' ? 'Junior mentor' : 'Senior mentor'} · ${m.years}</span>
-      </div>
-    </div>
-  `).join('');
-  document.getElementById('mentorView').classList.add('active');
-  document.getElementById('industryCards').style.display = 'none';
-}
-
-function closeIndustry() {
-  document.getElementById('mentorView').classList.remove('active');
-  document.getElementById('industryCards').style.display = 'flex';
-}
-
-window.addEventListener('click', function(e) {
-  const el = document.getElementById('schoolModal');
+window.addEventListener('click', function (e) {
+  var el = document.getElementById('schoolModal');
   if (e.target === el) el.classList.remove('active');
 });
 
-// Auto-open the login page if arriving via schools.html#login
 if (window.location.hash === '#login') { openLogin(); }
 </script>
 </body>

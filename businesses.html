@@ -142,6 +142,11 @@
     .how-item { grid-template-columns: 1fr; gap: 0.4rem; }
     footer { flex-direction: column; align-items: flex-start; }
   }
+
+  .form-status { font-size: 0.85rem; margin-top: 0.85rem; line-height: 1.5; }
+  .form-status.ok { color: var(--green-deep); }
+  .form-status.error { color: var(--ink); font-weight: 600; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 </style>
 </head>
 <body>
@@ -157,8 +162,8 @@
 
 <section class="hero" style="border-bottom: none;">
   <p class="hero-kicker">For companies and organisations</p>
-  <h1>Put your team's experience to work where it matters.</h1>
-  <p>List employees as mentors, sponsor a school talk, or fund a term of talks outright. It's a direct, low-effort way to meet your CSR goals — and it's felt by an actual student, not just a report.</p>
+  <h1 data-sc-text="hero.title">Put your team's experience to work where it matters.</h1>
+  <p data-sc-text="hero.body">List employees as mentors, sponsor a school talk, or fund a term of talks outright. It's a direct, low-effort way to meet your CSR goals — and it's felt by an actual student, not just a report.</p>
   <div class="hero-actions">
     <a href="mailto:hello@socialcapital.ie" class="btn">Get in touch about partnership</a>
     <a href="schools.html" class="text-link">See what mentors actually do</a>
@@ -167,7 +172,7 @@
 
 <section>
   <p class="section-tag">What partnership looks like</p>
-  <h2>Three ways to get involved</h2>
+  <h2 data-sc-text="ways.title">Three ways to get involved</h2>
   <p class="section-body">None of this requires a budget line to start — the first step is usually just a handful of willing staff.</p>
   <div class="how-list">
     <div class="how-item">
@@ -186,8 +191,8 @@
 </section>
 
 <div class="bottom-cta">
-  <h2>Want to talk it through?</h2>
-  <p>Tell us roughly what you have in mind — a handful of mentors, a sponsored talk, or ongoing support — and we'll work out what fits.</p>
+  <h2 data-sc-text="cta.title">Want to talk it through?</h2>
+  <p data-sc-text="cta.body">Tell us roughly what you have in mind — a handful of mentors, a sponsored talk, or ongoing support — and we'll work out what fits.</p>
   <div class="cta-group">
     <a href="mailto:hello@socialcapital.ie" class="btn">Email hello@socialcapital.ie</a>
     <a href="#" class="text-link" onclick="openMentorModal()">Register one employee now</a>
@@ -211,33 +216,52 @@
     <button class="modal-close" onclick="closeModal('mentorModal')">×</button>
     <h3>Register as a mentor</h3>
     <p>List a single employee, or fill this in for yourself. You'll be listed in the directory and can choose how you'd like to be involved — available for contact, for school talks, or both.</p>
-    <div class="form-group">
-      <label>Name</label>
-      <input type="text" placeholder="Full name">
-    </div>
-    <div class="form-group">
-      <label>Email address</label>
-      <input type="email" placeholder="name@company.com">
-    </div>
-    <div class="form-group">
-      <label>Company / organisation</label>
-      <input type="text" placeholder="Company name">
-    </div>
-    <div class="form-group">
-      <label>Industry / sector</label>
-      <select>
-        <option value="">Select field</option>
-        <option>Technology</option><option>Healthcare</option><option>Law</option>
-        <option>Finance</option><option>Trades</option><option>Media</option>
-        <option>Education</option><option>Engineering</option>
-        <option>Public sector</option><option>Other</option>
-      </select>
-    </div>
-    <button class="modal-submit">Register as a mentor</button>
+    <form data-sc-form="business_mentor" novalidate>
+      <div class="form-group">
+        <label for="b_name">Name</label>
+        <input type="text" id="b_name" name="full_name" placeholder="Full name" required autocomplete="name">
+      </div>
+      <div class="form-group">
+        <label for="b_email">Email address</label>
+        <input type="email" id="b_email" name="email" placeholder="name@company.com" required autocomplete="email">
+      </div>
+      <div class="form-group">
+        <label for="b_company">Company / organisation</label>
+        <input type="text" id="b_company" name="company" placeholder="Company name" required autocomplete="organization">
+      </div>
+      <div class="form-group">
+        <label for="b_industry">Industry / sector</label>
+        <select id="b_industry" name="industry" required>
+          <option value="">Select field</option>
+          <option value="technology">Technology</option>
+          <option value="healthcare">Healthcare</option>
+          <option value="law">Law</option>
+          <option value="finance">Finance</option>
+          <option value="trades">Trades</option>
+          <option value="media">Media &amp; communications</option>
+          <option value="education">Education</option>
+          <option value="engineering">Engineering</option>
+          <option value="public_sector">Public sector</option>
+          <option value="other">Other</option>
+        </select>
+      </div>
+      <div class="hp-field" aria-hidden="true">
+        <label for="b_hp">Leave this field empty</label>
+        <input type="text" id="b_hp" name="_hp" tabindex="-1" autocomplete="off">
+      </div>
+      <button type="submit" class="modal-submit">Register as a mentor</button>
+      <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
+    </form>
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/forms.js"></script>
+<script src="js/content.js"></script>
 <script>
+SCContent.load("businesses");
 function openMentorModal() { document.getElementById('mentorModal').classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }
 window.addEventListener('click', function(e) {
