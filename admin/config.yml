@@ -1,0 +1,175 @@
+# ===========================================================================
+# Decap CMS — the thing that lets you edit the website's words yourself.
+#
+# ONE LINE BELOW NEEDS CHANGING before this works: `repo`.
+# Replace YOUR-GITHUB-USERNAME with your actual GitHub username once you
+# have created the repository.
+# ===========================================================================
+
+backend:
+  name: github
+  repo: YOUR-GITHUB-USERNAME/socialcapital   # <-- CHANGE THIS
+  branch: main
+
+# Saves go straight to the live site. If you would rather have a "draft"
+# step where changes wait for you to publish them, delete the # on the
+# next line.
+# publish_mode: editorial_workflow
+
+media_folder: "images"
+public_folder: "/images"
+
+collections:
+  - name: pages
+    label: "Page wording"
+    files:
+
+      # ---------------------------------------------------------------
+      - name: index
+        label: "Homepage"
+        file: "content/index.json"
+        format: json
+        fields:
+          - name: hero
+            label: "Opening section"
+            widget: object
+            fields:
+              - { name: title, label: "Big headline", widget: string }
+              - { name: body, label: "Paragraph underneath", widget: text }
+              - { name: cta_primary, label: "Green button text", widget: string }
+          - name: teasers
+            label: "The three cards"
+            widget: object
+            fields:
+              - { name: tag, label: "Small grey label above", widget: string }
+              - { name: title, label: "Section heading", widget: string }
+              - { name: body, label: "Section intro paragraph", widget: text }
+              - { name: note, label: "Small note under the cards", widget: string }
+              - name: items
+                label: "Cards"
+                label_singular: "card"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: marker, label: "Text in the circle (keep it to 1-2 characters)", widget: string }
+                  - { name: name, label: "Card heading", widget: string }
+                  - { name: role, label: "Small grey line under the heading", widget: string }
+                  - { name: quote, label: "Quote", widget: text }
+          - name: industries
+            label: "Industries section"
+            widget: object
+            fields:
+              - { name: tag, label: "Small grey label above", widget: string }
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph (the <strong> tags make text bold - leave them in place)", widget: text }
+          - name: cta
+            label: "Green box at the bottom"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph", widget: text }
+
+      # ---------------------------------------------------------------
+      - name: schools
+        label: "For schools page"
+        file: "content/schools.json"
+        format: json
+        fields:
+          - name: hero
+            label: "Opening section"
+            widget: object
+            fields:
+              - { name: title, label: "Big headline", widget: string }
+              - { name: body, label: "Paragraph underneath", widget: text }
+          - name: how
+            label: "How it works section"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+          - name: cta
+            label: "Green box at the bottom"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+
+      # ---------------------------------------------------------------
+      - name: mentors
+        label: "Become a mentor page"
+        file: "content/mentors.json"
+        format: json
+        fields:
+          - name: hero
+            label: "Opening section"
+            widget: object
+            fields:
+              - { name: title, label: "Big headline", widget: string }
+              - { name: body, label: "Paragraph underneath", widget: text }
+          - name: quote
+            label: "Your statement"
+            widget: object
+            fields:
+              - { name: tag, label: "Small grey label above", widget: string }
+              - { name: body, label: "Why you started Social Capital (this one should sound like you, not an organisation)", widget: text }
+              - { name: attribution, label: "Signed off as", widget: string }
+          - name: signup
+            label: "Sign-up section"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph", widget: text }
+
+      # ---------------------------------------------------------------
+      - name: businesses
+        label: "For businesses page"
+        file: "content/businesses.json"
+        format: json
+        fields:
+          - name: hero
+            label: "Opening section"
+            widget: object
+            fields:
+              - { name: title, label: "Big headline", widget: string }
+              - { name: body, label: "Paragraph underneath", widget: text }
+          - name: ways
+            label: "Ways to get involved section"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+          - name: cta
+            label: "Box at the bottom"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph", widget: text }
+
+  # -------------------------------------------------------------------
+  - name: sectors
+    label: "Industry descriptions"
+    files:
+      - name: sectors
+        label: "Industry descriptions (shown in the directory)"
+        file: "content/sectors.json"
+        format: json
+        fields:
+          - name: sectors
+            label: "Industries"
+            label_singular: "industry"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - name: slug
+                label: "Internal code — MUST match the industry saved on mentors, so pick from the list"
+                widget: select
+                options:
+                  - technology
+                  - healthcare
+                  - law
+                  - finance
+                  - trades
+                  - media
+                  - education
+                  - engineering
+                  - public_sector
+                  - other
+              - { name: title, label: "Name shown on screen", widget: string }
+              - { name: summary, label: "Description of the sector", widget: text }

@@ -1,0 +1,33 @@
+# Netlify deployment settings.
+# There is no build step: the site is plain HTML, so Netlify just publishes
+# these files exactly as they are.
+
+[build]
+  publish = "."
+  command = ""
+
+# Keep working notes and the database script out of the public site.
+[[redirects]]
+  from = "/docs/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[redirects]]
+  from = "/supabase/*"
+  to = "/index.html"
+  status = 404
+  force = true
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    X-Frame-Options = "SAMEORIGIN"
+
+# Never let the CMS page be indexed by search engines.
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    X-Robots-Tag = "noindex"
