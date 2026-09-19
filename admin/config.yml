@@ -8,7 +8,7 @@
 
 backend:
   name: github
-  repo: YOUR-GITHUB-USERNAME/socialcapital   # <-- CHANGE THIS
+  repo: Chrnsey/socialcapital
   branch: main
 
 # Saves go straight to the live site. If you would rather have a "draft"
