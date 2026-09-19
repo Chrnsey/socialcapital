@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Capital — Ireland</title>
+<title>Social Capital — Privacy notice</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -286,10 +286,26 @@
     .value-strip { padding: 0 1.25rem 2.75rem; }
     footer { flex-direction: column; align-items: flex-start; }
   }
+</style>
 
-  .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
-  .form-consent a { color: var(--ink-faint); text-decoration: underline; }
-  .form-consent a:hover { color: var(--ink); }
+<style>
+  .doc { max-width: 720px; margin: 0 auto; padding: 4rem 2rem 3rem; }
+  .doc h1 { font-size: clamp(1.9rem, 4vw, 2.5rem); line-height: 1.2; margin-bottom: 0.75rem; }
+  .doc .updated { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 2.5rem; }
+  .doc h2 { font-size: 1.2rem; margin: 2.5rem 0 0.75rem; max-width: none; }
+  .doc h3 { font-size: 1rem; margin: 1.75rem 0 0.5rem; }
+  .doc p, .doc li { font-size: 0.975rem; color: var(--ink-soft); line-height: 1.7; }
+  .doc p { margin-bottom: 1rem; max-width: 64ch; }
+  .doc ul { margin: 0 0 1rem 1.25rem; }
+  .doc li { margin-bottom: 0.4rem; }
+  .doc strong { color: var(--ink); font-weight: 600; }
+  .doc table { width: 100%; border-collapse: collapse; margin: 1rem 0 1.5rem; font-size: 0.9rem; }
+  .doc th { text-align: left; padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--line); color: var(--ink); font-weight: 600; font-size: 0.85rem; }
+  .doc td { padding: 0.6rem 0.75rem 0.6rem 0; border-bottom: 1px solid var(--line-soft); color: var(--ink-soft); vertical-align: top; }
+  .doc .callout { background: var(--green-tint); border-radius: 4px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .doc .callout p { margin-bottom: 0; color: var(--ink); }
+  .doc .todo { border-left: 2px solid var(--green); padding-left: 1rem; color: var(--ink-faint); font-size: 0.9rem; }
+  @media (max-width: 640px) { .doc { padding: 2.5rem 1.25rem 2rem; } }
 </style>
 </head>
 <body>
@@ -297,84 +313,102 @@
 <nav>
   <a href="index.html" class="nav-logo">Social Capital</a>
   <ul class="nav-links">
+    <li><a href="index.html">For students</a></li>
     <li><a href="schools.html">For schools</a></li>
     <li><a href="businesses.html">For businesses</a></li>
     <li><a href="mentors.html">Become a mentor</a></li>
   </ul>
 </nav>
 
-<section class="hero" style="border-bottom: none;">
-  <h1 data-sc-text="hero.title">Everyone deserves a network.</h1>
-  <p data-sc-text="hero.body">Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.</p>
-  <div class="hero-actions">
-    <a href="#mentors" class="btn" data-sc-text="hero.cta_primary">See who we're looking for</a>
-    <a href="schools.html" class="text-link">I'm a teacher or guidance counsellor</a>
-  </div>
-</section>
+<div class="doc">
+  <h1>Privacy notice</h1>
+  <p class="updated">Last updated 19 September 2026</p>
 
-<div class="value-strip">
-  <div class="value-item">
-    <h3>Real people, not brochures</h3>
-    <p>Every profile is someone who said yes to being asked — not a stock photo or a job description.</p>
-  </div>
-  <div class="value-item">
-    <h3>No pressure, just answers</h3>
-    <p>Ask what a job is actually like, how someone got there, or what you'd need to study. No pitch, no sales.</p>
-  </div>
-  <div class="value-item">
-    <h3>Doors you didn't know existed</h3>
-    <p>The people you meet shape what you think is possible. We're making sure you meet more of them.</p>
-  </div>
-</div>
+  <p>This notice explains what personal information Social Capital Ireland collects, why we collect it, and what you can ask us to do with it. We have tried to write it in plain language rather than legal wording.</p>
 
-<section id="mentors">
-  <p class="section-tag" data-sc-text="teasers.tag">Who we're looking for</p>
-  <h2 data-sc-text="teasers.title">The people who make this work</h2>
-  <p class="section-body" data-sc-text="teasers.body">The directory is being built right now. These are the kinds of people we're asking to join — and if one of them sounds like you, we'd like to hear from you.</p>
-  <div class="mentor-teaser-grid" data-sc-list="teasers.items">
-    <template data-sc-item>
-      <div class="mentor-teaser">
-        <div class="mentor-teaser-avatar">{{marker}}</div>
-        <h4>{{name}}</h4>
-        <div class="role">{{role}}</div>
-        <blockquote>{{quote}}</blockquote>
-      </div>
-    </template>
-    <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">3</div>
-      <h4>Someone three years in</h4>
-      <div class="role">Early career, any field</div>
-      <blockquote>"You still remember school. That's most of the qualification."</blockquote>
-    </div>
-    <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">20</div>
-      <h4>Someone who runs the place</h4>
-      <div class="role">Senior, any field</div>
-      <blockquote>"Twenty years of context a fifteen-year-old has no other way to get."</blockquote>
-    </div>
-    <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">0</div>
-      <h4>Someone who never went to college</h4>
-      <div class="role">Trades and apprenticeships</div>
-      <blockquote>"Paid from year one, no fees. Students are rarely shown this route."</blockquote>
-    </div>
-  </div>
-  <p class="teaser-note" data-sc-text="teasers.note">Real profiles appear here as mentors join. <a href="mentors.html">Put your name forward</a>.</p>
-</section>
+  <h2>Who we are</h2>
+  <p>Social Capital Ireland connects students in DEIS schools with volunteer professional mentors. We are the <strong>data controller</strong> for the information described below, which means we are responsible for looking after it.</p>
+  <p class="todo">Registered name and address to be added once the Company Limited by Guarantee is incorporated. Until then, enquiries go to the contact address at the end of this notice.</p>
 
-<section>
-  <p class="section-tag" data-sc-text="industries.tag">Every industry</p>
-  <h2 data-sc-text="industries.title">Not just the obvious routes</h2>
-  <p class="industries-line" data-sc-html="industries.body"><strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers.</p>
-</section>
+  <h2>What we collect</h2>
+  <p>We only collect what people type into our forms. We do not buy data, and we do not track you around the internet.</p>
 
-<div class="bottom-cta">
-  <h2 data-sc-text="cta.title">Want this at your school?</h2>
-  <p data-sc-text="cta.body">Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free.</p>
-  <div class="cta-group">
-    <a href="schools.html" class="btn">Show my school how it works</a>
-    <a href="mentors.html" class="text-link">I'm a professional — sign me up</a>
+  <h3>If your school registers</h3>
+  <table>
+    <tr><th>What</th><th>Why</th></tr>
+    <tr><td>School name and county</td><td>To confirm the school is eligible and to know where you are</td></tr>
+    <tr><td>Your name and role</td><td>So we know who we are speaking to</td></tr>
+    <tr><td>Your email address</td><td>To reply to you, and to sign you in if approved</td></tr>
+  </table>
+
+  <h3>If you volunteer as a mentor</h3>
+  <table>
+    <tr><th>What</th><th>Why</th></tr>
+    <tr><td>Your name</td><td>Shown on your profile to registered schools</td></tr>
+    <tr><td>Your industry, experience level and job title</td><td>Shown on your profile so students can find relevant people</td></tr>
+    <tr><td>Whether you will give school talks</td><td>So we only ask you about things you have agreed to</td></tr>
+    <tr><td>Your email address, and your employer if you gave one</td><td>So we can contact you. <strong>Not shown on your profile.</strong></td></tr>
+  </table>
+
+  <div class="callout">
+    <p><strong>Mentor contact details are deliberately kept separate.</strong> Your email address and phone number are stored in a different place from your public profile, and the website cannot read it — not even a signed-in school. Only we can see it. This is why schools arrange things through us rather than contacting you directly, and why students are never given your personal details.</p>
   </div>
+
+  <h2>Our legal basis</h2>
+  <p>Under the GDPR we need a lawful reason to hold your information. Ours are:</p>
+  <ul>
+    <li><strong>Consent</strong> — you chose to fill in a form and asked us to get in touch. You can withdraw this at any time.</li>
+    <li><strong>Legitimate interests</strong> — running the directory, keeping records of who we have approved, and preventing misuse of the service.</li>
+  </ul>
+
+  <h2>How long we keep it</h2>
+  <ul>
+    <li><strong>Registrations we approve</strong> — for as long as the school or mentor is active with us, and for two years afterwards in case they return.</li>
+    <li><strong>Registrations we do not approve</strong> — deleted within twelve months.</li>
+    <li><strong>Sign-in records</strong> — kept while the account is active.</li>
+  </ul>
+  <p>You can ask us to delete your information sooner, and we will unless we are legally required to keep it.</p>
+
+  <h2>Who else handles your information</h2>
+  <p>We use a small number of established service providers to run the site. They process information on our behalf and are not allowed to use it for anything else.</p>
+  <table>
+    <tr><th>Provider</th><th>What they do</th></tr>
+    <tr><td>Supabase</td><td>Stores the database and manages sign-ins</td></tr>
+    <tr><td>Netlify</td><td>Hosts the website</td></tr>
+    <tr><td>Resend</td><td>Sends automated emails such as sign-in links</td></tr>
+    <tr><td>Zoho</td><td>Provides our email inbox</td></tr>
+    <tr><td>GitHub</td><td>Stores the website's code and text</td></tr>
+  </table>
+  <p class="todo">Data storage regions to be confirmed and stated here. Our email is hosted in the European Union.</p>
+  <p>We do not sell your information, and we do not share it with anyone else unless we are required to by law.</p>
+
+  <h2>Cookies and your browser</h2>
+  <p>We do not use advertising or tracking cookies, and we have no analytics.</p>
+  <p>If you sign in, we store a sign-in token in your browser so you stay logged in. It is needed for the site to work and is removed when you sign out. Our pages also load fonts and code libraries from outside services, which means those services can see your IP address as part of delivering them.</p>
+
+  <h2>Your rights</h2>
+  <p>You can ask us to:</p>
+  <ul>
+    <li>Tell you what information we hold about you, and give you a copy</li>
+    <li>Correct anything that is wrong</li>
+    <li>Delete your information</li>
+    <li>Stop using it, or limit how we use it</li>
+    <li>Withdraw your consent, at any time</li>
+  </ul>
+  <p>Email us and we will respond within one month. There is no charge.</p>
+
+  <h2>Children and young people</h2>
+  <p>At present, <strong>students do not have accounts and we hold no information about students.</strong> Schools browse the directory on their behalf.</p>
+  <p>If that changes, we will not do it without first putting proper safeguards in place — including a child safeguarding statement, and guardian consent where the student is under 16, which is the age of digital consent in Ireland. We will update this notice before any such change, not after.</p>
+
+  <h2>Complaints</h2>
+  <p>If you are unhappy with how we have handled your information, please tell us first and we will try to put it right. You also have the right to complain to the Irish Data Protection Commission at <a href="https://www.dataprotection.ie">dataprotection.ie</a>.</p>
+
+  <h2>Contact us</h2>
+  <p>For anything in this notice, including requests about your own information, email <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>.</p>
+
+  <h2>Changes to this notice</h2>
+  <p>If we change how we handle information, we will update this page and change the date at the top.</p>
 </div>
 
 <footer>
@@ -383,16 +417,13 @@
     <div>Connecting students to real careers. Ireland.</div>
   </div>
   <div class="footer-links">
+    <a href="index.html">For students</a>
     <a href="schools.html">For schools</a>
-    <a href="businesses.html">For businesses</a>
     <a href="mentors.html">Become a mentor</a>
     <a href="privacy.html">Privacy</a>
     <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
   </div>
 </footer>
-
-<script src="js/content.js"></script>
-<script>SCContent.load("index");</script>
 
 </body>
 </html>

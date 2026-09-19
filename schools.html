@@ -276,6 +276,10 @@
   .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .dir-empty { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; max-width: 52ch; }
   .mentor-talks { display: block; font-size: 0.75rem; color: var(--green-deep); margin-top: 0.3rem; }
+
+  .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
+  .form-consent a { color: var(--ink-faint); text-decoration: underline; }
+  .form-consent a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -385,7 +389,8 @@
       <a href="index.html">For students</a>
       <a href="businesses.html">For businesses</a>
       <a href="mentors.html">Become a mentor</a>
-      <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
+      <a href="privacy.html">Privacy</a>
+    <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
     </div>
   </footer>
 
@@ -446,6 +451,7 @@
         <label for="s_hp">Leave this field empty</label>
         <input type="text" id="s_hp" name="_hp" tabindex="-1" autocomplete="off">
       </div>
+    <p class="form-consent">By sending this, you agree to us storing these details to process your registration. We never share them, and you can ask us to delete them at any time — see our <a href="privacy.html">privacy notice</a>.</p>
       <button type="submit" class="modal-submit">Send registration request</button>
       <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
     </form>

@@ -166,6 +166,10 @@
   .form-status.ok { color: var(--green-deep); }
   .form-status.error { color: var(--ink); font-weight: 600; }
   .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+
+  .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
+  .form-consent a { color: var(--ink-faint); text-decoration: underline; }
+  .form-consent a:hover { color: var(--ink); }
 </style>
 </head>
 <body>
@@ -278,6 +282,7 @@
       <label for="m_hp">Leave this field empty</label>
       <input type="text" id="m_hp" name="_hp" tabindex="-1" autocomplete="off">
     </div>
+    <p class="form-consent">By sending this, you agree to us storing these details to process your sign-up. We never share them, and you can ask us to delete them at any time — see our <a href="privacy.html">privacy notice</a>.</p>
     <button type="submit" class="signup-submit">Sign up as a mentor</button>
     <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
   </form>
@@ -292,6 +297,7 @@
     <a href="index.html">For students</a>
     <a href="schools.html">For schools</a>
     <a href="businesses.html">For businesses</a>
+    <a href="privacy.html">Privacy</a>
     <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
   </div>
 </footer>
