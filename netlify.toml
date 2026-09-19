@@ -5,6 +5,13 @@
 [build]
   publish = "."
 
+# Clean URLs for pathway pages: /pathways/electrician serves pathway.html
+# while keeping the nice address in the browser bar.
+[[redirects]]
+  from = "/pathways/*"
+  to = "/pathway.html"
+  status = 200
+
 # Keep working notes and the database script out of the public site.
 [[redirects]]
   from = "/docs/*"

@@ -173,3 +173,63 @@ collections:
                   - other
               - { name: title, label: "Name shown on screen", widget: string }
               - { name: summary, label: "Description of the sector", widget: text }
+
+  # -------------------------------------------------------------------
+  - name: pathways
+    label: "Routes into work"
+    files:
+      - name: pathways
+        label: "Career pathway pages"
+        file: "content/pathways.json"
+        format: json
+        fields:
+          - name: intro
+            label: "Top of the Routes-in page"
+            widget: object
+            fields:
+              - { name: tag, label: "Small grey label", widget: string }
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Intro paragraph", widget: text }
+          - name: pathways
+            label: "Pathways"
+            label_singular: "pathway"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: slug, label: "Web address (lowercase, hyphens, no spaces - changing this breaks links)", widget: string }
+              - { name: title, label: "Job title", widget: string }
+              - { name: sector, label: "Sector", widget: string }
+              - { name: summary, label: "One-line summary (shown on the card)", widget: string }
+              - { name: checked, label: "Information last checked (e.g. September 2026)", widget: string }
+              - { name: what_it_is, label: "What the job actually is", widget: text }
+              - name: routes
+                label: "Ways in"
+                label_singular: "route"
+                widget: list
+                summary: "{{fields.name}}"
+                fields:
+                  - { name: name, label: "Route name", widget: string }
+                  - { name: tag, label: "Small green badge (optional)", widget: string, required: false }
+                  - { name: detail, label: "How this route works", widget: text }
+                  - { name: duration, label: "How long", widget: string, required: false }
+                  - { name: cost, label: "What it costs", widget: string, required: false }
+              - { name: what_you_need, label: "What you need to get in", widget: text }
+              - { name: earning, label: "What you earn while training", widget: text, required: false }
+              - name: myths
+                label: "What people get wrong"
+                label_singular: "myth"
+                widget: list
+                required: false
+                summary: "{{fields.myth}}"
+                fields:
+                  - { name: myth, label: "The myth", widget: string }
+                  - { name: reality, label: "The reality", widget: text }
+              - name: apply
+                label: "Where to go next (official links)"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: url, label: "Address", widget: string }

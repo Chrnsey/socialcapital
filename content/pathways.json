@@ -1,0 +1,121 @@
+{
+  "intro": {
+    "tag": "Routes into work",
+    "title": "How people actually got there",
+    "body": "Every job here has more than one way in. Some need college, some pay you from the first year, and some are reached years later by people who started somewhere else entirely. These pages set out the real routes — including the ones nobody mentions."
+  },
+  "pathways": [
+    {
+      "slug": "electrician",
+      "title": "Electrician",
+      "sector": "Trades",
+      "checked": "September 2026",
+      "summary": "Paid from your first year, no college fees, and qualified in four years.",
+      "what_it_is": "Electricians install, maintain and repair electrical systems — in houses, on building sites, in factories, and increasingly on solar, heat pump and EV charging work. It is skilled work with a formal qualification at the end, not casual labour. Once qualified you can work for a company, go out on your own, or move into site management, contracting or running a business.",
+      "routes": [
+        {
+          "name": "Apprenticeship",
+          "tag": "The main route",
+          "detail": "You find an employer willing to take you on, and they register you as an apprentice. You alternate between working for them and blocks of off-the-job training in an education centre. You are an employee the whole time, earning a wage that rises each year as you progress.",
+          "duration": "Around four years",
+          "cost": "No college fees. A student contribution applies to some off-the-job phases — check the current amount."
+        },
+        {
+          "name": "Pre-apprenticeship or PLC course",
+          "tag": "If you can't find an employer yet",
+          "detail": "A further education course in electrical work gives you practical experience and makes you far more attractive to an employer. It is not required, but it is a common route for people who struggled to find a place straight after school.",
+          "duration": "One year, typically",
+          "cost": "Usually low or free — check with your local ETB"
+        },
+        {
+          "name": "Starting later",
+          "tag": "It isn't too late",
+          "detail": "There is no upper age limit on starting an apprenticeship. People begin in their twenties, thirties and later, often after working in something else.",
+          "duration": "Same as above",
+          "cost": "Same as above"
+        }
+      ],
+      "what_you_need": "The usual minimum is a Leaving Certificate at a basic grade level, or an approved equivalent, or relevant experience with an employer prepared to take you on. Maths and a practical subject help, but high points are not the currency here — an employer willing to hire you is. Check the current entry requirements before relying on this.",
+      "earning": "You are paid from the first year, as a percentage of the qualified rate, rising each year until you finish. That is the single biggest difference from a college route: you leave with a qualification and no debt, having earned throughout.",
+      "myths": [
+        {
+          "myth": "It's what you do if you're not academic.",
+          "reality": "The exams are real and people fail them. It's a different kind of difficulty, not a lesser one."
+        },
+        {
+          "myth": "You need to know someone to get an apprenticeship.",
+          "reality": "Contacts help — which is exactly why this site exists — but employers advertise, and ringing around local firms directly works more often than people expect."
+        },
+        {
+          "myth": "There's no progression.",
+          "reality": "Qualified electricians move into supervision, contracting, inspection, teaching, and running their own companies. Plenty earn more than graduates in office jobs."
+        }
+      ],
+      "apply": [
+        { "label": "apprenticeship.ie — how apprenticeships work and what's available", "url": "https://www.apprenticeship.ie" },
+        { "label": "SOLAS — the authority on apprenticeship standards", "url": "https://www.solas.ie" },
+        { "label": "Your local Education and Training Board", "url": "https://www.etbi.ie" }
+      ]
+    },
+    {
+      "slug": "software-developer",
+      "title": "Software developer",
+      "sector": "Technology",
+      "checked": "September 2026",
+      "summary": "One of the few well-paid careers where nobody will ask to see your degree after the first job.",
+      "what_it_is": "Software developers write the code behind apps, websites and systems. The work is more collaborative and less solitary than people imagine — most of the day is spent reading other people's code, discussing what to build, and fixing things. Ireland has an unusual concentration of this work for a country its size, across both large international companies and Irish-founded ones.",
+      "routes": [
+        {
+          "name": "Computer science or software engineering degree",
+          "tag": "The common route",
+          "detail": "A three or four year degree through the CAO. Gives you the strongest theoretical grounding and the easiest path into graduate programmes, which is how many of the larger employers recruit.",
+          "duration": "Three to four years",
+          "cost": "Student contribution charge; SUSI grants available depending on household income"
+        },
+        {
+          "name": "Apprenticeship",
+          "tag": "Earn while you learn",
+          "detail": "Software and ICT apprenticeships exist in Ireland and are badly under-known. You work for an employer and study alongside it, ending with a recognised qualification and several years of real experience.",
+          "duration": "Around two to four years",
+          "cost": "No fees in the way a degree has them — you are employed"
+        },
+        {
+          "name": "PLC course, then work or degree",
+          "tag": "A second chance at points",
+          "detail": "A further education course in computing can lead directly to junior roles, or to a degree place through links with universities — a well-worn route for people whose Leaving Cert didn't go as planned.",
+          "duration": "One to two years",
+          "cost": "Usually low"
+        },
+        {
+          "name": "Self-taught, with a portfolio",
+          "tag": "Harder than it sounds",
+          "detail": "It genuinely happens, and this industry cares more about what you can build than where you studied. But it is the hardest route: no structure, no classmates, and you must be able to show working projects. Easier as a second career than as a first job.",
+          "duration": "Varies enormously",
+          "cost": "Little but time"
+        }
+      ],
+      "what_you_need": "For a degree, the CAO points for computing courses vary a lot between institutions — there are options across a wide range, not just the highest. Maths helps and is required for some courses, but is not the barrier people assume. For apprenticeships and further education, the requirements are considerably lower. Check current requirements for any specific course.",
+      "earning": "Graduate and apprentice salaries in this sector are high relative to most other entry-level work in Ireland, and rise quickly in the first few years. Apprenticeship routes pay from the start.",
+      "myths": [
+        {
+          "myth": "You need to have been coding since you were twelve.",
+          "reality": "Plenty of working developers started at eighteen, or at thirty. Starting early helps; it isn't a requirement."
+        },
+        {
+          "myth": "You need honours maths.",
+          "reality": "Some courses require it, many don't. Most day-to-day development work uses very little advanced maths."
+        },
+        {
+          "myth": "You need a degree from a well-known university.",
+          "reality": "After your first job, almost nobody asks. What you have built and shipped matters far more."
+        }
+      ],
+      "apply": [
+        { "label": "CAO — applications for degree and higher certificate courses", "url": "https://www.cao.ie" },
+        { "label": "apprenticeship.ie — ICT and software apprenticeships", "url": "https://www.apprenticeship.ie" },
+        { "label": "Qualifax — search every course in Ireland", "url": "https://www.qualifax.ie" },
+        { "label": "SUSI — grant eligibility", "url": "https://www.susi.ie" }
+      ]
+    }
+  ]
+}
