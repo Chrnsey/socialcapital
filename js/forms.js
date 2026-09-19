@@ -63,7 +63,17 @@
     form.addEventListener("submit", function (event) {
       event.preventDefault();
 
-      if (!form.reportValidity()) return;
+      // If something's missing, say WHICH field in plain words. The browser's
+      // own tooltip is easy to miss and reads like a fault rather than a
+      // prompt, which had people thinking the form was broken.
+      var invalid = form.querySelector("input:invalid, select:invalid, textarea:invalid");
+      if (invalid) {
+        var label = form.querySelector('label[for="' + invalid.id + '"]');
+        var name = label ? label.textContent.replace(/\s*\?$/, "") : "a required field";
+        setStatus(form, "Please fill in your " + name.toLowerCase() + ".", "error");
+        invalid.focus();
+        return;
+      }
 
       var values = {};
       new FormData(form).forEach(function (value, key) {
