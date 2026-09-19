@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Capital — Become a Mentor</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #FAFAF8;
+    --paper-dim: #F1F0EC;
+    --card: #FFFFFF;
+    --ink: #17181A;
+    --ink-soft: #54575A;
+    --ink-faint: #8B8E90;
+    --green: #0E9A63;
+    --green-deep: #0B7A4F;
+    --green-tint: #E9F6EF;
+    --line: #E3E2DD;
+    --line-soft: #ECEBE6;
+    --white: #FFFFFF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+      --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+      --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+      --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+    --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+    --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+    --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  a { color: var(--green); }
+  h1, h2, h3, h4 { font-family: 'Source Serif 4', serif; color: var(--ink); font-weight: 600; }
+
+  nav {
+    display: flex; align-items: baseline; justify-content: space-between;
+    padding: 1.5rem 2rem; border-bottom: 1px solid var(--line);
+    max-width: 900px; margin: 0 auto;
+  }
+  .nav-logo { font-family: 'Source Serif 4', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); text-decoration: none; }
+  .nav-links { display: flex; align-items: baseline; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-links a.current { color: var(--green); }
+
+  .btn {
+    display: inline-block; background: var(--green); color: var(--white) !important;
+    padding: 0.75rem 1.5rem; text-decoration: none; font-size: 0.9rem; font-weight: 600;
+    border-radius: 3px; border: 1px solid var(--green); cursor: pointer;
+  }
+  .btn:hover { background: var(--green-deep); border-color: var(--green-deep); }
+
+  .text-link {
+    color: var(--ink); text-decoration: underline; text-decoration-color: var(--line);
+    text-underline-offset: 4px; font-size: 0.95rem;
+  }
+  .text-link:hover { text-decoration-color: var(--ink); }
+
+  .hero { max-width: 900px; margin: 0 auto; padding: 4.5rem 2rem 3rem; }
+  .hero-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 1.25rem; }
+  .hero h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.28; max-width: 16ch; margin-bottom: 1.5rem; }
+  .hero p { font-size: 1.05rem; color: var(--ink-soft); max-width: 54ch; margin-bottom: 2rem; }
+  .hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  section { max-width: 900px; margin: 0 auto; padding: 3.75rem 2rem; border-bottom: 1px solid var(--line); border-top: 1px solid var(--line); }
+  .section-tag { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin-bottom: 1rem; max-width: 26ch; }
+  .section-body { font-size: 1rem; color: var(--ink-soft); max-width: 58ch; margin-bottom: 2.25rem; }
+
+  .how-list { display: flex; flex-direction: column; }
+  .how-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--line-soft); }
+  .how-item:first-child { border-top: 1px solid var(--line); }
+  .how-item h3 { font-size: 1rem; font-weight: 600; color: var(--ink); }
+  .how-item p { font-size: 0.95rem; color: var(--ink-soft); max-width: 48ch; }
+
+  .quote-block {
+    border-left: 2px solid var(--green);
+    padding-left: 1.25rem;
+    font-size: 1.05rem;
+    font-style: italic;
+    color: var(--ink-soft);
+    max-width: 52ch;
+    margin-bottom: 0.75rem;
+  }
+  .quote-attr { font-size: 0.85rem; color: var(--ink-faint); font-style: normal; }
+
+  /* SIGNUP FORM — inline, not a modal */
+  .signup {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.75rem 2rem;
+    background: var(--green-tint);
+  }
+  .signup h2 { margin-bottom: 0.5rem; }
+  .signup > p { color: var(--ink-soft); max-width: 52ch; margin-bottom: 2rem; font-size: 1rem; }
+
+  .signup-form {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 2rem;
+    max-width: 480px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--line); border-radius: 3px;
+    font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: var(--ink); background: var(--white); outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--green); }
+  .signup-submit {
+    width: 100%; background: var(--green); color: var(--white); border: none; padding: 0.8rem;
+    border-radius: 3px; font-family: 'Public Sans', sans-serif; font-size: 0.95rem; font-weight: 600; cursor: pointer; margin-top: 0.4rem;
+  }
+  .signup-submit:hover { background: var(--green-deep); }
+  .signup-confirm {
+    display: none;
+    font-size: 0.95rem;
+    color: var(--green-deep);
+    padding: 1rem 0 0;
+  }
+  .signup-confirm.active { display: block; }
+
+  footer {
+    max-width: 900px; margin: 0 auto; padding: 2.5rem 2rem 3.5rem; font-size: 0.875rem; color: var(--ink-faint);
+    display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 1.5rem;
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  .footer-logo { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  @media (max-width: 640px) {
+    nav { padding: 1.1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+    .nav-links { gap: 1.1rem; font-size: 0.85rem; }
+    .hero { padding: 3rem 1.25rem 2.25rem; }
+    section, .signup { padding: 2.75rem 1.25rem; }
+    .how-item { grid-template-columns: 1fr; gap: 0.4rem; }
+    .form-row { grid-template-columns: 1fr; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Social Capital</a>
+  <ul class="nav-links">
+    <li><a href="index.html">For students</a></li>
+    <li><a href="schools.html">For schools</a></li>
+    <li><a href="businesses.html">For businesses</a></li>
+    <li><a href="mentors.html" class="current">Become a mentor</a></li>
+  </ul>
+</nav>
+
+<section class="hero" style="border-bottom: none;">
+  <p class="hero-kicker">For individual professionals — no employer involved</p>
+  <h1>Give a few hours. Change what someone thinks is possible.</h1>
+  <p>You don't need to be sent by a company, and there's no minimum commitment. Answer a few messages a term, meet a student for a chat, or give one talk at a school. You decide how far it goes.</p>
+  <div class="hero-actions">
+    <a href="#signup" class="btn">Sign up as a mentor</a>
+    <a href="businesses.html" class="text-link">Signing up on behalf of a company?</a>
+  </div>
+</section>
+
+<section>
+  <p class="section-tag">What it actually involves</p>
+  <h2>As much or as little as you want</h2>
+  <p class="section-body">There's no script and no quota. Most mentors do far less than they expect to, and it's still enough.</p>
+  <div class="how-list">
+    <div class="how-item">
+      <h3>Available for contact</h3>
+      <p>Your profile goes up under your industry. Schools or students can reach out through the platform — you're never handing out your personal number or email.</p>
+    </div>
+    <div class="how-item">
+      <h3>A talk, if you want to</h3>
+      <p>Some mentors give a 20-minute talk to a class once a year. Entirely optional, and we handle the logistics if you say yes.</p>
+    </div>
+    <div class="how-item">
+      <h3>Junior or senior, both matter</h3>
+      <p>If you're a few years into your career, students often relate to you more than to someone senior. If you're 15+ years in, you bring the wider view. Neither is "better."</p>
+    </div>
+    <div class="how-item">
+      <h3>You set the pace</h3>
+      <p>Answer a couple of questions a term, or get more involved later. Nobody's tracking a quota, and you can step back any time.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-tag">From a mentor already doing this</p>
+  <div class="quote-block">
+    "It's maybe an hour a term. It's not a big ask, but I remember exactly what it would've meant to me at that age — just someone answering the phone."
+    <div class="quote-attr">— Aoife Kelly, Software Engineer, Google Dublin</div>
+  </div>
+</section>
+
+<div class="signup" id="signup">
+  <h2>Sign up</h2>
+  <p>Takes about two minutes. We'll follow up before you're listed anywhere, so there's no risk of being contacted before you're ready.</p>
+  <div class="signup-form">
+    <div class="form-row">
+      <div class="form-group">
+        <label>First name</label>
+        <input type="text" placeholder="First name">
+      </div>
+      <div class="form-group">
+        <label>Last name</label>
+        <input type="text" placeholder="Last name">
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="your@email.com">
+    </div>
+    <div class="form-group">
+      <label>Industry / sector</label>
+      <select>
+        <option value="">Select your field</option>
+        <option>Technology</option><option>Healthcare</option><option>Law</option>
+        <option>Finance</option><option>Trades</option><option>Media</option>
+        <option>Education</option><option>Engineering</option>
+        <option>Public sector</option><option>Other</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Experience level</label>
+      <select>
+        <option value="">Select level</option>
+        <option>Junior (0–5 years)</option>
+        <option>Mid-level (5–15 years)</option>
+        <option>Senior (15+ years)</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Open to school talks?</label>
+      <select>
+        <option value="">Select an option</option>
+        <option>Yes, happy to</option>
+        <option>Maybe, tell me more first</option>
+        <option>Not right now — contact only</option>
+      </select>
+    </div>
+    <button class="signup-submit" onclick="showConfirm()">Sign up as a mentor</button>
+    <div class="signup-confirm" id="signupConfirm">Thanks — we'll be in touch before you're listed anywhere.</div>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Social Capital</div>
+    <div>Connecting students to real careers. Ireland.</div>
+  </div>
+  <div class="footer-links">
+    <a href="index.html">For students</a>
+    <a href="schools.html">For schools</a>
+    <a href="businesses.html">For businesses</a>
+    <a href="mailto:hello@socialcapital.ie">hello@socialcapital.ie</a>
+  </div>
+</footer>
+
+<script>
+function showConfirm() {
+  document.getElementById('signupConfirm').classList.add('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Capital — For Schools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #FAFAF8;
+    --paper-dim: #F1F0EC;
+    --card: #FFFFFF;
+    --ink: #17181A;
+    --ink-soft: #54575A;
+    --ink-faint: #8B8E90;
+    --green: #0E9A63;
+    --green-deep: #0B7A4F;
+    --green-tint: #E9F6EF;
+    --line: #E3E2DD;
+    --line-soft: #ECEBE6;
+    --white: #FFFFFF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+      --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+      --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+      --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+    --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+    --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+    --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  a { color: var(--green); }
+
+  h1, h2, h3, h4 {
+    font-family: 'Source Serif 4', serif;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; align-items: baseline; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .nav-links a:hover { color: var(--ink); }
+  .nav-cta { color: var(--green) !important; border-bottom: 1px solid var(--green); padding-bottom: 1px; }
+
+  .btn {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 0.7rem 1.4rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--green);
+  }
+  .btn:hover { background: var(--green-deep); border-color: var(--green-deep); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--ink) !important;
+    padding: 0.7rem 1.4rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--ink-faint);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .text-link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+    font-size: 0.95rem;
+  }
+  .text-link:hover { text-decoration-color: var(--ink); }
+
+  .hero {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 4.5rem 2rem 3rem;
+  }
+  .hero-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 1.25rem; }
+  .hero h1 { font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.28; max-width: 16ch; margin-bottom: 1.5rem; }
+  .hero p { font-size: 1.05rem; color: var(--ink-soft); max-width: 52ch; margin-bottom: 2rem; }
+  .hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  .fact-strip {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 1.75rem 2rem;
+    border-top: 1px solid var(--line);
+    border-bottom: 1px solid var(--line);
+  }
+  .fact-strip p { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
+  .fact-strip strong { color: var(--ink); font-weight: 700; }
+
+  section {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.75rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-tag { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  h2 { font-size: clamp(1.4rem, 3vw, 1.75rem); margin-bottom: 1rem; max-width: 24ch; }
+  .section-body { font-size: 1rem; color: var(--ink-soft); max-width: 58ch; margin-bottom: 2.25rem; }
+
+  .how-list { display: flex; flex-direction: column; }
+  .how-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--line-soft); }
+  .how-item:first-child { border-top: 1px solid var(--line); }
+  .how-item h3 { font-size: 1rem; font-weight: 600; color: var(--ink); }
+  .how-item p { font-size: 0.95rem; color: var(--ink-soft); max-width: 46ch; }
+
+  .industry-list { display: flex; flex-direction: column; }
+  .industry-row { display: grid; grid-template-columns: 170px 1fr; gap: 2rem; padding: 1rem 0; border-top: 1px solid var(--line-soft); }
+  .industry-row:first-child { border-top: 1px solid var(--line); }
+  .industry-row dt { font-family: 'Source Serif 4', serif; font-weight: 600; font-size: 1rem; color: var(--ink); }
+  .industry-row dd { font-size: 0.9rem; color: var(--ink-soft); max-width: 50ch; }
+  .lock-note { margin-top: 1.5rem; font-size: 0.9rem; color: var(--ink-faint); }
+
+  .bottom-cta {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3.75rem 2rem;
+    background: var(--green-tint);
+  }
+  .bottom-cta h2 { margin-bottom: 0.75rem; }
+  .bottom-cta p { color: var(--ink-soft); max-width: 52ch; margin-bottom: 1.75rem; font-size: 1rem; }
+  .cta-group { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  footer {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  .footer-logo { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(23, 24, 26, 0.55);
+    z-index: 200; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 2.25rem; max-width: 440px; width: 100%; position: relative; }
+  .modal h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .modal p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem; line-height: 1.6; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--line); border-radius: 3px;
+    font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: var(--ink); background: var(--white); outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--green); }
+  .modal-submit {
+    width: 100%; background: var(--green); color: var(--white); border: none; padding: 0.8rem;
+    border-radius: 3px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; margin-top: 0.4rem;
+  }
+  .modal-submit:hover { background: var(--green-deep); }
+  .modal-close { position: absolute; top: 1rem; right: 1.1rem; background: none; border: none; font-size: 1.3rem; color: var(--ink-faint); cursor: pointer; line-height: 1; }
+  .modal-close:hover { color: var(--ink); }
+
+  .login-page { display: none; min-height: 100vh; background: var(--paper-dim); align-items: center; justify-content: center; padding: 2rem; }
+  .login-page.active { display: flex; }
+  .login-box { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 2.75rem 2.25rem; max-width: 400px; width: 100%; }
+  .login-box h2 { font-size: 1.5rem; margin-bottom: 0.4rem; }
+  .login-box p { font-size: 0.875rem; color: var(--ink-soft); margin-bottom: 1.75rem; }
+
+  .directory-page { display: none; min-height: 100vh; background: var(--paper-dim); }
+  .directory-page.active { display: block; }
+  .dir-nav { border-bottom: 1px solid var(--line); padding: 1.1rem 2rem; display: flex; align-items: center; justify-content: space-between; max-width: 900px; margin: 0 auto; }
+  .dir-nav-logo { font-family: 'Source Serif 4', serif; color: var(--ink); font-size: 1.1rem; font-weight: 600; text-decoration: none; }
+  .dir-nav-user { font-size: 0.85rem; color: var(--ink-soft); display: flex; align-items: center; gap: 1.25rem; }
+  .dir-logout { color: var(--ink-faint); font-size: 0.8rem; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .dir-logout:hover { color: var(--ink); }
+  .dir-header { border-bottom: 1px solid var(--line); padding: 2rem 2rem 1.5rem; }
+  .dir-header-inner { max-width: 860px; margin: 0 auto; }
+  .dir-header h2 { font-size: 1.5rem; }
+  .dir-header p { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.35rem; }
+  .dir-body { padding: 2rem; max-width: 860px; margin: 0 auto; }
+  .dir-section-title { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  .industry-cards { display: flex; flex-direction: column; margin-bottom: 2.5rem; }
+  .industry-card { background: transparent; border-top: 1px solid var(--line-soft); padding: 1.1rem 0.25rem; cursor: pointer; display: flex; align-items: center; justify-content: space-between; }
+  .industry-card:first-child { border-top: 1px solid var(--line); }
+  .industry-card:last-child { border-bottom: 1px solid var(--line); }
+  .industry-card:hover { background: var(--card); }
+  .industry-card-left h4 { font-size: 0.975rem; font-weight: 600; color: var(--ink); margin-bottom: 0.15rem; }
+  .industry-card-left span { font-size: 0.8rem; color: var(--ink-faint); }
+  .industry-card-arrow { color: var(--ink-faint); font-size: 1.2rem; font-family: 'Source Serif 4', serif; }
+
+  .mentor-view { display: none; background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 1.75rem; margin-top: 0.5rem; margin-bottom: 1.5rem; }
+  .mentor-view.active { display: block; }
+  .mentor-view-header { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 1.25rem; flex-wrap: wrap; gap: 0.5rem; }
+  .mentor-view-title { font-family: 'Source Serif 4', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+  .back-btn { font-size: 0.8rem; color: var(--ink-faint); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
+  .back-btn:hover { color: var(--ink); }
+  .sector-summary { border-left: 2px solid var(--green); padding: 0.2rem 1.25rem; margin-bottom: 1.5rem; font-size: 0.9rem; color: var(--ink-soft); line-height: 1.65; }
+  .mentor-list { display: flex; flex-direction: column; }
+  .mentor-card { border-top: 1px solid var(--line-soft); padding: 1rem 0.25rem; display: flex; align-items: flex-start; gap: 1rem; }
+  .mentor-list .mentor-card:first-child { border-top: 1px solid var(--line); }
+  .mentor-avatar { width: 38px; height: 38px; border-radius: 50%; background: var(--ink); color: var(--paper); display: flex; align-items: center; justify-content: center; font-family: 'Source Serif 4', serif; font-size: 0.8rem; font-weight: 600; flex-shrink: 0; }
+  .mentor-info h4 { font-size: 0.92rem; font-weight: 600; color: var(--ink); margin-bottom: 0.1rem; }
+  .mentor-info p { font-size: 0.85rem; color: var(--ink-soft); margin-bottom: 0.25rem; }
+  .mentor-badge { font-size: 0.78rem; color: var(--ink-faint); }
+  .mentor-badge.junior { color: var(--green); }
+
+  @media (max-width: 640px) {
+    nav { padding: 1.1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+    .nav-links { gap: 1.1rem; font-size: 0.85rem; }
+    .hero { padding: 3rem 1.25rem 2.25rem; }
+    section, .bottom-cta { padding: 2.75rem 1.25rem; }
+    .how-item, .industry-row { grid-template-columns: 1fr; gap: 0.4rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+    .fact-strip { padding: 1.5rem 1.25rem; }
+  }
+
+  .main-site { display: block; }
+  .main-site.hidden { display: none; }
+</style>
+</head>
+<body>
+
+<div class="main-site" id="mainSite">
+
+  <nav>
+    <a href="index.html" class="nav-logo">Social Capital</a>
+    <ul class="nav-links">
+      <li><a href="index.html">For students</a></li>
+      <li><a href="businesses.html">For businesses</a></li>
+      <li><a href="mentors.html">Become a mentor</a></li>
+      <li><a href="#" class="nav-cta" onclick="openLogin()">School login</a></li>
+    </ul>
+  </nav>
+
+  <section class="hero" style="border-bottom: none;">
+    <p class="hero-kicker">A directory for DEIS schools across Ireland</p>
+    <h1>Give your students a network worth having.</h1>
+    <p>Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free.</p>
+    <div class="hero-actions">
+      <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
+      <a href="#how-it-works" class="text-link">See how it works</a>
+    </div>
+  </section>
+
+  <div class="fact-strip">
+    <p>There are <strong>more than 900 DEIS schools</strong> in Ireland, serving roughly <strong>160,000 students</strong>. Access to the directory is <strong>free</strong> for every one of them.</p>
+  </div>
+
+  <section id="how-it-works">
+    <p class="section-tag">How it works</p>
+    <h2>What a school actually gets</h2>
+    <p class="section-body">A guidance counsellor registers the school, gets a login, and from there can browse the directory or ask us to arrange a talk. That's the whole process.</p>
+    <div class="how-list">
+      <div class="how-item">
+        <h3>A directory of real people</h3>
+        <p>Professionals across every industry — from people a few years out of school to senior leaders — searchable by sector and experience level.</p>
+      </div>
+      <div class="how-item">
+        <h3>Talks at your school</h3>
+        <p>Request a speaker for a whole year group, or a smaller session for students with a particular interest. We handle the matching and the logistics.</p>
+      </div>
+      <div class="how-item">
+        <h3>Two tiers of mentor</h3>
+        <p>Senior mentors bring experience and perspective. Junior mentors, only a few years out of school themselves, bring relatability. Both matter, differently.</p>
+      </div>
+      <div class="how-item">
+        <h3>Contact stays on the platform</h3>
+        <p>Schools log in and arrange things through us. Students are never given a mentor's personal phone number or email directly.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="industries">
+    <p class="section-tag">The network</p>
+    <h2>Sectors students don't always get to see</h2>
+    <p class="section-body">Not just the obvious routes into work, but the fuller range of where a career can actually take you — including some that don't need a college degree to start.</p>
+    <dl class="industry-list">
+      <div class="industry-row">
+        <dt>Technology</dt>
+        <dd>Software engineering, product, UX design, data. Ireland hosts European HQs for Google, Meta, and Stripe, plus hundreds of Irish-founded companies.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Healthcare</dt>
+        <dd>Medicine, nursing, physiotherapy, pharmacy, occupational therapy — routes range from direct entry to postgraduate conversion.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Law</dt>
+        <dd>Solicitor, barrister, legal executive, or in-house counsel. Firms range from international practices to local general practice.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Finance</dt>
+        <dd>Banking, accountancy, insurance, fintech. Entry through ACA/ACCA/CIMA qualifications or direct graduate programmes.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Trades</dt>
+        <dd>Electricians, plumbers, carpenters, construction. Typically a SOLAS apprenticeship — paid, with no college fees.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Media &amp; communications</dt>
+        <dd>Journalism, broadcasting, PR, marketing, content. A strong Irish tradition alongside a growing digital sector.</dd>
+      </div>
+      <div class="industry-row">
+        <dt>Education, engineering, public sector</dt>
+        <dd>Plus more inside — full profiles and requests are visible to registered schools only.</dd>
+      </div>
+    </dl>
+    <p class="lock-note">Full mentor profiles and requests are available to registered DEIS schools only.</p>
+  </section>
+
+  <div class="bottom-cta">
+    <h2>Ready to register?</h2>
+    <p>Registering takes a few minutes. Once you're in, your guidance counsellor has full access and can request a talk any time.</p>
+    <div class="cta-group">
+      <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
+      <a href="mentors.html" class="text-link">Volunteer as a mentor instead</a>
+    </div>
+  </div>
+
+  <footer>
+    <div>
+      <div class="footer-logo">Social Capital</div>
+      <div>Connecting students to real careers. Ireland.</div>
+    </div>
+    <div class="footer-links">
+      <a href="index.html">For students</a>
+      <a href="businesses.html">For businesses</a>
+      <a href="mentors.html">Become a mentor</a>
+      <a href="mailto:hello@socialcapital.ie">hello@socialcapital.ie</a>
+    </div>
+  </footer>
+
+</div>
+
+<!-- School registration modal -->
+<div class="modal-overlay" id="schoolModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('schoolModal')">×</button>
+    <h3>Register your school</h3>
+    <p>Fill in your details and we'll be in touch within two working days to get your school set up with full access.</p>
+    <div class="form-group">
+      <label>School name</label>
+      <input type="text" placeholder="e.g. St. Mary's CBS, Dublin">
+    </div>
+    <div class="form-group">
+      <label>Your name</label>
+      <input type="text" placeholder="Guidance counsellor or principal">
+    </div>
+    <div class="form-group">
+      <label>Email address</label>
+      <input type="email" placeholder="yourname@school.ie">
+    </div>
+    <div class="form-group">
+      <label>County</label>
+      <select>
+        <option value="">Select county</option>
+        <option>Dublin</option><option>Cork</option><option>Galway</option>
+        <option>Limerick</option><option>Waterford</option><option>Kilkenny</option>
+        <option>Clare</option><option>Mayo</option><option>Sligo</option>
+        <option>Donegal</option><option>Tipperary</option><option>Kerry</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <button class="modal-submit">Send registration request</button>
+  </div>
+</div>
+
+<!-- LOGIN PAGE -->
+<div class="login-page" id="loginPage">
+  <div class="login-box">
+    <p class="section-tag" style="margin-bottom: 0.5rem;">School portal</p>
+    <h2>Sign in</h2>
+    <p>Enter your school login details to access the full mentor directory.</p>
+    <div class="form-group">
+      <label>School email</label>
+      <input type="email" placeholder="yourname@school.ie" id="loginEmail">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" placeholder="••••••••" id="loginPass">
+    </div>
+    <button class="modal-submit" onclick="doLogin()" style="margin-top: 0.75rem;">Sign in</button>
+    <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
+      Not yet registered? <span style="color: var(--ink); cursor: pointer; text-decoration: underline;" onclick="goBackAndOpenSchool()">Register your school</span>
+    </p>
+    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
+      <span style="cursor: pointer; text-decoration: underline;" onclick="goBack()">Back to site</span>
+    </p>
+  </div>
+</div>
+
+<!-- DIRECTORY PAGE -->
+<div class="directory-page" id="directoryPage">
+  <div class="dir-nav">
+    <a href="#" class="dir-nav-logo" onclick="goBack()">Social Capital</a>
+    <div class="dir-nav-user">
+      <span id="schoolName">St. Mary's CBS</span>
+      <span class="dir-logout" onclick="goBack()">Sign out</span>
+    </div>
+  </div>
+
+  <div class="dir-header">
+    <div class="dir-header-inner">
+      <h2>Mentor directory</h2>
+      <p>Browse by industry to find mentors, read about each sector, and request a speaker for your school.</p>
+    </div>
+  </div>
+
+  <div class="dir-body">
+    <p class="dir-section-title">Choose an industry</p>
+    <div class="industry-cards" id="industryCards">
+      <div class="industry-card" onclick="openIndustry('tech')">
+        <div class="industry-card-left"><h4>Technology</h4><span>12 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+      <div class="industry-card" onclick="openIndustry('healthcare')">
+        <div class="industry-card-left"><h4>Healthcare</h4><span>8 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+      <div class="industry-card" onclick="openIndustry('law')">
+        <div class="industry-card-left"><h4>Law</h4><span>6 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+      <div class="industry-card" onclick="openIndustry('finance')">
+        <div class="industry-card-left"><h4>Finance</h4><span>9 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+      <div class="industry-card" onclick="openIndustry('trades')">
+        <div class="industry-card-left"><h4>Trades</h4><span>5 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+      <div class="industry-card" onclick="openIndustry('media')">
+        <div class="industry-card-left"><h4>Media & communications</h4><span>7 mentors available</span></div>
+        <span class="industry-card-arrow">›</span>
+      </div>
+    </div>
+
+    <div class="mentor-view" id="mentorView">
+      <div class="mentor-view-header">
+        <span class="mentor-view-title" id="mentorViewTitle">Technology</span>
+        <span class="back-btn" onclick="closeIndustry()">Back to industries</span>
+      </div>
+      <div class="sector-summary" id="sectorSummary"></div>
+      <p class="dir-section-title">Mentors in this sector</p>
+      <div class="mentor-list" id="mentorList"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+const industries = {
+  tech: {
+    title: 'Technology',
+    summary: 'Technology is one of Ireland\'s fastest-growing sectors, home to the European headquarters of Google, Meta, Apple, and hundreds of Irish-founded companies. Roles range from software engineering and UX design to product management and data science. You don\'t need to have studied computer science — many people enter through bootcamps, apprenticeships, or by switching from another field.',
+    mentors: [
+      { name: 'Aoife Kelly', initials: 'AK', role: 'Software Engineer, Google Dublin', level: 'junior', years: '3 years in industry' },
+      { name: 'Declan Murphy', initials: 'DM', role: 'Head of Product, Intercom', level: 'senior', years: '14 years in industry' },
+      { name: 'Sinéad O\'Brien', initials: 'SO', role: 'UX Designer, Stripe', level: 'junior', years: '4 years in industry' },
+      { name: 'Ciarán Walsh', initials: 'CW', role: 'CTO, Irish tech startup', level: 'senior', years: '18 years in industry' },
+    ]
+  },
+  healthcare: {
+    title: 'Healthcare',
+    summary: 'Healthcare in Ireland covers medicine, nursing, physiotherapy, pharmacy, occupational therapy, and many more roles. The sector is one of the most stable and rewarding career paths, with strong demand across public and private settings. Routes into healthcare vary widely — from direct university entry to postgraduate conversion programmes.',
+    mentors: [
+      { name: 'Dr. Niamh Ryan', initials: 'NR', role: 'GP, South Dublin', level: 'senior', years: '12 years in practice' },
+      { name: 'Liam Brennan', initials: 'LB', role: 'Staff Nurse, Beaumont Hospital', level: 'junior', years: '2 years in industry' },
+      { name: 'Orla Fitzgerald', initials: 'OF', role: 'Physiotherapist, HSE', level: 'junior', years: '4 years in industry' },
+    ]
+  },
+  law: {
+    title: 'Law',
+    summary: 'A legal career in Ireland can take many forms — solicitor, barrister, legal executive, or working in-house at a company. The traditional route is a law degree followed by professional training, but there are also graduate entry options. Law firms range from large international practices in Dublin to smaller general practice firms throughout the country.',
+    mentors: [
+      { name: 'Eimear Doherty', initials: 'ED', role: 'Solicitor, A&L Goodbody', level: 'junior', years: '3 years qualified' },
+      { name: 'Patrick Connolly', initials: 'PC', role: 'Senior Partner, McCann FitzGerald', level: 'senior', years: '22 years in practice' },
+    ]
+  },
+  finance: {
+    title: 'Finance',
+    summary: 'Ireland\'s financial services sector is one of the largest in Europe. Careers span investment banking, accountancy, insurance, fintech, and the public sector. Routes in include accounting qualifications (ACA, ACCA, CIMA), financial planning certifications, and direct entry graduate programmes at banks and investment firms.',
+    mentors: [
+      { name: 'Caoimhe Lynch', initials: 'CL', role: 'Analyst, Bank of Ireland', level: 'junior', years: '2 years in industry' },
+      { name: 'Brian Farrell', initials: 'BF', role: 'Finance Director, Kerry Group', level: 'senior', years: '20 years in industry' },
+      { name: 'Maeve Sheridan', initials: 'MS', role: 'Accountant, Grant Thornton', level: 'junior', years: '5 years in practice' },
+    ]
+  },
+  trades: {
+    title: 'Trades',
+    summary: 'Skilled trades are among the most in-demand careers in Ireland, with electricians, plumbers, carpenters, and construction professionals commanding strong salaries. Entry is typically through a SOLAS apprenticeship — you earn while you learn, with no college fees. Trades offer long-term job security, the option to become self-employed, and increasingly, routes into project management and business ownership.',
+    mentors: [
+      { name: 'Kevin O\'Sullivan', initials: 'KO', role: 'Master Electrician, self-employed', level: 'senior', years: '16 years in trade' },
+      { name: 'Jake Reilly', initials: 'JR', role: 'Apprentice Plumber, year 3', level: 'junior', years: '2 years in apprenticeship' },
+    ]
+  },
+  media: {
+    title: 'Media & communications',
+    summary: 'Media and communications covers journalism, broadcasting, PR, marketing, content creation, and digital media. Ireland has a strong tradition in journalism and broadcasting (RTÉ, Virgin Media, Irish Times, Independent), as well as a growing marketing and PR industry. Routes in include journalism degrees, communications programmes, and increasingly, building a presence online.',
+    mentors: [
+      { name: 'Rachel Byrne', initials: 'RB', role: 'Journalist, The Irish Times', level: 'junior', years: '3 years in industry' },
+      { name: 'Fionnuala Moran', initials: 'FM', role: 'Head of Communications, Irish NGO', level: 'senior', years: '15 years in industry' },
+      { name: 'Dylan Carey', initials: 'DC', role: 'Content Manager, Dublin agency', level: 'junior', years: '4 years in industry' },
+    ]
+  }
+};
+
+function openSchoolModal() { document.getElementById('schoolModal').classList.add('active'); }
+function closeModal(id) { document.getElementById(id).classList.remove('active'); }
+
+function openLogin() {
+  document.getElementById('mainSite').classList.add('hidden');
+  document.getElementById('loginPage').classList.add('active');
+  document.getElementById('directoryPage').classList.remove('active');
+}
+
+function goBack() {
+  document.getElementById('mainSite').classList.remove('hidden');
+  document.getElementById('loginPage').classList.remove('active');
+  document.getElementById('directoryPage').classList.remove('active');
+  history.replaceState(null, '', 'schools.html');
+}
+
+function goBackAndOpenSchool() {
+  goBack();
+  setTimeout(() => openSchoolModal(), 100);
+}
+
+function doLogin() {
+  const email = document.getElementById('loginEmail').value;
+  const pass = document.getElementById('loginPass').value;
+  if (!email || !pass) { alert('Please enter your email and password.'); return; }
+  const schoolName = email.split('@')[1]?.split('.')[0] || 'Your School';
+  document.getElementById('schoolName').textContent = schoolName.charAt(0).toUpperCase() + schoolName.slice(1);
+  document.getElementById('loginPage').classList.remove('active');
+  document.getElementById('directoryPage').classList.add('active');
+  closeIndustry();
+}
+
+function openIndustry(key) {
+  const data = industries[key];
+  if (!data) return;
+  document.getElementById('mentorViewTitle').textContent = data.title;
+  document.getElementById('sectorSummary').textContent = data.summary;
+  const list = document.getElementById('mentorList');
+  list.innerHTML = data.mentors.map(m => `
+    <div class="mentor-card">
+      <div class="mentor-avatar">${m.initials}</div>
+      <div class="mentor-info">
+        <h4>${m.name}</h4>
+        <p>${m.role}</p>
+        <span class="mentor-badge ${m.level === 'junior' ? 'junior' : ''}">${m.level === 'junior' ? 'Junior mentor' : 'Senior mentor'} · ${m.years}</span>
+      </div>
+    </div>
+  `).join('');
+  document.getElementById('mentorView').classList.add('active');
+  document.getElementById('industryCards').style.display = 'none';
+}
+
+function closeIndustry() {
+  document.getElementById('mentorView').classList.remove('active');
+  document.getElementById('industryCards').style.display = 'flex';
+}
+
+window.addEventListener('click', function(e) {
+  const el = document.getElementById('schoolModal');
+  if (e.target === el) el.classList.remove('active');
+});
+
+// Auto-open the login page if arriving via schools.html#login
+if (window.location.hash === '#login') { openLogin(); }
+</script>
+</body>
+</html>

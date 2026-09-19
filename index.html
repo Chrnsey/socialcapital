@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Capital — Ireland</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #FAFAF8;
+    --paper-dim: #F1F0EC;
+    --card: #FFFFFF;
+    --ink: #17181A;
+    --ink-soft: #54575A;
+    --ink-faint: #8B8E90;
+    --green: #0E9A63;
+    --green-deep: #0B7A4F;
+    --green-tint: #E9F6EF;
+    --line: #E3E2DD;
+    --line-soft: #ECEBE6;
+    --white: #FFFFFF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+      --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+      --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+      --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+    --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+    --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+    --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  a { color: var(--green); }
+
+  h1, h2, h3, h4 {
+    font-family: 'Source Serif 4', serif;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; align-items: baseline; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .btn {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--green);
+  }
+  .btn:hover { background: var(--green-deep); border-color: var(--green-deep); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--ink) !important;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--ink-faint);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .text-link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+    font-size: 0.95rem;
+  }
+  .text-link:hover { text-decoration-color: var(--ink); }
+
+  .hero {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    line-height: 1.18;
+    max-width: 14ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  .value-strip {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 2rem 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .value-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .value-item p { font-size: 0.9rem; color: var(--ink-soft); }
+
+  section {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-tag { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    margin-bottom: 0.75rem;
+    max-width: 26ch;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 2.25rem;
+  }
+
+  .mentor-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .mentor-teaser {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .mentor-teaser-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+  }
+
+  .mentor-teaser h4 { font-size: 0.95rem; margin-bottom: 0.1rem; }
+  .mentor-teaser .role { font-size: 0.8rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  .mentor-teaser blockquote {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    border-left: 2px solid var(--green);
+    padding-left: 0.75rem;
+  }
+
+  .industries-line { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
+  .industries-line strong { color: var(--ink); font-weight: 600; }
+
+  .bottom-cta {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    background: var(--green-tint);
+  }
+  .bottom-cta h2 { margin-bottom: 0.75rem; }
+  .bottom-cta p { color: var(--ink-soft); max-width: 50ch; margin-bottom: 1.75rem; font-size: 1rem; }
+  .cta-group { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  footer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  .footer-logo { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(23, 24, 26, 0.55);
+    z-index: 200; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 2.25rem; max-width: 440px; width: 100%; position: relative;
+  }
+  .modal h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .modal p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem; line-height: 1.6; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--line); border-radius: 3px;
+    font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: var(--ink); background: var(--white); outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--green); }
+  .modal-submit {
+    width: 100%; background: var(--green); color: var(--white); border: none; padding: 0.8rem;
+    border-radius: 3px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; margin-top: 0.4rem;
+  }
+  .modal-submit:hover { background: var(--green-deep); }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1.1rem; background: none; border: none;
+    font-size: 1.3rem; color: var(--ink-faint); cursor: pointer; line-height: 1;
+  }
+  .modal-close:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .value-strip, .mentor-teaser-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 1.1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+    .nav-links { gap: 1.1rem; font-size: 0.85rem; }
+    .hero { padding: 3rem 1.25rem 2.25rem; }
+    section, .bottom-cta { padding: 2.75rem 1.25rem; }
+    .value-strip { padding: 0 1.25rem 2.75rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">Social Capital</a>
+  <ul class="nav-links">
+    <li><a href="schools.html">For schools</a></li>
+    <li><a href="businesses.html">For businesses</a></li>
+    <li><a href="mentors.html">Become a mentor</a></li>
+  </ul>
+</nav>
+
+<section class="hero" style="border-bottom: none;">
+  <h1>Everyone deserves a network.</h1>
+  <p>Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.</p>
+  <div class="hero-actions">
+    <a href="#mentors" class="btn">See who's already talking to students</a>
+    <a href="schools.html" class="text-link">I'm a teacher or guidance counsellor</a>
+  </div>
+</section>
+
+<div class="value-strip">
+  <div class="value-item">
+    <h3>Real people, not brochures</h3>
+    <p>Every profile is someone who said yes to being asked — not a stock photo or a job description.</p>
+  </div>
+  <div class="value-item">
+    <h3>No pressure, just answers</h3>
+    <p>Ask what a job is actually like, how someone got there, or what you'd need to study. No pitch, no sales.</p>
+  </div>
+  <div class="value-item">
+    <h3>Doors you didn't know existed</h3>
+    <p>The people you meet shape what you think is possible. We're making sure you meet more of them.</p>
+  </div>
+</div>
+
+<section id="mentors">
+  <p class="section-tag">A few people on the directory</p>
+  <h2>They were once in your position too</h2>
+  <p class="section-body">Every mentor started somewhere — some are only a few years out of school themselves.</p>
+  <div class="mentor-teaser-grid">
+    <div class="mentor-teaser">
+      <div class="mentor-teaser-avatar">AK</div>
+      <h4>Aoife Kelly</h4>
+      <div class="role">Software Engineer, Google Dublin</div>
+      <blockquote>"I didn't study computer science. I just kept asking people questions until one of the answers stuck."</blockquote>
+    </div>
+    <div class="mentor-teaser">
+      <div class="mentor-teaser-avatar">RB</div>
+      <h4>Rachel Byrne</h4>
+      <div class="role">Journalist, The Irish Times</div>
+      <blockquote>"Nobody in my family worked in media. The only way in was asking someone who already had."</blockquote>
+    </div>
+    <div class="mentor-teaser">
+      <div class="mentor-teaser-avatar">JR</div>
+      <h4>Jake Reilly</h4>
+      <div class="role">Apprentice Plumber, year 3</div>
+      <blockquote>"You earn while you learn. I wish someone had told me that in third year instead of fifth."</blockquote>
+    </div>
+  </div>
+</section>
+
+<section>
+  <p class="section-tag">Every industry</p>
+  <h2>Not just the obvious routes</h2>
+  <p class="industries-line"><strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers.</p>
+</section>
+
+<div class="bottom-cta">
+  <h2>Want this at your school?</h2>
+  <p>Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free.</p>
+  <div class="cta-group">
+    <a href="schools.html" class="btn">Show my school how it works</a>
+    <a href="mentors.html" class="text-link">I'm a professional — sign me up</a>
+  </div>
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Social Capital</div>
+    <div>Connecting students to real careers. Ireland.</div>
+  </div>
+  <div class="footer-links">
+    <a href="schools.html">For schools</a>
+    <a href="businesses.html">For businesses</a>
+    <a href="mentors.html">Become a mentor</a>
+    <a href="mailto:hello@socialcapital.ie">hello@socialcapital.ie</a>
+  </div>
+</footer>
+
+</body>
+</html>
