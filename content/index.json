@@ -1,0 +1,42 @@
+{
+  "hero": {
+    "title": "Everyone deserves a network.",
+    "body": "Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.",
+    "cta_primary": "See who we're looking for"
+  },
+  "teasers": {
+    "tag": "Who we're looking for",
+    "title": "The people who make this work",
+    "body": "The directory is being built right now. These are the kinds of people we're asking to join — and if one of them sounds like you, we'd like to hear from you.",
+    "note": "Real profiles appear here as mentors join.",
+    "items": [
+      {
+        "marker": "3",
+        "name": "Someone three years in",
+        "role": "Early career, any field",
+        "quote": "You still remember school. That's most of the qualification."
+      },
+      {
+        "marker": "20",
+        "name": "Someone who runs the place",
+        "role": "Senior, any field",
+        "quote": "Twenty years of context a fifteen-year-old has no other way to get."
+      },
+      {
+        "marker": "0",
+        "name": "Someone who never went to college",
+        "role": "Trades and apprenticeships",
+        "quote": "Paid from year one, no fees. Students are rarely shown this route."
+      }
+    ]
+  },
+  "industries": {
+    "tag": "Every industry",
+    "title": "Not just the obvious routes",
+    "body": "<strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers."
+  },
+  "cta": {
+    "title": "Want this at your school?",
+    "body": "Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free."
+  }
+}

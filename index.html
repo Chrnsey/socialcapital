@@ -210,6 +210,10 @@
     padding-left: 0.75rem;
   }
 
+  .teaser-note { font-size: 0.875rem; color: var(--ink-faint); margin-top: 1.5rem; }
+  .teaser-note a { color: var(--ink-faint); }
+  .teaser-note a:hover { color: var(--ink); }
+
   .industries-line { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
   .industries-line strong { color: var(--ink); font-weight: 600; }
 
@@ -296,10 +300,10 @@
 </nav>
 
 <section class="hero" style="border-bottom: none;">
-  <h1>Everyone deserves a network.</h1>
-  <p>Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.</p>
+  <h1 data-sc-text="hero.title">Everyone deserves a network.</h1>
+  <p data-sc-text="hero.body">Social Capital connects you with real professionals — in tech, law, healthcare, trades, media and more — who've agreed to talk. Ask a question, hear their story, or get them to visit your school. It's free, wherever you go to school.</p>
   <div class="hero-actions">
-    <a href="#mentors" class="btn">See who's already talking to students</a>
+    <a href="#mentors" class="btn" data-sc-text="hero.cta_primary">See who we're looking for</a>
     <a href="schools.html" class="text-link">I'm a teacher or guidance counsellor</a>
   </div>
 </section>
@@ -320,40 +324,49 @@
 </div>
 
 <section id="mentors">
-  <p class="section-tag">A few people on the directory</p>
-  <h2>They were once in your position too</h2>
-  <p class="section-body">Every mentor started somewhere — some are only a few years out of school themselves.</p>
-  <div class="mentor-teaser-grid">
+  <p class="section-tag" data-sc-text="teasers.tag">Who we're looking for</p>
+  <h2 data-sc-text="teasers.title">The people who make this work</h2>
+  <p class="section-body" data-sc-text="teasers.body">The directory is being built right now. These are the kinds of people we're asking to join — and if one of them sounds like you, we'd like to hear from you.</p>
+  <div class="mentor-teaser-grid" data-sc-list="teasers.items">
+    <template data-sc-item>
+      <div class="mentor-teaser">
+        <div class="mentor-teaser-avatar">{{marker}}</div>
+        <h4>{{name}}</h4>
+        <div class="role">{{role}}</div>
+        <blockquote>{{quote}}</blockquote>
+      </div>
+    </template>
     <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">AK</div>
-      <h4>Aoife Kelly</h4>
-      <div class="role">Software Engineer, Google Dublin</div>
-      <blockquote>"I didn't study computer science. I just kept asking people questions until one of the answers stuck."</blockquote>
+      <div class="mentor-teaser-avatar">3</div>
+      <h4>Someone three years in</h4>
+      <div class="role">Early career, any field</div>
+      <blockquote>"You still remember school. That's most of the qualification."</blockquote>
     </div>
     <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">RB</div>
-      <h4>Rachel Byrne</h4>
-      <div class="role">Journalist, The Irish Times</div>
-      <blockquote>"Nobody in my family worked in media. The only way in was asking someone who already had."</blockquote>
+      <div class="mentor-teaser-avatar">20</div>
+      <h4>Someone who runs the place</h4>
+      <div class="role">Senior, any field</div>
+      <blockquote>"Twenty years of context a fifteen-year-old has no other way to get."</blockquote>
     </div>
     <div class="mentor-teaser">
-      <div class="mentor-teaser-avatar">JR</div>
-      <h4>Jake Reilly</h4>
-      <div class="role">Apprentice Plumber, year 3</div>
-      <blockquote>"You earn while you learn. I wish someone had told me that in third year instead of fifth."</blockquote>
+      <div class="mentor-teaser-avatar">0</div>
+      <h4>Someone who never went to college</h4>
+      <div class="role">Trades and apprenticeships</div>
+      <blockquote>"Paid from year one, no fees. Students are rarely shown this route."</blockquote>
     </div>
   </div>
+  <p class="teaser-note" data-sc-text="teasers.note">Real profiles appear here as mentors join. <a href="mentors.html">Put your name forward</a>.</p>
 </section>
 
 <section>
-  <p class="section-tag">Every industry</p>
-  <h2>Not just the obvious routes</h2>
-  <p class="industries-line"><strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers.</p>
+  <p class="section-tag" data-sc-text="industries.tag">Every industry</p>
+  <h2 data-sc-text="industries.title">Not just the obvious routes</h2>
+  <p class="industries-line" data-sc-html="industries.body"><strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers.</p>
 </section>
 
 <div class="bottom-cta">
-  <h2>Want this at your school?</h2>
-  <p>Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free.</p>
+  <h2 data-sc-text="cta.title">Want this at your school?</h2>
+  <p data-sc-text="cta.body">Social Capital only works once a school's registered. If yours isn't yet, tell your guidance counsellor — registration takes a few minutes and it's free.</p>
   <div class="cta-group">
     <a href="schools.html" class="btn">Show my school how it works</a>
     <a href="mentors.html" class="text-link">I'm a professional — sign me up</a>
@@ -372,6 +385,9 @@
     <a href="mailto:hello@socialcapital.ie">hello@socialcapital.ie</a>
   </div>
 </footer>
+
+<script src="js/content.js"></script>
+<script>SCContent.load("index");</script>
 
 </body>
 </html>
