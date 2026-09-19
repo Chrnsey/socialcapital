@@ -4,7 +4,6 @@
 
 [build]
   publish = "."
-  command = ""
 
 # Keep working notes and the database script out of the public site.
 [[redirects]]
