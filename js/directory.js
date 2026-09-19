@@ -63,7 +63,7 @@
       list.innerHTML =
         '<p class="dir-empty">No mentors listed in this sector yet. ' +
         'We\'re adding them as they join — ' +
-        '<a href="mailto:hello@socialcapital.ie">tell us what you\'re looking for</a> ' +
+        '<a href="mailto:registration@socialcapital.ie">tell us what you\'re looking for</a> ' +
         "and we'll try to find someone.</p>";
       return;
     }

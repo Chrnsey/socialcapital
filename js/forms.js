@@ -91,7 +91,7 @@
       if (!window.SC || !window.SC.ready) {
         setStatus(
           form,
-          "This form isn't connected yet. Please email hello@socialcapital.ie.",
+          "This form isn't connected yet. Please email registration@socialcapital.ie.",
           "error"
         );
         return;
@@ -117,7 +117,7 @@
           console.error("[Social Capital] submission failed", error);
           setStatus(
             form,
-            "Sorry — that didn't send. Please try again, or email hello@socialcapital.ie.",
+            "Sorry — that didn't send. Please try again, or email registration@socialcapital.ie.",
             "error"
           );
         })
