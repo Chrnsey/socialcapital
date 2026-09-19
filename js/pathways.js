@@ -21,12 +21,14 @@
     return last && last !== "pathway.html" ? last : null;
   }
 
+  // Always absolute. A relative path would resolve to
+  // /pathways/content/pathways.json on a detail page, which the Netlify
+  // rewrite serves as HTML — a failed request and a visible delay.
   function load() {
-    return fetch("content/pathways.json", { cache: "no-cache" })
-      .then(function (r) { return r.json(); })
-      .catch(function () {
-        return fetch("/content/pathways.json", { cache: "no-cache" })
-          .then(function (r) { return r.json(); });
+    return fetch("/content/pathways.json", { cache: "no-cache" })
+      .then(function (r) {
+        if (!r.ok) throw new Error("pathways " + r.status);
+        return r.json();
       });
   }
 
