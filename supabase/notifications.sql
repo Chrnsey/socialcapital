@@ -15,13 +15,15 @@
 create extension if not exists pg_net with schema extensions;
 
 -- 2. Store the Resend key securely.
---    <<< REPLACE THE KEY BELOW >>>
+--    <<< EDIT ONE LINE: the key on the line marked below >>>
 do $$
 declare
-  k text := 'YOUR_RESEND_API_KEY';
+  k text := 'PASTE_YOUR_KEY_HERE';   -- <<< THIS LINE. Your key starts with re_
 begin
-  if k = 'YOUR_RESEND_API_KEY' then
-    raise exception 'Replace YOUR_RESEND_API_KEY with your real Resend key first.';
+  -- Safety check - leave this alone. It stops the file half-installing if
+  -- you forgot to paste the key in above.
+  if left(k, 3) <> 're_' then
+    raise exception 'Paste your Resend API key on the line marked above (it starts with re_).';
   end if;
 
   -- Replace any previous value so you can re-run this after rotating the key.
