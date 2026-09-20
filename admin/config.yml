@@ -37,6 +37,18 @@ collections:
               - { name: title, label: "Big headline", widget: string }
               - { name: body, label: "Paragraph underneath", widget: text }
               - { name: cta_primary, label: "Green button text", widget: string }
+          - name: values
+            label: "The three short points under the headline"
+            widget: object
+            fields:
+              - name: items
+                label: "Points"
+                label_singular: "point"
+                widget: list
+                summary: "{{fields.title}}"
+                fields:
+                  - { name: title, label: "Heading", widget: string }
+                  - { name: body, label: "Text", widget: text }
           - name: teasers
             label: "The three cards"
             widget: object

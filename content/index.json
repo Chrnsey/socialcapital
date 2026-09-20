@@ -1,42 +1,58 @@
 {
   "hero": {
-    "title": "Everyone deserves a network",
-    "body": "Social Capital connects you with real professionals. With people working in tech, finance, law, healthcare, trades, media and more. All of whom have agreed to talk. \n\nAsk a question, hear their story, or get them to visit your school. The mentors are here to provide guidance and help level the playing field.",
-    "cta_primary": "See who we're looking for"
+    "title": "Somebody else's dad knows a solicitor",
+    "body": "That's a lot of how it works. Not all of it, but more than anyone admits. Below is a list of people who've agreed to answer questions about their job. What it pays. How they got in. What they'd do differently. Nobody's recruiting and there's nothing at the end of it.",
+    "cta_primary": "See who's on the list"
+  },
+  "values": {
+    "items": [
+      {
+        "title": "They said yes",
+        "body": "Every name belongs to somebody who agreed to be asked. No stock photos, no careers leaflets."
+      },
+      {
+        "title": "Nobody's selling anything",
+        "body": "Ask what it pays. Ask if they hate it. Ask what they'd do differently. There's no pitch at the end of it."
+      },
+      {
+        "title": "You can't want a job you've never seen",
+        "body": "Most people end up doing work they happened to watch up close. That's most of the trick, and it isn't about ability."
+      }
+    ]
   },
   "teasers": {
-    "tag": "Who we're looking for",
-    "title": "The people who make this work",
-    "body": "The directory is being built right now. These are the kinds of people we're asking to join; if one of them sounds like you, we'd like to hear from you!",
-    "note": "Real profiles appear here as mentors join.",
+    "tag": "Who we're after",
+    "title": "Three kinds of useful",
+    "body": "The list is short so far. These are the people we're asking. If one of them sounds like you, the form is behind that link.",
+    "note": "Real names go here as they join.",
     "items": [
       {
         "marker": "3",
         "name": "Someone three years in",
-        "role": "Early career, any field",
+        "role": "Any job, recently",
         "quote": "You still remember school. That's most of the qualification."
       },
       {
         "marker": "20",
         "name": "Someone who runs the place",
-        "role": "Senior, any field",
-        "quote": "Twenty years of context a fifteen-year-old has no other way to get."
+        "role": "Any job, a long time",
+        "quote": "Twenty years of knowing how it actually works. There's no other way to get that."
       },
       {
         "marker": "0",
         "name": "Someone who never went to college",
         "role": "Trades and apprenticeships",
-        "quote": "Paid from year one, no fees. Students are rarely shown this route."
+        "quote": "Paid from the first year. Nobody says that out loud in fifth year."
       }
     ]
   },
   "industries": {
-    "tag": "Every industry",
-    "title": "Not just the obvious routes",
-    "body": "<strong>Technology, healthcare, law, finance, trades, media and communications, education, engineering, public sector</strong> — and more inside. Full profiles are visible once your school registers."
+    "tag": "What's on the list",
+    "title": "Including the jobs nobody brings up",
+    "body": "<strong>Technology, healthcare, law, finance, trades, media, education, engineering, public sector.</strong> Full profiles once your school signs up. The trades are the part worth your time — nobody will tell you they pay you from year one."
   },
   "cta": {
-    "title": "Want this at your school?",
-    "body": "Social Capital only works once a school's registered. If yours isn't, tell your guidance counsellor, registration only takes a few minutes."
+    "title": "Your school signs up first",
+    "body": "Nothing personal. It's how we know you're a student and not somebody else. Tell your guidance counsellor. Five minutes, costs nothing, and they'll be glad of something that isn't a leaflet."
   }
 }
