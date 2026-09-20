@@ -16,7 +16,7 @@
       "facts": [
         { "label": "Who employs you", "value": "A company, from week one" },
         { "label": "Do you get paid", "value": "Yes. It rises yearly." },
-        { "label": "Fees", "value": "Effectively none" },
+        { "label": "Fees", "value": "None, really" },
         { "label": "Points", "value": "Not a factor" }
       ],
       "blocks": [
@@ -26,7 +26,7 @@
         },
         {
           "heading": "If nobody will take you yet",
-          "text": "Do a PLC in the same field first. You come out with something to show and somebody willing to vouch for you. It is not a step backwards, whatever the tone of voice suggests when people say it."
+          "text": "Do a PLC in the same field first. You come out with something to show and somebody willing to vouch for you. It is not a step backwards, whatever way people say it to you."
         },
         {
           "heading": "There is no age limit",
@@ -48,7 +48,7 @@
         },
         {
           "myth": "You'll earn less in the end.",
-          "reality": "You start four years earlier owing nothing. Do the arithmetic yourself before you take anyone's word."
+          "reality": "You start four years earlier owing nothing. Do the sums yourself before you take anyone's word for it."
         }
       ],
       "apply": [
@@ -66,7 +66,7 @@
       "subtitle": "No points. Barely any fees.",
       "checked": "September 2026",
       "summary": "A year or two, no points requirement, and you apply straight to the college. Leads to work, or to the same degree by a quieter road.",
-      "body": "A Post Leaving Certificate course is a full-time, practical course run by an Education and Training Board or a further education college. You apply directly. There is no points requirement and there is no race.\n\nPeople call it a fallback. They say it the way you would describe a spare tyre. It leads directly into work in plenty of fields, and it is one of the most dependable ways into a degree for anyone whose Leaving Certificate went sideways.",
+      "body": "A Post Leaving Certificate course is a full-time, practical course run by an Education and Training Board or a further education college. You apply directly. There is no points requirement and there is no race.\n\nPeople call it a fallback. They say it the way you would describe a spare tyre. It leads directly into work in plenty of fields, and it is one of the surest ways into a degree for anyone whose Leaving Certificate went sideways.",
       "facts": [
         { "label": "How long", "value": "One or two years" },
         { "label": "Points", "value": "None" },
@@ -88,7 +88,7 @@
         },
         {
           "heading": "It also opens the apprenticeship door",
-          "text": "A year of relevant training makes an employer considerably more likely to take you on. You stop being a stranger with no experience."
+          "text": "A year of relevant training makes an employer a lot more likely to take you on. You stop being a stranger with no experience."
         }
       ],
       "myths": [
@@ -98,7 +98,7 @@
         },
         {
           "myth": "Employers don't rate it.",
-          "reality": "QQI awards are recognised nationally, and in a good many fields the practical training is precisely what is being asked for."
+          "reality": "QQI awards are recognised nationally, and in a good many fields the practical training is exactly what they're looking for."
         },
         {
           "myth": "I've left it too late.",
@@ -131,7 +131,7 @@
       "blocks": [
         {
           "heading": "The points everyone quotes may not be your points",
-          "text": "HEAR offers places on reduced points to students from socio-economically disadvantaged backgrounds. If you are in a DEIS school there is a real chance you qualify. It goes in with your CAO application and the deadline is earlier than the one on the poster. This is the most useful sentence on this website and most of the people it applies to never act on it."
+          "text": "HEAR offers places on reduced points to students from socio-economically disadvantaged backgrounds. There is a real chance you qualify, and it costs nothing to find out. It goes in with your CAO application and the deadline is earlier than the one on the poster. This is the most useful sentence on this website and most of the people it applies to never act on it."
         },
         {
           "heading": "You can come in at a lower level",
@@ -143,7 +143,7 @@
         },
         {
           "heading": "Money is the smaller problem",
-          "text": "Between SUSI, the 1916 Bursary and the funds colleges keep quiet about, the cost gets reduced or covered for a great many students. Settle the money question separately. Do not cross a course off because of a number you have not checked."
+          "text": "Between SUSI, the 1916 Bursary and the funds colleges keep quiet about, the cost gets reduced or covered for plenty of students. Settle the money question separately. Do not cross a course off because of a number you have not checked."
         }
       ],
       "myths": [
@@ -153,7 +153,7 @@
         },
         {
           "myth": "I have to go now or never.",
-          "reality": "Mature entry exists at twenty-three precisely because a great many people do not go now."
+          "reality": "Mature entry exists at twenty-three exactly because plenty of people do not go now."
         },
         {
           "myth": "Missing my first choice means I've failed.",
@@ -174,7 +174,7 @@
     {
       "slug": "abroad",
       "title": "Studying in Europe",
-      "subtitle": "Frequently cheaper than staying here",
+      "subtitle": "Usually cheaper than staying home",
       "checked": "September 2026",
       "summary": "English-taught degrees across the continent at EU fee rates. A fraction of what the same thing costs in the UK, and sometimes less than Dublin.",
       "body": "You are an Irish citizen, which makes you an EU student, which means you pay what a local pays anywhere in the union. In several countries that figure is small. Hundreds of degrees are taught entirely in English.\n\nThe Netherlands is the well-worn route. A large number of English-taught bachelor's degrees, an application system that expects foreigners, and student cities that are used to them. Germany and the Nordics teach in English too, at low or no tuition.\n\nAlmost nobody in an Irish school will raise this with you. It is not obscure and it is not difficult. It simply is not on the slides.",
@@ -185,7 +185,7 @@
         },
         {
           "heading": "Entry works differently",
-          "text": "Many European universities do not run a points auction. Some admit anyone who meets a minimum standard, some use a lottery, some choose for themselves. A course that is unreachable on points here may not be unreachable there."
+          "text": "Many European universities don't run a points race. Some admit anyone who meets a minimum standard, some use a lottery, some choose for themselves. A course that is unreachable on points here may not be unreachable there."
         },
         {
           "heading": "Housing is the actual problem",

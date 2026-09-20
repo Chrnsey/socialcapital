@@ -12,7 +12,7 @@
       "subtitle": "Trades",
       "checked": "September 2026",
       "summary": "Paid from your first year, no fees, qualified in four. Then you can work for anyone or nobody.",
-      "body": "Electricians install, maintain and repair electrical systems. Houses, sites, factories, and increasingly solar panels, heat pumps and car chargers. There is a formal qualification at the end of it and exams that people fail, so treat anyone describing it as unskilled labour as a source of information about themselves rather than the trade.\n\nOnce you are qualified you can work for a company, work for yourself, or end up running the site rather than being on it.",
+      "body": "Electricians install, maintain and repair electrical systems. Houses, sites, factories, and increasingly solar panels, heat pumps and car chargers. There is a formal qualification at the end of it and exams that people fail, so treat anyone describing it as unskilled labour as telling you more about them than about the job.\n\nOnce you are qualified you can work for a company, work for yourself, or end up running the site rather than being on it.",
       "routes": [
         {
           "name": "Apprenticeship",
@@ -57,7 +57,7 @@
         },
         {
           "myth": "There's no progression.",
-          "reality": "Supervision, contracting, inspection, teaching, your own company. Some of them earn more than the people who were sniffy about it."
+          "reality": "Supervision, contracting, inspection, teaching, your own company. Some of them earn more than the people who looked down on it."
         }
       ],
       "apply": [
@@ -76,7 +76,7 @@
       "subtitle": "Technology",
       "checked": "September 2026",
       "summary": "One of the few well-paid jobs where nobody asks about your degree after the first one.",
-      "body": "Developers write the code behind apps and systems. The job is less solitary than films suggest. Most of the day goes on reading other people's code, arguing about what to build, and repairing things that worked yesterday.\n\nIreland has an unusual amount of this work for a country this size, across both the large foreign companies and a lot of Irish ones nobody has heard of.",
+      "body": "Developers write the code behind apps and systems. The job is less solitary than films suggest. Most of the day goes on reading other people's code, arguing about what to build, and repairing things that worked yesterday.\n\nIreland has far more of this work than you'd expect for a country this size, across both the large foreign companies and a lot of Irish ones nobody has heard of.",
       "routes": [
         {
           "name": "Computer science degree",
@@ -110,7 +110,7 @@
       "blocks": [
         {
           "heading": "What you need",
-          "text": "Points for computing courses vary enormously, and there are options well down the range, not only at the top. Maths helps and some courses require it, but it is less of a wall than people assume. Apprenticeships and further education ask for considerably less. Check the specific course."
+          "text": "Points for computing courses vary enormously, and there are options well down the range, not only at the top. Maths helps and some courses require it, but it is less of a wall than people assume. Apprenticeships and further education ask for a lot less. Check the specific course."
         },
         {
           "heading": "What it pays",
