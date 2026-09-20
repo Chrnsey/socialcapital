@@ -1,8 +1,12 @@
 {
   "hero": {
-    "title": "Give your students a network worth having.",
-    "body": "Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free."
+    "title": "A list of people who said yes",
+    "body": "Professionals who have agreed to answer questions from your students about their job, their route in, and what the work is actually like. Register the school and your guidance counsellor gets the full directory. There is no charge."
   },
-  "how": { "title": "What a school actually gets" },
-  "cta": { "title": "Ready to register?" }
+  "how": {
+    "title": "What a school gets"
+  },
+  "cta": {
+    "title": "Registering"
+  }
 }

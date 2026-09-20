@@ -3,7 +3,7 @@
     "slug": "careers",
     "title": "Careers",
     "tag": "The jobs",
-    "intro": "What a job is actually like, and which of the routes leads there. Every one of these has more than one way in."
+    "intro": "What the work is actually like, and which door leads to it. Every one of these has more than one way in, whatever the person who holds it tells you."
   },
   "items": [
     {
@@ -11,78 +11,63 @@
       "title": "Electrician",
       "subtitle": "Trades",
       "checked": "September 2026",
-      "summary": "Paid from your first year, no college fees, and qualified in four years.",
-      "body": "Electricians install, maintain and repair electrical systems — in houses, on building sites, in factories, and increasingly on solar, heat pump and EV charging work. It is skilled work with a formal qualification at the end, not casual labour. Once qualified you can work for a company, go out on your own, or move into site management, contracting or running a business.",
+      "summary": "Paid from your first year, no fees, qualified in four. Then you can work for anyone or nobody.",
+      "body": "Electricians install, maintain and repair electrical systems. Houses, sites, factories, and increasingly solar panels, heat pumps and car chargers. There is a formal qualification at the end of it and exams that people fail, so treat anyone describing it as unskilled labour as a source of information about themselves rather than the trade.\n\nOnce you are qualified you can work for a company, work for yourself, or end up running the site rather than being on it.",
       "routes": [
         {
           "name": "Apprenticeship",
-          "tag": "The main route",
-          "detail": "You find an employer willing to take you on, and they register you as an apprentice. You alternate between working for them and blocks of off-the-job training in an education centre. You are an employee the whole time, earning a wage that rises each year as you progress.",
-          "duration": "Around four years",
-          "cost": "No college fees. A student contribution applies to some off-the-job phases — check the current amount."
+          "tag": "The main road",
+          "detail": "Find an employer, they register you, and you alternate between working for them and blocks of training. You are on the payroll throughout.",
+          "duration": "About four years",
+          "cost": "No fees to speak of"
         },
         {
-          "name": "Pre-apprenticeship or PLC course",
-          "tag": "If you can't find an employer yet",
-          "detail": "A further education course in electrical work gives you practical experience and makes you far more attractive to an employer. It is not required, but it is a common route for people who struggled to find a place straight after school.",
-          "duration": "One year, typically",
-          "cost": "Usually low or free — check with your local ETB"
+          "name": "PLC first, then apprenticeship",
+          "tag": "If nobody bites yet",
+          "detail": "A year of electrical training makes an employer far likelier to take you. Common route for anyone who came out of sixth year with nothing lined up.",
+          "duration": "A year, usually",
+          "cost": "Low or nothing"
         },
         {
-          "name": "Starting later",
-          "tag": "It isn't too late",
-          "detail": "There is no upper age limit on starting an apprenticeship. People begin in their twenties, thirties and later, often after working in something else.",
-          "duration": "Same as above",
-          "cost": "Same as above"
+          "name": "Later on",
+          "tag": "No age limit",
+          "detail": "People start this at twenty-eight after five years of something they disliked. It is allowed.",
+          "duration": "Same",
+          "cost": "Same"
         }
       ],
       "blocks": [
         {
           "heading": "What you need",
-          "text": "The usual minimum is a Leaving Certificate at a basic grade level, or an approved equivalent, or relevant experience with an employer prepared to take you on. Maths and a practical subject help, but high points are not the currency here — an employer willing to hire you is. Check the current entry requirements before relying on this."
+          "text": "A Leaving Certificate at a basic grade level, or an approved equivalent, or an employer who wants you anyway. Maths and a practical subject help. High points are not the currency here. Check the current entry requirements rather than taking this paragraph as gospel."
         },
         {
-          "heading": "What you earn while training",
-          "text": "You are paid from the first year, as a percentage of the qualified rate, rising each year until you finish. That is the single biggest difference from a college route: you leave with a qualification and no debt, having earned throughout."
+          "heading": "What you earn on the way",
+          "text": "A percentage of the qualified rate from year one, rising each year. You finish owing nothing, having been paid for four years. Compare that with the alternative honestly and not sentimentally."
         }
       ],
       "myths": [
         {
           "myth": "It's what you do if you're not academic.",
-          "reality": "The exams are real and people fail them. It's a different kind of difficulty, not a lesser one."
+          "reality": "The exams fail people. Different difficulty, not a lesser one."
         },
         {
-          "myth": "You need to know someone to get an apprenticeship.",
-          "reality": "Contacts help — which is exactly why this site exists — but employers advertise, and ringing around local firms directly works more often than people expect."
+          "myth": "You need to know someone.",
+          "reality": "It helps, which is why this site exists. Ringing round local firms also works, and hardly anyone bothers."
         },
         {
           "myth": "There's no progression.",
-          "reality": "Qualified electricians move into supervision, contracting, inspection, teaching, and running their own companies. Plenty earn more than graduates in office jobs."
+          "reality": "Supervision, contracting, inspection, teaching, your own company. Some of them earn more than the people who were sniffy about it."
         }
       ],
       "apply": [
-        {
-          "label": "apprenticeship.ie — how apprenticeships work and what's available",
-          "url": "https://www.apprenticeship.ie"
-        },
-        {
-          "label": "SOLAS — the authority on apprenticeship standards",
-          "url": "https://www.solas.ie"
-        },
-        {
-          "label": "Your local Education and Training Board",
-          "url": "https://www.etbi.ie"
-        }
+        { "label": "apprenticeship.ie — how it works and what's available", "url": "https://www.apprenticeship.ie" },
+        { "label": "SOLAS — standards and entry", "url": "https://www.solas.ie" },
+        { "label": "Your local Education and Training Board", "url": "https://www.etbi.ie" }
       ],
       "related": [
-        {
-          "label": "How apprenticeships work",
-          "href": "/routes/apprenticeships"
-        },
-        {
-          "label": "PLC and further education",
-          "href": "/routes/plc"
-        }
+        { "label": "How apprenticeships work", "href": "/routes/apprenticeships" },
+        { "label": "PLC and further education", "href": "/routes/plc" }
       ]
     },
     {
@@ -90,93 +75,72 @@
       "title": "Software developer",
       "subtitle": "Technology",
       "checked": "September 2026",
-      "summary": "One of the few well-paid careers where nobody will ask to see your degree after the first job.",
-      "body": "Software developers write the code behind apps, websites and systems. The work is more collaborative and less solitary than people imagine — most of the day is spent reading other people's code, discussing what to build, and fixing things. Ireland has an unusual concentration of this work for a country its size, across both large international companies and Irish-founded ones.",
+      "summary": "One of the few well-paid jobs where nobody asks about your degree after the first one.",
+      "body": "Developers write the code behind apps and systems. The job is less solitary than films suggest. Most of the day goes on reading other people's code, arguing about what to build, and repairing things that worked yesterday.\n\nIreland has an unusual amount of this work for a country this size, across both the large foreign companies and a lot of Irish ones nobody has heard of.",
       "routes": [
         {
-          "name": "Computer science or software engineering degree",
-          "tag": "The common route",
-          "detail": "A three or four year degree through the CAO. Gives you the strongest theoretical grounding and the easiest path into graduate programmes, which is how many of the larger employers recruit.",
+          "name": "Computer science degree",
+          "tag": "The usual",
+          "detail": "Three or four years through the CAO. Strongest grounding, and the simplest way into the graduate programmes the bigger employers recruit through.",
           "duration": "Three to four years",
-          "cost": "Student contribution charge; SUSI grants available depending on household income"
+          "cost": "Student contribution, often covered by SUSI"
         },
         {
           "name": "Apprenticeship",
-          "tag": "Earn while you learn",
-          "detail": "Software and ICT apprenticeships exist in Ireland and are badly under-known. You work for an employer and study alongside it, ending with a recognised qualification and several years of real experience.",
-          "duration": "Around two to four years",
-          "cost": "No fees in the way a degree has them — you are employed"
+          "tag": "Badly under-known",
+          "detail": "Software and ICT apprenticeships exist here and hardly anyone mentions them. You work, you study alongside it, you come out with a qualification and real years behind you.",
+          "duration": "Two to four years",
+          "cost": "You are being paid"
         },
         {
-          "name": "PLC course, then work or degree",
-          "tag": "A second chance at points",
-          "detail": "A further education course in computing can lead directly to junior roles, or to a degree place through links with universities — a well-worn route for people whose Leaving Cert didn't go as planned.",
+          "name": "PLC, then work or a degree",
+          "tag": "Second go at the points",
+          "detail": "A computing course in further education leads to junior roles directly, or into a degree through links with the universities.",
           "duration": "One to two years",
           "cost": "Usually low"
         },
         {
-          "name": "Self-taught, with a portfolio",
-          "tag": "Harder than it sounds",
-          "detail": "It genuinely happens, and this industry cares more about what you can build than where you studied. But it is the hardest route: no structure, no classmates, and you must be able to show working projects. Easier as a second career than as a first job.",
-          "duration": "Varies enormously",
-          "cost": "Little but time"
+          "name": "Teaching yourself",
+          "tag": "Harder than the internet claims",
+          "detail": "It happens, and this industry does care more about what you can build than where you sat. But there is no structure, nobody to ask, and you need finished work to show. Easier as a second career than a first job.",
+          "duration": "Who knows",
+          "cost": "Time"
         }
       ],
       "blocks": [
         {
           "heading": "What you need",
-          "text": "For a degree, the CAO points for computing courses vary a lot between institutions — there are options across a wide range, not just the highest. Maths helps and is required for some courses, but is not the barrier people assume. For apprenticeships and further education, the requirements are considerably lower. Check current requirements for any specific course."
+          "text": "Points for computing courses vary enormously, and there are options well down the range, not only at the top. Maths helps and some courses require it, but it is less of a wall than people assume. Apprenticeships and further education ask for considerably less. Check the specific course."
         },
         {
-          "heading": "What you earn while training",
-          "text": "Graduate and apprentice salaries in this sector are high relative to most other entry-level work in Ireland, and rise quickly in the first few years. Apprenticeship routes pay from the start."
+          "heading": "What it pays",
+          "text": "Entry salaries in this sector are high compared with most other first jobs in Ireland and they move quickly in the early years. The apprenticeship route pays from the start."
         }
       ],
       "myths": [
         {
           "myth": "You need to have been coding since you were twelve.",
-          "reality": "Plenty of working developers started at eighteen, or at thirty. Starting early helps; it isn't a requirement."
+          "reality": "Plenty of working developers started at eighteen. Or thirty. Early helps, it is not a requirement."
         },
         {
           "myth": "You need honours maths.",
-          "reality": "Some courses require it, many don't. Most day-to-day development work uses very little advanced maths."
+          "reality": "Some courses want it, many do not, and most of the day-to-day work uses very little of it."
         },
         {
-          "myth": "You need a degree from a well-known university.",
-          "reality": "After your first job, almost nobody asks. What you have built and shipped matters far more."
+          "myth": "It has to be a well-known university.",
+          "reality": "After your first job nobody asks. What you have built is the whole conversation."
         }
       ],
       "apply": [
-        {
-          "label": "CAO — applications for degree and higher certificate courses",
-          "url": "https://www.cao.ie"
-        },
-        {
-          "label": "apprenticeship.ie — ICT and software apprenticeships",
-          "url": "https://www.apprenticeship.ie"
-        },
-        {
-          "label": "Qualifax — search every course in Ireland",
-          "url": "https://www.qualifax.ie"
-        },
-        {
-          "label": "SUSI — grant eligibility",
-          "url": "https://www.susi.ie"
-        }
+        { "label": "CAO — degree and higher certificate applications", "url": "https://www.cao.ie" },
+        { "label": "apprenticeship.ie — ICT and software apprenticeships", "url": "https://www.apprenticeship.ie" },
+        { "label": "Qualifax — search every course in Ireland", "url": "https://www.qualifax.ie" },
+        { "label": "SUSI — grant eligibility", "url": "https://www.susi.ie" }
       ],
       "related": [
-        {
-          "label": "CAO and college",
-          "href": "/routes/college"
-        },
-        {
-          "label": "How apprenticeships work",
-          "href": "/routes/apprenticeships"
-        },
-        {
-          "label": "Studying in Europe",
-          "href": "/routes/abroad"
-        }
+        { "label": "CAO and college", "href": "/routes/college" },
+        { "label": "How apprenticeships work", "href": "/routes/apprenticeships" },
+        { "label": "Studying in Europe", "href": "/routes/abroad" }
       ]
     }
   ]

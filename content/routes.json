@@ -3,325 +3,226 @@
     "slug": "routes",
     "title": "Ways in",
     "tag": "How it works",
-    "intro": "There are more ways into work than the CAO. Some pay you from the first year, some cost almost nothing, and some are available years after you leave school. These pages explain how each one actually works."
+    "intro": "There is more than one door. The CAO is the one everybody points at, which is not the same as it being the best one for you. Some of these pay you. Some cost almost nothing. One of them is still open when you are thirty-four."
   },
   "items": [
     {
       "slug": "apprenticeships",
       "title": "Apprenticeships",
-      "subtitle": "Earn while you learn",
+      "subtitle": "They pay you",
       "checked": "September 2026",
-      "summary": "You're employed from day one, paid a wage that rises each year, and you finish with a recognised qualification and no student debt.",
-      "body": "An apprenticeship is a job with structured training attached. You are an employee from the first day, paid a wage, and you alternate between working and blocks of off-the-job training. At the end you hold a nationally recognised qualification.\n\nThe part most students are never told: apprenticeships are no longer just trades. There are apprenticeships in software, finance, insurance, engineering, logistics, hospitality and accountancy — some leading to degree-level qualifications.",
+      "summary": "On a payroll from the first week. Four years later you have a qualification and no debt. Nobody says this out loud in fifth year.",
+      "body": "An apprenticeship is a job with training bolted onto it. You are an employee from day one. You get a wage, it goes up every year, and you split your time between working and a classroom. At the end you hold a qualification the State recognises.\n\nThe part your careers talk skipped: apprenticeships stopped being only trades some time ago. There are apprenticeships in software, insurance, accountancy, engineering and logistics. Some go to degree level. Nobody updated the slides.",
       "facts": [
-        {
-          "label": "Who employs you",
-          "value": "A company, from day one"
-        },
-        {
-          "label": "Do you get paid",
-          "value": "Yes, rising each year"
-        },
-        {
-          "label": "College fees",
-          "value": "None in the usual sense"
-        },
-        {
-          "label": "Points needed",
-          "value": "None — you need an employer"
-        }
+        { "label": "Who employs you", "value": "A company, from week one" },
+        { "label": "Do you get paid", "value": "Yes. It rises yearly." },
+        { "label": "Fees", "value": "Effectively none" },
+        { "label": "Points", "value": "Not a factor" }
       ],
       "blocks": [
         {
-          "heading": "The hard part is finding an employer",
-          "text": "This is the real barrier, and it's why this website exists. You aren't applying through a central system the way you would with the CAO — you're finding a company willing to take you on. Ringing local firms directly works more often than people expect. Knowing somebody helps, which is exactly the gap we're trying to close."
+          "heading": "The hard part is not the exams",
+          "text": "It is finding an employer. No central system, no points, no offers day. You have to get a company to say yes. Ringing local firms directly works more often than people expect, mostly because almost nobody does it. Knowing somebody helps, which is the entire reason this website exists."
         },
         {
-          "heading": "If you can't find one yet",
-          "text": "A pre-apprenticeship or PLC course in the same field gives you practical experience and makes an employer far more likely to say yes. It is not a step backwards."
+          "heading": "If nobody will take you yet",
+          "text": "Do a PLC in the same field first. You come out with something to show and somebody willing to vouch for you. It is not a step backwards, whatever the tone of voice suggests when people say it."
         },
         {
-          "heading": "There's no age limit",
-          "text": "People start apprenticeships in their twenties, thirties and later, often after working in something else entirely. It is not a decision you have to make at seventeen or never."
+          "heading": "There is no age limit",
+          "text": "People start at seventeen and at thirty-four. If you get this decision wrong it is not permanent, which is more than can be said for most of what you will be told this year."
         },
         {
-          "heading": "Where it leads",
-          "text": "Qualified tradespeople move into supervision, contracting, inspection, teaching, and running their own businesses. Self-employment is a realistic route, and many earn more than graduates in office jobs."
+          "heading": "Where it ends up",
+          "text": "Supervision, contracting, inspection, teaching, your own company. A fair number of qualified tradespeople out-earn the graduates who felt sorry for them at eighteen."
         }
       ],
       "myths": [
         {
           "myth": "Apprenticeships are for people who aren't academic.",
-          "reality": "The exams are real and people fail them. It's a different kind of difficulty, not a lesser one."
+          "reality": "The exams fail people every year. Different difficulty, not a smaller one."
         },
         {
           "myth": "It's only trades.",
-          "reality": "Software, insurance, finance, accountancy, engineering and logistics all have apprenticeships. Most students are never told this."
+          "reality": "Software, insurance, finance, accountancy, engineering, logistics. Read the list before you decide what you are."
         },
         {
-          "myth": "You'll earn less in the long run.",
-          "reality": "You start earning four years earlier and finish with no debt. That head start is bigger than people assume."
+          "myth": "You'll earn less in the end.",
+          "reality": "You start four years earlier owing nothing. Do the arithmetic yourself before you take anyone's word."
         }
       ],
       "apply": [
-        {
-          "label": "apprenticeship.ie — every apprenticeship in Ireland, and how to apply",
-          "url": "https://www.apprenticeship.ie"
-        },
-        {
-          "label": "SOLAS — the authority on standards and entry",
-          "url": "https://www.solas.ie"
-        }
+        { "label": "apprenticeship.ie — every apprenticeship in the country, and how to apply", "url": "https://www.apprenticeship.ie" },
+        { "label": "SOLAS — who sets the standards and the entry rules", "url": "https://www.solas.ie" }
       ],
       "related": [
-        {
-          "label": "PLC and further education",
-          "href": "/routes/plc"
-        },
-        {
-          "label": "Electrician",
-          "href": "/careers/electrician"
-        }
+        { "label": "PLC and further education", "href": "/routes/plc" },
+        { "label": "Electrician", "href": "/careers/electrician" }
       ]
     },
     {
       "slug": "plc",
       "title": "PLC and further education",
-      "subtitle": "No points, low fees, a second chance",
+      "subtitle": "No points. Barely any fees.",
       "checked": "September 2026",
-      "summary": "A one or two year course with no points requirement, very low fees, and a route onward to either work or a degree.",
-      "body": "A Post Leaving Certificate course is a practical, full-time course run by an Education and Training Board or further education college. You apply directly to the college rather than through the CAO, and there is no points requirement.\n\nThey are often described as a fallback. That framing does students a disservice. A PLC is a legitimate route in its own right, it leads directly to employment in many fields, and it is also one of the most reliable ways into a degree for someone whose Leaving Certificate did not go the way they hoped.",
+      "summary": "A year or two, no points requirement, and you apply straight to the college. Leads to work, or to the same degree by a quieter road.",
+      "body": "A Post Leaving Certificate course is a full-time, practical course run by an Education and Training Board or a further education college. You apply directly. There is no points requirement and there is no race.\n\nPeople call it a fallback. They say it the way you would describe a spare tyre. It leads directly into work in plenty of fields, and it is one of the most dependable ways into a degree for anyone whose Leaving Certificate went sideways.",
       "facts": [
-        {
-          "label": "How long",
-          "value": "One to two years"
-        },
-        {
-          "label": "Points needed",
-          "value": "None"
-        },
-        {
-          "label": "Fees",
-          "value": "Low, and free for some"
-        },
-        {
-          "label": "How to apply",
-          "value": "Direct to the college"
-        }
+        { "label": "How long", "value": "One or two years" },
+        { "label": "Points", "value": "None" },
+        { "label": "Fees", "value": "Low. Free for some." },
+        { "label": "How to apply", "value": "Straight to the college" }
       ],
       "blocks": [
         {
-          "heading": "It's a route to a degree, not a dead end",
-          "text": "Completing a PLC can get you into higher education through progression arrangements between further education colleges and universities. For some courses this is an easier path to the same degree than competing on points at eighteen. Ask the college specifically which higher education courses their students progress to."
+          "heading": "It goes somewhere",
+          "text": "Finish a PLC and there are arrangements that take you into higher education from there. For some courses it is a more reliable way into the same degree than competing on points at eighteen. Ask the college which courses their students actually progress to, and ask for numbers."
         },
         {
-          "heading": "You apply directly, and later than the CAO",
-          "text": "There is no central system and no single deadline. You contact the college or ETB, and many accept applications well into the summer - including after Leaving Certificate results, which matters if things did not go to plan."
+          "heading": "The deadline has probably not passed",
+          "text": "No central system means no single closing date. Plenty of colleges take applications deep into the summer, including after results come out. This is the door that is still open on the day you decide everything has gone wrong."
         },
         {
-          "heading": "The classes are smaller and the work is practical",
-          "text": "Assessment tends to be continuous rather than one set of exams. For students who did not suit the Leaving Certificate format, this alone can change the outcome."
+          "heading": "The format is different",
+          "text": "Smaller classes, continuous assessment, work you do with your hands as often as your memory. If the Leaving Certificate never suited you, that may have been the format rather than you."
         },
         {
-          "heading": "It's also a way into an apprenticeship",
-          "text": "A PLC in a relevant field gives you practical experience and makes an employer far more likely to take you on as an apprentice."
+          "heading": "It also opens the apprenticeship door",
+          "text": "A year of relevant training makes an employer considerably more likely to take you on. You stop being a stranger with no experience."
         }
       ],
       "myths": [
         {
           "myth": "It's what you do if you fail.",
-          "reality": "It's what a lot of people do who end up with the same degree by a different road - and some who prefer the qualification itself."
+          "reality": "It's what a lot of people do who arrive at the same degree by a different road, and some who wanted the qualification itself all along."
         },
         {
           "myth": "Employers don't rate it.",
-          "reality": "QQI awards are nationally recognised, and in many fields the practical training is exactly what an employer wants."
+          "reality": "QQI awards are recognised nationally, and in a good many fields the practical training is precisely what is being asked for."
         },
         {
-          "myth": "I've missed the deadline.",
-          "reality": "Probably not. Many colleges take applications through the summer."
+          "myth": "I've left it too late.",
+          "reality": "Almost certainly not. Ring them."
         }
       ],
       "apply": [
-        {
-          "label": "Your local Education and Training Board",
-          "url": "https://www.etbi.ie"
-        },
-        {
-          "label": "Qualifax - search every further education course in Ireland",
-          "url": "https://www.qualifax.ie"
-        },
-        {
-          "label": "FET Course Hub - further education and training courses",
-          "url": "https://www.fetchcourses.ie"
-        }
+        { "label": "Your local Education and Training Board", "url": "https://www.etbi.ie" },
+        { "label": "Qualifax — search every further education course in Ireland", "url": "https://www.qualifax.ie" },
+        { "label": "FET Course Hub — what's running and where", "url": "https://www.fetchcourses.ie" }
       ],
       "related": [
-        {
-          "label": "How apprenticeships work",
-          "href": "/routes/apprenticeships"
-        },
-        {
-          "label": "CAO and college",
-          "href": "/routes/college"
-        }
+        { "label": "Apprenticeships", "href": "/routes/apprenticeships" },
+        { "label": "CAO and college", "href": "/routes/college" }
       ]
     },
     {
       "slug": "college",
       "title": "CAO and college",
-      "subtitle": "The route everyone's told about",
+      "subtitle": "The one you've already heard about",
       "checked": "September 2026",
-      "summary": "The one your school explains. Worth knowing the parts they usually leave out - reduced points entry, starting at a lower level, and that none of it is final.",
-      "body": "The Central Applications Office handles applications to almost all higher education courses in Ireland. You list courses in order of preference, your Leaving Certificate results convert to points, and offers are made in rounds.\n\nYour school will explain this part. What often goes unmentioned is how much flexibility exists inside it.",
+      "summary": "Your school will cover the form. This is the part they tend to leave out: the points may not apply to you, you can start lower down, and none of it is final.",
+      "body": "The Central Applications Office handles almost every higher education course in the country. You rank courses, your results become points, offers come out in rounds in August. You know this already.\n\nWhat gets left out is how much give there is inside the system.",
       "facts": [
-        {
-          "label": "How long",
-          "value": "Two to four years, usually"
-        },
-        {
-          "label": "How to apply",
-          "value": "cao.ie, the winter before"
-        },
-        {
-          "label": "Cost",
-          "value": "Student contribution, often covered"
-        },
-        {
-          "label": "Reduced points",
-          "value": "Possible - see HEAR"
-        }
+        { "label": "How long", "value": "Two to four years" },
+        { "label": "Apply", "value": "cao.ie, the winter before" },
+        { "label": "Cost", "value": "Student contribution. Often covered." },
+        { "label": "Reduced points", "value": "Possible. See HEAR." }
       ],
       "blocks": [
         {
-          "heading": "You may not need the points everyone quotes",
-          "text": "HEAR offers places on reduced points to students from socio-economically disadvantaged backgrounds, and if you are in a DEIS school there is a real chance you qualify. It is applied for through the CAO, with an earlier deadline than the main one. This is the single most useful thing on this website and most students who could use it never apply."
+          "heading": "The points everyone quotes may not be your points",
+          "text": "HEAR offers places on reduced points to students from socio-economically disadvantaged backgrounds. If you are in a DEIS school there is a real chance you qualify. It goes in with your CAO application and the deadline is earlier than the one on the poster. This is the most useful sentence on this website and most of the people it applies to never act on it."
         },
         {
-          "heading": "You can start at a lower level and move up",
-          "text": "Level 6 and Level 7 courses take far fewer points than Level 8 honours degrees, and many allow you to progress into the degree afterwards. Getting to the same place a year later is still getting there."
+          "heading": "You can come in at a lower level",
+          "text": "Level 6 and Level 7 courses take far fewer points than honours degrees, and many of them let you progress into the degree afterwards. Arriving a year later is still arriving."
         },
         {
-          "heading": "Nothing you choose at seventeen is final",
-          "text": "People transfer course, repeat a year, drop out and return, or come back years later as mature students - entry at twenty-three is assessed on your circumstances rather than your Leaving Certificate. Treating the CAO form as a life sentence causes more harm than any course choice on it."
+          "heading": "Nothing you write on that form at seventeen is binding",
+          "text": "People transfer, repeat, drop out and come back, or turn up at twenty-three as mature students and get assessed on their life instead of their Leaving Certificate. Treating the CAO as a verdict on your character has ruined more years than any course choice on it."
         },
         {
-          "heading": "Money is usually the smaller problem",
-          "text": "Between SUSI, the 1916 Bursary and college access funds, the cost is reduced or covered for a great many students. Work out the money question separately from the course question, and do not rule out a course before you have checked."
+          "heading": "Money is the smaller problem",
+          "text": "Between SUSI, the 1916 Bursary and the funds colleges keep quiet about, the cost gets reduced or covered for a great many students. Settle the money question separately. Do not cross a course off because of a number you have not checked."
         }
       ],
       "myths": [
         {
-          "myth": "The points are the standard of the course.",
-          "reality": "Points are just supply and demand. A high-points course is popular, not necessarily better."
+          "myth": "The points tell you how good the course is.",
+          "reality": "Points are demand. A high-points course is popular. That is all the number means."
         },
         {
-          "myth": "I have to go straight after school.",
-          "reality": "Mature entry at twenty-three exists precisely because plenty of people don't."
+          "myth": "I have to go now or never.",
+          "reality": "Mature entry exists at twenty-three precisely because a great many people do not go now."
         },
         {
-          "myth": "If I don't get my first choice I've failed.",
-          "reality": "Most people don't get their first choice. Transfers, progression and postgraduate routes all exist."
+          "myth": "Missing my first choice means I've failed.",
+          "reality": "Most people miss their first choice. Then they get on with it and it turns out fine, which nobody tells you in August."
         }
       ],
       "apply": [
-        {
-          "label": "cao.ie - applications, deadlines and course listings",
-          "url": "https://www.cao.ie"
-        },
-        {
-          "label": "accesscollege.ie - HEAR reduced points entry",
-          "url": "https://accesscollege.ie"
-        },
-        {
-          "label": "Qualifax - search every course in Ireland",
-          "url": "https://www.qualifax.ie"
-        }
+        { "label": "cao.ie — applications, deadlines, every course", "url": "https://www.cao.ie" },
+        { "label": "accesscollege.ie — HEAR, and whether you qualify", "url": "https://accesscollege.ie" },
+        { "label": "Qualifax — search everything", "url": "https://www.qualifax.ie" }
       ],
       "related": [
-        {
-          "label": "HEAR - reduced points entry",
-          "href": "/funding/hear"
-        },
-        {
-          "label": "SUSI - the main grant",
-          "href": "/funding/susi"
-        },
-        {
-          "label": "PLC and further education",
-          "href": "/routes/plc"
-        }
+        { "label": "HEAR — reduced points entry", "href": "/funding/hear" },
+        { "label": "SUSI — the grant", "href": "/funding/susi" },
+        { "label": "PLC and further education", "href": "/routes/plc" }
       ]
     },
     {
       "slug": "abroad",
       "title": "Studying in Europe",
-      "subtitle": "Often cheaper than staying home",
+      "subtitle": "Frequently cheaper than staying here",
       "checked": "September 2026",
-      "summary": "English-taught degrees across Europe at EU fee rates — frequently a fraction of what the same degree costs in the UK, and sometimes less than in Ireland.",
-      "body": "As an Irish citizen you are an EU student, which means you pay the same tuition as a local student in any EU country. In several countries that is far less than you would pay in the UK, and hundreds of degrees are taught entirely in English.\n\nThe Netherlands is the best-known route for Irish students — a large number of English-taught bachelor's degrees, an established application system, and a student culture used to international arrivals. Germany and the Nordic countries also teach in English at low or no tuition cost.\n\nAlmost nobody in an Irish school mentions this. It is a real option, and for some courses it is both cheaper and easier to get into than the Irish equivalent.",
+      "summary": "English-taught degrees across the continent at EU fee rates. A fraction of what the same thing costs in the UK, and sometimes less than Dublin.",
+      "body": "You are an Irish citizen, which makes you an EU student, which means you pay what a local pays anywhere in the union. In several countries that figure is small. Hundreds of degrees are taught entirely in English.\n\nThe Netherlands is the well-worn route. A large number of English-taught bachelor's degrees, an application system that expects foreigners, and student cities that are used to them. Germany and the Nordics teach in English too, at low or no tuition.\n\nAlmost nobody in an Irish school will raise this with you. It is not obscure and it is not difficult. It simply is not on the slides.",
       "blocks": [
         {
-          "heading": "Why it isn't the UK",
-          "text": "Since Brexit, fee arrangements for Irish students in the UK have changed and vary. Check the current position carefully before assuming anything. Continental Europe is the more reliable value, and the reason this page focuses there."
+          "heading": "Why this page is not about the UK",
+          "text": "Fee arrangements for Irish students in the UK changed after Brexit and vary. Check the current position properly before you assume anything about it. The continent is the reliable value, which is why it is the one written up here."
         },
         {
-          "heading": "Entry can work differently",
-          "text": "Many European universities don't use a points race the way the CAO does. Some courses admit anyone meeting a minimum requirement; others use a lottery or their own selection. A course that is out of reach on points in Ireland may not be abroad."
+          "heading": "Entry works differently",
+          "text": "Many European universities do not run a points auction. Some admit anyone who meets a minimum standard, some use a lottery, some choose for themselves. A course that is unreachable on points here may not be unreachable there."
         },
         {
-          "heading": "Housing is the real difficulty",
-          "text": "Not fees — accommodation. In Dutch cities especially, student housing is scarce and must be arranged early. This is the thing that catches people out, and it is worth planning before you accept a place."
+          "heading": "Housing is the actual problem",
+          "text": "Not fees. Beds. Student accommodation in Dutch cities is genuinely scarce and has to be sorted early. This is the thing that goes wrong for people, and it goes wrong in August."
         },
         {
-          "heading": "You can still get Irish support",
-          "text": "Some Irish student supports apply to study elsewhere in the EU, and some don't. Check with SUSI directly rather than guessing — the answer depends on the course and country."
+          "heading": "Check what Irish support follows you",
+          "text": "Some Irish student supports apply to study elsewhere in the EU and some do not. Ask SUSI directly. Do not take the answer from a forum."
         },
         {
-          "heading": "What you get beyond the degree",
-          "text": "Living in another country in your late teens changes what you think is possible, and employers notice it. For a student who has not travelled much, this is arguably the biggest part of the value."
+          "heading": "What you get that isn't on the certificate",
+          "text": "Living somewhere else at nineteen changes what you think is available to you, permanently. If you have not travelled much, that is the larger half of the value, and no prospectus will put a number on it."
         }
       ],
       "myths": [
         {
           "myth": "I'd need the language.",
-          "reality": "Hundreds of degrees across Europe are taught entirely in English, particularly in the Netherlands and the Nordics."
+          "reality": "Hundreds of degrees are taught in English, particularly in the Netherlands and the Nordics."
         },
         {
-          "myth": "It must be more expensive than home.",
-          "reality": "EU tuition rates are often lower than the Irish student contribution. Living costs vary — sometimes higher, sometimes not."
+          "myth": "Abroad means expensive.",
+          "reality": "EU tuition is often below the Irish student contribution. Living costs are the variable, and not always upward."
         },
         {
-          "myth": "An Irish employer won't recognise it.",
-          "reality": "EU degrees are recognised across the EU. It's a normal qualification, not an exotic one."
+          "myth": "An Irish employer won't take it seriously.",
+          "reality": "EU degrees are recognised across the EU. It is a normal qualification from a normal university."
         }
       ],
       "apply": [
-        {
-          "label": "Eunicas — helps Irish students apply to European universities",
-          "url": "https://www.eunicas.ie"
-        },
-        {
-          "label": "Studielink — the Dutch application system",
-          "url": "https://www.studielink.nl"
-        },
-        {
-          "label": "Study in Holland — official information on Dutch higher education",
-          "url": "https://www.studyinnl.org"
-        },
-        {
-          "label": "SUSI — check what support applies abroad",
-          "url": "https://susi.ie"
-        }
+        { "label": "Eunicas — helps Irish students apply to European universities", "url": "https://www.eunicas.ie" },
+        { "label": "Studielink — the Dutch application system", "url": "https://www.studielink.nl" },
+        { "label": "Study in NL — official information on Dutch higher education", "url": "https://www.studyinnl.org" },
+        { "label": "SUSI — ask them what follows you abroad", "url": "https://susi.ie" }
       ],
       "related": [
-        {
-          "label": "SUSI",
-          "href": "/funding/susi"
-        },
-        {
-          "label": "CAO and college",
-          "href": "/routes/college"
-        }
+        { "label": "SUSI", "href": "/funding/susi" },
+        { "label": "CAO and college", "href": "/routes/college" }
       ]
     }
   ]

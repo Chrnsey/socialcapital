@@ -3,52 +3,52 @@
     {
       "slug": "technology",
       "title": "Technology",
-      "summary": "Technology is one of Ireland's fastest-growing sectors, home to the European headquarters of several of the world's largest technology companies as well as hundreds of Irish-founded ones. Roles range from software engineering and UX design to product management and data. You don't need to have studied computer science — many people enter through apprenticeships, conversion courses, or by switching from another field entirely."
+      "summary": "Ireland holds an unusual amount of this work for its size, across both the large foreign names and a lot of Irish companies nobody outside the industry has heard of. Software, product, design, data. A computer science degree is the common route and not the only one — apprenticeships exist here and are badly under-advertised, and after a first job almost nobody asks where you studied."
     },
     {
       "slug": "healthcare",
       "title": "Healthcare",
-      "summary": "Healthcare covers medicine, nursing, physiotherapy, pharmacy, occupational therapy and many roles besides. It is one of the most stable career paths in the country, with strong demand across public and private settings. Routes in vary widely — from direct entry after the Leaving Certificate to postgraduate conversion programmes taken years later."
+      "summary": "Medicine, nursing, physiotherapy, pharmacy, occupational therapy, and a long list of roles that never come up in careers talks. Among the steadiest work in the country. The routes in vary more than students expect: straight from the Leaving Certificate for some, a postgraduate conversion years later for others."
     },
     {
       "slug": "law",
       "title": "Law",
-      "summary": "A legal career in Ireland can take several forms — solicitor, barrister, legal executive, or working in-house at a company. The traditional route is a law degree followed by professional exams, but graduate entry is also common, and a legal executive route exists that does not require a degree. Firms range from large international practices to small general practice in every county."
+      "summary": "Solicitor, barrister, legal executive, or in-house at a company. The traditional path is a law degree and then professional exams, but graduate entry is ordinary, and the legal executive route does not require a degree at all. Firms run from large Dublin practices to one-solicitor offices in every county, and the work is nothing alike."
     },
     {
       "slug": "finance",
       "title": "Finance",
-      "summary": "Ireland's financial services sector is among the largest in Europe. Careers span banking, accountancy, insurance, fintech and the public sector. Routes in include professional accounting qualifications such as ACA, ACCA and CIMA — several of which you can earn while employed and paid — as well as direct graduate programmes."
+      "summary": "Banking, accountancy, insurance, fintech, and the public sector. Several of the professional accounting qualifications can be earned while employed and paid, which is the part nobody mentions to students who assume finance means four years of fees first."
     },
     {
       "slug": "trades",
       "title": "Trades",
-      "summary": "Skilled trades are among the most in-demand careers in Ireland. Entry is typically through a SOLAS apprenticeship: you are paid from the first year and there are no college fees. Trades offer strong long-term security, the option to become self-employed, and routes onward into site management, contracting and running your own business."
+      "summary": "Among the most in-demand work in the country and the worst explained. Entry is a SOLAS apprenticeship: paid from year one, no college fees, qualified in about four years. Long-term security, the option of working for yourself, and routes onward into contracting and site management. If a student is being quietly written off, this is usually the conversation nobody has had with them."
     },
     {
       "slug": "media",
       "title": "Media & communications",
-      "summary": "Media and communications covers journalism, broadcasting, public relations, marketing and content. Ireland has a long tradition in journalism and broadcasting alongside a fast-growing digital and marketing industry. Routes in include journalism and communications courses, but increasingly also portfolios built independently."
+      "summary": "Journalism, broadcasting, public relations, marketing, content. A long Irish tradition in the first two and a fast-growing industry in the rest. Courses exist, and so does the route of simply building a body of work until somebody notices — which is harder than it sounds and more common than it used to be."
     },
     {
       "slug": "education",
       "title": "Education",
-      "summary": "Teaching, special education, youth work, further education and educational psychology. Primary teaching is usually a dedicated degree; secondary teaching is typically a subject degree followed by a professional masters. Youth and community work offers routes that do not require a traditional degree."
+      "summary": "Teaching, special education, youth work, further education, educational psychology. Primary teaching has its own degree; secondary is usually a subject degree and then a professional masters. Youth and community work has routes in that do not require a traditional degree, and they are rarely mentioned."
     },
     {
       "slug": "engineering",
       "title": "Engineering",
-      "summary": "Civil, mechanical, electrical, biomedical and manufacturing engineering, among others. Ireland has particular strength in medical devices and pharmaceutical manufacturing. Entry is usually through a degree or a higher-level apprenticeship, and technician routes offer a paid way in without a four-year course."
+      "summary": "Civil, mechanical, electrical, biomedical, manufacturing. Ireland has particular depth in medical devices and pharmaceutical manufacturing, which is invisible to students unless somebody points at the building. Degree or higher apprenticeship, and technician routes offer a paid way in without four years up front."
     },
     {
       "slug": "public_sector",
       "title": "Public sector",
-      "summary": "The civil service, local authorities, An Garda Síochána, the Defence Forces, and state agencies. Many roles are filled by open competition rather than by degree requirement, and the Leaving Certificate is sufficient for a number of entry grades with structured promotion afterwards."
+      "summary": "The civil service, local authorities, An Garda Síochána, the Defence Forces, the state agencies. A good deal of it is filled by open competition rather than degree requirement, and the Leaving Certificate is enough for a number of entry grades with structured promotion afterwards. Almost nobody explains this to sixth years."
     },
     {
       "slug": "other",
       "title": "Other sectors",
-      "summary": "Mentors whose work doesn't fit neatly into the categories above — including agriculture, hospitality, the arts, sport, logistics and the charity sector."
+      "summary": "Mentors whose work does not sit neatly above. Agriculture, hospitality, the arts, sport, logistics, the charity sector."
     }
   ]
 }

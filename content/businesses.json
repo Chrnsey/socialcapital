@@ -1,11 +1,13 @@
 {
   "hero": {
-    "title": "Put your team's experience to work where it matters.",
-    "body": "List employees as mentors, sponsor a school talk, or fund a term of talks outright. It's a direct, low-effort way to meet your CSR goals — and it's felt by an actual student, not just a report."
+    "title": "Your staff already know things these students cannot find out",
+    "body": "List employees as mentors, cover a school talk, or fund a term of them. It meets a CSR objective without a workshop, a lanyard or a report nobody reads, and it is felt by an actual fifteen-year-old."
   },
-  "ways": { "title": "Three ways to get involved" },
+  "ways": {
+    "title": "Three ways in"
+  },
   "cta": {
-    "title": "Want to talk it through?",
-    "body": "Tell us roughly what you have in mind — a handful of mentors, a sponsored talk, or ongoing support — and we'll work out what fits."
+    "title": "Worth a conversation?",
+    "body": "Tell us roughly what you have in mind. A few willing staff, one sponsored talk, or something ongoing. We will work out what fits and we will not send you a deck."
   }
 }
