@@ -5,12 +5,33 @@
 [build]
   publish = "."
 
-# Clean URLs for pathway pages: /pathways/electrician serves pathway.html
-# while keeping the nice address in the browser bar.
+# Clean URLs for the guide sections. /routes/apprenticeships serves
+# guide.html while keeping the nice address in the browser bar.
+[[redirects]]
+  from = "/routes/*"
+  to = "/guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/funding/*"
+  to = "/guide.html"
+  status = 200
+
+[[redirects]]
+  from = "/careers/*"
+  to = "/guide.html"
+  status = 200
+
+# Old pathway URLs, kept working.
 [[redirects]]
   from = "/pathways/*"
-  to = "/pathway.html"
-  status = 200
+  to = "/careers/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/pathways.html"
+  to = "/guides.html"
+  status = 301
 
 # Keep working notes and the database script out of the public site.
 [[redirects]]

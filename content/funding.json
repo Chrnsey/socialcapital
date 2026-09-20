@@ -1,0 +1,97 @@
+{
+  "section": {
+    "slug": "funding",
+    "title": "Paying for it",
+    "tag": "Money",
+    "intro": "Most of the cost of studying in Ireland can be reduced, covered, or avoided entirely — and some routes pay you from the first year. A lot of students never apply for help they would have got, because nobody told them it existed."
+  },
+  "items": [
+    {
+      "slug": "hear",
+      "title": "HEAR",
+      "subtitle": "Higher Education Access Route",
+      "checked": "September 2026",
+      "summary": "Lets you into college on fewer points than everyone else, if your background qualifies. Many students who could use it never apply.",
+      "body": "HEAR is a scheme that offers college places on reduced points, plus support once you're there, to school leavers from socio-economically disadvantaged backgrounds. It is run by the universities and colleges through the CAO.\n\nIf you are in a DEIS school, there is a real chance you are eligible — but eligibility is assessed on your household's circumstances, not on your school, so you have to apply and show it.\n\nThis is probably the single most valuable thing on this website. Students who would have qualified miss out every year, usually for one of three reasons: nobody mentioned it, the paperwork looked like too much, or they assumed it wasn't meant for them.",
+      "blocks": [
+        {
+          "heading": "What you actually get",
+          "text": "A place on a course at lower points than the general entry requirement, and access to supports during college — orientation, study help, and in some cases financial assistance. It is not a lesser qualification. You sit the same exams and get the same degree as everyone else on the course."
+        },
+        {
+          "heading": "The deadline is earlier than you think",
+          "text": "HEAR is applied for through your CAO application, and the HEAR deadline falls well before the main CAO one — you also have to upload supporting documents by a separate, earlier date. Missing it means waiting a year. Check the current dates on accesscollege.ie in the autumn of sixth year, not the spring."
+        },
+        {
+          "heading": "You will need documents",
+          "text": "Proof of income, and evidence of your circumstances. Gathering these takes time, which is the real reason people give up. Start early, and ask your guidance counsellor to help — this is exactly what they are there for."
+        },
+        {
+          "heading": "Applying does not cost you anything",
+          "text": "If you turn out not to be eligible, your normal CAO application is unaffected. There is no downside to applying and finding out."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "It's only for people in serious hardship.",
+          "reality": "Eligibility looks at a combination of factors, not just income. Plenty of ordinary working families qualify."
+        },
+        {
+          "myth": "Everyone will know I got in on reduced points.",
+          "reality": "They won't. It isn't on your degree, and nobody in your class is told."
+        },
+        {
+          "myth": "My school will sort it for me.",
+          "reality": "You apply yourself, through the CAO. Your school can help with documents, but nobody does it for you."
+        }
+      ],
+      "apply": [
+        { "label": "accesscollege.ie — the official HEAR site, with current eligibility and dates", "url": "https://accesscollege.ie" },
+        { "label": "CAO — where the application happens", "url": "https://www.cao.ie" }
+      ],
+      "related": [
+        { "label": "SUSI — the main grant", "href": "/funding/susi" },
+        { "label": "CAO and college", "href": "/routes/college" }
+      ]
+    },
+    {
+      "slug": "susi",
+      "title": "SUSI",
+      "subtitle": "The main student grant",
+      "checked": "September 2026",
+      "summary": "Ireland's student grant. Covers fees for many, and pays a maintenance amount to some. Plenty of people who'd qualify never apply.",
+      "body": "SUSI is the national student grant scheme. Depending on your household income and circumstances, it can cover the student contribution charge, and separately pay a maintenance grant towards living costs.\n\nThe most common mistake is assuming you won't qualify and not applying. Income thresholds are higher than most people guess, and the application is free.",
+      "blocks": [
+        {
+          "heading": "Two different things",
+          "text": "SUSI can cover your fees, and it can pay you a maintenance grant to live on. They are assessed separately — you might get one and not the other. The maintenance grant also pays more if you live far from college."
+        },
+        {
+          "heading": "Apply before you have an offer",
+          "text": "You can and should apply before you know what course you're doing. Waiting until you have a CAO offer means waiting longer for money you may need in September."
+        },
+        {
+          "heading": "It isn't the only help",
+          "text": "Most colleges also run a Student Assistance Fund for students hitting unexpected costs. It's discretionary, confidential, and far less well known than it should be. Ask the access office once you're enrolled."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "My parents earn too much.",
+          "reality": "Maybe — but the thresholds surprise people, and they change. Check rather than assume."
+        },
+        {
+          "myth": "It only covers fees.",
+          "reality": "There's a maintenance grant too, paid to you, for living costs."
+        }
+      ],
+      "apply": [
+        { "label": "susi.ie — check eligibility and apply", "url": "https://susi.ie" },
+        { "label": "studentfinance.ie — a plainer overview of all supports", "url": "https://www.studentfinance.ie" }
+      ],
+      "related": [
+        { "label": "HEAR — reduced points entry", "href": "/funding/hear" }
+      ]
+    }
+  ]
+}

@@ -175,48 +175,54 @@ collections:
               - { name: summary, label: "Description of the sector", widget: text }
 
   # -------------------------------------------------------------------
-  - name: pathways
-    label: "Routes into work"
+  - name: routes
+    label: "Ways in"
     files:
-      - name: pathways
-        label: "Career pathway pages"
-        file: "content/pathways.json"
+      - name: routes
+        label: "Ways in"
+        file: "content/routes.json"
         format: json
         fields:
-          - name: intro
-            label: "Top of the Routes-in page"
+          - name: section
+            label: "Top of this section's page"
             widget: object
             fields:
+              - { name: slug, label: "Internal code - do not change", widget: string }
               - { name: tag, label: "Small grey label", widget: string }
-              - { name: title, label: "Heading", widget: string }
-              - { name: body, label: "Intro paragraph", widget: text }
-          - name: pathways
-            label: "Pathways"
-            label_singular: "pathway"
+              - { name: title, label: "Section heading", widget: string }
+              - { name: intro, label: "Section intro paragraph", widget: text }
+          - name: items
+            label: "Ways in"
+            label_singular: "way in"
             widget: list
             summary: "{{fields.title}}"
             fields:
-              - { name: slug, label: "Web address (lowercase, hyphens, no spaces - changing this breaks links)", widget: string }
-              - { name: title, label: "Job title", widget: string }
-              - { name: sector, label: "Sector", widget: string }
+              - { name: slug, label: "Web address (lowercase, hyphens - changing this breaks links)", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: subtitle, label: "Small line above the title", widget: string, required: false }
               - { name: summary, label: "One-line summary (shown on the card)", widget: string }
               - { name: checked, label: "Information last checked (e.g. September 2026)", widget: string }
-              - { name: what_it_is, label: "What the job actually is", widget: text }
-              - name: routes
-                label: "Ways in"
-                label_singular: "route"
+              - { name: body, label: "Main explanation (blank line = new paragraph)", widget: text }
+              - name: facts
+                label: "Quick facts box (optional)"
+                label_singular: "fact"
                 widget: list
-                summary: "{{fields.name}}"
+                required: false
+                summary: "{{fields.label}}"
                 fields:
-                  - { name: name, label: "Route name", widget: string }
-                  - { name: tag, label: "Small green badge (optional)", widget: string, required: false }
-                  - { name: detail, label: "How this route works", widget: text }
-                  - { name: duration, label: "How long", widget: string, required: false }
-                  - { name: cost, label: "What it costs", widget: string, required: false }
-              - { name: what_you_need, label: "What you need to get in", widget: text }
-              - { name: earning, label: "What you earn while training", widget: text, required: false }
+                  - { name: label, label: "Label", widget: string }
+                  - { name: value, label: "Value", widget: string }
+              - name: blocks
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                required: false
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Heading", widget: string }
+                  - { name: text, label: "Text", widget: text }
               - name: myths
-                label: "What people get wrong"
+                label: "What people get wrong (optional)"
                 label_singular: "myth"
                 widget: list
                 required: false
@@ -225,7 +231,7 @@ collections:
                   - { name: myth, label: "The myth", widget: string }
                   - { name: reality, label: "The reality", widget: text }
               - name: apply
-                label: "Where to go next (official links)"
+                label: "Official links"
                 label_singular: "link"
                 widget: list
                 required: false
@@ -233,3 +239,162 @@ collections:
                 fields:
                   - { name: label, label: "Link text", widget: string }
                   - { name: url, label: "Address", widget: string }
+              - name: related
+                label: "Read next (links to other pages on this site)"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: href, label: "Address, e.g. /funding/hear", widget: string }
+
+  # -------------------------------------------------------------------
+  - name: funding
+    label: "Paying for it"
+    files:
+      - name: funding
+        label: "Paying for it"
+        file: "content/funding.json"
+        format: json
+        fields:
+          - name: section
+            label: "Top of this section's page"
+            widget: object
+            fields:
+              - { name: slug, label: "Internal code - do not change", widget: string }
+              - { name: tag, label: "Small grey label", widget: string }
+              - { name: title, label: "Section heading", widget: string }
+              - { name: intro, label: "Section intro paragraph", widget: text }
+          - name: items
+            label: "Funding options"
+            label_singular: "funding option"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: slug, label: "Web address (lowercase, hyphens - changing this breaks links)", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: subtitle, label: "Small line above the title", widget: string, required: false }
+              - { name: summary, label: "One-line summary (shown on the card)", widget: string }
+              - { name: checked, label: "Information last checked (e.g. September 2026)", widget: string }
+              - { name: body, label: "Main explanation (blank line = new paragraph)", widget: text }
+              - name: facts
+                label: "Quick facts box (optional)"
+                label_singular: "fact"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: value, label: "Value", widget: string }
+              - name: blocks
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                required: false
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Heading", widget: string }
+                  - { name: text, label: "Text", widget: text }
+              - name: myths
+                label: "What people get wrong (optional)"
+                label_singular: "myth"
+                widget: list
+                required: false
+                summary: "{{fields.myth}}"
+                fields:
+                  - { name: myth, label: "The myth", widget: string }
+                  - { name: reality, label: "The reality", widget: text }
+              - name: apply
+                label: "Official links"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: url, label: "Address", widget: string }
+              - name: related
+                label: "Read next (links to other pages on this site)"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: href, label: "Address, e.g. /funding/hear", widget: string }
+
+  # -------------------------------------------------------------------
+  - name: careers
+    label: "Careers"
+    files:
+      - name: careers
+        label: "Careers"
+        file: "content/careers.json"
+        format: json
+        fields:
+          - name: section
+            label: "Top of this section's page"
+            widget: object
+            fields:
+              - { name: slug, label: "Internal code - do not change", widget: string }
+              - { name: tag, label: "Small grey label", widget: string }
+              - { name: title, label: "Section heading", widget: string }
+              - { name: intro, label: "Section intro paragraph", widget: text }
+          - name: items
+            label: "Careers"
+            label_singular: "career"
+            widget: list
+            summary: "{{fields.title}}"
+            fields:
+              - { name: slug, label: "Web address (lowercase, hyphens - changing this breaks links)", widget: string }
+              - { name: title, label: "Title", widget: string }
+              - { name: subtitle, label: "Small line above the title", widget: string, required: false }
+              - { name: summary, label: "One-line summary (shown on the card)", widget: string }
+              - { name: checked, label: "Information last checked (e.g. September 2026)", widget: string }
+              - { name: body, label: "Main explanation (blank line = new paragraph)", widget: text }
+              - name: facts
+                label: "Quick facts box (optional)"
+                label_singular: "fact"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Label", widget: string }
+                  - { name: value, label: "Value", widget: string }
+              - name: blocks
+                label: "Sections"
+                label_singular: "section"
+                widget: list
+                required: false
+                summary: "{{fields.heading}}"
+                fields:
+                  - { name: heading, label: "Heading", widget: string }
+                  - { name: text, label: "Text", widget: text }
+              - name: myths
+                label: "What people get wrong (optional)"
+                label_singular: "myth"
+                widget: list
+                required: false
+                summary: "{{fields.myth}}"
+                fields:
+                  - { name: myth, label: "The myth", widget: string }
+                  - { name: reality, label: "The reality", widget: text }
+              - name: apply
+                label: "Official links"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: url, label: "Address", widget: string }
+              - name: related
+                label: "Read next (links to other pages on this site)"
+                label_singular: "link"
+                widget: list
+                required: false
+                summary: "{{fields.label}}"
+                fields:
+                  - { name: label, label: "Link text", widget: string }
+                  - { name: href, label: "Address, e.g. /funding/hear", widget: string }

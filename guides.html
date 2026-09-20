@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Capital — Route into work</title>
+<title>Social Capital — Routes into work</title>
+<meta name="description" content="How to get into work and education in Ireland — apprenticeships, PLCs, college, studying in Europe, and the grants and access routes nobody tells you about.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,500;8..60,600;8..60,700&family=Public+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -291,7 +292,6 @@
   .form-consent a { color: var(--ink-faint); text-decoration: underline; }
   .form-consent a:hover { color: var(--ink); }
 </style>
-
 <style>
   .pw-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 3rem; }
   .pw-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.6rem; }
@@ -337,19 +337,57 @@
   @media (max-width: 720px) { .pathway-grid { grid-template-columns: 1fr; } }
   @media (max-width: 640px) { .pw-wrap { padding: 2.5rem 1.25rem 2rem; } .route-facts { grid-template-columns: 1fr; } }
 </style>
+
+<style>
+  .pw-wrap p { margin-bottom: 1rem; }
+  .pw-wrap .pw-summary { margin-bottom: 1.5rem; }
+  .pw-wrap h2 + p, .pw-wrap .route p { margin-bottom: 0.85rem; }
+
+  .guide-group { margin-bottom: 4rem; }
+  .guide-group h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin: 0 0 0.6rem; }
+  .guide-intro { font-size: 1rem; color: var(--ink-soft); max-width: 58ch; margin-bottom: 2rem; }
+  .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
+  .guide-card { display: block; background: var(--card); border: 1px solid var(--line);
+                border-radius: 4px; padding: 1.5rem; text-decoration: none; }
+  .guide-card:hover { border-color: var(--ink-faint); }
+  .guide-card-top { display: flex; align-items: center; justify-content: space-between;
+                    margin-bottom: 0.85rem; gap: 1rem; }
+  .guide-sub { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+               color: var(--ink-faint); }
+  .guide-arrow { color: var(--ink-faint); font-size: 1.2rem; font-family: 'Source Serif 4', serif; }
+  .guide-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .guide-card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+  .fact-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem;
+               background: var(--paper-dim); border-radius: 4px; padding: 1.5rem; margin: 1.5rem 0 2rem; }
+  .fact-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+                  color: var(--ink-faint); margin-bottom: 0.2rem; }
+  .fact-grid dd { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+
+  .related { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 2.5rem; }
+  .related ul { list-style: none; margin: 0.5rem 0 0; }
+  .related li { margin-bottom: 0.45rem; font-size: 0.95rem; }
+
+  @media (max-width: 720px) { .guide-grid, .fact-grid { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 <nav>
-  <a href="/index.html" class="nav-logo">Social Capital</a>
+  <a href="index.html" class="nav-logo">Social Capital</a>
   <ul class="nav-links">
-    <li><a href="/pathways.html">Routes in</a></li>
-    <li><a href="/schools.html">For schools</a></li>
-    <li><a href="/businesses.html">For businesses</a></li>
-    <li><a href="/mentors.html">Become a mentor</a></li>
+    <li><a href="guides.html">Routes in</a></li>
+    <li><a href="schools.html">For schools</a></li>
+    <li><a href="businesses.html">For businesses</a></li>
+    <li><a href="mentors.html">Become a mentor</a></li>
   </ul>
 </nav>
-<div class="pw-wrap" id="pathwayDetail">
-  <p class="dir-empty">Loading…</p>
+<div class="pw-wrap">
+  <p class="pw-kicker">Routes in</p>
+  <h1>Nobody tells you how any of this works</h1>
+  <p class="pw-summary">How to get in, how to pay for it, and what the jobs are actually like. Written for students in DEIS schools, but useful to anyone.</p>
+  <div id="guideHub" style="margin-top:3.5rem;">
+    <p class="dir-empty">Loading…</p>
+  </div>
 </div>
 <footer>
   <div>
@@ -357,13 +395,13 @@
     <div>Connecting students to real careers. Ireland.</div>
   </div>
   <div class="footer-links">
-    <a href="/pathways.html">Routes in</a>
-    <a href="/schools.html">For schools</a>
-    <a href="/mentors.html">Become a mentor</a>
-    <a href="/privacy.html">Privacy</a>
+    <a href="guides.html">Routes in</a>
+    <a href="schools.html">For schools</a>
+    <a href="mentors.html">Become a mentor</a>
+    <a href="privacy.html">Privacy</a>
     <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
   </div>
 </footer>
-<script src="/js/pathways.js"></script>
+<script src="js/guides.js"></script>
 </body>
 </html>

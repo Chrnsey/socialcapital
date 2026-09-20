@@ -1,0 +1,118 @@
+{
+  "section": {
+    "slug": "routes",
+    "title": "Ways in",
+    "tag": "How it works",
+    "intro": "There are more ways into work than the CAO. Some pay you from the first year, some cost almost nothing, and some are available years after you leave school. These pages explain how each one actually works."
+  },
+  "items": [
+    {
+      "slug": "apprenticeships",
+      "title": "Apprenticeships",
+      "subtitle": "Earn while you learn",
+      "checked": "September 2026",
+      "summary": "You're employed from day one, paid a wage that rises each year, and you finish with a recognised qualification and no student debt.",
+      "body": "An apprenticeship is a job with structured training attached. You are an employee from the first day, paid a wage, and you alternate between working and blocks of off-the-job training. At the end you hold a nationally recognised qualification.\n\nThe part most students are never told: apprenticeships are no longer just trades. There are apprenticeships in software, finance, insurance, engineering, logistics, hospitality and accountancy — some leading to degree-level qualifications.",
+      "facts": [
+        { "label": "Who employs you", "value": "A company, from day one" },
+        { "label": "Do you get paid", "value": "Yes, rising each year" },
+        { "label": "College fees", "value": "None in the usual sense" },
+        { "label": "Points needed", "value": "None — you need an employer" }
+      ],
+      "blocks": [
+        {
+          "heading": "The hard part is finding an employer",
+          "text": "This is the real barrier, and it's why this website exists. You aren't applying through a central system the way you would with the CAO — you're finding a company willing to take you on. Ringing local firms directly works more often than people expect. Knowing somebody helps, which is exactly the gap we're trying to close."
+        },
+        {
+          "heading": "If you can't find one yet",
+          "text": "A pre-apprenticeship or PLC course in the same field gives you practical experience and makes an employer far more likely to say yes. It is not a step backwards."
+        },
+        {
+          "heading": "There's no age limit",
+          "text": "People start apprenticeships in their twenties, thirties and later, often after working in something else entirely. It is not a decision you have to make at seventeen or never."
+        },
+        {
+          "heading": "Where it leads",
+          "text": "Qualified tradespeople move into supervision, contracting, inspection, teaching, and running their own businesses. Self-employment is a realistic route, and many earn more than graduates in office jobs."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "Apprenticeships are for people who aren't academic.",
+          "reality": "The exams are real and people fail them. It's a different kind of difficulty, not a lesser one."
+        },
+        {
+          "myth": "It's only trades.",
+          "reality": "Software, insurance, finance, accountancy, engineering and logistics all have apprenticeships. Most students are never told this."
+        },
+        {
+          "myth": "You'll earn less in the long run.",
+          "reality": "You start earning four years earlier and finish with no debt. That head start is bigger than people assume."
+        }
+      ],
+      "apply": [
+        { "label": "apprenticeship.ie — every apprenticeship in Ireland, and how to apply", "url": "https://www.apprenticeship.ie" },
+        { "label": "SOLAS — the authority on standards and entry", "url": "https://www.solas.ie" }
+      ],
+      "related": [
+        { "label": "PLC and further education", "href": "/routes/plc" },
+        { "label": "Electrician", "href": "/careers/electrician" }
+      ]
+    },
+    {
+      "slug": "abroad",
+      "title": "Studying in Europe",
+      "subtitle": "Often cheaper than staying home",
+      "checked": "September 2026",
+      "summary": "English-taught degrees across Europe at EU fee rates — frequently a fraction of what the same degree costs in the UK, and sometimes less than in Ireland.",
+      "body": "As an Irish citizen you are an EU student, which means you pay the same tuition as a local student in any EU country. In several countries that is far less than you would pay in the UK, and hundreds of degrees are taught entirely in English.\n\nThe Netherlands is the best-known route for Irish students — a large number of English-taught bachelor's degrees, an established application system, and a student culture used to international arrivals. Germany and the Nordic countries also teach in English at low or no tuition cost.\n\nAlmost nobody in an Irish school mentions this. It is a real option, and for some courses it is both cheaper and easier to get into than the Irish equivalent.",
+      "blocks": [
+        {
+          "heading": "Why it isn't the UK",
+          "text": "Since Brexit, fee arrangements for Irish students in the UK have changed and vary. Check the current position carefully before assuming anything. Continental Europe is the more reliable value, and the reason this page focuses there."
+        },
+        {
+          "heading": "Entry can work differently",
+          "text": "Many European universities don't use a points race the way the CAO does. Some courses admit anyone meeting a minimum requirement; others use a lottery or their own selection. A course that is out of reach on points in Ireland may not be abroad."
+        },
+        {
+          "heading": "Housing is the real difficulty",
+          "text": "Not fees — accommodation. In Dutch cities especially, student housing is scarce and must be arranged early. This is the thing that catches people out, and it is worth planning before you accept a place."
+        },
+        {
+          "heading": "You can still get Irish support",
+          "text": "Some Irish student supports apply to study elsewhere in the EU, and some don't. Check with SUSI directly rather than guessing — the answer depends on the course and country."
+        },
+        {
+          "heading": "What you get beyond the degree",
+          "text": "Living in another country in your late teens changes what you think is possible, and employers notice it. For a student who has not travelled much, this is arguably the biggest part of the value."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "I'd need the language.",
+          "reality": "Hundreds of degrees across Europe are taught entirely in English, particularly in the Netherlands and the Nordics."
+        },
+        {
+          "myth": "It must be more expensive than home.",
+          "reality": "EU tuition rates are often lower than the Irish student contribution. Living costs vary — sometimes higher, sometimes not."
+        },
+        {
+          "myth": "An Irish employer won't recognise it.",
+          "reality": "EU degrees are recognised across the EU. It's a normal qualification, not an exotic one."
+        }
+      ],
+      "apply": [
+        { "label": "Eunicas — helps Irish students apply to European universities", "url": "https://www.eunicas.ie" },
+        { "label": "Studielink — the Dutch application system", "url": "https://www.studielink.nl" },
+        { "label": "Study in Holland — official information on Dutch higher education", "url": "https://www.studyinnl.org" },
+        { "label": "SUSI — check what support applies abroad", "url": "https://susi.ie" }
+      ],
+      "related": [
+        { "label": "SUSI", "href": "/funding/susi" },
+        { "label": "CAO and college", "href": "/routes/college" }
+      ]
+    }
+  ]
+}
