@@ -14,10 +14,22 @@
       "summary": "You're employed from day one, paid a wage that rises each year, and you finish with a recognised qualification and no student debt.",
       "body": "An apprenticeship is a job with structured training attached. You are an employee from the first day, paid a wage, and you alternate between working and blocks of off-the-job training. At the end you hold a nationally recognised qualification.\n\nThe part most students are never told: apprenticeships are no longer just trades. There are apprenticeships in software, finance, insurance, engineering, logistics, hospitality and accountancy — some leading to degree-level qualifications.",
       "facts": [
-        { "label": "Who employs you", "value": "A company, from day one" },
-        { "label": "Do you get paid", "value": "Yes, rising each year" },
-        { "label": "College fees", "value": "None in the usual sense" },
-        { "label": "Points needed", "value": "None — you need an employer" }
+        {
+          "label": "Who employs you",
+          "value": "A company, from day one"
+        },
+        {
+          "label": "Do you get paid",
+          "value": "Yes, rising each year"
+        },
+        {
+          "label": "College fees",
+          "value": "None in the usual sense"
+        },
+        {
+          "label": "Points needed",
+          "value": "None — you need an employer"
+        }
       ],
       "blocks": [
         {
@@ -52,12 +64,192 @@
         }
       ],
       "apply": [
-        { "label": "apprenticeship.ie — every apprenticeship in Ireland, and how to apply", "url": "https://www.apprenticeship.ie" },
-        { "label": "SOLAS — the authority on standards and entry", "url": "https://www.solas.ie" }
+        {
+          "label": "apprenticeship.ie — every apprenticeship in Ireland, and how to apply",
+          "url": "https://www.apprenticeship.ie"
+        },
+        {
+          "label": "SOLAS — the authority on standards and entry",
+          "url": "https://www.solas.ie"
+        }
       ],
       "related": [
-        { "label": "PLC and further education", "href": "/routes/plc" },
-        { "label": "Electrician", "href": "/careers/electrician" }
+        {
+          "label": "PLC and further education",
+          "href": "/routes/plc"
+        },
+        {
+          "label": "Electrician",
+          "href": "/careers/electrician"
+        }
+      ]
+    },
+    {
+      "slug": "plc",
+      "title": "PLC and further education",
+      "subtitle": "No points, low fees, a second chance",
+      "checked": "September 2026",
+      "summary": "A one or two year course with no points requirement, very low fees, and a route onward to either work or a degree.",
+      "body": "A Post Leaving Certificate course is a practical, full-time course run by an Education and Training Board or further education college. You apply directly to the college rather than through the CAO, and there is no points requirement.\n\nThey are often described as a fallback. That framing does students a disservice. A PLC is a legitimate route in its own right, it leads directly to employment in many fields, and it is also one of the most reliable ways into a degree for someone whose Leaving Certificate did not go the way they hoped.",
+      "facts": [
+        {
+          "label": "How long",
+          "value": "One to two years"
+        },
+        {
+          "label": "Points needed",
+          "value": "None"
+        },
+        {
+          "label": "Fees",
+          "value": "Low, and free for some"
+        },
+        {
+          "label": "How to apply",
+          "value": "Direct to the college"
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "It's a route to a degree, not a dead end",
+          "text": "Completing a PLC can get you into higher education through progression arrangements between further education colleges and universities. For some courses this is an easier path to the same degree than competing on points at eighteen. Ask the college specifically which higher education courses their students progress to."
+        },
+        {
+          "heading": "You apply directly, and later than the CAO",
+          "text": "There is no central system and no single deadline. You contact the college or ETB, and many accept applications well into the summer - including after Leaving Certificate results, which matters if things did not go to plan."
+        },
+        {
+          "heading": "The classes are smaller and the work is practical",
+          "text": "Assessment tends to be continuous rather than one set of exams. For students who did not suit the Leaving Certificate format, this alone can change the outcome."
+        },
+        {
+          "heading": "It's also a way into an apprenticeship",
+          "text": "A PLC in a relevant field gives you practical experience and makes an employer far more likely to take you on as an apprentice."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "It's what you do if you fail.",
+          "reality": "It's what a lot of people do who end up with the same degree by a different road - and some who prefer the qualification itself."
+        },
+        {
+          "myth": "Employers don't rate it.",
+          "reality": "QQI awards are nationally recognised, and in many fields the practical training is exactly what an employer wants."
+        },
+        {
+          "myth": "I've missed the deadline.",
+          "reality": "Probably not. Many colleges take applications through the summer."
+        }
+      ],
+      "apply": [
+        {
+          "label": "Your local Education and Training Board",
+          "url": "https://www.etbi.ie"
+        },
+        {
+          "label": "Qualifax - search every further education course in Ireland",
+          "url": "https://www.qualifax.ie"
+        },
+        {
+          "label": "FET Course Hub - further education and training courses",
+          "url": "https://www.fetchcourses.ie"
+        }
+      ],
+      "related": [
+        {
+          "label": "How apprenticeships work",
+          "href": "/routes/apprenticeships"
+        },
+        {
+          "label": "CAO and college",
+          "href": "/routes/college"
+        }
+      ]
+    },
+    {
+      "slug": "college",
+      "title": "CAO and college",
+      "subtitle": "The route everyone's told about",
+      "checked": "September 2026",
+      "summary": "The one your school explains. Worth knowing the parts they usually leave out - reduced points entry, starting at a lower level, and that none of it is final.",
+      "body": "The Central Applications Office handles applications to almost all higher education courses in Ireland. You list courses in order of preference, your Leaving Certificate results convert to points, and offers are made in rounds.\n\nYour school will explain this part. What often goes unmentioned is how much flexibility exists inside it.",
+      "facts": [
+        {
+          "label": "How long",
+          "value": "Two to four years, usually"
+        },
+        {
+          "label": "How to apply",
+          "value": "cao.ie, the winter before"
+        },
+        {
+          "label": "Cost",
+          "value": "Student contribution, often covered"
+        },
+        {
+          "label": "Reduced points",
+          "value": "Possible - see HEAR"
+        }
+      ],
+      "blocks": [
+        {
+          "heading": "You may not need the points everyone quotes",
+          "text": "HEAR offers places on reduced points to students from socio-economically disadvantaged backgrounds, and if you are in a DEIS school there is a real chance you qualify. It is applied for through the CAO, with an earlier deadline than the main one. This is the single most useful thing on this website and most students who could use it never apply."
+        },
+        {
+          "heading": "You can start at a lower level and move up",
+          "text": "Level 6 and Level 7 courses take far fewer points than Level 8 honours degrees, and many allow you to progress into the degree afterwards. Getting to the same place a year later is still getting there."
+        },
+        {
+          "heading": "Nothing you choose at seventeen is final",
+          "text": "People transfer course, repeat a year, drop out and return, or come back years later as mature students - entry at twenty-three is assessed on your circumstances rather than your Leaving Certificate. Treating the CAO form as a life sentence causes more harm than any course choice on it."
+        },
+        {
+          "heading": "Money is usually the smaller problem",
+          "text": "Between SUSI, the 1916 Bursary and college access funds, the cost is reduced or covered for a great many students. Work out the money question separately from the course question, and do not rule out a course before you have checked."
+        }
+      ],
+      "myths": [
+        {
+          "myth": "The points are the standard of the course.",
+          "reality": "Points are just supply and demand. A high-points course is popular, not necessarily better."
+        },
+        {
+          "myth": "I have to go straight after school.",
+          "reality": "Mature entry at twenty-three exists precisely because plenty of people don't."
+        },
+        {
+          "myth": "If I don't get my first choice I've failed.",
+          "reality": "Most people don't get their first choice. Transfers, progression and postgraduate routes all exist."
+        }
+      ],
+      "apply": [
+        {
+          "label": "cao.ie - applications, deadlines and course listings",
+          "url": "https://www.cao.ie"
+        },
+        {
+          "label": "accesscollege.ie - HEAR reduced points entry",
+          "url": "https://accesscollege.ie"
+        },
+        {
+          "label": "Qualifax - search every course in Ireland",
+          "url": "https://www.qualifax.ie"
+        }
+      ],
+      "related": [
+        {
+          "label": "HEAR - reduced points entry",
+          "href": "/funding/hear"
+        },
+        {
+          "label": "SUSI - the main grant",
+          "href": "/funding/susi"
+        },
+        {
+          "label": "PLC and further education",
+          "href": "/routes/plc"
+        }
       ]
     },
     {
@@ -104,14 +296,32 @@
         }
       ],
       "apply": [
-        { "label": "Eunicas — helps Irish students apply to European universities", "url": "https://www.eunicas.ie" },
-        { "label": "Studielink — the Dutch application system", "url": "https://www.studielink.nl" },
-        { "label": "Study in Holland — official information on Dutch higher education", "url": "https://www.studyinnl.org" },
-        { "label": "SUSI — check what support applies abroad", "url": "https://susi.ie" }
+        {
+          "label": "Eunicas — helps Irish students apply to European universities",
+          "url": "https://www.eunicas.ie"
+        },
+        {
+          "label": "Studielink — the Dutch application system",
+          "url": "https://www.studielink.nl"
+        },
+        {
+          "label": "Study in Holland — official information on Dutch higher education",
+          "url": "https://www.studyinnl.org"
+        },
+        {
+          "label": "SUSI — check what support applies abroad",
+          "url": "https://susi.ie"
+        }
       ],
       "related": [
-        { "label": "SUSI", "href": "/funding/susi" },
-        { "label": "CAO and college", "href": "/routes/college" }
+        {
+          "label": "SUSI",
+          "href": "/funding/susi"
+        },
+        {
+          "label": "CAO and college",
+          "href": "/routes/college"
+        }
       ]
     }
   ]
