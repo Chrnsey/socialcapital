@@ -1,16 +1,20 @@
-# Cloudflare Pages redirects. Mirrors what netlify.toml did.
-# Static redirects first, then the proxies. Order matters here.
+# Cloudflare Pages redirects.
+#
+# Note: Pages serves pages without the .html extension and 308-redirects
+# /foo.html to /foo. So destinations here must be extensionless, otherwise
+# a "200" proxy rule collapses into a redirect and the browser's URL loses
+# the path our JavaScript needs to read.
 
 # Old pathway URLs, kept working.
-/pathways.html      /guides.html        301
+/pathways.html      /guides             301
 /pathways/*         /careers/:splat     301
 
 # Keep working notes and the database scripts out of the public site.
-/docs/*             /404.html           404
-/supabase/*         /404.html           404
+/docs/*             /404                404
+/supabase/*         /404                404
 
-# Clean URLs: /routes/apprenticeships serves guide.html while the nice
-# address stays in the browser bar.
-/routes/*           /guide.html         200
-/funding/*          /guide.html         200
-/careers/*          /guide.html         200
+# Clean URLs: /routes/apprenticeships serves the guide template while the
+# nice address stays in the browser bar.
+/routes/*           /guide              200
+/funding/*          /guide              200
+/careers/*          /guide              200
