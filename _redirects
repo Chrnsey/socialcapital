@@ -9,9 +9,8 @@
 /pathways.html      /guides             301
 /pathways/*         /careers/:splat     301
 
-# Keep working notes and the database scripts out of the public site.
-/docs/*             /404                404
-/supabase/*         /404                404
+# /docs and /supabase are hidden by functions instead - Pages _redirects
+# cannot return a 404 status.
 
 # Clean URLs: /routes/apprenticeships serves the guide template while the
 # nice address stays in the browser bar.
