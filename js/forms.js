@@ -107,9 +107,37 @@
       }
       setStatus(form, "", "");
 
-      window.SC.client
-        .from(config.table)
-        .insert(config.build(values))
+      // Fields the database may not have yet, if a migration hasn't been run.
+      // Losing a willing mentor to a schema mismatch is not acceptable, so if
+      // the insert is rejected for an unknown column we drop the optional
+      // fields and try again. The submission matters more than the extras.
+      var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year"];
+
+      function insert(row) {
+        return window.SC.client.from(config.table).insert(row);
+      }
+      function looksLikeMissingColumn(error) {
+        var t = ((error && error.message) || "") + " " + ((error && error.code) || "");
+        return /column|schema cache|PGRST204|42703/i.test(t);
+      }
+
+      var row = config.build(values);
+
+      insert(row)
+        .then(function (result) {
+          if (!result.error) return result;
+          if (!looksLikeMissingColumn(result.error)) throw result.error;
+          console.warn(
+            "[Social Capital] database is missing a newer column — " +
+            "submitting without the optional fields. Run the latest SQL " +
+            "migration to capture them.", result.error.message
+          );
+          var trimmed = {};
+          Object.keys(row).forEach(function (k) {
+            if (OPTIONAL.indexOf(k) === -1) trimmed[k] = row[k];
+          });
+          return insert(trimmed);
+        })
         .then(function (result) {
           if (result.error) throw result.error;
           setStatus(form, config.success, "ok");
