@@ -1,0 +1,20 @@
+# Current DNS for socialcapital.ie
+# Read straight from Blacknight's nameserver on 2026-09-21.
+# Every one of these must exist in Cloudflare BEFORE you switch nameservers.
+
+NAME                       TYPE   VALUE
+----                       ----   -----
+@                          A      75.2.60.5
+@                          MX     mx.zoho.eu.  (priority 10)
+@                          MX     mx2.zoho.eu.  (priority 20)
+@                          MX     mx3.zoho.eu.  (priority 50)
+@                          TXT    "zoho-verification=zb96424214.zmverify.zoho.eu"
+@                          TXT    "v=spf1 include:zohomail.eu ~all"
+www                        CNAME  socialcapitalireland.netlify.app.
+rsend                      CNAME  rsend-euw1.forge.rmta.net.
+send                       CNAME  send.forge.rmta.net.
+resend._domainkey          TXT    "p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCT/F67+s3zT/cQdVUGy... (220 chars - copy in full)
+_dmarc                     TXT    "v=DMARC1; p=none;"
+
+# Anything else you see in Blacknight's zone editor, copy it too.
+# The 'main' A record you had earlier is not critical but harmless to keep.
