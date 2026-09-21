@@ -55,9 +55,37 @@
     });
   }
 
+  // Someone who went to the school the student actually attends is worth
+  // more than any job title, so they go to the top and get said so.
+  function sortMentors(rows) {
+    var mySchool = window.SC && window.SC.school && window.SC.school.id;
+    return rows.slice().sort(function (a, b) {
+      var aMine = mySchool && a.alumnus_school_id === mySchool ? 1 : 0;
+      var bMine = mySchool && b.alumnus_school_id === mySchool ? 1 : 0;
+      if (aMine !== bMine) return bMine - aMine;
+      var aAlum = a.is_alumnus ? 1 : 0, bAlum = b.is_alumnus ? 1 : 0;
+      if (aAlum !== bAlum) return bAlum - aAlum;
+      return (a.full_name || "").localeCompare(b.full_name || "");
+    });
+  }
+
+  function alumniBadge(m) {
+    var mySchool = window.SC && window.SC.school && window.SC.school.id;
+    if (mySchool && m.alumnus_school_id === mySchool) {
+      return '<span class="mentor-alum mentor-alum-own">Went to your school</span>';
+    }
+    if (m.is_alumnus) {
+      var where = m.alumnus_school_name
+        ? " \u00B7 " + escapeHtml(m.alumnus_school_name) : "";
+      return '<span class="mentor-alum">Went to a DEIS school' + where + "</span>";
+    }
+    return "";
+  }
+
   function renderMentors(rows) {
     var list = document.getElementById("mentorList");
     if (!list) return;
+    rows = sortMentors(rows);
 
     if (!rows.length) {
       list.innerHTML =
@@ -74,6 +102,7 @@
         var detail = m.experience_label ? " · " + escapeHtml(m.experience_label) : "";
         var talks = m.open_to_talks
           ? '<span class="mentor-talks">Open to school talks</span>' : "";
+        var alum = alumniBadge(m);
         return (
           '<div class="mentor-card">' +
             '<div class="mentor-avatar">' + escapeHtml(initials(m.full_name)) + "</div>" +
@@ -83,7 +112,7 @@
               '<span class="mentor-badge ' + (m.level === "junior" ? "junior" : "") + '">' +
                 badge + detail +
               "</span>" +
-              talks +
+              talks + alum +
             "</div>" +
           "</div>"
         );
@@ -104,11 +133,9 @@
 
     window.SC.client
       .from("mentors")
-      .select("full_name, role_title, level, experience_label, open_to_talks")
+      .select("full_name, role_title, level, experience_label, open_to_talks, is_alumnus, alumnus_school_id, alumnus_school_name")
       .eq("industry", slug)
       .eq("is_published", true)
-      .order("level", { ascending: true })
-      .order("full_name", { ascending: true })
       .then(function (res) {
         if (res.error) throw res.error;
         renderMentors(res.data || []);

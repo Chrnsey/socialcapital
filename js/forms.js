@@ -28,6 +28,8 @@
           industry: v.industry || null,
           experience_level: v.experience_level || null,
           open_to_talks: v.open_to_talks || null,
+          is_alumnus: v.is_alumnus === "yes",
+          alumnus_school_name: v.alumnus_school_name || null,
           source: "mentors_page"
         };
       },

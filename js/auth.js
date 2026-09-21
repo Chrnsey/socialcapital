@@ -106,11 +106,15 @@
           // Approved. Fetch this school's own row for the name in the header.
           window.SC.client
             .from("schools")
-            .select("school_name")
+            .select("id, school_name")
             .limit(1)
             .then(function (res) {
               var row = res.data && res.data[0];
-              if (row && el("schoolName")) el("schoolName").textContent = row.school_name;
+              if (row) {
+                // Kept so the directory can show "mentors from your school".
+                window.SC.school = { id: row.id, name: row.school_name };
+                if (el("schoolName")) el("schoolName").textContent = row.school_name;
+              }
               showScreen("directory");
               if (window.SCDirectory) window.SCDirectory.start();
             });

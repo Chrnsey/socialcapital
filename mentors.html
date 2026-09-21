@@ -277,6 +277,21 @@
         <option>Not right now — contact only</option>
       </select>
     </div>
+    <div class="form-group">
+      <label for="m_alum">Did you go to a DEIS school yourself?</label>
+      <select id="m_alum" name="is_alumnus">
+        <option value="">Prefer not to say</option>
+        <option value="yes">Yes</option>
+        <option value="no">No</option>
+        <option value="unsure">Not sure</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="m_alumschool">Which school? <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
+      <input type="text" id="m_alumschool" name="alumnus_school_name" placeholder="The school you went to">
+    </div>
+    <p class="form-consent" style="margin-top:0">Students take more notice of somebody who went where they go. If that's you, it's the most useful thing you can tell us.</p>
+
     <div class="hp-field" aria-hidden="true">
       <label for="m_hp">Leave this field empty</label>
       <input type="text" id="m_hp" name="_hp" tabindex="-1" autocomplete="off">
