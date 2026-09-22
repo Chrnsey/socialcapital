@@ -10,11 +10,10 @@ backend:
   name: github
   repo: Chrnsey/socialcapital
   branch: main
-  # --- WHEN YOU MOVE TO CLOUDFLARE, uncomment these two lines. ---
-  # They tell the CMS to sign in through our own /oauth/ function instead of
-  # through Netlify's service. Leave them commented while still on Netlify.
-  # base_url: https://socialcapital.ie
-  # auth_endpoint: oauth/auth
+  # Sign in through our own /oauth/ function on Cloudflare, rather than
+  # Netlify's service. The function lives in functions/oauth/.
+  base_url: https://socialcapital.ie
+  auth_endpoint: oauth/auth
 
 # Saves go straight to the live site. If you would rather have a "draft"
 # step where changes wait for you to publish them, delete the # on the
