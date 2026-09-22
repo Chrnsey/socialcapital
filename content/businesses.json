@@ -1,10 +1,27 @@
 {
   "hero": {
     "title": "Your staff already know things these students cannot find out",
-    "body": "List employees as mentors, cover a school talk, or fund a term of them. It meets a CSR objective without a workshop, a lanyard or a report nobody reads, and it is felt by an actual fifteen-year-old."
+    "body": "List employees as mentors, cover a school talk, or fund a term of them. It meets a CSR objective without a workshop, a lanyard or a report nobody reads, and it is felt by an actual fifteen-year-old.",
+    "kicker": "For companies and organisations"
   },
   "ways": {
-    "title": "Three ways in"
+    "tag": "What this looks like",
+    "title": "Three ways in",
+    "body": "None of it needs a budget line to begin. The usual first step is four or five staff who are willing.",
+    "items": [
+      {
+        "title": "List staff as mentors",
+        "body": "Employees who opt in appear under their industry, available for questions or a school visit. No obligation past what each of them agrees to, and their contact details stay private."
+      },
+      {
+        "title": "Cover a talk",
+        "body": "The honorarium for a mentor's time and travel, typically €50 to €150, so a school can bring somebody in without finding the money themselves."
+      },
+      {
+        "title": "Fund the thing itself",
+        "body": "Annual sponsorship of €2,000 to €10,000 pays for the coordination that keeps the directory free to the schools that need it. You are credited as a partner. That is the whole arrangement."
+      }
+    ]
   },
   "cta": {
     "title": "Worth a conversation?",

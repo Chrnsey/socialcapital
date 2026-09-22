@@ -183,7 +183,7 @@
 </nav>
 
 <section class="hero" style="border-bottom: none;">
-  <p class="hero-kicker">For individuals. Your employer need never hear about it.</p>
+  <p class="hero-kicker" data-sc-text="hero.kicker">For individuals. Your employer need never hear about it.</p>
   <h1 data-sc-text="hero.title">Give a few hours. Change what someone thinks is possible.</h1>
   <p data-sc-text="hero.body">You don't need to be sent by a company, and there's no minimum commitment. Answer a few messages a term, meet a student for a chat, or give one talk at a school. You decide how far it goes.</p>
   <div class="hero-actions">
@@ -193,14 +193,16 @@
 </section>
 
 <section>
-  <p class="section-tag">What it actually involves</p>
-  <h2>Less than you are imagining</h2>
-  <p class="section-body">No script, no quota, nobody counting. Most mentors do considerably less than they braced themselves for, and it still works.</p>
-  <div class="how-list">
+  <p class="section-tag" data-sc-text="involves.tag">What it actually involves</p>
+  <h2 data-sc-text="involves.title">Less than you are imagining</h2>
+  <p class="section-body" data-sc-text="involves.body">No script, no quota, nobody counting. Most mentors do considerably less than they braced themselves for, and it still works.</p>
+  <div class="how-list" data-sc-list="involves.items">
+    <template data-sc-item>
+      <div class="how-item"><h3>{{title}}</h3><p>{{body}}</p></div>
+    </template>
     <div class="how-item">
       <h3>You decide who can reach you</h3>
-      <p>Your profile goes up under your industry. Your personal email and phone number never do. School students can only reach you through us.</p>
-      <p>Separately, you can choose to be contactable by former students who are over 18 and in college or working. Most mentors share a LinkedIn profile for this. That is entirely your call and you can withdraw it whenever you like.</p>
+      <p>Your profile goes up under your industry. Your personal email and phone number never do. School students can only reach you through us. Separately you can choose to be contactable by former students over 18 — most people share a LinkedIn profile for that.</p>
     </div>
     <div class="how-item">
       <h3>Twenty minutes in a classroom</h3>

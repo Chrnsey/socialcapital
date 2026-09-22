@@ -1,7 +1,8 @@
 {
   "hero": {
     "title": "An hour a term, and somebody's plan changes",
-    "body": "You do not need your employer's permission and there is no minimum. Answer a couple of messages a term. Meet a student for a coffee. Give one talk and never again. You decide where it stops, and nobody chases you."
+    "body": "You do not need your employer's permission and there is no minimum. Answer a couple of messages a term. Meet a student for a coffee. Give one talk and never again. You decide where it stops, and nobody chases you.",
+    "kicker": "For individuals. Your employer need never hear about it."
   },
   "quote": {
     "tag": "Why this exists",
@@ -11,5 +12,28 @@
   "signup": {
     "title": "Sign up",
     "body": "Two minutes. We talk to you before your name appears anywhere, so there is no chance of a student landing in your inbox before you have agreed to it."
+  },
+  "involves": {
+    "tag": "What it actually involves",
+    "title": "Less than you are imagining",
+    "body": "No script, no quota, nobody counting. Most mentors do considerably less than they expected, and it still works.",
+    "items": [
+      {
+        "title": "You decide who can reach you",
+        "body": "Your profile goes up under your industry. Your personal email and phone number never do. School students can only reach you through us. Separately you can choose to be contactable by former students over 18 — most people share a LinkedIn profile for that."
+      },
+      {
+        "title": "Twenty minutes in a classroom",
+        "body": "Some mentors do this once a year. Entirely optional, and if you say yes we deal with the arranging."
+      },
+      {
+        "title": "Three years in is not too soon",
+        "body": "If you are early on, students believe you in a way they do not quite believe the managing director. If you are fifteen years in, you have the wider view. Both are wanted and the first is harder to come by."
+      },
+      {
+        "title": "You can stop",
+        "body": "Answer a couple of questions a term, or do more later if you feel like it. You can step back whenever and nobody will ring you about it."
+      }
+    ]
   }
 }

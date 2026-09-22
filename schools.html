@@ -280,6 +280,7 @@
   .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
   .form-consent a { color: var(--ink-faint); text-decoration: underline; }
   .form-consent a:hover { color: var(--ink); }
+  .founding-line { font-size: 0.9rem; color: var(--ink-soft); margin-top: 0.75rem; max-width: 62ch; }
 </style>
 </head>
 <body>
@@ -297,7 +298,7 @@
   </nav>
 
   <section class="hero" style="border-bottom: none;">
-    <p class="hero-kicker">For DEIS schools. Free, and staying free.</p>
+    <p class="hero-kicker" data-sc-text="hero.kicker">For DEIS schools</p>
     <h1 data-sc-text="hero.title">Give your students a network worth having.</h1>
     <p data-sc-text="hero.body">Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free.</p>
     <div class="hero-actions">
@@ -307,14 +308,18 @@
   </section>
 
   <div class="fact-strip">
-    <p><strong>More than 900 DEIS schools</strong> in Ireland and roughly <strong>160,000 students</strong> in them. The directory is <strong>free</strong> to all of them and there is no version of this where that changes.</p>
+    <p data-sc-html="facts.line"><strong>More than 900 DEIS schools</strong> in Ireland and roughly <strong>160,000 students</strong> in them.</p>
+    <p class="founding-line" data-sc-text="founding.line">The first 10 schools to join are founding schools. Free, permanently, and named on this site. After that it’s €200 a year — and free to any school where cost is genuinely the barrier. Just say so.</p>
   </div>
 
   <section id="how-it-works">
     <p class="section-tag">How it works</p>
     <h2 data-sc-text="how.title">What a school actually gets</h2>
-    <p class="section-body">A guidance counsellor registers, gets a login, and browses the directory. If you want somebody to come in and talk, you email us and we sort it. That is the entire process and there is nothing else to learn.</p>
-    <div class="how-list">
+    <p class="section-body" data-sc-text="how.body">A guidance counsellor registers, gets a login, and browses the directory. If you want somebody to come in and talk, you email us and we sort it. That is the entire process and there is nothing else to learn.</p>
+    <div class="how-list" data-sc-list="how.items">
+      <template data-sc-item>
+        <div class="how-item"><h3>{{title}}</h3><p>{{body}}</p></div>
+      </template>
       <div class="how-item">
         <h3>Names, not job descriptions</h3>
         <p>Professionals across every sector, from people three years out of school to people running the place. Searchable by industry and by how long they have been at it.</p>
@@ -330,7 +335,10 @@
       <div class="how-item">
         <h3>Nobody's phone number changes hands</h3>
         <p>Mentors' personal contact details are not visible to you or to your students. They sit in a separate place only we can open, and we make the introductions. That is on purpose.</p>
-        <p>Separately, some mentors agree to be contactable by former students once they are over 18 and out of school. That is the mentor's own choice and it does not apply to anyone in your care.</p>
+      </div>
+      <div class="how-item">
+        <h3>After they leave, it keeps going</h3>
+        <p>Once a former student is over 18 they can get their own account and contact mentors directly. That is when an internship is actually at stake, and it is the part nobody else does.</p>
       </div>
     </div>
   </section>
@@ -374,7 +382,7 @@
 
   <div class="bottom-cta">
     <h2 data-sc-text="cta.title">Registering</h2>
-    <p>A few minutes, and then your guidance counsellor has the lot. No trial, no tier, no invoice arriving in March.</p>
+    <p data-sc-text="cta.body">A few minutes, and then your guidance counsellor has the lot.</p>
     <div class="cta-group">
       <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
       <a href="mentors.html" class="text-link">Or put your own name forward</a>
