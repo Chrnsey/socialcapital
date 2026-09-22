@@ -199,8 +199,9 @@
   <p class="section-body">No script, no quota, nobody counting. Most mentors do considerably less than they braced themselves for, and it still works.</p>
   <div class="how-list">
     <div class="how-item">
-      <h3>Being findable</h3>
-      <p>Your profile goes up under your industry. Your email and phone number do not. They sit somewhere the website cannot read and we handle the introductions.</p>
+      <h3>You decide who can reach you</h3>
+      <p>Your profile goes up under your industry. Your personal email and phone number never do. School students can only reach you through us.</p>
+      <p>Separately, you can choose to be contactable by former students who are over 18 and in college or working. Most mentors share a LinkedIn profile for this. That is entirely your call and you can withdraw it whenever you like.</p>
     </div>
     <div class="how-item">
       <h3>Twenty minutes in a classroom</h3>
@@ -277,6 +278,19 @@
         <option>Not right now — contact only</option>
       </select>
     </div>
+    <div class="form-group">
+      <label for="m_reach">Can former students over 18 contact you directly?</label>
+      <select id="m_reach" name="alumni_contact_ok">
+        <option value="">Not for now</option>
+        <option value="yes">Yes</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="m_contact">If yes, what should we share? <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
+      <input type="text" id="m_contact" name="public_contact" placeholder="LinkedIn profile, or a work email">
+    </div>
+    <p class="form-consent" style="margin-top:0">Only shown to people we have verified as over 18 and out of school. Never to school students, and never on the public site.</p>
+
     <div class="form-group">
       <label for="m_alum">Did you go to a DEIS school yourself?</label>
       <select id="m_alum" name="is_alumnus">

@@ -30,6 +30,8 @@
           open_to_talks: v.open_to_talks || null,
           is_alumnus: v.is_alumnus === "yes",
           alumnus_school_name: v.alumnus_school_name || null,
+          alumni_contact_ok: v.alumni_contact_ok === "yes",
+          public_contact: v.public_contact || null,
           source: "mentors_page"
         };
       },
@@ -111,7 +113,8 @@
       // Losing a willing mentor to a schema mismatch is not acceptable, so if
       // the insert is rejected for an unknown column we drop the optional
       // fields and try again. The submission matters more than the extras.
-      var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year"];
+      var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year",
+                      "alumni_contact_ok", "public_contact"];
 
       function insert(row) {
         return window.SC.client.from(config.table).insert(row);
