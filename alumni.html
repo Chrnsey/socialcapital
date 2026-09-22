@@ -317,16 +317,16 @@
   </nav>
 
   <div class="alum-hero">
-    <p class="hero-kicker">For people who have left school. Over 18s only.</p>
-    <h1>The bit where it actually matters</h1>
-    <p>You are out of school, in college or working, and now you need a foot in the door. An internship. Someone who will read your CV. A straight answer about whether a job is worth chasing.</p>
-    <p>That is what somebody else's phonebook does for them. This is yours. Once you are signed in you can see mentors' own contact details, where they have agreed to share them, and get in touch yourself. Nobody supervises it and nobody is copied in.</p>
+    <p class="hero-kicker" data-sc-text="hero.kicker">For people who have left school. Over 18s only.</p>
+    <h1 data-sc-text="hero.title">The bit where it actually matters</h1>
+    <p data-sc-text="hero.body">You are out of school, in college or working, and now you need a foot in the door. An internship. Someone who will read your CV. A straight answer about whether a job is worth chasing.</p>
+    <p data-sc-text="hero.body2">That is what somebody else's phonebook does for them. This is yours. Once you are signed in you can see mentors' own contact details, where they have agreed to share them, and get in touch yourself. Nobody supervises it and nobody is copied in.</p>
   </div>
 
   <div class="alum-box">
     <div class="alum-card">
-      <h2>Sign up</h2>
-      <p>You need the code from your school. If you did not get one, or you have lost it, email us and we will sort it out.</p>
+      <h2 data-sc-text="signup.title">Sign up</h2>
+      <p data-sc-text="signup.body">You need the code from your school. If you did not get one, or you have lost it, email us and we will sort it out.</p>
       <form data-sc-form="alumni_signup" novalidate>
         <div class="alum-split">
           <div class="form-group">
@@ -341,7 +341,7 @@
         <div class="form-group">
           <label for="a_email">Email address</label>
           <input type="email" id="a_email" name="email" placeholder="your@email.com" required autocomplete="email">
-          <p class="form-consent" style="margin-top:0.5rem">Use one you will still have in three years. Not your school address — those get switched off.</p>
+          <p class="form-consent" style="margin-top:0.5rem" data-sc-text="signup.email_hint">Use one you will still have in three years. Not your school address — those get switched off.</p>
         </div>
         <div class="hp-field" aria-hidden="true">
           <label for="a_hp">Leave this field empty</label>
@@ -376,9 +376,9 @@
 <!-- SIGN IN -->
 <div class="login-page" id="loginPage">
   <div class="login-box">
-    <p class="section-tag" style="margin-bottom:0.5rem;">Former students</p>
-    <h2>Sign in</h2>
-    <p>We email you a link and it signs you in. No password to forget.</p>
+    <p class="section-tag" style="margin-bottom:0.5rem;" data-sc-text="login.tag">Former students</p>
+    <h2 data-sc-text="login.title">Sign in</h2>
+    <p data-sc-text="login.body">We email you a link and it signs you in. No password to forget.</p>
     <form id="loginForm" novalidate>
       <div class="form-group">
         <label for="loginEmail">Your email</label>
@@ -405,8 +405,8 @@
 
   <div class="dir-header">
     <div class="dir-header-inner">
-      <h2>The directory</h2>
-      <p>Browse by industry. Where a mentor has agreed to it, you can see how to reach them and contact them yourself.</p>
+      <h2 data-sc-text="directory.title">The directory</h2>
+      <p data-sc-text="directory.body">Browse by industry. Where a mentor has agreed to it, you can see how to reach them and contact them yourself.</p>
     </div>
   </div>
 
@@ -434,5 +434,7 @@
 <script src="js/forms.js"></script>
 <script src="js/directory.js"></script>
 <script src="js/alumni.js"></script>
+<script src="js/content.js"></script>
+<script>SCContent.load("alumni");</script>
 </body>
 </html>

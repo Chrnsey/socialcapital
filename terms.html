@@ -285,6 +285,13 @@
     .value-strip { padding: 0 1.25rem 2.75rem; }
     footer { flex-direction: column; align-items: flex-start; }
   }
+
+  /* Markdown blockquotes render as the highlighted callout box. */
+  .doc blockquote { background: var(--green-tint); border-radius: 4px; padding: 1.25rem 1.5rem; margin: 1.5rem 0; }
+  .doc blockquote p { margin-bottom: 0.5rem; color: var(--ink); }
+  .doc blockquote p:last-child { margin-bottom: 0; }
+  .doc h1 + p em, .doc > p:first-of-type em { font-style: normal; }
+  .doc em { color: var(--ink-faint); }
 </style>
 
 <style>
@@ -318,7 +325,7 @@
     <li><a href="alumni.html" class="nav-cta">Left school?</a></li>
   </ul>
 </nav>
-<div class="doc">
+<div class="doc" data-doc="terms">
   <h1>Terms of use</h1>
   <p class="updated">Last updated 22 September 2026</p>
 
@@ -390,5 +397,7 @@
     <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
   </div>
 </footer>
+<script src="/js/marked.min.js"></script>
+<script src="/js/doc.js"></script>
 </body>
 </html>

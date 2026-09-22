@@ -1,0 +1,22 @@
+{
+  "hero": {
+    "kicker": "For people who have left school. Over 18s only.",
+    "title": "The bit where it actually matters",
+    "body": "You are out of school, in college or working, and now you need a foot in the door. An internship. Someone who will read your CV. A straight answer about whether a job is worth chasing.",
+    "body2": "That is what somebody else's phonebook does for them. This is yours. Once you are signed in you can see mentors' own contact details, where they have agreed to share them, and get in touch yourself. Nobody supervises it and nobody is copied in."
+  },
+  "signup": {
+    "title": "Sign up",
+    "body": "You need the code from your school. If you did not get one, or you have lost it, email us and we will sort it out.",
+    "email_hint": "Use one you will still have in three years. Not your school address — those get switched off."
+  },
+  "login": {
+    "tag": "Former students",
+    "title": "Sign in",
+    "body": "We email you a link and it signs you in. No password to forget."
+  },
+  "directory": {
+    "title": "The directory",
+    "body": "Browse by industry. Where a mentor has agreed to it, you can see how to reach them and contact them yourself."
+  }
+}

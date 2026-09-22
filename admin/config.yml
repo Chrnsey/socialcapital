@@ -173,6 +173,41 @@ collections:
               - { name: body, label: "Paragraph", widget: text }
 
       # ---------------------------------------------------------------
+      - name: alumni
+        label: "Left school? (alumni) page"
+        file: "content/alumni.json"
+        format: json
+        fields:
+          - name: hero
+            label: "Opening section"
+            widget: object
+            fields:
+              - { name: kicker, label: "Small line above the headline", widget: string }
+              - { name: title, label: "Big headline", widget: string }
+              - { name: body, label: "First paragraph", widget: text }
+              - { name: body2, label: "Second paragraph", widget: text }
+          - name: signup
+            label: "Sign-up box"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Intro", widget: text }
+              - { name: email_hint, label: "Hint under the email field", widget: string }
+          - name: login
+            label: "Sign-in screen"
+            widget: object
+            fields:
+              - { name: tag, label: "Small grey label", widget: string }
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph", widget: text }
+          - name: directory
+            label: "Directory header (after signing in)"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "Paragraph", widget: text }
+
+      # ---------------------------------------------------------------
       - name: businesses
         label: "For businesses page"
         file: "content/businesses.json"
@@ -463,3 +498,34 @@ collections:
                 fields:
                   - { name: label, label: "Link text", widget: string }
                   - { name: href, label: "Address, e.g. /funding/hear", widget: string }
+
+  # -------------------------------------------------------------------
+  - name: documents
+    label: "Documents (About, Terms, Privacy)"
+    files:
+      - name: about
+        label: "About page"
+        file: "content/pages/about.md"
+        fields:
+          - name: body
+            label: "Page text"
+            widget: markdown
+            hint: "Headings, bold, lists and links all work. Start a line with > to make a green highlighted box."
+
+      - name: terms
+        label: "Terms of use  (legal - take care)"
+        file: "content/pages/terms.md"
+        fields:
+          - name: body
+            label: "Terms of use"
+            widget: markdown
+            hint: "This is a legal document. Changing what it promises changes what you are bound by. Update the date at the top when you change anything, and have a solicitor look at significant edits."
+
+      - name: privacy
+        label: "Privacy notice  (legal - take care)"
+        file: "content/pages/privacy.md"
+        fields:
+          - name: body
+            label: "Privacy notice"
+            widget: markdown
+            hint: "Required by GDPR and must describe what you actually do with people's data. If you start collecting something new, it has to be added here. Update the date at the top when you change anything."
