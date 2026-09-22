@@ -38,6 +38,25 @@
       success: "Thanks — we'll be in touch before you're listed anywhere."
     },
 
+    // Not a plain insert: this calls a database function, which checks the
+    // school code and the date of birth without letting the browser see the
+    // list of codes.
+    alumni_signup: {
+      rpc: "register_alumnus",
+      args: function (v) {
+        return {
+          p_code: (v.code || "").trim().toUpperCase(),
+          p_email: (v.email || "").trim().toLowerCase(),
+          p_dob: v.date_of_birth || null
+        };
+      },
+      outcomes: {
+        ok: ["You're set up. Use \u201CSign in\u201D and we'll email you a link.", "ok"],
+        bad_code: ["We don't recognise that school code. Check it against your card, or email us and we'll sort it.", "error"],
+        under_18: ["You need to be 18 or over to sign up here. Have a look at the guides in the meantime \u2014 they're open to everyone.", "error"]
+      }
+    },
+
     business_mentor: {
       table: "pending_mentors",
       build: function (v) {
@@ -122,6 +141,27 @@
       function looksLikeMissingColumn(error) {
         var t = ((error && error.message) || "") + " " + ((error && error.code) || "");
         return /column|schema cache|PGRST204|42703/i.test(t);
+      }
+
+      // Function-backed forms (the alumni signup) take a different path.
+      if (config.rpc) {
+        window.SC.client
+          .rpc(config.rpc, config.args(values))
+          .then(function (result) {
+            if (result.error) throw result.error;
+            var outcome = config.outcomes[result.data] ||
+              ["Something went wrong there. Please email registration@socialcapital.ie.", "error"];
+            setStatus(form, outcome[0], outcome[1]);
+            if (outcome[1] === "ok") form.reset();
+          })
+          .catch(function (error) {
+            console.error("[Social Capital] signup failed", error);
+            setStatus(form, "Sorry \u2014 that didn't work. Please try again, or email registration@socialcapital.ie.", "error");
+          })
+          .then(function () {
+            if (button) { button.disabled = false; button.textContent = originalLabel; }
+          });
+        return;
       }
 
       var row = config.build(values);

@@ -3,7 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Social Capital — For Schools</title>
+<title>Social Capital — For former students</title>
+<meta name="description" content="Left school and over 18? Get access to the mentor directory and contact people directly about work, college and getting a foot in the door.">
 <link rel="stylesheet" href="/fonts/fonts.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -281,105 +282,77 @@
   .form-consent a { color: var(--ink-faint); text-decoration: underline; }
   .form-consent a:hover { color: var(--ink); }
 </style>
+
+<style>
+  .alum-hero { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 2rem; }
+  .alum-hero h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.18; margin-bottom: 0.9rem; }
+  .alum-hero p { font-size: 1.05rem; color: var(--ink-soft); max-width: 54ch; margin-bottom: 1rem; }
+  .alum-box { max-width: 760px; margin: 0 auto 4rem; padding: 0 2rem; }
+  .alum-card { background: var(--card); border: 1px solid var(--line); border-radius: 4px; padding: 2rem; }
+  .alum-card h2 { font-size: 1.2rem; margin: 0 0 0.5rem; }
+  .alum-card > p { font-size: 0.95rem; color: var(--ink-soft); margin-bottom: 1.5rem; max-width: 52ch; }
+  .alum-split { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+  .mentor-contact { display: block; margin-top: 0.5rem; }
+  .mentor-contact button { background: none; border: 1px solid var(--line); border-radius: 3px;
+    padding: 0.3rem 0.65rem; font-family: 'Public Sans', sans-serif; font-size: 0.75rem;
+    color: var(--ink); cursor: pointer; }
+  .mentor-contact button:hover { border-color: var(--green); color: var(--green-deep); }
+  .mentor-contact .revealed { font-size: 0.8rem; color: var(--green-deep); word-break: break-all; }
+  @media (max-width: 640px) { .alum-hero, .alum-box { padding-left: 1.25rem; padding-right: 1.25rem; }
+    .alum-split { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
 <div class="main-site" id="mainSite">
-
   <nav>
     <a href="index.html" class="nav-logo">Social Capital</a>
     <ul class="nav-links">
-    <li><a href="guides.html">Routes in</a></li>
-    <li><a href="alumni.html">Left school?</a></li>
-      <li><a href="index.html">For students</a></li>
-      <li><a href="businesses.html">For businesses</a></li>
+      <li><a href="guides.html">Routes in</a></li>
+      <li><a href="schools.html">For schools</a></li>
       <li><a href="mentors.html">Become a mentor</a></li>
-      <li><a href="#" class="nav-cta" onclick="openLogin()">School login</a></li>
+      <li><a href="#" class="nav-cta" onclick="SCAlumni.openLogin(); return false;">Sign in</a></li>
     </ul>
   </nav>
 
-  <section class="hero" style="border-bottom: none;">
-    <p class="hero-kicker">For DEIS schools. Free, and staying free.</p>
-    <h1 data-sc-text="hero.title">Give your students a network worth having.</h1>
-    <p data-sc-text="hero.body">Social Capital is a directory of professionals who've agreed to talk to your students — about their career, their path, and what the job's really like. Register your school and your guidance counsellor gets full access, free.</p>
-    <div class="hero-actions">
-      <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
-      <a href="#how-it-works" class="text-link">See how it works</a>
-    </div>
-  </section>
-
-  <div class="fact-strip">
-    <p><strong>More than 900 DEIS schools</strong> in Ireland and roughly <strong>160,000 students</strong> in them. The directory is <strong>free</strong> to all of them and there is no version of this where that changes.</p>
+  <div class="alum-hero">
+    <p class="hero-kicker">For people who have left school. Over 18s only.</p>
+    <h1>The bit where it actually matters</h1>
+    <p>You are out of school, in college or working, and now you need a foot in the door. An internship. Someone who will read your CV. A straight answer about whether a job is worth chasing.</p>
+    <p>That is what somebody else's phonebook does for them. This is yours. Once you are signed in you can see mentors' own contact details, where they have agreed to share them, and get in touch yourself. Nobody supervises it and nobody is copied in.</p>
   </div>
 
-  <section id="how-it-works">
-    <p class="section-tag">How it works</p>
-    <h2 data-sc-text="how.title">What a school actually gets</h2>
-    <p class="section-body">A guidance counsellor registers, gets a login, and browses the directory. If you want somebody to come in and talk, you email us and we sort it. That is the entire process and there is nothing else to learn.</p>
-    <div class="how-list">
-      <div class="how-item">
-        <h3>Names, not job descriptions</h3>
-        <p>Professionals across every sector, from people three years out of school to people running the place. Searchable by industry and by how long they have been at it.</p>
-      </div>
-      <div class="how-item">
-        <h3>Somebody standing in front of a class</h3>
-        <p>A whole year group, or six students with a specific interest. Email us and we find the person and organise it. You do not fill in a form.</p>
-      </div>
-      <div class="how-item">
-        <h3>Junior and senior, and the junior ones matter more than you'd think</h3>
-        <p>Someone fifteen years in brings the wider view. Someone three years in is close enough that a student believes them. The second is harder to find and more useful than it sounds.</p>
-      </div>
-      <div class="how-item">
-        <h3>Nobody's phone number changes hands</h3>
-        <p>Mentors' personal contact details are not visible to you or to your students. They sit in a separate place only we can open, and we make the introductions. That is on purpose.</p>
-        <p>Separately, some mentors agree to be contactable by former students once they are over 18 and out of school. That is the mentor's own choice and it does not apply to anyone in your care.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="industries">
-    <p class="section-tag">What's on it</p>
-    <h2>The sectors nobody brings up</h2>
-    <p class="section-body">Not only the routes that get mentioned in January, but the rest of them, including several that need no degree and pay from the first year.</p>
-    <dl class="industry-list">
-      <div class="industry-row">
-        <dt>Technology</dt>
-        <dd>Software, product, design, data. An unusual amount of it for a country this size, and a good deal of it in Irish companies nobody has heard of.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Healthcare</dt>
-        <dd>Medicine, nursing, physiotherapy, pharmacy, occupational therapy. Routes run from straight after the Leaving Certificate to a conversion course a decade later.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Law</dt>
-        <dd>Solicitor, barrister, legal executive, in-house. From large Dublin practices to one-solicitor offices, and the work is nothing alike.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Finance</dt>
-        <dd>Banking, accountancy, insurance, fintech. Several of the qualifications can be earned while employed and paid, which students are rarely told.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Trades</dt>
-        <dd>Electricians, plumbers, carpenters, construction. A SOLAS apprenticeship pays from year one with no fees. The most under-explained option in the country.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Media &amp; communications</dt>
-        <dd>Journalism, broadcasting, PR, marketing, content. An old tradition in the first two and a fast-moving industry in the rest.</dd>
-      </div>
-      <div class="industry-row">
-        <dt>Education, engineering, public sector</dt>
-        <dd>And more once you are in. Full profiles are for registered schools only.</dd>
-      </div>
-    </dl>
-    <p class="lock-note">Full profiles are visible to registered DEIS schools only. Not to us being precious about it — it is how we keep our word to the mentors.</p>
-  </section>
-
-  <div class="bottom-cta">
-    <h2 data-sc-text="cta.title">Registering</h2>
-    <p>A few minutes, and then your guidance counsellor has the lot. No trial, no tier, no invoice arriving in March.</p>
-    <div class="cta-group">
-      <a href="#" class="btn" onclick="openSchoolModal()">Register your school</a>
-      <a href="mentors.html" class="text-link">Or put your own name forward</a>
+  <div class="alum-box">
+    <div class="alum-card">
+      <h2>Sign up</h2>
+      <p>You need the code from your school. If you did not get one, or you have lost it, email us and we will sort it out.</p>
+      <form data-sc-form="alumni_signup" novalidate>
+        <div class="alum-split">
+          <div class="form-group">
+            <label for="a_code">School code</label>
+            <input type="text" id="a_code" name="code" placeholder="e.g. MARYS26" required autocapitalize="characters" autocomplete="off">
+          </div>
+          <div class="form-group">
+            <label for="a_dob">Date of birth</label>
+            <input type="date" id="a_dob" name="date_of_birth" required>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="a_email">Email address</label>
+          <input type="email" id="a_email" name="email" placeholder="your@email.com" required autocomplete="email">
+          <p class="form-consent" style="margin-top:0.5rem">Use one you will still have in three years. Not your school address — those get switched off.</p>
+        </div>
+        <div class="hp-field" aria-hidden="true">
+          <label for="a_hp">Leave this field empty</label>
+          <input type="text" id="a_hp" name="_hp" tabindex="-1" autocomplete="off">
+        </div>
+        <button type="submit" class="modal-submit">Create my account</button>
+        <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
+        <p class="form-consent">You must be 18 or over. We store your email, your school code and your date of birth, nothing else. See our <a href="privacy.html">privacy notice</a>.</p>
+      </form>
+      <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--ink-soft)">
+        Already signed up? <span style="color:var(--ink);cursor:pointer;text-decoration:underline" onclick="SCAlumni.openLogin()">Sign in instead</span>.
+      </p>
     </div>
   </div>
 
@@ -389,116 +362,49 @@
       <div>Connecting students to real careers. Ireland.</div>
     </div>
     <div class="footer-links">
-    <a href="guides.html">Routes in</a>
-      <a href="index.html">For students</a>
-      <a href="businesses.html">For businesses</a>
+      <a href="guides.html">Routes in</a>
+      <a href="schools.html">For schools</a>
       <a href="mentors.html">Become a mentor</a>
       <a href="privacy.html">Privacy</a>
-    <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
+      <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
     </div>
   </footer>
-
 </div>
 
-<!-- School registration modal -->
-<div class="modal-overlay" id="schoolModal">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal('schoolModal')">×</button>
-    <h3>Register your school</h3>
-    <p>Four fields. We reply within two working days, from an address answered by a person.</p>
-    <form data-sc-form="school_registration" novalidate>
-      <div class="form-group">
-        <label for="s_school">School name</label>
-        <input type="text" id="s_school" name="school_name" placeholder="e.g. St. Mary's CBS, Dublin" required>
-      </div>
-      <div class="form-group">
-        <label for="s_contact">Your name</label>
-        <input type="text" id="s_contact" name="contact_name" placeholder="Guidance counsellor or principal" required autocomplete="name">
-      </div>
-      <div class="form-group">
-        <label for="s_email">Email address</label>
-        <input type="email" id="s_email" name="email" placeholder="yourname@school.ie" required autocomplete="email">
-      </div>
-      <div class="form-group">
-        <label for="s_county">County</label>
-        <select id="s_county" name="county" required>
-          <option value="">Select county</option>
-          <option>Carlow</option>
-          <option>Cavan</option>
-          <option>Clare</option>
-          <option>Cork</option>
-          <option>Donegal</option>
-          <option>Dublin</option>
-          <option>Galway</option>
-          <option>Kerry</option>
-          <option>Kildare</option>
-          <option>Kilkenny</option>
-          <option>Laois</option>
-          <option>Leitrim</option>
-          <option>Limerick</option>
-          <option>Longford</option>
-          <option>Louth</option>
-          <option>Mayo</option>
-          <option>Meath</option>
-          <option>Monaghan</option>
-          <option>Offaly</option>
-          <option>Roscommon</option>
-          <option>Sligo</option>
-          <option>Tipperary</option>
-          <option>Waterford</option>
-          <option>Westmeath</option>
-          <option>Wexford</option>
-          <option>Wicklow</option>
-        </select>
-      </div>
-      <div class="hp-field" aria-hidden="true">
-        <label for="s_hp">Leave this field empty</label>
-        <input type="text" id="s_hp" name="_hp" tabindex="-1" autocomplete="off">
-      </div>
-    <p class="form-consent">By sending this, you agree to us storing these details to process your registration. We never share them, and you can ask us to delete them at any time — see our <a href="privacy.html">privacy notice</a>.</p>
-      <button type="submit" class="modal-submit">Send registration request</button>
-      <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
-    </form>
-  </div>
-</div>
-
-<!-- LOGIN PAGE -->
+<!-- SIGN IN -->
 <div class="login-page" id="loginPage">
   <div class="login-box">
-    <p class="section-tag" style="margin-bottom: 0.5rem;">School portal</p>
+    <p class="section-tag" style="margin-bottom:0.5rem;">Former students</p>
     <h2>Sign in</h2>
-    <p>We email you a link and it signs you in. No password to forget. Only approved schools can open the directory, so if nothing happens, that is why.</p>
+    <p>We email you a link and it signs you in. No password to forget.</p>
     <form id="loginForm" novalidate>
       <div class="form-group">
-        <label for="loginEmail">School email</label>
-        <input type="email" id="loginEmail" name="email" placeholder="yourname@school.ie" required autocomplete="email">
+        <label for="loginEmail">Your email</label>
+        <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email">
       </div>
-      <button type="submit" class="modal-submit" style="margin-top: 0.75rem;">Email me a sign-in link</button>
+      <button type="submit" class="modal-submit" style="margin-top:0.75rem;">Email me a sign-in link</button>
       <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
     </form>
-    <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
-      Not yet registered? <span style="color: var(--ink); cursor: pointer; text-decoration: underline;" onclick="goBackAndOpenSchool()">Register your school</span>
-    </p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
-      <span style="cursor: pointer; text-decoration: underline;" onclick="goBack()">Back to site</span>
+    <p style="margin-top:1rem;font-size:0.8rem;color:var(--ink-soft);text-align:center;">
+      <span style="cursor:pointer;text-decoration:underline;" onclick="SCAlumni.goBack()">Back</span>
     </p>
   </div>
 </div>
 
-<!-- DIRECTORY PAGE -->
+<!-- DIRECTORY -->
 <div class="directory-page" id="directoryPage">
   <div class="dir-nav">
-    <a href="#" class="dir-nav-logo" onclick="goBack()">Social Capital</a>
+    <a href="#" class="dir-nav-logo" onclick="SCAlumni.goBack(); return false;">Social Capital</a>
     <div class="dir-nav-user">
-      <span id="schoolName">St. Mary's CBS</span>
-      <span class="dir-logout" onclick="goBack()">Sign out</span>
+      <span id="schoolName">Signed in</span>
+      <span class="dir-logout" onclick="SCAlumni.signOut()">Sign out</span>
     </div>
   </div>
 
   <div class="dir-header">
     <div class="dir-header-inner">
-      <h2>Mentor directory</h2>
-      <p>Browse by industry. To get somebody standing in front of a class, email <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a> and we will organise it.</p>
+      <h2>The directory</h2>
+      <p>Browse by industry. Where a mentor has agreed to it, you can see how to reach them and contact them yourself.</p>
     </div>
   </div>
 
@@ -511,7 +417,7 @@
     <div class="mentor-view" id="mentorView">
       <div class="mentor-view-header">
         <span class="mentor-view-title" id="mentorViewTitle">Technology</span>
-        <span class="back-btn" onclick="closeIndustry()">Back to industries</span>
+        <span class="back-btn" onclick="SCDirectory.closeSector()">Back to industries</span>
       </div>
       <div class="sector-summary" id="sectorSummary"></div>
       <p class="dir-section-title">Mentors in this sector</p>
@@ -525,42 +431,6 @@
 <script src="js/supabase.js"></script>
 <script src="js/forms.js"></script>
 <script src="js/directory.js"></script>
-<script src="js/auth.js"></script>
-<script src="js/content.js"></script>
-<script>
-SCContent.load("schools");
-
-function openSchoolModal() { document.getElementById('schoolModal').classList.add('active'); }
-function closeModal(id) { document.getElementById(id).classList.remove('active'); }
-
-function openLogin() {
-  document.getElementById('mainSite').classList.add('hidden');
-  document.getElementById('loginPage').classList.add('active');
-  document.getElementById('directoryPage').classList.remove('active');
-}
-
-function goBack() { SCAuth.signOut(); }
-
-function goBackAndOpenSchool() {
-  document.getElementById('mainSite').classList.remove('hidden');
-  document.getElementById('loginPage').classList.remove('active');
-  document.getElementById('directoryPage').classList.remove('active');
-  setTimeout(openSchoolModal, 100);
-}
-
-function closeIndustry() { SCDirectory.closeSector(); }
-
-document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('loginForm')
-    .addEventListener('submit', SCAuth.sendLink);
-});
-
-window.addEventListener('click', function (e) {
-  var el = document.getElementById('schoolModal');
-  if (e.target === el) el.classList.remove('active');
-});
-
-if (window.location.hash === '#login') { openLogin(); }
-</script>
+<script src="js/alumni.js"></script>
 </body>
 </html>

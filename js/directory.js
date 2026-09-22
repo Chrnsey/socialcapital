@@ -103,6 +103,13 @@
         var talks = m.open_to_talks
           ? '<span class="mentor-talks">Open to school talks</span>' : "";
         var alum = alumniBadge(m);
+        // Only adults signed in as alumni are offered contact details, and
+        // only where the mentor agreed to it. The detail itself is fetched
+        // on demand - it is never in the page until asked for.
+        var contact = (window.SC && window.SC.viewer === "alumnus" && m.alumni_contact_ok)
+          ? '<span class="mentor-contact"><button type="button" data-contact="' +
+            escapeHtml(m.id) + '">How to reach them</button></span>'
+          : "";
         return (
           '<div class="mentor-card">' +
             '<div class="mentor-avatar">' + escapeHtml(initials(m.full_name)) + "</div>" +
@@ -112,12 +119,36 @@
               '<span class="mentor-badge ' + (m.level === "junior" ? "junior" : "") + '">' +
                 badge + detail +
               "</span>" +
-              talks + alum +
+              talks + alum + contact +
             "</div>" +
           "</div>"
         );
       })
       .join("");
+
+    list.querySelectorAll("[data-contact]").forEach(function (btn) {
+      btn.addEventListener("click", function () {
+        var id = btn.getAttribute("data-contact");
+        btn.disabled = true;
+        btn.textContent = "Looking…";
+        window.SC.client.rpc("mentor_contact", { p_mentor: id }).then(function (res) {
+          var row = res.data && res.data[0];
+          if (res.error || !row || !row.contact) {
+            btn.textContent = "Not shared";
+            return;
+          }
+          var wrap = btn.parentNode;
+          var value = row.contact;
+          var isLink = /^https?:\/\//i.test(value);
+          var isEmail = value.indexOf("@") !== -1 && !isLink;
+          wrap.innerHTML = isLink
+            ? '<a class="revealed" href="' + escapeHtml(value) + '" rel="noopener" target="_blank">' + escapeHtml(value) + "</a>"
+            : isEmail
+              ? '<a class="revealed" href="mailto:' + escapeHtml(value) + '">' + escapeHtml(value) + "</a>"
+              : '<span class="revealed">' + escapeHtml(value) + "</span>";
+        });
+      });
+    });
   }
 
   function openSector(slug) {
@@ -133,7 +164,7 @@
 
     window.SC.client
       .from("mentors")
-      .select("full_name, role_title, level, experience_label, open_to_talks, is_alumnus, alumnus_school_id, alumnus_school_name")
+      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name")
       .eq("industry", slug)
       .eq("is_published", true)
       .then(function (res) {
