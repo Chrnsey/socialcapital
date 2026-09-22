@@ -5,14 +5,19 @@ Everything runs in the same place:
 
 ---
 
-## Setup files — run once, then forget
+## Setup files — all done, never run again
 
 | File | Status |
 |---|---|
-| `schema.sql` | ✅ **Done.** Built your database. Never run again. |
-| `notifications.sql` | ⬅️ **Run this one.** Emails you when someone submits. |
-| `test-data.sql` | ✅ Done. Was only for testing. |
-| `cleanup-test-data.sql` | ⬜ Run whenever. Deletes the `ZZ TEST` rows. |
+| `schema.sql` | ✅ The database |
+| `notifications.sql` | ✅ Emails you on every submission |
+| `alumni.sql` | ✅ Alumni columns on mentors |
+| `alumni-network.sql` | ✅ School codes, alumni accounts, the 18+ gate |
+| `alumni-contact.sql` | ✅ The mentor_contact() function |
+| `alumni-contact-fix.sql` | ✅ Actually hides the contact column |
+| `test-data.sql` / `cleanup-test-data.sql` | ✅ Finished with |
+
+**Adding mentors you recruited yourself:** `add-mentors.sql` — one block per person.
 
 ---
 
@@ -71,6 +76,30 @@ values ('St Mary''s CBS', 'Ms Murphy', 'murphy@stmarys.ie', 'Dublin');
 ```
 
 Note the doubled apostrophe in `Mary''s` — that's how SQL escapes quotes.
+
+---
+
+### Give a school a code for its leavers
+
+```sql
+insert into school_codes (code, school_id, notes)
+select 'MARYS26', id, 'Cards for 2026 leavers'
+  from schools where school_name = 'St Mary''s CBS';
+```
+
+Uppercase only. Avoid O/0 and I/1 — people type these off a card.
+
+### Stop a code working
+
+```sql
+update school_codes set is_active = false where code = 'MARYS26';
+```
+
+### Remove someone who turned out to be under 18
+
+```sql
+delete from alumni where lower(email) = lower('their@email.com');
+```
 
 ---
 
