@@ -110,7 +110,73 @@ for (const name of SECTIONS) {
     mkdirSync(name, { recursive: true });
     writeFileSync(`${name}/${item.slug}.html`, html);
     built++;
-    console.log(`  ${name}/${item.slug}/index.html  —  ${esc(title)}`);
+    console.log(`  ${name}/${item.slug}.html  —  ${esc(title)}`);
   }
 }
 console.log(`\n${built} guide pages prerendered`);
+
+// ===========================================================================
+// Second job: refresh the fallback text baked into each page's HTML.
+//
+// Each page carries a copy of its wording in the HTML so it never renders
+// blank, then JavaScript swaps in the current version from the CMS. Visitors
+// always see the current wording. Crawlers, which do not reliably run
+// JavaScript, were reading whatever was baked in - which went stale the
+// moment anything was edited in the CMS. Google was quoting copy nobody had
+// used for weeks, including a claim that the service was free.
+//
+// This rewrites those fallbacks from the same JSON, on every deploy.
+// ===========================================================================
+const CONTENT_PAGES = {
+  "index.html": "index",
+  "schools.html": "schools",
+  "mentors.html": "mentors",
+  "businesses.html": "businesses",
+  "alumni.html": "alumni",
+};
+
+const dig = (obj, path) =>
+  path.split(".").reduce((a, k) => (a == null ? undefined : a[k]), obj);
+
+let refreshed = 0;
+for (const [page, key] of Object.entries(CONTENT_PAGES)) {
+  let html;
+  try { html = readFileSync(page, "utf8"); } catch { continue; }
+  const data = JSON.parse(readFileSync(`content/${key}.json`, "utf8"));
+  let changes = 0;
+
+  // data-sc-text / data-sc-html: replace the element's contents
+  html = html.replace(
+    /(<(\w+)([^>]*?)data-sc-(text|html)="([^"]+)"([^>]*)>)([\s\S]*?)(<\/\2>)/g,
+    (whole, open, tag, pre, kind, path, post, inner, close) => {
+      const value = dig(data, path);
+      if (typeof value !== "string") return whole;
+      const next = kind === "html" ? value : esc(value);
+      if (next !== inner) changes++;
+      return open + next + close;
+    }
+  );
+
+  // data-sc-list: rebuild the fallback items from the <template>
+  html = html.replace(
+    /(<(\w+)([^>]*?)data-sc-list="([^"]+)"([^>]*)>)([\s\S]*?)(<\/\2>)/g,
+    (whole, open, tag, pre, path, post, inner, close) => {
+      const items = dig(data, path);
+      const tpl = inner.match(/<template[^>]*data-sc-item[^>]*>([\s\S]*?)<\/template>/);
+      if (!Array.isArray(items) || !tpl) return whole;
+      const shape = tpl[1];
+      const built = items
+        .map((it) => shape.replace(/\{\{(\w+)\}\}/g, (_, k) => esc(it[k])))
+        .join("");
+      changes++;
+      return open + tpl[0] + built + close;
+    }
+  );
+
+  if (changes) {
+    writeFileSync(page, html);
+    refreshed++;
+    console.log(`  ${page} — ${changes} fallback blocks refreshed from the CMS`);
+  }
+}
+console.log(`${refreshed} pages refreshed`);
