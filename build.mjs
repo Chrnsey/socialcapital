@@ -103,8 +103,12 @@ for (const name of SECTIONS) {
         `<meta name="description" content="${esc(desc)}">\n<link rel="canonical" href="${esc(url)}">\n</head>`);
     }
 
-    mkdirSync(`${name}/${item.slug}`, { recursive: true });
-    writeFileSync(`${name}/${item.slug}/index.html`, html);
+    // Written as routes/plc.html, not routes/plc/index.html: Cloudflare
+    // Pages serves the former at /routes/plc exactly, while the latter is
+    // 308-redirected to /routes/plc/ - a wasted hop that also would not match
+    // our canonical URLs, sitemap or internal links.
+    mkdirSync(name, { recursive: true });
+    writeFileSync(`${name}/${item.slug}.html`, html);
     built++;
     console.log(`  ${name}/${item.slug}/index.html  —  ${esc(title)}`);
   }
