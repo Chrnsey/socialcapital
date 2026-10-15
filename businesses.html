@@ -149,6 +149,18 @@
   .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
   .form-consent a { color: var(--ink-faint); text-decoration: underline; }
   .form-consent a:hover { color: var(--ink); }
+
+  /* Brand mark. Two files because the wordmark's ink is dark: on the dark
+     theme the pale version is swapped in, or it would be invisible. */
+  .nav-logo { display: inline-flex; align-items: center; line-height: 1; }
+  .nav-logo img { height: 40px; width: auto; display: block; }
+  .nav-logo .logo-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .nav-logo .logo-light { display: none; }
+    :root:not([data-theme="light"]) .nav-logo .logo-dark { display: block; }
+  }
+  :root[data-theme="dark"] .nav-logo .logo-light { display: none; }
+  :root[data-theme="dark"] .nav-logo .logo-dark { display: block; }
 </style>
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
@@ -165,7 +177,7 @@
 <body>
 
 <nav>
-  <a href="index.html" class="nav-logo">Social Capital</a>
+  <a href="index.html" class="nav-logo" aria-label="Social Capital, home"><img class="logo-light" src="/logo-light.png" alt="Social Capital" width="318" height="120"><img class="logo-dark" src="/logo-dark.png" alt="" aria-hidden="true" width="318" height="120"></a>
   <ul class="nav-links">
     <li><a href="guides.html">Routes in</a></li>
     <li><a href="mentors.html">Become a mentor</a></li>

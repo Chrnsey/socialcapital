@@ -2,3 +2,5 @@ User-agent: *
 Disallow: /admin/
 Disallow: /supabase/
 Disallow: /docs/
+
+Sitemap: https://socialcapital.ie/sitemap.xml
