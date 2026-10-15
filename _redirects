@@ -12,8 +12,7 @@
 # /docs and /supabase are hidden by functions instead - Pages _redirects
 # cannot return a 404 status.
 
-# Clean URLs: /routes/apprenticeships serves the guide template while the
-# nice address stays in the browser bar.
-/routes/*           /guide              200
-/funding/*          /guide              200
-/careers/*          /guide              200
+# The guide pages are now real HTML files, built by build.mjs on every
+# deploy, so Cloudflare serves them directly. No proxy rule - and crucially
+# Pages applies redirects even when a matching file exists, so leaving them
+# here would shadow the files we just built.

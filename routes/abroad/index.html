@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Studying in Europe — Social Capital</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --paper: #FAFAF8;
+    --paper-dim: #F1F0EC;
+    --card: #FFFFFF;
+    --ink: #17181A;
+    --ink-soft: #54575A;
+    --ink-faint: #8B8E90;
+    --green: #0E9A63;
+    --green-deep: #0B7A4F;
+    --green-tint: #E9F6EF;
+    --line: #E3E2DD;
+    --line-soft: #ECEBE6;
+    --white: #FFFFFF;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+      --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+      --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+      --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #17181A; --paper-dim: #121314; --card: #1E2021;
+    --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A;
+    --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F;
+    --line: #34373A; --line-soft: #2A2C2E; --white: #232527;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Public Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--paper);
+  }
+
+  a { color: var(--green); }
+
+  h1, h2, h3, h4 {
+    font-family: 'Source Serif 4', serif;
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  nav {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+    max-width: 920px;
+    margin: 0 auto;
+  }
+
+  .nav-logo {
+    font-family: 'Source Serif 4', serif;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+  }
+
+  .nav-links { display: flex; align-items: baseline; gap: 1.75rem; list-style: none; }
+  .nav-links a { color: var(--ink-soft); text-decoration: none; font-size: 0.9rem; }
+  .nav-links a:hover { color: var(--ink); }
+
+  .btn {
+    display: inline-block;
+    background: var(--green);
+    color: var(--white) !important;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--green);
+  }
+  .btn:hover { background: var(--green-deep); border-color: var(--green-deep); }
+
+  .btn-outline {
+    display: inline-block;
+    background: transparent;
+    color: var(--ink) !important;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 3px;
+    border: 1px solid var(--ink-faint);
+  }
+  .btn-outline:hover { border-color: var(--ink); }
+
+  .text-link {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--line);
+    text-underline-offset: 4px;
+    font-size: 0.95rem;
+  }
+  .text-link:hover { text-decoration-color: var(--ink); }
+
+  .hero {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 5rem 2rem 3.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.1rem, 5vw, 3.2rem);
+    line-height: 1.18;
+    max-width: 14ch;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero p {
+    font-size: 1.1rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin-bottom: 2rem;
+  }
+
+  .hero-actions { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  .value-strip {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 0 2rem 3.5rem;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .value-item h3 { font-size: 1.05rem; margin-bottom: 0.5rem; }
+  .value-item p { font-size: 0.9rem; color: var(--ink-soft); }
+
+  section {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .section-tag { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+
+  h2 {
+    font-size: clamp(1.4rem, 3vw, 1.75rem);
+    margin-bottom: 0.75rem;
+    max-width: 26ch;
+  }
+
+  .section-body {
+    font-size: 1rem;
+    color: var(--ink-soft);
+    max-width: 56ch;
+    margin-bottom: 2.25rem;
+  }
+
+  .mentor-teaser-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .mentor-teaser {
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    padding: 1.5rem;
+  }
+
+  .mentor-teaser-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--ink);
+    color: var(--paper);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Source Serif 4', serif;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.9rem;
+  }
+
+  .mentor-teaser h4 { font-size: 0.95rem; margin-bottom: 0.1rem; }
+  .mentor-teaser .role { font-size: 0.8rem; color: var(--ink-faint); margin-bottom: 0.75rem; }
+  .mentor-teaser blockquote {
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+    font-style: italic;
+    border-left: 2px solid var(--green);
+    padding-left: 0.75rem;
+  }
+
+  .teaser-note { font-size: 0.875rem; color: var(--ink-faint); margin-top: 1.5rem; }
+  .teaser-note a { color: var(--ink-faint); }
+  .teaser-note a:hover { color: var(--ink); }
+
+  .industries-line { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
+  .industries-line strong { color: var(--ink); font-weight: 600; }
+
+  .bottom-cta {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 3.5rem 2rem;
+    background: var(--green-tint);
+  }
+  .bottom-cta h2 { margin-bottom: 0.75rem; }
+  .bottom-cta p { color: var(--ink-soft); max-width: 50ch; margin-bottom: 1.75rem; font-size: 1rem; }
+  .cta-group { display: flex; align-items: center; gap: 1.75rem; flex-wrap: wrap; }
+
+  footer {
+    max-width: 920px;
+    margin: 0 auto;
+    padding: 2.5rem 2rem 3.5rem;
+    font-size: 0.875rem;
+    color: var(--ink-faint);
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+  footer a { color: var(--ink-faint); text-decoration: none; }
+  footer a:hover { color: var(--ink); }
+  .footer-logo { font-family: 'Source Serif 4', serif; font-size: 1.05rem; color: var(--ink); margin-bottom: 0.3rem; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+
+  .modal-overlay {
+    display: none; position: fixed; inset: 0;
+    background: rgba(23, 24, 26, 0.55);
+    z-index: 200; align-items: center; justify-content: center; padding: 1rem;
+  }
+  .modal-overlay.active { display: flex; }
+  .modal {
+    background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+    padding: 2.25rem; max-width: 440px; width: 100%; position: relative;
+  }
+  .modal h3 { font-size: 1.35rem; margin-bottom: 0.6rem; }
+  .modal p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 1.5rem; line-height: 1.6; }
+  .form-group { margin-bottom: 1rem; }
+  .form-group label { display: block; font-size: 0.8rem; font-weight: 600; color: var(--ink); margin-bottom: 0.35rem; }
+  .form-group input, .form-group select {
+    width: 100%; padding: 0.6rem 0.75rem; border: 1px solid var(--line); border-radius: 3px;
+    font-family: 'Public Sans', sans-serif; font-size: 0.9rem; color: var(--ink); background: var(--white); outline: none;
+  }
+  .form-group input:focus, .form-group select:focus { border-color: var(--green); }
+  .modal-submit {
+    width: 100%; background: var(--green); color: var(--white); border: none; padding: 0.8rem;
+    border-radius: 3px; font-family: 'Public Sans', sans-serif; font-size: 0.9rem; font-weight: 600;
+    cursor: pointer; margin-top: 0.4rem;
+  }
+  .modal-submit:hover { background: var(--green-deep); }
+  .modal-close {
+    position: absolute; top: 1rem; right: 1.1rem; background: none; border: none;
+    font-size: 1.3rem; color: var(--ink-faint); cursor: pointer; line-height: 1;
+  }
+  .modal-close:hover { color: var(--ink); }
+
+  @media (max-width: 720px) {
+    .value-strip, .mentor-teaser-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 640px) {
+    nav { padding: 1.1rem 1.25rem; flex-wrap: wrap; gap: 0.75rem; }
+    .nav-links { gap: 1.1rem; font-size: 0.85rem; }
+    .hero { padding: 3rem 1.25rem 2.25rem; }
+    section, .bottom-cta { padding: 2.75rem 1.25rem; }
+    .value-strip { padding: 0 1.25rem 2.75rem; }
+    footer { flex-direction: column; align-items: flex-start; }
+  }
+
+  .form-consent { font-size: 0.75rem; color: var(--ink-faint); margin: 0.85rem 0 0; line-height: 1.5; }
+  .form-consent a { color: var(--ink-faint); text-decoration: underline; }
+  .form-consent a:hover { color: var(--ink); }
+
+  /* Brand mark. Two files because the wordmark's ink is dark: on the dark
+     theme the pale version is swapped in, or it would be invisible. */
+  .nav-logo { display: inline-flex; align-items: center; line-height: 1; }
+  .nav-logo img { height: 40px; width: auto; display: block; }
+  .nav-logo .logo-dark { display: none; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) .nav-logo .logo-light { display: none; }
+    :root:not([data-theme="light"]) .nav-logo .logo-dark { display: block; }
+  }
+  :root[data-theme="dark"] .nav-logo .logo-light { display: none; }
+  :root[data-theme="dark"] .nav-logo .logo-dark { display: block; }
+</style>
+<style>
+  .pw-wrap { max-width: 760px; margin: 0 auto; padding: 4rem 2rem 3rem; }
+  .pw-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 0.6rem; }
+  .pw-wrap h1 { font-size: clamp(1.9rem, 4.5vw, 2.6rem); line-height: 1.18; margin-bottom: 0.75rem; }
+  .pw-summary { font-size: 1.1rem; color: var(--ink-soft); max-width: 50ch; margin-bottom: 1rem; }
+  .pw-wrap h2 { font-size: 1.2rem; margin: 2.75rem 0 0.75rem; max-width: none; }
+  .pw-wrap > p, .pw-wrap p { font-size: 0.975rem; color: var(--ink-soft); line-height: 1.7; max-width: 62ch; }
+  .pw-note { font-size: 0.875rem !important; color: var(--ink-faint) !important; margin-bottom: 1.25rem; }
+
+  .route { border-top: 1px solid var(--line); padding: 1.5rem 0; }
+  .route:last-of-type { border-bottom: 1px solid var(--line); }
+  .route-head { display: flex; align-items: baseline; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 0.5rem; }
+  .route-head h3 { font-size: 1.05rem; margin: 0; }
+  .route-tag { font-size: 0.7rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.04em;
+               color: var(--green-deep); background: var(--green-tint); padding: 0.2rem 0.5rem; border-radius: 3px; }
+  .route-facts { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1rem; margin-top: 1rem; }
+  .route-facts dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); margin-bottom: 0.15rem; }
+  .route-facts dd { font-size: 0.9rem; color: var(--ink); }
+
+  .myth { border-left: 2px solid var(--line); padding-left: 1rem; margin-bottom: 1.5rem; }
+  .myth-claim { font-style: italic; color: var(--ink-faint) !important; margin-bottom: 0.35rem; }
+  .myth-reality { color: var(--ink) !important; }
+
+  .pw-links { margin: 0 0 1rem 1.1rem; }
+  .pw-links li { font-size: 0.95rem; margin-bottom: 0.5rem; line-height: 1.6; }
+
+  .pw-cta { background: var(--green-tint); border-radius: 4px; padding: 2rem; margin: 3rem 0 2rem; }
+  .pw-cta h2 { margin-top: 0; }
+  .pw-cta p { margin-bottom: 1.5rem; }
+  .pw-checked { font-size: 0.8rem !important; color: var(--ink-faint) !important; border-top: 1px solid var(--line-soft); padding-top: 1.25rem; }
+
+  .pathway-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
+  .pathway-card { display: block; background: var(--card); border: 1px solid var(--line); border-radius: 4px;
+                  padding: 1.5rem; text-decoration: none; }
+  .pathway-card:hover { border-color: var(--ink-faint); }
+  .pathway-card-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.85rem; }
+  .pathway-sector { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--ink-faint); }
+  .pathway-arrow { color: var(--ink-faint); font-size: 1.2rem; font-family: 'Source Serif 4', serif; }
+  .pathway-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .pathway-card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+  .dir-empty { font-size: 0.9rem; color: var(--ink-soft); }
+
+  @media (max-width: 720px) { .pathway-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 640px) { .pw-wrap { padding: 2.5rem 1.25rem 2rem; } .route-facts { grid-template-columns: 1fr; } }
+</style>
+
+<style>
+  .pw-wrap p { margin-bottom: 1rem; }
+  .pw-wrap .pw-summary { margin-bottom: 1.5rem; }
+  .pw-wrap h2 + p, .pw-wrap .route p { margin-bottom: 0.85rem; }
+
+  .guide-group { margin-bottom: 4rem; }
+  .guide-group h2 { font-size: clamp(1.5rem, 3.5vw, 2rem); margin: 0 0 0.6rem; }
+  .guide-intro { font-size: 1rem; color: var(--ink-soft); max-width: 58ch; margin-bottom: 2rem; }
+  .guide-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem; }
+  .guide-card { display: block; background: var(--card); border: 1px solid var(--line);
+                border-radius: 4px; padding: 1.5rem; text-decoration: none; }
+  .guide-card:hover { border-color: var(--ink-faint); }
+  .guide-card-top { display: flex; align-items: center; justify-content: space-between;
+                    margin-bottom: 0.85rem; gap: 1rem; }
+  .guide-sub { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+               color: var(--ink-faint); }
+  .guide-arrow { color: var(--ink-faint); font-size: 1.2rem; font-family: 'Source Serif 4', serif; }
+  .guide-card h3 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+  .guide-card p { font-size: 0.9rem; color: var(--ink-soft); line-height: 1.6; }
+
+  .fact-grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 1.25rem;
+               background: var(--paper-dim); border-radius: 4px; padding: 1.5rem; margin: 1.5rem 0 2rem; }
+  .fact-grid dt { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+                  color: var(--ink-faint); margin-bottom: 0.2rem; }
+  .fact-grid dd { font-size: 0.95rem; color: var(--ink); font-weight: 500; }
+
+  .related { border-top: 1px solid var(--line); padding-top: 1.5rem; margin-top: 2.5rem; }
+  .related ul { list-style: none; margin: 0.5rem 0 0; }
+  .related li { margin-bottom: 0.45rem; font-size: 0.95rem; }
+
+  @media (max-width: 720px) { .guide-grid, .fact-grid { grid-template-columns: 1fr; } }
+</style>
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E9A63">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://socialcapital.ie/routes/abroad">
+<meta property="og:title" content="Studying in Europe — Social Capital">
+<meta property="og:description" content="English-taught degrees across the continent at EU fee rates. A fraction of what the same thing costs in the UK, and sometimes less than Dublin.">
+<meta property="og:image" content="https://socialcapital.ie/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="description" content="English-taught degrees across the continent at EU fee rates. A fraction of what the same thing costs in the UK, and sometimes less than Dublin.">
+<link rel="canonical" href="https://socialcapital.ie/routes/abroad">
+</head>
+<body>
+<nav>
+  <a href="/index.html" class="nav-logo" aria-label="Social Capital, home"><img class="logo-light" src="/logo-light.png" alt="Social Capital" width="318" height="120"><img class="logo-dark" src="/logo-dark.png" alt="" aria-hidden="true" width="318" height="120"></a>
+  <ul class="nav-links">
+    <li><a href="/guides.html">Routes in</a></li>
+    <li><a href="/mentors.html">Become a mentor</a></li>
+    <li><a href="/schools.html">For schools</a></li>
+    <li><a href="/about.html">About</a></li>
+    <li><a href="/alumni.html" class="nav-cta">Left school?</a></li>
+  </ul>
+</nav>
+<div class="pw-wrap" id="guideDetail">
+<p class="pw-kicker">Ways in · Usually cheaper than staying home</p><h1>Studying in Europe</h1><p class="pw-summary">English-taught degrees across the continent at EU fee rates. A fraction of what the same thing costs in the UK, and sometimes less than Dublin.</p><p>You are an Irish citizen, which makes you an EU student, which means you pay what a local pays anywhere in the union. In several countries that figure is small. Hundreds of degrees are taught entirely in English.</p><p>The Netherlands is the well-worn route. A large number of English-taught bachelor&#39;s degrees, an application system that expects foreigners, and student cities that are used to them. Germany and the Nordics teach in English too, at low or no tuition.</p><p>Almost nobody in an Irish school will raise this with you. It is not obscure and it is not difficult. It simply is not on the slides.</p><h2>Why this page is not about the UK</h2><p>Fee arrangements for Irish students in the UK changed after Brexit and vary. Check the current position properly before you assume anything about it. The continent is the reliable value, which is why it is the one written up here.</p><h2>Entry works differently</h2><p>Many European universities don&#39;t run a points race. Some admit anyone who meets a minimum standard, some use a lottery, some choose for themselves. A course that is unreachable on points here may not be unreachable there.</p><h2>Housing is the actual problem</h2><p>Not fees. Beds. Student accommodation in Dutch cities is genuinely scarce and has to be sorted early. This is the thing that goes wrong for people, and it goes wrong in August.</p><h2>Check what Irish support follows you</h2><p>Some Irish student supports apply to study elsewhere in the EU and some do not. Ask SUSI directly. Do not take the answer from a forum.</p><h2>What you get that isn&#39;t on the certificate</h2><p>Living somewhere else at nineteen changes what you think is available to you, permanently. If you have not travelled much, that is the larger half of the value, and no prospectus will put a number on it.</p><h2>What people get wrong</h2><div class="myth"><p class="myth-claim">“I&#39;d need the language.”</p><p class="myth-reality">Hundreds of degrees are taught in English, particularly in the Netherlands and the Nordics.</p></div><div class="myth"><p class="myth-claim">“Abroad means expensive.”</p><p class="myth-reality">EU tuition is often below the Irish student contribution. Living costs are the variable, and not always upward.</p></div><div class="myth"><p class="myth-claim">“An Irish employer won&#39;t take it seriously.”</p><p class="myth-reality">EU degrees are recognised across the EU. It is a normal qualification from a normal university.</p></div><h2>Where to go next</h2><ul class="pw-links"><li><a href="https://www.eunicas.ie" rel="noopener">Eunicas — helps Irish students apply to European universities</a></li><li><a href="https://www.studielink.nl" rel="noopener">Studielink — the Dutch application system</a></li><li><a href="https://www.studyinnl.org" rel="noopener">Study in NL — official information on Dutch higher education</a></li><li><a href="https://susi.ie" rel="noopener">SUSI — ask them what follows you abroad</a></li></ul><div class="related"><p class="pw-kicker">Read next</p><ul><li><a href="/funding/susi">SUSI</a></li><li><a href="/routes/college">CAO and college</a></li></ul></div><div class="pw-cta"><h2>Talk to someone who did it</h2><p>These pages tell you how it works. A person can tell you what it was actually like. Mentor profiles are open to registered schools.</p><a class="btn" href="/schools.html">How schools register</a></div><p class="pw-checked">Information checked September 2026. Requirements, fees and deadlines change — always confirm with the official sources linked above before making a decision.</p>
+</div>
+<footer>
+  <div>
+    <div class="footer-logo">Social Capital</div>
+    <div>Connecting students to real careers. Ireland.</div>
+  </div>
+  <div class="footer-links">
+    <a href="/guides.html">Routes in</a>
+    <a href="/about.html">About</a>
+    <a href="/businesses.html">For businesses</a>
+    <a href="/terms.html">Terms</a>
+    <a href="/privacy.html">Privacy</a>
+    <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
+  </div>
+</footer>
+<script src="/js/guides.js"></script>
+</body>
+</html>
