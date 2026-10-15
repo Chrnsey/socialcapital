@@ -75,6 +75,17 @@ function body(item, section) {
       : "");
 }
 
+// A marker written into every page the build touches, so anyone can check
+// whether the build actually ran - and how recently - with a single request:
+//   curl -s https://socialcapital.ie/ | grep "built-by-build.mjs"
+// If it is missing, the Cloudflare build command is not set and the HTML a
+// crawler reads is whatever was last committed by hand.
+const STAMP = `<!-- built-by-build.mjs ${new Date().toISOString()} -->`;
+function stamp(html) {
+  return html.replace(/<!-- built-by-build\.mjs [^>]*-->\n?/g, "")
+             .replace("</head>", STAMP + "\n</head>");
+}
+
 const template = readFileSync("guide.html", "utf8");
 let built = 0;
 
@@ -109,7 +120,7 @@ for (const name of SECTIONS) {
     // 308-redirected to /routes/plc/ - a wasted hop that also would not match
     // our canonical URLs, sitemap or internal links.
     mkdirSync(name, { recursive: true });
-    writeFileSync(`${name}/${item.slug}.html`, html);
+    writeFileSync(`${name}/${item.slug}.html`, stamp(html));
     built++;
     console.log(`  ${name}/${item.slug}.html  —  ${esc(title)}`);
   }
@@ -174,11 +185,11 @@ for (const [page, key] of Object.entries(CONTENT_PAGES)) {
     }
   );
 
-  if (changes) {
-    writeFileSync(page, html);
-    refreshed++;
-    console.log(`  ${page} — ${changes} fallback blocks refreshed from the CMS`);
-  }
+  // Always written, even when nothing changed, so every page carries the
+  // build stamp. That is what makes "did the build actually run?" answerable.
+  writeFileSync(page, stamp(html));
+  refreshed++;
+  console.log(`  ${page} — ${changes} fallback block${changes === 1 ? "" : "s"} refreshed from the CMS`);
 }
 console.log(`${refreshed} pages refreshed`);
 
@@ -240,7 +251,7 @@ for (const name of DOCS) {
       : html.replace("</head>", `<meta name="description" content="${desc}">\n</head>`);
   }
 
-  writeFileSync(`${name}.html`, html);
+  writeFileSync(`${name}.html`, stamp(html));
   docsBuilt++;
   console.log(`  ${name}.html — rebuilt from content/pages/${name}.md`);
 }
