@@ -24,7 +24,7 @@ Three things, and deliberately not much more.
 
 ## What we don't do
 
-- **We don't let cost keep a school out.** The first ten schools are founding schools and stay free permanently. After that it is €200 a year — and free to any school where the money is genuinely the obstacle. You only have to say so.
+- **We don't let cost keep a school out.** The first five schools to register are founding schools and stay free permanently. After that there is an annual fee of €200 — and it stays free for any school where the money is genuinely the obstacle. You only have to say so.
 - **We don't hold data about children.** Students browse through their school. Nobody under 18 has an account here.
 - **We don't hand out mentors' personal details to students.** Their private contact record is not readable by this website at all. Adults over 18 see only what a mentor chose to share.
 - **We don't invent people.** Every profile is somebody who said yes. If the directory looks short, it is short.

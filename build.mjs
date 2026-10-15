@@ -10,6 +10,7 @@
 // No dependencies - plain Node.
 // ===========================================================================
 import { readFileSync, writeFileSync, mkdirSync } from "node:fs";
+import { marked } from "marked";
 
 const SECTIONS = ["routes", "funding", "careers"];
 const SITE = "https://socialcapital.ie";
@@ -180,3 +181,67 @@ for (const [page, key] of Object.entries(CONTENT_PAGES)) {
   }
 }
 console.log(`${refreshed} pages refreshed`);
+
+// ===========================================================================
+// Third job: the long-form documents (About, Terms, Privacy).
+//
+// These are written as markdown in the CMS and rendered in the browser. The
+// HTML carried a copy so the page never renders blank - and that copy went
+// stale as soon as the markdown was edited, leaving crawlers reading an old
+// version of the About page.
+//
+// Rendering the markdown here, with the same library the browser uses, ties
+// the two together: edit in the CMS, push, and the HTML a crawler reads is
+// rebuilt from the same source.
+// ===========================================================================
+const DOCS = ["about", "terms", "privacy"];
+
+function innerRange(html, openTagStart) {
+  // Walk forward from an opening <div ...> to its matching </div>.
+  const from = html.indexOf(">", openTagStart) + 1;
+  let depth = 1, i = from;
+  const re = /<div\b|<\/div>/g;
+  re.lastIndex = from;
+  let m;
+  while ((m = re.exec(html))) {
+    depth += m[0] === "</div>" ? -1 : 1;
+    if (depth === 0) return [from, m.index];
+  }
+  return null;
+}
+
+let docsBuilt = 0;
+for (const name of DOCS) {
+  let html;
+  try { html = readFileSync(`${name}.html`, "utf8"); } catch { continue; }
+  let md = readFileSync(`content/pages/${name}.md`, "utf8");
+  md = md.replace(/^\uFEFF?---\s*\n[\s\S]*?\n---\s*\n/, "");   // strip front matter
+
+  const open = html.indexOf(`<div class="doc" data-doc="${name}"`);
+  if (open === -1) continue;
+  const range = innerRange(html, open);
+  if (!range) continue;
+
+  const rendered = marked.parse(md, { gfm: true });
+  html = html.slice(0, range[0]) + "\n" + rendered + html.slice(range[1]);
+
+  // Title and description from the document itself, so they track edits too.
+  const h1 = md.match(/^#\s+(.+)$/m);
+  if (h1) {
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>Social Capital \u2014 ${esc(h1[1].trim())}</title>`);
+  }
+  const firstPara = md.split(/\n\s*\n/).find(
+    (b) => b.trim() && !b.startsWith("#") && !b.startsWith(">") && !b.startsWith("*") && !b.startsWith("-")
+  );
+  if (firstPara) {
+    const desc = esc(firstPara.replace(/[*_`\[\]]/g, "").replace(/\s+/g, " ").trim().slice(0, 300));
+    html = /<meta name="description"/.test(html)
+      ? html.replace(/<meta name="description" content="[^"]*">/, `<meta name="description" content="${desc}">`)
+      : html.replace("</head>", `<meta name="description" content="${desc}">\n</head>`);
+  }
+
+  writeFileSync(`${name}.html`, html);
+  docsBuilt++;
+  console.log(`  ${name}.html — rebuilt from content/pages/${name}.md`);
+}
+console.log(`${docsBuilt} documents rebuilt`);
