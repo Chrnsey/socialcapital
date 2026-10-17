@@ -79,7 +79,13 @@
         })
         .catch(function (error) {
           console.error("[Social Capital] sign-in failed", error);
-          setStatus("Sorry — that didn't send. Please try again shortly.", "error");
+          var why = (error && error.message) || "";
+          setStatus(
+            /rate|limit|seconds|security purposes/i.test(why)
+              ? "We can't send another link just yet: " + why
+              : "Sorry — that didn't send" + (why ? ": " + why : "") + ".",
+            "error"
+          );
         })
         .then(function () {
           button.disabled = false;

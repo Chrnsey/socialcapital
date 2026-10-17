@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=c9df599f">
+<link rel="stylesheet" href="/css/site.css?v=07a20c80">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -51,6 +51,15 @@
   </div>
 
   <div class="admin-wrap">
+
+    <section class="admin-panel" id="pendingPanel" hidden>
+      <h2>Waiting for you</h2>
+      <p class="admin-note">
+        People who used a form on the site. Nothing has happened yet: a mentor
+        is not in the directory and a school cannot sign in until you say so.
+      </p>
+      <div id="pendingList"></div>
+    </section>
 
     <section class="admin-panel">
       <h2 id="formHeading">Add a mentor</h2>
@@ -173,7 +182,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=4217a712"></script>
+<script src="js/admin-mentors.js?v=7e3b9626"></script>
 
 </body>
 </html>

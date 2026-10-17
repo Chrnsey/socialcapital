@@ -74,13 +74,142 @@
         status("adminLoginStatus", "Check your inbox. The link lasts an hour.", "ok");
       })
       .catch(function (e) {
+        // Say WHY. The usual cause is Supabase's built-in email sender, which
+        // allows only a couple of messages an hour - "try again shortly" sent
+        // Jack looking in his inbox for a mail that was never sent.
         console.error("[Social Capital] admin sign-in failed", e);
-        status("adminLoginStatus", "That didn't send. Try again shortly.", "error");
+        var why = (e && e.message) || "";
+        status("adminLoginStatus",
+          /rate|limit|seconds|security purposes/i.test(why)
+            ? "Supabase won't send another one yet: " + why +
+              " Its built-in sender allows about two an hour. Connecting " +
+              "Resend as custom SMTP removes that."
+            : "That didn't send" + (why ? " \u2014 " + why : "") + ".",
+          "error");
       })
       .then(function () {
         button.disabled = false;
         button.textContent = "Email me a sign-in link";
       });
+  }
+
+  // -------------------------------------------------------------------------
+  // The pending queue - people who used a form on the site.
+  //
+  // A mentor form gives us a name, an email, an employer, a sector and two
+  // free-text answers ("Junior (0-5 years)", "Yes, happy to"). The card needs
+  // a tidy job title and a junior/senior value, which only Jack can decide,
+  // so approving a mentor asks for those rather than guessing from the text.
+  //
+  // A school needs nothing extra: approving one is what lets them sign in.
+  // -------------------------------------------------------------------------
+  function pendingRow(p) {
+    var said = [];
+    if (p.raw_level) said.push("said: " + esc(p.raw_level));
+    if (p.raw_talks) said.push("talks: " + esc(p.raw_talks));
+
+    var guessLevel = /senior|lead|head|director|partner|manager/i.test(p.raw_level || "")
+      ? "senior" : "junior";
+
+    var fields = p.kind === "mentor"
+      ? '<div class="pending-fields">' +
+          // Deliberately empty. Pre-filling ", Employer" started the field
+          // with a comma, which reads like a bug, and the employer is already
+          // on the line above.
+          '<input type="text" data-f="role" placeholder="Job title, employer \u2014 as it should read">' +
+          '<select data-f="level">' +
+            '<option value="junior"' + (guessLevel === "junior" ? " selected" : "") + '>Junior</option>' +
+            '<option value="senior"' + (guessLevel === "senior" ? " selected" : "") + '>Senior</option>' +
+          '</select>' +
+          '<input type="text" data-f="exp" placeholder="Small grey line (optional)">' +
+        '</div>'
+      : "";
+
+    return '' +
+      '<div class="pending-row" data-id="' + esc(p.id) + '" data-kind="' + esc(p.kind) + '">' +
+        '<div class="pending-head">' +
+          '<div>' +
+            '<strong>' + esc(p.name || "No name given") + '</strong>' +
+            '<div class="pending-meta">' + esc(p.email) +
+              (p.detail ? " \u00b7 " + esc(p.detail) : "") +
+              (p.industry ? " \u00b7 " + esc(SECTORS[p.industry] || p.industry) : "") +
+            '</div>' +
+            (said.length ? '<div class="pending-said">' + said.join(" \u00b7 ") + '</div>' : "") +
+          '</div>' +
+          '<span class="pending-kind">' + (p.kind === "mentor" ? "Mentor" : "School") + '</span>' +
+        '</div>' +
+        fields +
+        '<div class="pending-actions">' +
+          '<button type="button" class="btn admin-small" data-act="approve">' +
+            (p.kind === "mentor" ? "Approve, hidden" : "Approve \u2014 they can sign in") +
+          '</button>' +
+          '<button type="button" class="btn-outline admin-small" data-act="reject">Turn down</button>' +
+          '<span class="pending-status" data-role="status"></span>' +
+        '</div>' +
+      '</div>';
+  }
+
+  function loadPending() {
+    return window.SC.client.rpc("admin_list_pending").then(function (r) {
+      if (r.error) throw r.error;
+      var rows = r.data || [];
+      el("pendingPanel").hidden = rows.length === 0;
+      el("pendingList").innerHTML = rows.map(pendingRow).join("");
+    });
+  }
+
+  function onPendingClick(event) {
+    var button = event.target.closest("button[data-act]");
+    if (!button) return;
+
+    var card = button.closest(".pending-row");
+    var id = card.getAttribute("data-id");
+    var kind = card.getAttribute("data-kind");
+    var note = card.querySelector('[data-role="status"]');
+    var act = button.getAttribute("data-act");
+
+    function fail(message) {
+      note.textContent = message;
+      note.className = "pending-status error";
+      card.querySelectorAll("button").forEach(function (b) { b.disabled = false; });
+    }
+
+    if (act === "reject") {
+      if (!window.confirm("Turn down " + (card.querySelector("strong").textContent) + "?")) return;
+      card.querySelectorAll("button").forEach(function (b) { b.disabled = true; });
+      note.textContent = "Saving\u2026";
+      note.className = "pending-status";
+      window.SC.client.rpc("admin_reject_pending", { p_kind: kind, p_pending_id: id })
+        .then(function (r) { if (r.error) throw r.error; return Promise.all([loadPending(), load()]); })
+        .catch(function (e) { console.error(e); fail(e.message || "Didn't save"); });
+      return;
+    }
+
+    var args;
+    if (kind === "mentor") {
+      var role = (card.querySelector('[data-f="role"]').value || "").trim();
+      if (!role) { fail("A job title is needed before this can go on a card."); return; }
+      args = {
+        p_pending_id: id,
+        p_role_title: role,
+        p_level: card.querySelector('[data-f="level"]').value,
+        p_experience_label: (card.querySelector('[data-f="exp"]').value || "").trim()
+      };
+    } else {
+      args = { p_pending_id: id };
+    }
+
+    card.querySelectorAll("button").forEach(function (b) { b.disabled = true; });
+    note.textContent = "Saving\u2026";
+    note.className = "pending-status";
+
+    window.SC.client
+      .rpc(kind === "mentor" ? "admin_approve_mentor" : "admin_approve_school", args)
+      .then(function (r) {
+        if (r.error) throw r.error;
+        return Promise.all([loadPending(), load()]);
+      })
+      .catch(function (e) { console.error(e); fail(e.message || "Didn't save"); });
   }
 
   // -------------------------------------------------------------------------
@@ -314,6 +443,17 @@
 
         el("adminWho").textContent = session.user.email;
         screen("adminApp");
+
+        loadPending().catch(function (e) {
+          // A missing function here means admin-pending.sql has not been run.
+          // The rest of the page still works, so say so and carry on.
+          console.error("[Social Capital] pending queue failed", e);
+          el("pendingPanel").hidden = false;
+          el("pendingList").innerHTML =
+            '<p class="dir-empty">Can\'t read the queue \u2014 run ' +
+            'supabase/admin-pending.sql in Supabase, then refresh.</p>';
+        });
+
         load().catch(function (e) {
           console.error("[Social Capital] list failed", e);
           el("mentorList").innerHTML =
@@ -328,6 +468,7 @@
     el("mentorForm").addEventListener("submit", submit);
     el("mentorCancel").addEventListener("click", resetForm);
     el("mentorList").addEventListener("click", onListClick);
+    el("pendingList").addEventListener("click", onPendingClick);
     el("adminSignOut").addEventListener("click", function () {
       window.SC.client.auth.signOut().then(function () {
         window.location.replace("index.html");

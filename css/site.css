@@ -596,3 +596,39 @@ footer a:hover { color: var(--ink); }
    mentors. Two admin pages is confusing enough without hiding either one. */
 .dir-admin-link { color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
 .dir-admin-link:hover { color: var(--ink); text-decoration: underline; }
+
+/* The pending queue. Amber left edge: somebody is waiting on Jack, which is
+   a different state from a mentor who is simply hidden. */
+.pending-row {
+  border: 1px solid var(--line);
+  border-left: 3px solid #C98A1B;
+  border-radius: 4px;
+  padding: 1rem;
+  margin-bottom: 0.6rem;
+  background: var(--card);
+}
+.pending-head { display: flex; gap: 1rem; justify-content: space-between; align-items: baseline; }
+.pending-kind {
+  font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em;
+  color: #C98A1B; flex: 0 0 auto;
+}
+.pending-meta { font-size: 0.8rem; color: var(--ink-soft); margin-top: 0.15rem; }
+.pending-said { font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.15rem; }
+.pending-fields {
+  display: grid; grid-template-columns: 2fr 1fr 1.5fr; gap: 0.6rem;
+  margin: 0.9rem 0 0.75rem;
+}
+.pending-fields input, .pending-fields select {
+  width: 100%; padding: 0.55rem 0.6rem; font-size: 0.85rem;
+  font-family: inherit; color: var(--ink);
+  background: var(--paper); border: 1px solid var(--line); border-radius: 3px;
+}
+.pending-actions { display: flex; gap: 0.5rem; align-items: center; }
+.pending-status { font-size: 0.8rem; margin-left: 0.25rem; }
+.pending-status.error { color: #B3261E; }
+:root[data-theme="dark"] .pending-status.error { color: #F2B8B5; }
+
+@media (max-width: 640px) {
+  .pending-fields { grid-template-columns: 1fr; }
+  .pending-head { flex-direction: column-reverse; align-items: flex-start; gap: 0.25rem; }
+}
