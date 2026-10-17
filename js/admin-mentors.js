@@ -288,11 +288,27 @@
       screen("adminChecking");
 
       window.SC.client.rpc("is_admin").then(function (check) {
-        if (check.error || check.data !== true) {
+        // Two different failures, which used to share one message and sent
+        // Jack hunting for the wrong problem. An ERROR means is_admin() isn't
+        // there - the setup SQL has not been run. FALSE means it ran fine and
+        // this address simply is not on the list. Say which.
+        if (check.error) {
+          console.error("[Social Capital] is_admin failed", check.error);
           window.SC.client.auth.signOut();
           screen("adminLogin");
           status("adminLoginStatus",
-            "That address is not on the admin list.", "error");
+            "This page isn't set up yet \u2014 run supabase/admin-page.sql in the " +
+            "Supabase SQL Editor, then sign in again. (" +
+            (check.error.message || "no detail") + ")", "error");
+          return;
+        }
+
+        if (check.data !== true) {
+          window.SC.client.auth.signOut();
+          screen("adminLogin");
+          status("adminLoginStatus",
+            "That address isn't on the admin list. Check the email in the " +
+            "admins table matches the one you just used.", "error");
           return;
         }
 
