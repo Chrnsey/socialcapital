@@ -159,7 +159,9 @@
               '<span class="mentor-badge ' + (m.level === "junior" ? "junior" : "") + '">' +
                 badge + detail +
               "</span>" +
-              routeLine(m) + talks + alum + contact +
+              routeLine(m) +
+              (m.bio ? '<span class="mentor-bio">' + escapeHtml(m.bio) + "</span>" : "") +
+              talks + alum + contact +
             "</div>" +
           "</div>"
         );
@@ -204,7 +206,7 @@
 
     window.SC.client
       .from("mentors")
-      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification")
+      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification, bio")
       .eq("industry", slug)
       .eq("is_published", true)
       .then(function (res) {

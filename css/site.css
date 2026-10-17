@@ -646,3 +646,24 @@ footer a:hover { color: var(--ink); }
    them on purpose: an apprenticeship should not look like a lesser entry
    than a master's. */
 .mentor-route { display: block; font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.3rem; }
+
+/* Bio box on the admin form. */
+#m_bio {
+  width: 100%; padding: 0.7rem 0.75rem; font: inherit; font-size: 0.9rem;
+  color: var(--ink); background: var(--card);
+  border: 1px solid var(--line); border-radius: 3px; resize: vertical;
+}
+.bio-count { font-size: 0.75rem; color: var(--ink-faint); text-align: right; margin-top: 0.3rem; }
+.bio-count.over { color: #B3261E; font-weight: 600; }
+.bio-warn {
+  margin-top: 0.5rem; padding: 0.7rem 0.8rem; font-size: 0.82rem;
+  color: var(--ink); background: #FDF3E0; border-left: 3px solid #C98A1B;
+  border-radius: 3px;
+}
+:root[data-theme="dark"] .bio-warn { background: #2B2313; }
+
+/* Bio on a mentor card. */
+.mentor-bio {
+  display: block; margin-top: 0.5rem; font-size: 0.875rem;
+  line-height: 1.55; color: var(--ink-soft);
+}

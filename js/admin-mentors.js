@@ -50,6 +50,44 @@
     sport_fitness: "Sport and fitness", other: "Other"
   };
 
+  // A bio must not carry a way to reach somebody directly. Students have no
+  // login, but a counsellor shows them the screen, and a handle copied off it
+  // routes a student around the school entirely - which is the one control
+  // the safeguarding statement actually rests on.
+  //
+  // This WARNS, it does not block. Jack is the check; the warning only makes
+  // sure he looks. "@" appears in legitimate sentences and a false positive
+  // that refused to save would be worse than a sentence he reads twice.
+  function contactish(text) {
+    var found = [];
+    if (/\bhttps?:\/\/|\bwww\.|\.(com|ie|org|net|co\.uk)\b/i.test(text)) found.push("a web address");
+    if (/(^|\s)@[A-Za-z0-9._]{2,}/.test(text)) found.push("an @ handle");
+    if (/[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}/.test(text)) found.push("an email address");
+    if (/(\+?\d[\d\s-]{7,}\d)/.test(text)) found.push("something phone-shaped");
+    if (/\b(instagram|snapchat|tiktok|whatsapp|twitter|facebook|discord|telegram)\b/i.test(text))
+      found.push("a social network");
+    return found;
+  }
+
+  function checkBio() {
+    var box = el("m_bio");
+    var text = box.value || "";
+    var count = el("bioCount");
+    count.textContent = text.length + " / 500";
+    count.className = "bio-count" + (text.length > 500 ? " over" : "");
+
+    var found = contactish(text);
+    var warn = el("bioWarn");
+    if (found.length) {
+      warn.hidden = false;
+      warn.innerHTML = "This looks like it contains " + found.join(", ") +
+        ". Contact goes through the school \u2014 a student copying this off " +
+        "a counsellor's screen gets round that. Take it out unless you are sure.";
+    } else {
+      warn.hidden = true;
+    }
+  }
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -241,6 +279,7 @@
     if (m.open_to_talks) bits.push("does school talks");
     if (m.is_alumnus) bits.push("past pupil" + (m.alumnus_school_name ? ", " + esc(m.alumnus_school_name) : ""));
     if (m.alumni_contact_ok) bits.push("over-18s may contact");
+    if (m.bio) bits.push("has a bio");
     if (m.route_in) bits.push(esc(ROUTES[m.route_in] || m.route_in));
     if (m.study_detail) bits.push(esc(m.study_detail));
     else if (m.study_field) bits.push(esc(FIELDS[m.study_field] || m.study_field));
@@ -291,6 +330,7 @@
   function resetForm() {
     el("mentorForm").reset();
     el("m_id").value = "";
+    checkBio();
     el("formHeading").textContent = "Add a mentor";
     el("formNote").textContent =
       "New people are saved hidden. Nothing reaches a school until you publish it below.";
@@ -320,6 +360,8 @@
     el("m_study_field").value = m.study_field || "";
     el("m_study_detail").value = m.study_detail || "";
     el("m_qualification").value = m.qualification || "";
+    el("m_bio").value = m.bio || "";
+    checkBio();
 
     // The update function deliberately does not touch the private record.
     el("privateFields").hidden = true;
@@ -370,7 +412,8 @@
       p_route_in: val("m_route_in"),
       p_study_field: val("m_study_field"),
       p_study_detail: val("m_study_detail"),
-      p_qualification: val("m_qualification")
+      p_qualification: val("m_qualification"),
+      p_bio: val("m_bio")
     };
 
     var call;
@@ -499,6 +542,7 @@
     el("mentorForm").addEventListener("submit", submit);
     el("mentorCancel").addEventListener("click", resetForm);
     el("mentorList").addEventListener("click", onListClick);
+    el("m_bio").addEventListener("input", checkBio);
     el("pendingList").addEventListener("click", onPendingClick);
     el("adminSignOut").addEventListener("click", function () {
       window.SC.client.auth.signOut().then(function () {

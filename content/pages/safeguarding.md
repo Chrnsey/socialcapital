@@ -19,6 +19,13 @@ Social Capital Ireland connects students in DEIS schools with working
 professionals who have volunteered to answer questions about their job and
 how they got it.
 
+**Who actually uses it.** Senior cycle, and in practice mostly sixth years —
+people deciding what to do after school. They are typically 17 or 18,
+depending on their birthday and whether they did Transition Year. A
+meaningful number of them are therefore children in law, and this statement
+is written on that basis. We do not treat the service as an adult one
+because most of its users have turned 18.
+
 **The service runs on two levels, and the difference between them is the main
 safeguarding control in this statement.**
 

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=381d1815">
+<link rel="stylesheet" href="/css/site.css?v=dc0ac33f">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -135,6 +135,19 @@
           </div>
         </div>
 
+        <div class="form-group">
+          <label for="m_bio">In their own words (optional)</label>
+          <p class="admin-note" style="margin:0.25rem 0 0.5rem;">
+            Paste what they sent you. Don't write it for them. A couple of
+            lines about what they are into makes somebody approachable, which
+            is most of the problem for a student working up the nerve to ask.
+          </p>
+          <textarea id="m_bio" rows="4" maxlength="500"
+            placeholder="Plays camogie for the local club. First in the family to go to college, so happy to talk about that side of it too."></textarea>
+          <p class="bio-count" id="bioCount">0 / 500</p>
+          <p class="bio-warn" id="bioWarn" hidden></p>
+        </div>
+
         <div class="admin-route">
           <p class="admin-private-title">How they got there &mdash; all optional</p>
           <p class="admin-note" style="margin-bottom:1rem;">
@@ -247,7 +260,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=3d136189"></script>
+<script src="js/admin-mentors.js?v=3f89ea87"></script>
 
 </body>
 </html>
