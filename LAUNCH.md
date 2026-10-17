@@ -11,7 +11,11 @@ The platform works. Verified end to end on socialcapital.ie:
 
 - [x] Site live on your own domain with SSL
 - [x] School registration, mentor signup and business forms saving to the database
-- [x] Passwordless school login, gated to approved schools only
+- [~] Passwordless school login, gated to approved schools only. **The gate
+      works. Email delivery did not** - Supabase's built-in sender only
+      delivers to addresses on the project's own team, so every school
+      address was refused with "Email address not authorized". Fixed by
+      connecting Resend as custom SMTP; see below.
 - [x] Mentor directory querying real data
 - [x] Mentor contact details unreadable by the website — only by you
 - [x] You can edit all site text yourself at /admin/
@@ -136,6 +140,29 @@ at any time. Every actual conversation still goes through the school and you.
 - **Reply to registration@ promptly.** A slow reply to a guidance counsellor in
   September costs you the whole school year.
 - **Keep a note of every mentor you met and when.** This is your vetting record.
+
+---
+
+## Email delivery for sign-in (October 2026)
+
+Supabase's built-in email sender is for testing. It delivers **only** to
+addresses that are members of the project's organisation, and refuses
+everything else with "Email address not authorized". It is also capped at
+about two messages an hour.
+
+That means no school could ever have received a sign-in link, however
+correctly the rest of it was set up. The database gate was tested and works;
+the email was the part nobody had checked, because every test used the
+address the Supabase account was created with.
+
+**Fix:** Authentication -> SMTP, enable custom SMTP, and point it at Resend:
+host `smtp.resend.com`, port 465, username `resend`, password a Resend API
+key, sender `noreply@socialcapital.ie`. Then raise the cap under
+Authentication -> Rate Limits, which starts at 30 an hour.
+
+**How to tell it is actually fixed:** sign in with an address that is NOT the
+one the Supabase account was created with. Testing with that address proves
+nothing, because it was the one address that always worked.
 
 ---
 
