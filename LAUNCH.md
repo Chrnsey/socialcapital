@@ -139,6 +139,26 @@ at any time. Every actual conversation still goes through the school and you.
 
 ---
 
+## One setting to change in Supabase (October 2026)
+
+There is now a single sign-in page at **/signin** that works out, from the
+email address, whether somebody is a school or a former student and sends
+them to the right place. The two old logins inside /schools and /alumni
+still work, so no existing link breaks.
+
+Supabase will only send a sign-in link back to an address it has been told
+about. Add the new page to that list once:
+
+1. Supabase dashboard -> **Authentication** -> **URL Configuration**
+2. Under **Redirect URLs**, add: `https://socialcapital.ie/signin`
+3. Save
+
+Until that is done, anyone signing in from /signin gets the link but lands
+on the home page instead of the directory. Nothing is lost, it just does not
+finish the job.
+
+---
+
 ## Worth fixing when there is time
 
 - **Self-host the fonts.** The site loads them from Google, which sends every

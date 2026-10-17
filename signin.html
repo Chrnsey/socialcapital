@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Capital — Sign in</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/site.css">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E9A63">
+<meta name="description" content="Sign in to Social Capital.">
+<!-- Not a page for Google: it is a door, not content. -->
+<meta name="robots" content="noindex, follow">
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo" aria-label="Social Capital, home"><img class="logo-light" src="/logo-light.png" alt="Social Capital" width="318" height="120"><img class="logo-dark" src="/logo-dark.png" alt="" aria-hidden="true" width="318" height="120"></a>
+  <ul class="nav-links">
+    <li><a href="guides.html">Routes in</a></li>
+    <li><a href="mentors.html">Mentors</a></li>
+    <li><a href="schools.html">Schools</a></li>
+    <li><a href="alumni.html">Left school?</a></li>
+    <li><a href="about.html">About</a></li>
+  </ul>
+  <a href="signin.html" class="nav-cta nav-signin current" aria-current="page">Sign in</a>
+</nav>
+
+<div class="signin-page">
+
+  <!-- The normal state: one box, no questions. -->
+  <div class="login-box" id="signinForm">
+    <h1>Sign in</h1>
+    <p>We email you a link and it signs you in. There is no password to forget. Use the same address your school or your sign-up used.</p>
+    <form id="loginForm" novalidate>
+      <div class="form-group">
+        <label for="loginEmail">Your email</label>
+        <input type="email" id="loginEmail" name="email" placeholder="your@email.com" required autocomplete="email" autocapitalize="none" spellcheck="false">
+      </div>
+      <button type="submit" class="modal-submit" id="signinSubmit" style="margin-top:0.75rem;">Email me a sign-in link</button>
+      <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <!-- Shown for a second or two after coming back from the emailed link. -->
+  <div class="login-box" id="signinChecking" hidden>
+    <h1>Signing you in</h1>
+    <p>One moment.</p>
+  </div>
+
+  <!-- The email worked but is on neither list. -->
+  <div class="login-box" id="signinUnknown" hidden>
+    <h1>We don't recognise that address</h1>
+    <p>Nothing is wrong with your email — it just isn't linked to an account here yet. Access comes through a school.</p>
+    <div class="signin-routes">
+      <a href="schools.html" class="btn">Register your school</a>
+      <a href="alumni.html" class="btn-outline">I left school</a>
+    </div>
+    <p class="signin-note">If you have left school, you need a short code from the school you went to. "I left school" explains how to get one, and what to do if you never got a code or have lost it.</p>
+  </div>
+
+</div>
+
+<footer>
+  <div>
+    <div class="footer-logo">Social Capital</div>
+    <div>Connecting students to real careers. Ireland.</div>
+  </div>
+  <div class="footer-links">
+    <a href="guides.html">Routes in</a>
+    <a href="about.html">About</a>
+    <a href="businesses.html">For businesses</a>
+    <a href="terms.html">Terms</a>
+    <a href="privacy.html">Privacy</a>
+    <a href="mailto:registration@socialcapital.ie">registration@socialcapital.ie</a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/supabase.js"></script>
+<script src="js/signin.js"></script>
+<script src="js/nav.js"></script>
+
+</body>
+</html>

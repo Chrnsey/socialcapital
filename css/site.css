@@ -134,7 +134,7 @@ footer a:hover { color: var(--ink); }
 /* ---------------------------------------------------------------------------
    Schools page, the mentor directory, modals and forms
    --------------------------------------------------------------------------- */
-.nav-cta { color: var(--green) !important; border: 1px solid var(--green); border-radius: 3px; padding: 0.3rem 0.7rem; font-weight: 600; }
+.nav-cta { text-decoration: none; color: var(--green) !important; border: 1px solid var(--green); border-radius: 3px; padding: 0.3rem 0.7rem; font-weight: 600; }
 .nav-cta:hover { background: var(--green); color: var(--white) !important; }
 .hero-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 1.25rem; }
 .fact-strip { max-width: var(--content-width); margin: 0 auto; padding: 1.75rem 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -355,10 +355,8 @@ footer a:hover { color: var(--ink); }
 /* ---------------------------------------------------------------------------
    PHONE-FIRST CORRECTIONS (October 2026)
 
-   Reading size, gutters and tap targets. The nav itself is NOT dealt with
-   here: five links plus a logo genuinely do not fit on a 375px screen, and
-   shrinking the type only pushes them onto a third row. That needs a
-   decision about what the nav shows, not more CSS.
+   Reading size, gutters and tap targets. The nav is handled separately,
+   under "PHONE MENU" below.
    --------------------------------------------------------------------------- */
 @media (max-width: 640px) {
 
@@ -380,3 +378,137 @@ footer a:hover { color: var(--ink); }
   /* Stop nav labels breaking mid-phrase, which looked broken rather than tight. */
   .nav-links a { white-space: nowrap; }
 }
+
+/* ---------------------------------------------------------------------------
+   PHONE MENU
+   ---------------------------------------------------------------------------
+   On a phone the nav is three things: the logo, a "Sign in" button and a
+   menu button. The list of links moves into a drop-down.
+
+   The ".js-nav" class is added by /js/nav.js, NOT by the HTML. That is
+   deliberate: if that script fails to load the links stay visible as a
+   plain list, so nobody is left with a menu button that does nothing.
+   Do not move these rules out from under .js-nav.
+   --------------------------------------------------------------------------- */
+.nav-toggle { display: none; }
+
+@media (max-width: 640px) {
+  .js-nav {
+    position: relative;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  /* The button: 44px square, which is the smallest comfortable tap target. */
+  .js-nav .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    flex: 0 0 auto;
+    margin-right: -0.5rem;   /* optically aligns the bars with the gutter */
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: var(--ink);
+  }
+
+  /* Three bars, drawn rather than imported so there is no icon dependency. */
+  .js-nav .nav-toggle-bars,
+  .js-nav .nav-toggle-bars::before,
+  .js-nav .nav-toggle-bars::after {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: currentColor;
+    border-radius: 2px;
+  }
+  .js-nav .nav-toggle-bars { position: relative; }
+  .js-nav .nav-toggle-bars::before,
+  .js-nav .nav-toggle-bars::after {
+    content: "";
+    position: absolute;
+    left: 0;
+  }
+  .js-nav .nav-toggle-bars::before { top: -6px; }
+  .js-nav .nav-toggle-bars::after  { top: 6px; }
+
+  /* Open state: the bars become an X. */
+  .js-nav .nav-toggle[aria-expanded="true"] .nav-toggle-bars { background: transparent; }
+  .js-nav .nav-toggle[aria-expanded="true"] .nav-toggle-bars::before { top: 0; transform: rotate(45deg); }
+  .js-nav .nav-toggle[aria-expanded="true"] .nav-toggle-bars::after  { top: 0; transform: rotate(-45deg); }
+
+  /* The drop-down. Hidden until the button sets data-open. */
+  .js-nav .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    z-index: 60;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 0 1.35rem 0.75rem;
+    background: var(--paper);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.08);
+  }
+  .js-nav .nav-links[data-open] { display: flex; }
+
+  .js-nav .nav-links li { border-top: 1px solid var(--line-soft); }
+  .js-nav .nav-links li:first-child { border-top: 0; }
+  .js-nav .nav-links a {
+    display: block;
+    padding: 0.95rem 0;
+    font-size: 1.02rem;
+    color: var(--ink);
+  }
+
+  /* "Sign in" stays out on the bar - it is the one action, not navigation. */
+  .js-nav .nav-signin {
+    flex: 0 0 auto;
+    margin-left: auto;
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+  .js-nav .nav-logo img { height: 34px; }
+  .js-nav { padding-top: 0.9rem; padding-bottom: 0.9rem; }
+}
+
+/* ---------------------------------------------------------------------------
+   THE SIGN-IN PAGE (signin.html)
+
+   One box, centred. Three states live in the markup at once and
+   /js/signin.js shows one of them: the form, "signing you in", or
+   "we don't recognise that address".
+   --------------------------------------------------------------------------- */
+.signin-page {
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3.5rem 1.35rem;
+}
+.signin-page .login-box { width: 100%; max-width: 440px; }
+.signin-page h1 { font-size: 1.6rem; margin-bottom: 0.6rem; }
+.signin-page > .login-box > p { color: var(--ink-soft); font-size: 0.95rem; }
+.signin-routes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+.signin-note {
+  margin-top: 1.25rem;
+  font-size: 0.85rem;
+  color: var(--ink-soft);
+}
+@media (max-width: 640px) {
+  .signin-routes { flex-direction: column; }
+  .signin-routes .btn, .signin-routes .btn-outline { text-align: center; }
+}
+
+.signin-page .login-box p:last-child { margin-bottom: 0; }
