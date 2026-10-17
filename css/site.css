@@ -353,50 +353,30 @@ footer a:hover { color: var(--ink); }
 }
 
 /* ---------------------------------------------------------------------------
-   PHONE-FIRST CORRECTIONS (added October 2026)
+   PHONE-FIRST CORRECTIONS (October 2026)
 
-   The nav was 136px tall on a 375px screen and broke the labels mid-phrase
-   ("Routes / in", "Become / a mentor"), eating a third of the screen before
-   any content. The fixes below are layout only - no wording changed.
+   Reading size, gutters and tap targets. The nav itself is NOT dealt with
+   here: five links plus a logo genuinely do not fit on a 375px screen, and
+   shrinking the type only pushes them onto a third row. That needs a
+   decision about what the nav shows, not more CSS.
    --------------------------------------------------------------------------- */
 @media (max-width: 640px) {
-
-  /* Logo on its own line, links below. Nothing breaks mid-word. */
-  nav {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    padding: 0.75rem 1.25rem;
-  }
-  .nav-logo img { height: 28px; }
-
-  .nav-links {
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 0 1rem;
-    width: 100%;
-  }
-  .nav-links a {
-    white-space: nowrap;          /* wrap between items, never inside one */
-    display: inline-flex;
-    align-items: center;
-    min-height: 38px;             /* still thumb-friendly, less height cost */
-    font-size: 0.85rem;
-  }
-  .nav-cta { padding: 0.35rem 0.7rem; }
 
   /* Reading size. 15.6px is small on a phone held at arm's length. */
   body { font-size: 16.5px; }
   .pw-wrap p, .pw-wrap li, .doc p, .doc li { font-size: 1rem; }
 
-  /* Give the content a little more room from the screen edge. */
+  /* A little more room from the screen edge. */
   .hero, .pw-wrap, .doc, section, .bottom-cta, footer, .alum-hero, .alum-box {
     padding-left: 1.35rem;
     padding-right: 1.35rem;
   }
 
-  /* Buttons and form controls: full-width and thumb-sized. */
-  .btn, .btn-outline { padding: 0.8rem 1.4rem; }
+  /* Thumb-sized controls. */
+  .btn, .btn-outline { padding: 0.85rem 1.4rem; }
   .modal-submit, .signup-submit { min-height: 48px; }
   .hero-actions, .cta-group { gap: 1rem; }
+
+  /* Stop nav labels breaking mid-phrase, which looked broken rather than tight. */
+  .nav-links a { white-space: nowrap; }
 }
