@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Social Capital — Mentor admin</title>
+<link rel="stylesheet" href="/fonts/fonts.css">
+<link rel="stylesheet" href="/css/site.css?v=efb97813">
+<link rel="icon" href="/favicon.ico" sizes="any">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="theme-color" content="#0E9A63">
+<!-- Never indexed. There is also a Disallow for it in robots.txt. -->
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+
+<!-- SIGN IN -->
+<div class="signin-page" id="adminLogin">
+  <div class="login-box">
+    <h1>Mentor admin</h1>
+    <p>Sign in with the email address on the admin list. We send a link; there is no password.</p>
+    <form id="adminLoginForm" novalidate>
+      <div class="form-group">
+        <label for="adminEmail">Your email</label>
+        <input type="email" id="adminEmail" name="email" required autocomplete="email" autocapitalize="none" spellcheck="false">
+      </div>
+      <button type="submit" class="modal-submit" id="adminLoginSubmit" style="margin-top:0.75rem;">Email me a sign-in link</button>
+      <p class="form-status" id="adminLoginStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</div>
+
+<!-- CHECKING -->
+<div class="signin-page" id="adminChecking" hidden>
+  <div class="login-box">
+    <h1>Signing you in</h1>
+    <p>One moment.</p>
+  </div>
+</div>
+
+<!-- THE ACTUAL PAGE -->
+<div id="adminApp" hidden>
+
+  <div class="dir-nav">
+    <a href="index.html" class="dir-nav-logo">Social Capital</a>
+    <div class="dir-nav-user">
+      <span id="adminWho">Signed in</span>
+      <span class="dir-logout" id="adminSignOut">Sign out</span>
+    </div>
+  </div>
+
+  <div class="admin-wrap">
+
+    <section class="admin-panel">
+      <h2 id="formHeading">Add a mentor</h2>
+      <p class="admin-note" id="formNote">
+        New people are saved hidden. Nothing reaches a school until you publish it below.
+      </p>
+
+      <form id="mentorForm" novalidate>
+        <input type="hidden" id="m_id" value="">
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="m_full_name">Name</label>
+            <input type="text" id="m_full_name" required>
+          </div>
+          <div class="form-group">
+            <label for="m_role_title">Job title and employer, as it should read</label>
+            <input type="text" id="m_role_title" placeholder="Solicitor, Dublin firm" required>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="m_industry">Sector</label>
+            <select id="m_industry" required>
+              <option value="technology">Technology</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="law">Law</option>
+              <option value="finance">Finance</option>
+              <option value="trades">Trades</option>
+              <option value="media">Media</option>
+              <option value="education">Education</option>
+              <option value="engineering">Engineering</option>
+              <option value="public_sector">Public sector</option>
+              <option value="other" selected>Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="m_level">Level</label>
+            <select id="m_level" required>
+              <option value="junior" selected>Junior</option>
+              <option value="senior">Senior</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="m_experience_label">The small grey line (optional)</label>
+          <input type="text" id="m_experience_label" placeholder="3 years in industry">
+        </div>
+
+        <div class="admin-private" id="privateFields" role="group" aria-labelledby="privateLegend">
+          <p class="admin-private-title" id="privateLegend">Private — never shown on the site</p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m_contact_email">Their email</label>
+              <input type="email" id="m_contact_email" autocapitalize="none" spellcheck="false" required>
+            </div>
+            <div class="form-group">
+              <label for="m_employer">Employer</label>
+              <input type="text" id="m_employer">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m_phone">Phone (optional)</label>
+              <input type="text" id="m_phone">
+            </div>
+            <div class="form-group">
+              <label for="m_notes">Your note — when you met, what they agreed to</label>
+              <input type="text" id="m_notes">
+            </div>
+          </div>
+        </div>
+
+        <div class="admin-checks">
+          <label><input type="checkbox" id="m_open_to_talks"> Would come into a school</label>
+          <label><input type="checkbox" id="m_is_alumnus"> Went to a DEIS school themselves</label>
+          <label><input type="checkbox" id="m_alumni_contact_ok"> Has agreed that over-18s may contact them directly</label>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="m_alumnus_school_name">Which school (if they went to one)</label>
+            <input type="text" id="m_alumnus_school_name">
+          </div>
+          <div class="form-group">
+            <label for="m_public_contact">What over-18s may see — usually a LinkedIn URL</label>
+            <input type="text" id="m_public_contact" placeholder="https://www.linkedin.com/in/...">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="m_public_contact_kind">What kind of contact that is</label>
+          <select id="m_public_contact_kind">
+            <option value="">None</option>
+            <option value="linkedin">LinkedIn</option>
+            <option value="email">Email</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div class="admin-actions">
+          <button type="submit" class="btn" id="mentorSubmit">Save, hidden</button>
+          <button type="button" class="btn-outline" id="mentorCancel" hidden>Cancel</button>
+        </div>
+        <p class="form-status" id="mentorStatus" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section class="admin-panel">
+      <h2>Everyone on the list</h2>
+      <p class="admin-note" id="adminCounts"></p>
+      <div id="mentorList"><p class="dir-empty">Loading…</p></div>
+    </section>
+
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js?v=f1cc0164"></script>
+<script src="js/supabase.js?v=ccc6626c"></script>
+<script src="js/admin-mentors.js?v=73494d54"></script>
+
+</body>
+</html>

@@ -1,0 +1,322 @@
+// ===========================================================================
+// The mentor admin page.
+//
+// This is the first page on the site that WRITES to the database while
+// somebody is signed in, so a word about where the safety actually is.
+//
+// It is NOT in this file. Everything here is a convenience. The real checks
+// live in the database: admin_add_mentor, admin_list_mentors,
+// admin_set_published and admin_update_mentor each call is_admin() as their
+// first statement and raise "Not permitted" otherwise. Deleting the whole of
+// this file would not let anybody change a single row.
+//
+// In particular, a signed-in SCHOOL gets a perfectly valid session and is
+// refused by every one of those functions. Being allowed to read the
+// directory is not permission to change it.
+//
+// So: no check in here is load-bearing, and none of them should be trusted
+// to be. They exist so that the page says something useful instead of
+// throwing errors at you.
+// ===========================================================================
+(function () {
+  function el(id) { return document.getElementById(id); }
+  function val(id) { return (el(id).value || "").trim(); }
+  function checked(id) { return !!el(id).checked; }
+
+  var SECTORS = {
+    technology: "Technology", healthcare: "Healthcare", law: "Law",
+    finance: "Finance", trades: "Trades", media: "Media",
+    education: "Education", engineering: "Engineering",
+    public_sector: "Public sector", other: "Other"
+  };
+
+  function esc(s) {
+    return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  function screen(name) {
+    ["adminLogin", "adminChecking", "adminApp"].forEach(function (id) {
+      el(id).hidden = id !== name;
+    });
+  }
+
+  function status(node, message, kind) {
+    var n = el(node);
+    n.textContent = message;
+    n.className = "form-status" + (kind ? " " + kind : "");
+  }
+
+  // -------------------------------------------------------------------------
+  // Sign in
+  // -------------------------------------------------------------------------
+  function sendLink(event) {
+    event.preventDefault();
+    var email = val("adminEmail").toLowerCase();
+    if (!email) { status("adminLoginStatus", "Enter your email address.", "error"); return; }
+    if (!window.SC || !window.SC.ready) {
+      status("adminLoginStatus", "Sign-in isn't connected yet.", "error"); return;
+    }
+
+    var button = el("adminLoginSubmit");
+    button.disabled = true;
+    button.textContent = "Sending…";
+    status("adminLoginStatus", "", "");
+
+    window.SC.client.auth
+      .signInWithOtp({
+        email: email,
+        options: { emailRedirectTo: window.location.origin + window.location.pathname }
+      })
+      .then(function (r) {
+        if (r.error) throw r.error;
+        status("adminLoginStatus", "Check your inbox. The link lasts an hour.", "ok");
+      })
+      .catch(function (e) {
+        console.error("[Social Capital] admin sign-in failed", e);
+        status("adminLoginStatus", "That didn't send. Try again shortly.", "error");
+      })
+      .then(function () {
+        button.disabled = false;
+        button.textContent = "Email me a sign-in link";
+      });
+  }
+
+  // -------------------------------------------------------------------------
+  // The list
+  // -------------------------------------------------------------------------
+  function row(m) {
+    var bits = [];
+    if (m.experience_label) bits.push(esc(m.experience_label));
+    if (m.open_to_talks) bits.push("does school talks");
+    if (m.is_alumnus) bits.push("past pupil" + (m.alumnus_school_name ? ", " + esc(m.alumnus_school_name) : ""));
+    if (m.alumni_contact_ok) bits.push("over-18s may contact");
+
+    return '' +
+      '<div class="admin-row' + (m.is_published ? " is-live" : "") + '" data-id="' + esc(m.id) + '">' +
+        '<div class="admin-row-main">' +
+          '<strong>' + esc(m.full_name) + '</strong>' +
+          '<span class="admin-row-role">' + esc(m.role_title) + '</span>' +
+          '<span class="admin-row-meta">' +
+            esc(SECTORS[m.industry] || m.industry) + " · " + esc(m.level) +
+            (bits.length ? " · " + bits.join(" · ") : "") +
+          '</span>' +
+          '<span class="admin-row-private">' + esc(m.contact_email || "no email on file") +
+            (m.notes ? " · " + esc(m.notes) : "") + '</span>' +
+        '</div>' +
+        '<div class="admin-row-actions">' +
+          '<span class="admin-badge">' + (m.is_published ? "Live" : "Hidden") + '</span>' +
+          '<button type="button" class="btn-outline admin-small" data-act="edit">Edit</button>' +
+          '<button type="button" class="btn-outline admin-small" data-act="toggle">' +
+            (m.is_published ? "Hide" : "Publish") + '</button>' +
+        '</div>' +
+      '</div>';
+  }
+
+  var cache = [];
+
+  function load() {
+    return window.SC.client.rpc("admin_list_mentors").then(function (r) {
+      if (r.error) throw r.error;
+      cache = r.data || [];
+
+      var live = cache.filter(function (m) { return m.is_published; }).length;
+      el("adminCounts").textContent =
+        cache.length === 0
+          ? "Nobody on the list yet."
+          : cache.length + " on the list, " + live + " live, " + (cache.length - live) + " hidden.";
+
+      el("mentorList").innerHTML = cache.length
+        ? cache.map(row).join("")
+        : '<p class="dir-empty">Add the first person above.</p>';
+    });
+  }
+
+  // -------------------------------------------------------------------------
+  // Add and edit share one form. m_id decides which.
+  // -------------------------------------------------------------------------
+  function resetForm() {
+    el("mentorForm").reset();
+    el("m_id").value = "";
+    el("formHeading").textContent = "Add a mentor";
+    el("formNote").textContent =
+      "New people are saved hidden. Nothing reaches a school until you publish it below.";
+    el("mentorSubmit").textContent = "Save, hidden";
+    el("mentorCancel").hidden = true;
+    el("privateFields").hidden = false;
+    el("m_contact_email").required = true;
+    status("mentorStatus", "", "");
+  }
+
+  function startEdit(id) {
+    var m = cache.filter(function (x) { return x.id === id; })[0];
+    if (!m) return;
+
+    el("m_id").value = m.id;
+    el("m_full_name").value = m.full_name || "";
+    el("m_role_title").value = m.role_title || "";
+    el("m_industry").value = m.industry || "other";
+    el("m_level").value = m.level || "junior";
+    el("m_experience_label").value = m.experience_label || "";
+    el("m_open_to_talks").checked = !!m.open_to_talks;
+    el("m_is_alumnus").checked = !!m.is_alumnus;
+    el("m_alumni_contact_ok").checked = !!m.alumni_contact_ok;
+    el("m_alumnus_school_name").value = m.alumnus_school_name || "";
+    el("m_public_contact").value = m.public_contact || "";
+
+    // The update function deliberately does not touch the private record.
+    el("privateFields").hidden = true;
+    el("m_contact_email").required = false;
+
+    el("formHeading").textContent = "Editing " + m.full_name;
+    el("formNote").textContent =
+      "Changing the public details only. Their email, employer and your notes are " +
+      "edited in the Supabase dashboard, which keeps that record harder to change by accident.";
+    el("mentorSubmit").textContent = "Save changes";
+    el("mentorCancel").hidden = false;
+    status("mentorStatus", "", "");
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }
+
+  function submit(event) {
+    event.preventDefault();
+
+    if (!val("m_full_name") || !val("m_role_title")) {
+      status("mentorStatus", "A name and a job title are needed.", "error");
+      return;
+    }
+
+    var editing = !!val("m_id");
+    if (!editing && !val("m_contact_email")) {
+      status("mentorStatus", "Their email is needed. It is never shown on the site.", "error");
+      return;
+    }
+
+    var button = el("mentorSubmit");
+    var label = button.textContent;
+    button.disabled = true;
+    button.textContent = "Saving…";
+    status("mentorStatus", "", "");
+
+    var shared = {
+      p_full_name: val("m_full_name"),
+      p_role_title: val("m_role_title"),
+      p_industry: val("m_industry"),
+      p_level: val("m_level"),
+      p_experience_label: val("m_experience_label"),
+      p_open_to_talks: checked("m_open_to_talks"),
+      p_is_alumnus: checked("m_is_alumnus"),
+      p_alumnus_school_name: val("m_alumnus_school_name"),
+      p_alumni_contact_ok: checked("m_alumni_contact_ok"),
+      p_public_contact: val("m_public_contact"),
+      p_public_contact_kind: val("m_public_contact_kind")
+    };
+
+    var call;
+    if (editing) {
+      shared.p_mentor_id = val("m_id");
+      call = window.SC.client.rpc("admin_update_mentor", shared);
+    } else {
+      shared.p_contact_email = val("m_contact_email");
+      shared.p_employer = val("m_employer");
+      shared.p_phone = val("m_phone");
+      shared.p_notes = val("m_notes");
+      call = window.SC.client.rpc("admin_add_mentor", shared);
+    }
+
+    call
+      .then(function (r) {
+        if (r.error) throw r.error;
+        var name = val("m_full_name");
+        resetForm();
+        return load().then(function () {
+          status("mentorStatus",
+            editing ? "Saved." : name + " added, hidden. Publish them below when you are ready.",
+            "ok");
+        });
+      })
+      .catch(function (e) {
+        console.error("[Social Capital] save failed", e);
+        status("mentorStatus",
+          e && e.message ? "Didn't save: " + e.message : "Didn't save. Try again.",
+          "error");
+      })
+      .then(function () {
+        button.disabled = false;
+        if (button.textContent === "Saving…") button.textContent = label;
+      });
+  }
+
+  // -------------------------------------------------------------------------
+  function onListClick(event) {
+    var button = event.target.closest("button[data-act]");
+    if (!button) return;
+    var id = button.closest(".admin-row").getAttribute("data-id");
+
+    if (button.getAttribute("data-act") === "edit") { startEdit(id); return; }
+
+    var m = cache.filter(function (x) { return x.id === id; })[0];
+    if (!m) return;
+    if (m.is_published && !window.confirm("Hide " + m.full_name + " from schools?")) return;
+
+    button.disabled = true;
+    window.SC.client
+      .rpc("admin_set_published", { p_mentor_id: id, p_published: !m.is_published })
+      .then(function (r) {
+        if (r.error) throw r.error;
+        return load();
+      })
+      .catch(function (e) {
+        console.error("[Social Capital] publish toggle failed", e);
+        alert("That didn't work: " + (e && e.message ? e.message : "unknown error"));
+        button.disabled = false;
+      });
+  }
+
+  // -------------------------------------------------------------------------
+  function init() {
+    if (!window.SC || !window.SC.ready) {
+      status("adminLoginStatus", "Sign-in isn't connected yet.", "error");
+      return;
+    }
+
+    window.SC.client.auth.getSession().then(function (res) {
+      var session = res.data && res.data.session;
+      if (!session) return;
+
+      screen("adminChecking");
+
+      window.SC.client.rpc("is_admin").then(function (check) {
+        if (check.error || check.data !== true) {
+          window.SC.client.auth.signOut();
+          screen("adminLogin");
+          status("adminLoginStatus",
+            "That address is not on the admin list.", "error");
+          return;
+        }
+
+        el("adminWho").textContent = session.user.email;
+        screen("adminApp");
+        load().catch(function (e) {
+          console.error("[Social Capital] list failed", e);
+          el("mentorList").innerHTML =
+            '<p class="dir-empty">Couldn\'t load the list. Refresh to try again.</p>';
+        });
+      });
+    });
+  }
+
+  document.addEventListener("DOMContentLoaded", function () {
+    el("adminLoginForm").addEventListener("submit", sendLink);
+    el("mentorForm").addEventListener("submit", submit);
+    el("mentorCancel").addEventListener("click", resetForm);
+    el("mentorList").addEventListener("click", onListClick);
+    el("adminSignOut").addEventListener("click", function () {
+      window.SC.client.auth.signOut().then(function () {
+        window.location.replace("index.html");
+      });
+    });
+    init();
+  });
+})();

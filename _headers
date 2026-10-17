@@ -8,6 +8,9 @@
 /admin/*
   X-Robots-Tag: noindex
 
+/admin-mentors*
+  X-Robots-Tag: noindex, nofollow
+
 # Cloudflare ignores Cache-Control here for static files - it serves css and
 # js with its own four-hour browser cache no matter what this says. These two
 # rules are left in place in case that ever changes, but they are NOT what

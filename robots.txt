@@ -1,5 +1,7 @@
 User-agent: *
 Disallow: /admin/
+Disallow: /admin-mentors
+Disallow: /signin
 Disallow: /supabase/
 Disallow: /docs/
 
