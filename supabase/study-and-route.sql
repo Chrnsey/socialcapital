@@ -86,7 +86,37 @@ grant select (route_in, study_field, study_detail, qualification)
 
 
 -- ---------------------------------------------------------------------------
--- 3. Carry the new fields through the functions that write mentors.
+-- 3. Remove the OLD versions of the functions first.
+--
+-- THIS IS THE BIT THAT CAUGHT ME OUT. "create or replace function" only
+-- replaces when the argument list matches EXACTLY. These functions gain four
+-- parameters, so a plain create-or-replace leaves the old version in place
+-- and adds a second one beside it. Postgres then refuses to grant, revoke or
+-- call either, because the name is no longer unique:
+--
+--   ERROR: function name "public.add_mentor" is not unique
+--
+-- Dropping them by oid rather than by a hand-written argument list means
+-- every version goes, however many there are and whatever they look like.
+-- ---------------------------------------------------------------------------
+do $$
+declare
+  f record;
+begin
+  for f in
+    select p.oid::regprocedure as signature
+      from pg_proc p
+     where p.pronamespace = 'public'::regnamespace
+       and p.proname in ('add_mentor', 'admin_add_mentor',
+                         'admin_update_mentor', 'admin_list_mentors')
+  loop
+    execute 'drop function ' || f.signature;
+  end loop;
+end $$;
+
+
+-- ---------------------------------------------------------------------------
+-- 4. Create them again, with the new fields.
 -- ---------------------------------------------------------------------------
 create or replace function public.add_mentor(
   full_name            text,
@@ -267,10 +297,8 @@ grant execute on function public.admin_update_mentor to authenticated;
 
 
 -- ---------------------------------------------------------------------------
--- 4. Show the new fields on the admin list.
+-- 5. Show the new fields on the admin list.
 -- ---------------------------------------------------------------------------
-drop function if exists public.admin_list_mentors();
-
 create or replace function public.admin_list_mentors()
 returns table (
   id                  uuid,
