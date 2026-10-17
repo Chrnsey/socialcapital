@@ -632,3 +632,17 @@ footer a:hover { color: var(--ink); }
   .pending-fields { grid-template-columns: 1fr; }
   .pending-head { flex-direction: column-reverse; align-items: flex-start; gap: 0.25rem; }
 }
+
+/* The route block on the admin form. Boxed like the private fields so the
+   form reads as three groups rather than one long run of inputs. */
+.admin-route {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.25rem 1.25rem 0.25rem;
+  margin: 0.5rem 0 1.5rem;
+}
+
+/* The route line on a mentor card. Same weight as everything else about
+   them on purpose: an apprenticeship should not look like a lesser entry
+   than a master's. */
+.mentor-route { display: block; font-size: 0.82rem; color: var(--ink-soft); margin-top: 0.3rem; }

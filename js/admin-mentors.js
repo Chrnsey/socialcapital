@@ -30,6 +30,26 @@
     public_sector: "Public sector", other: "Other"
   };
 
+  // These must match the check constraints in study-and-route.sql. If they
+  // drift, saving fails with a constraint violation.
+  var ROUTES = {
+    college: "school to college", plc_then_college: "PLC then college",
+    apprenticeship: "apprenticeship", traineeship: "traineeship",
+    work_from_school: "work from school", mature_student: "mature student",
+    abroad: "studied abroad", other: "other route"
+  };
+  var FIELDS = {
+    business: "Business", law: "Law", engineering: "Engineering",
+    computing: "Computing", science: "Science", health_care: "Health and care",
+    education: "Education", arts_humanities: "Arts and humanities",
+    social_science: "Social science",
+    construction_property: "Construction and property",
+    trades_craft: "Trades and craft", media_design: "Media and design",
+    agriculture_environment: "Agriculture and environment",
+    hospitality_tourism: "Hospitality and tourism",
+    sport_fitness: "Sport and fitness", other: "Other"
+  };
+
   function esc(s) {
     return String(s == null ? "" : s).replace(/[&<>"']/g, function (c) {
       return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
@@ -221,6 +241,9 @@
     if (m.open_to_talks) bits.push("does school talks");
     if (m.is_alumnus) bits.push("past pupil" + (m.alumnus_school_name ? ", " + esc(m.alumnus_school_name) : ""));
     if (m.alumni_contact_ok) bits.push("over-18s may contact");
+    if (m.route_in) bits.push(esc(ROUTES[m.route_in] || m.route_in));
+    if (m.study_detail) bits.push(esc(m.study_detail));
+    else if (m.study_field) bits.push(esc(FIELDS[m.study_field] || m.study_field));
 
     return '' +
       '<div class="admin-row' + (m.is_published ? " is-live" : "") + '" data-id="' + esc(m.id) + '">' +
@@ -293,6 +316,10 @@
     el("m_alumni_contact_ok").checked = !!m.alumni_contact_ok;
     el("m_alumnus_school_name").value = m.alumnus_school_name || "";
     el("m_public_contact").value = m.public_contact || "";
+    el("m_route_in").value = m.route_in || "";
+    el("m_study_field").value = m.study_field || "";
+    el("m_study_detail").value = m.study_detail || "";
+    el("m_qualification").value = m.qualification || "";
 
     // The update function deliberately does not touch the private record.
     el("privateFields").hidden = true;
@@ -339,7 +366,11 @@
       p_alumnus_school_name: val("m_alumnus_school_name"),
       p_alumni_contact_ok: checked("m_alumni_contact_ok"),
       p_public_contact: val("m_public_contact"),
-      p_public_contact_kind: val("m_public_contact_kind")
+      p_public_contact_kind: val("m_public_contact_kind"),
+      p_route_in: val("m_route_in"),
+      p_study_field: val("m_study_field"),
+      p_study_detail: val("m_study_detail"),
+      p_qualification: val("m_qualification")
     };
 
     var call;

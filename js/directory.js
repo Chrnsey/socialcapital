@@ -82,6 +82,46 @@
     return "";
   }
 
+  // How somebody got into the work, in plain words. Read by a fifteen-year-old,
+  // so no jargon and no implication that one route is the proper one.
+  var ROUTE_WORDS = {
+    college: "Went from school to college",
+    plc_then_college: "Did a PLC first, then went on",
+    apprenticeship: "Served an apprenticeship",
+    traineeship: "Did a traineeship",
+    work_from_school: "Went straight into work from school",
+    mature_student: "Went back to study later",
+    abroad: "Studied abroad",
+    other: null
+  };
+  var FIELD_WORDS = {
+    business: "Business", law: "Law", engineering: "Engineering",
+    computing: "Computing", science: "Science", health_care: "Health and care",
+    education: "Education", arts_humanities: "Arts and humanities",
+    social_science: "Social science",
+    construction_property: "Construction and property",
+    trades_craft: "Trades and craft", media_design: "Media and design",
+    agriculture_environment: "Agriculture and environment",
+    hospitality_tourism: "Hospitality and tourism",
+    sport_fitness: "Sport and fitness", other: null
+  };
+
+  // One line, the same weight whatever it says. An apprenticeship must not
+  // read as a lesser entry than a master's.
+  function routeLine(m) {
+    var parts = [];
+    var route = ROUTE_WORDS[m.route_in];
+    if (route) parts.push(escapeHtml(route));
+
+    var what = m.study_detail
+      ? m.study_detail
+      : (FIELD_WORDS[m.study_field] || null);
+    if (what) parts.push(escapeHtml(what));
+
+    if (!parts.length) return "";
+    return '<span class="mentor-route">' + parts.join(" \u00b7 ") + "</span>";
+  }
+
   function renderMentors(rows) {
     var list = document.getElementById("mentorList");
     if (!list) return;
@@ -119,7 +159,7 @@
               '<span class="mentor-badge ' + (m.level === "junior" ? "junior" : "") + '">' +
                 badge + detail +
               "</span>" +
-              talks + alum + contact +
+              routeLine(m) + talks + alum + contact +
             "</div>" +
           "</div>"
         );
@@ -164,7 +204,7 @@
 
     window.SC.client
       .from("mentors")
-      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name")
+      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification")
       .eq("industry", slug)
       .eq("is_published", true)
       .then(function (res) {

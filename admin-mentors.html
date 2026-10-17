@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=07a20c80">
+<link rel="stylesheet" href="/css/site.css?v=381d1815">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -135,6 +135,71 @@
           </div>
         </div>
 
+        <div class="admin-route">
+          <p class="admin-private-title">How they got there &mdash; all optional</p>
+          <p class="admin-note" style="margin-bottom:1rem;">
+            Worth more to a student than the job title. Leave any of it blank:
+            somebody who left school after the Leaving Cert has nothing to put
+            in field of study, and that is not a gap in their record.
+          </p>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m_route_in">Route in</label>
+              <select id="m_route_in">
+                <option value="">Not given</option>
+                <option value="college">Straight from school to college</option>
+                <option value="plc_then_college">PLC or QQI first, then on</option>
+                <option value="apprenticeship">Apprenticeship</option>
+                <option value="traineeship">Traineeship</option>
+                <option value="work_from_school">Straight into work from school</option>
+                <option value="mature_student">Went back later as a mature student</option>
+                <option value="abroad">Studied abroad</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="m_qualification">Highest qualification</label>
+              <select id="m_qualification">
+                <option value="">Not given</option>
+                <option value="leaving_cert">Leaving Certificate</option>
+                <option value="apprenticeship">Apprenticeship</option>
+                <option value="plc_qqi">PLC or QQI award</option>
+                <option value="degree">Degree</option>
+                <option value="postgrad">Postgraduate</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="m_study_field">Field of study</label>
+              <select id="m_study_field">
+                <option value="">Not given</option>
+                <option value="business">Business</option>
+                <option value="law">Law</option>
+                <option value="engineering">Engineering</option>
+                <option value="computing">Computing</option>
+                <option value="science">Science</option>
+                <option value="health_care">Health and care</option>
+                <option value="education">Education</option>
+                <option value="arts_humanities">Arts and humanities</option>
+                <option value="social_science">Social science</option>
+                <option value="construction_property">Construction and property</option>
+                <option value="trades_craft">Trades and craft</option>
+                <option value="media_design">Media and design</option>
+                <option value="agriculture_environment">Agriculture and environment</option>
+                <option value="hospitality_tourism">Hospitality and tourism</option>
+                <option value="sport_fitness">Sport and fitness</option>
+                <option value="other">Something else</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="m_study_detail">What it was called, if they want it shown</label>
+              <input type="text" id="m_study_detail" placeholder="General Nursing, DCU">
+            </div>
+          </div>
+        </div>
+
         <div class="admin-checks">
           <label><input type="checkbox" id="m_open_to_talks"> Would come into a school</label>
           <label><input type="checkbox" id="m_is_alumnus"> Went to a DEIS school themselves</label>
@@ -182,7 +247,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=7e3b9626"></script>
+<script src="js/admin-mentors.js?v=3d136189"></script>
 
 </body>
 </html>
