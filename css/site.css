@@ -365,23 +365,23 @@ footer a:hover { color: var(--ink); }
   nav {
     flex-direction: column;
     align-items: flex-start;
-    gap: 0.6rem;
-    padding: 0.9rem 1.25rem;
+    gap: 0.35rem;
+    padding: 0.75rem 1.25rem;
   }
-  .nav-logo img { height: 30px; }
+  .nav-logo img { height: 28px; }
 
   .nav-links {
     flex-wrap: wrap;
     align-items: center;
-    gap: 0.15rem 1.1rem;
+    gap: 0 1rem;
     width: 100%;
   }
   .nav-links a {
     white-space: nowrap;          /* wrap between items, never inside one */
     display: inline-flex;
     align-items: center;
-    min-height: 44px;             /* a comfortable thumb target */
-    font-size: 0.875rem;
+    min-height: 38px;             /* still thumb-friendly, less height cost */
+    font-size: 0.85rem;
   }
   .nav-cta { padding: 0.35rem 0.7rem; }
 
