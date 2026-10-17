@@ -591,3 +591,8 @@ footer a:hover { color: var(--ink); }
   .admin-row-actions { width: 100%; justify-content: flex-end; }
   .btn-outline.admin-small { min-height: 40px; }
 }
+
+/* The link across to the CMS at /admin, which edits page wording rather than
+   mentors. Two admin pages is confusing enough without hiding either one. */
+.dir-admin-link { color: var(--ink-soft); text-decoration: none; white-space: nowrap; }
+.dir-admin-link:hover { color: var(--ink); text-decoration: underline; }
