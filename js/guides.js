@@ -38,7 +38,11 @@
     if (q.get("s")) return { section: q.get("s"), slug: q.get("p") };
     var parts = window.location.pathname.replace(/^\/+|\/+$/g, "").split("/");
     if (SECTIONS.indexOf(parts[0]) !== -1) {
-      return { section: parts[0], slug: parts[1] || null };
+      // Strip a trailing .html: the live site serves /routes/plc, but the
+      // file is routes/plc.html, and hitting that directly would otherwise
+      // read the slug as "plc.html", match nothing, and wipe the page.
+      var slug = (parts[1] || "").replace(/\.html$/, "");
+      return { section: parts[0], slug: slug || null };
     }
     return { section: null, slug: null };
   }
