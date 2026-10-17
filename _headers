@@ -8,16 +8,14 @@
 /admin/*
   X-Robots-Tag: noindex
 
-# Stylesheet and scripts must revalidate on every request.
+# Cloudflare ignores Cache-Control here for static files - it serves css and
+# js with its own four-hour browser cache no matter what this says. These two
+# rules are left in place in case that ever changes, but they are NOT what
+# keeps the stylesheet current.
 #
-# Cloudflare's default for static files is a four-hour browser cache, but it
-# serves the HTML fresh every time. That combination is worse than either:
-# a returning visitor gets today's pages wrapped in yesterday's stylesheet,
-# which is how a phone menu ends up with no styling on it.
-#
-# max-age=0 does not mean "download it again every time" - the browser still
-# sends its ETag and gets a 304 back when nothing changed. Images are left on
-# the four-hour cache below, because they do not change.
+# What actually does that: build.mjs puts ?v=<hash of the file> on every
+# stylesheet and script reference, so a changed file is a new URL and the
+# four-hour cache cannot serve the old one. See the fourth job in build.mjs.
 /css/*
   Cache-Control: public, max-age=0, must-revalidate
 

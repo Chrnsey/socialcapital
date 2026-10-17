@@ -256,3 +256,74 @@ for (const name of DOCS) {
   console.log(`  ${name}.html — rebuilt from content/pages/${name}.md`);
 }
 console.log(`${docsBuilt} documents rebuilt`);
+
+// ===========================================================================
+// Fourth job: put a fingerprint on the stylesheet and the scripts.
+//
+// Cloudflare serves the HTML fresh on every request but caches css and js in
+// the visitor's browser for four hours, and it ignores any Cache-Control we
+// try to set in _headers. The result is the worst of both: somebody who
+// visited this morning gets this afternoon's pages wrapped in this morning's
+// stylesheet. That is how the phone menu first went live as an unstyled nav
+// with a bare button in the corner.
+//
+// So every asset reference gets ?v=<first 8 characters of a hash of the
+// file's own contents>. Change the file, the URL changes, and every browser
+// fetches it because as far as it is concerned this is a file it has never
+// seen. Leave the file alone and the fingerprint is identical, so the
+// four-hour cache still does its job.
+//
+// Nothing to maintain: this runs on every deploy and works out the hashes
+// itself. If you add a new .js file, reference it normally without a ?v= and
+// this will stamp it.
+// ===========================================================================
+import { createHash } from "node:crypto";
+import { readdirSync, existsSync } from "node:fs";
+
+const fingerprints = new Map();
+function fingerprint(assetPath) {
+  if (!fingerprints.has(assetPath)) {
+    let v = "";
+    try {
+      v = createHash("sha1").update(readFileSync(assetPath)).digest("hex").slice(0, 8);
+    } catch {
+      // Referenced but missing. Leave the URL untouched rather than invent a
+      // version for a file that is not there - a 404 is easier to diagnose.
+    }
+    fingerprints.set(assetPath, v);
+  }
+  return fingerprints.get(assetPath);
+}
+
+function versionAssets(html) {
+  // Matches href="/css/site.css", src="js/nav.js", src="../js/x.js" and the
+  // same with a ?v= already on the end. Deliberately anchored to the two
+  // folders we own, so the Supabase CDN script is never touched.
+  return html.replace(
+    /(href|src)="((?:\.\.\/|\/)?(?:css|js)\/[A-Za-z0-9._-]+\.(?:css|js))(?:\?v=[a-f0-9]*)?"/g,
+    (whole, attr, url) => {
+      const onDisk = url.replace(/^(?:\.\.\/|\/)/, "");
+      const v = fingerprint(onDisk);
+      return v ? `${attr}="${url}?v=${v}"` : `${attr}="${url}"`;
+    }
+  );
+}
+
+// Every page on the site, not just the ones the jobs above touch.
+const htmlFiles = [
+  ...readdirSync(".").filter((f) => f.endsWith(".html")),
+  ...SECTIONS.flatMap((s) =>
+    existsSync(s) ? readdirSync(s).filter((f) => f.endsWith(".html")).map((f) => `${s}/${f}`) : []
+  ),
+];
+
+let versioned = 0;
+for (const file of htmlFiles) {
+  const html = readFileSync(file, "utf8");
+  const next = versionAssets(html);
+  if (next !== html) {
+    writeFileSync(file, next);
+    versioned++;
+  }
+}
+console.log(`\n${versioned} pages fingerprinted (${[...fingerprints.keys()].length} assets)`);
