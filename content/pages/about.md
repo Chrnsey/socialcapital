@@ -20,7 +20,7 @@ Three things, and deliberately not much more.
 
 - **[We explain the routes](guides.html)** — apprenticeships, PLCs, the CAO, studying in Europe, and the grants nobody mentions. Public, no login, useful to anyone.
 - **[We give schools a directory](schools.html)** — registered schools browse profiles of professionals who volunteered, and we arrange talks and introductions.
-- **[We stay useful after school](members.html)** — once a former student is over 18 they get their own account and can contact mentors directly, which is when an internship or a first job is actually at stake.
+- **[We stay useful after school](members.html)** — once somebody is over 18 — still in sixth year or long gone — they get their own account and can contact mentors directly, which is when an internship or a first job is actually at stake.
 
 ## What we don't do
 

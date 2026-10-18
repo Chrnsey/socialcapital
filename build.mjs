@@ -147,6 +147,54 @@ const CONTENT_PAGES = {
   "members.html": "members",
 };
 
+
+// Finds each data-sc-list element, walks forward counting opening and closing
+// tags of the same name until the depth returns to zero, and rebuilds the
+// items between them from the <template>. Returns the html unchanged for any
+// block it cannot make sense of, rather than guessing.
+function rebuildLists(html, data, counted) {
+  const open = /<(\w+)([^>]*?)data-sc-list="([^"]+)"([^>]*)>/g;
+  let out = "";
+  let last = 0;
+  let m;
+
+  while ((m = open.exec(html)) !== null) {
+    const [tagFull, tag, , path] = m;
+    const bodyStart = m.index + tagFull.length;
+
+    // Walk to the matching close.
+    const step = new RegExp(`<${tag}\\b[^>]*>|</${tag}>`, "g");
+    step.lastIndex = bodyStart;
+    let depth = 1, closeStart = -1, closeEnd = -1, t;
+    while ((t = step.exec(html)) !== null) {
+      if (t[0].startsWith("</")) {
+        depth--;
+        if (depth === 0) { closeStart = t.index; closeEnd = step.lastIndex; break; }
+      } else if (!t[0].endsWith("/>")) {
+        depth++;
+      }
+    }
+    if (closeStart === -1) continue;            // unbalanced; leave it alone
+
+    const inner = html.slice(bodyStart, closeStart);
+    const tpl = inner.match(/<template[^>]*data-sc-item[^>]*>([\s\S]*?)<\/template>/);
+    const items = dig(data, path);
+    if (!Array.isArray(items) || !tpl) continue;
+
+    const built = items
+      .map((it) => tpl[1].replace(/\{\{(\w+)\}\}/g, (_, k) => esc(it[k])))
+      .join("");
+    const next = tagFull + tpl[0] + built + html.slice(closeStart, closeEnd);
+
+    out += html.slice(last, m.index) + next;
+    last = closeEnd;
+    open.lastIndex = closeEnd;
+    counted();
+  }
+
+  return out + html.slice(last);
+}
+
 const dig = (obj, path) =>
   path.split(".").reduce((a, k) => (a == null ? undefined : a[k]), obj);
 
@@ -170,20 +218,18 @@ for (const [page, key] of Object.entries(CONTENT_PAGES)) {
   );
 
   // data-sc-list: rebuild the fallback items from the <template>
-  html = html.replace(
-    /(<(\w+)([^>]*?)data-sc-list="([^"]+)"([^>]*)>)([\s\S]*?)(<\/\2>)/g,
-    (whole, open, tag, pre, path, post, inner, close) => {
-      const items = dig(data, path);
-      const tpl = inner.match(/<template[^>]*data-sc-item[^>]*>([\s\S]*?)<\/template>/);
-      if (!Array.isArray(items) || !tpl) return whole;
-      const shape = tpl[1];
-      const built = items
-        .map((it) => shape.replace(/\{\{(\w+)\}\}/g, (_, k) => esc(it[k])))
-        .join("");
-      changes++;
-      return open + tpl[0] + built + close;
-    }
-  );
+  //
+  // NOT a regex, and this is why. The obvious pattern for "everything up to
+  // the closing tag" is a non-greedy [\s\S]*? followed by <\/tag>, and on a
+  // <div> full of nested <div>s it stops at the FIRST </div> - which sits
+  // inside the template. The template then fails to parse and the block is
+  // returned untouched, with no error and nothing in the log to notice.
+  //
+  // That is how every list on the site went years without its fallback being
+  // refreshed, while the counter cheerfully reported zero. Crawlers and
+  // anyone with JavaScript off were reading whatever was last typed by hand.
+  // Count the depth instead.
+  html = rebuildLists(html, data, () => changes++);
 
   // Always written, even when nothing changed, so every page carries the
   // build stamp. That is what makes "did the build actually run?" answerable.
