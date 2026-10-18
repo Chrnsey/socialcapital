@@ -35,7 +35,7 @@ We only collect what people type into our forms. We do not buy data, and we do n
 
 > **Mentor contact details are deliberately kept separate.** Your personal email address and phone number are stored in a different place from your public profile, and the website cannot read it — not even a signed-in school. Only we can see it. This is why schools arrange things through us, and why school students are never given your personal details.
 >
-> If you choose to be contactable by former students over 18, we show only what you asked us to share — usually a LinkedIn profile. That is a separate, optional field, it is never your private contact record, and you can remove it at any time.
+> If you choose to be contactable by members over 18 — students and past pupils alike — we show only what you asked us to share — usually a LinkedIn profile. That is a separate, optional field, it is never your private contact record, and you can remove it at any time.
 
 ### If you join as a member
 

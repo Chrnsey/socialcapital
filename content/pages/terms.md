@@ -2,7 +2,7 @@
 
 *Last updated 22 September 2026*
 
-These are the rules for using this website. They are written plainly rather than legally. By registering a school, volunteering as a mentor, or creating an account as a former student, you agree to them.
+These are the rules for using this website. They are written plainly rather than legally. By registering a school, volunteering as a mentor, or creating a member account, you agree to them.
 
 > To be reviewed by a solicitor before any significant growth. They are a reasonable starting point, not a substitute for advice.
 
@@ -10,9 +10,9 @@ These are the rules for using this website. They are written plainly rather than
 
 - **Schools** — through a named member of staff, once we have approved the school.
 - **Mentors** — adults in work, training or education, who we have spoken to before listing.
-- **Former students** — 18 or over, with a code from their school.
+- **Members** — 18 or over, invited by a school registered with us. That includes current students who have turned 18 as well as people who have left.
 
-**Accounts for former students are for over-18s only.** If we find an account belongs to someone younger, we will close it and delete the information we hold about them.
+**Member accounts are for over-18s only.** If we find an account belongs to someone younger, we will close it and delete the information we hold about them.
 
 ## What we ask of everyone
 
@@ -31,7 +31,7 @@ These are the rules for using this website. They are written plainly rather than
 
 ## Contact details
 
-Mentors decide whether former students over 18 may contact them, and what to share. You can withdraw that at any time by emailing us and we will remove it.
+Mentors decide whether members over 18 may contact them, and what to share. You can withdraw that at any time by emailing us and we will remove it.
 
 Mentors' private contact records are never shown to schools or students, and the website cannot read them.
 
