@@ -17,6 +17,10 @@ The platform works. Verified end to end on socialcapital.ie:
       Before that date the built-in sender refused every school address.
 - [x] Mentor directory querying real data
 - [x] Mentor contact details unreadable by the website — only by you
+- [x] Admin writes gated separately from school reads. Tested 18 October 2026
+      against the live database with supabase/test-the-gate.sql: a signed-in
+      school cannot read contact details, read the signup queue, or publish
+      a mentor. Re-run that file after any change to the admin functions.
 - [x] You can edit all site text yourself at /admin/
 - [x] Every change deploys automatically
 - [x] Email receiving at registration@ and partnerships@
