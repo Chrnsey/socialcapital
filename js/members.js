@@ -25,7 +25,7 @@
     el("directoryPage").classList.toggle("active", name === "directory");
   }
 
-  var SCAlumni = {
+  var SCMembers = {
     openLogin: function () { showScreen("login"); },
     goBack: function () { showScreen("site"); },
 
@@ -73,7 +73,7 @@
         var session = res.data && res.data.session;
         if (!session) return;
 
-        window.SC.client.rpc("is_approved_alumnus").then(function (check) {
+        window.SC.client.rpc("is_approved_member").then(function (check) {
           if (check.error || check.data !== true) {
             window.SC.client.auth.signOut();
             showScreen("login");
@@ -86,7 +86,7 @@
           }
 
           // Tells the directory to offer contact details.
-          window.SC.viewer = "alumnus";
+          window.SC.viewer = "member";
 
           window.SC.client
             .from("alumni")
@@ -103,11 +103,11 @@
     }
   };
 
-  window.SCAlumni = SCAlumni;
+  window.SCMembers = SCMembers;
 
   document.addEventListener("DOMContentLoaded", function () {
     var f = el("loginForm");
-    if (f) f.addEventListener("submit", SCAlumni.sendLink);
-    SCAlumni.init();
+    if (f) f.addEventListener("submit", SCMembers.sendLink);
+    SCMembers.init();
   });
 })();

@@ -146,7 +146,7 @@
         // Only adults signed in as alumni are offered contact details, and
         // only where the mentor agreed to it. The detail itself is fetched
         // on demand - it is never in the page until asked for.
-        var contact = (window.SC && window.SC.viewer === "alumnus" && m.alumni_contact_ok)
+        var contact = (window.SC && window.SC.viewer === "member" && m.member_contact_ok)
           ? '<span class="mentor-contact"><button type="button" data-contact="' +
             escapeHtml(m.id) + '">How to reach them</button></span>'
           : "";
@@ -206,7 +206,7 @@
 
     window.SC.client
       .from("mentors")
-      .select("id, full_name, role_title, level, experience_label, open_to_talks, alumni_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification, bio")
+      .select("id, full_name, role_title, level, experience_label, open_to_talks, member_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification, bio")
       .eq("industry", slug)
       .eq("is_published", true)
       .then(function (res) {

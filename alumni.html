@@ -18,7 +18,7 @@
 <meta property="og:description" content="Left school and over 18? Get access to the mentor directory and contact people directly about work, college and getting a foot in the door.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-17T19:46:39.876Z -->
+<!-- built-by-build.mjs 2026-10-18T01:05:25.450Z -->
 </head>
 <body>
 
@@ -71,7 +71,7 @@
         <p class="form-consent">You must be 18 or over. We store your email, your school code and your date of birth, nothing else. See our <a href="privacy.html">privacy notice</a>.</p>
       </form>
       <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--ink-soft)">
-        Already signed up? <span style="color:var(--ink);cursor:pointer;text-decoration:underline" onclick="SCAlumni.openLogin()">Sign in instead</span>.
+        Already signed up? <span style="color:var(--ink);cursor:pointer;text-decoration:underline" onclick="SCMembers.openLogin()">Sign in instead</span>.
       </p>
     </div>
   </div>
@@ -107,7 +107,7 @@
       <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
     </form>
     <p style="margin-top:1rem;font-size:0.8rem;color:var(--ink-soft);text-align:center;">
-      <span style="cursor:pointer;text-decoration:underline;" onclick="SCAlumni.goBack()">Back</span>
+      <span style="cursor:pointer;text-decoration:underline;" onclick="SCMembers.goBack()">Back</span>
     </p>
   </div>
 </div>
@@ -115,10 +115,10 @@
 <!-- DIRECTORY -->
 <div class="directory-page" id="directoryPage">
   <div class="dir-nav">
-    <a href="#" class="dir-nav-logo" onclick="SCAlumni.goBack(); return false;">Social Capital</a>
+    <a href="#" class="dir-nav-logo" onclick="SCMembers.goBack(); return false;">Social Capital</a>
     <div class="dir-nav-user">
       <span id="schoolName">Signed in</span>
-      <span class="dir-logout" onclick="SCAlumni.signOut()">Sign out</span>
+      <span class="dir-logout" onclick="SCMembers.signOut()">Sign out</span>
     </div>
   </div>
 
@@ -150,9 +150,9 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/forms.js?v=6bf2658b"></script>
-<script src="js/directory.js?v=39613698"></script>
-<script src="js/alumni.js?v=3a8b444f"></script>
+<script src="js/forms.js?v=692d4c57"></script>
+<script src="js/directory.js?v=d2829a8c"></script>
+<script src="js/members.js?v=fd4c1af8"></script>
 <script src="js/content.js?v=0f93348e"></script>
 <script>SCContent.load("alumni");</script>
 <script src="js/nav.js?v=45b60334"></script>

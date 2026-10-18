@@ -30,7 +30,7 @@
           open_to_talks: v.open_to_talks || null,
           is_alumnus: v.is_alumnus === "yes",
           alumnus_school_name: v.alumnus_school_name || null,
-          alumni_contact_ok: v.alumni_contact_ok === "yes",
+          member_contact_ok: v.member_contact_ok === "yes",
           public_contact: v.public_contact || null,
           source: "mentors_page"
         };
@@ -42,7 +42,7 @@
     // school code and the date of birth without letting the browser see the
     // list of codes.
     alumni_signup: {
-      rpc: "register_alumnus",
+      rpc: "register_member",
       args: function (v) {
         return {
           p_code: (v.code || "").trim().toUpperCase(),
@@ -133,7 +133,7 @@
       // the insert is rejected for an unknown column we drop the optional
       // fields and try again. The submission matters more than the extras.
       var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year",
-                      "alumni_contact_ok", "public_contact"];
+                      "member_contact_ok", "public_contact"];
 
       function insert(row) {
         return window.SC.client.from(config.table).insert(row);

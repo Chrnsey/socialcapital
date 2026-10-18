@@ -10,7 +10,7 @@
 // when you come back the DATABASE decides where you belong:
 //
 //   is_approved_school()   true -> the school directory
-//   is_approved_alumnus()  true -> the former-students directory
+//   is_approved_member()  true -> the former-students directory
 //   neither                     -> told so, and shown how to get access
 //
 // A side effect worth knowing: somebody who is both - a teacher who went to
@@ -109,7 +109,7 @@
             return;
           }
 
-          window.SC.client.rpc("is_approved_alumnus").then(function (alumnus) {
+          window.SC.client.rpc("is_approved_member").then(function (alumnus) {
             if (!alumnus.error && alumnus.data === true) {
               window.location.replace("alumni.html");
               return;

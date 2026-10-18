@@ -278,7 +278,7 @@
     if (m.experience_label) bits.push(esc(m.experience_label));
     if (m.open_to_talks) bits.push("does school talks");
     if (m.is_alumnus) bits.push("past pupil" + (m.alumnus_school_name ? ", " + esc(m.alumnus_school_name) : ""));
-    if (m.alumni_contact_ok) bits.push("over-18s may contact");
+    if (m.member_contact_ok) bits.push("over-18s may contact");
     if (m.bio) bits.push("has a bio");
     if (m.route_in) bits.push(esc(ROUTES[m.route_in] || m.route_in));
     if (m.study_detail) bits.push(esc(m.study_detail));
@@ -353,7 +353,7 @@
     el("m_experience_label").value = m.experience_label || "";
     el("m_open_to_talks").checked = !!m.open_to_talks;
     el("m_is_alumnus").checked = !!m.is_alumnus;
-    el("m_alumni_contact_ok").checked = !!m.alumni_contact_ok;
+    el("m_member_contact_ok").checked = !!m.member_contact_ok;
     el("m_alumnus_school_name").value = m.alumnus_school_name || "";
     el("m_public_contact").value = m.public_contact || "";
     el("m_route_in").value = m.route_in || "";
@@ -406,7 +406,7 @@
       p_open_to_talks: checked("m_open_to_talks"),
       p_is_alumnus: checked("m_is_alumnus"),
       p_alumnus_school_name: val("m_alumnus_school_name"),
-      p_alumni_contact_ok: checked("m_alumni_contact_ok"),
+      p_member_contact_ok: checked("m_member_contact_ok"),
       p_public_contact: val("m_public_contact"),
       p_public_contact_kind: val("m_public_contact_kind"),
       p_route_in: val("m_route_in"),
