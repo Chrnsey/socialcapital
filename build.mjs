@@ -144,7 +144,7 @@ const CONTENT_PAGES = {
   "schools.html": "schools",
   "mentors.html": "mentors",
   "businesses.html": "businesses",
-  "alumni.html": "alumni",
+  "members.html": "members",
 };
 
 const dig = (obj, path) =>

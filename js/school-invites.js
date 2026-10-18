@@ -99,7 +99,7 @@
       .then(function (r) {
         if (r.error) throw r.error;
 
-        var link = window.location.origin + "/alumni?invite=" + encodeURIComponent(r.data);
+        var link = window.location.origin + "/members?invite=" + encodeURIComponent(r.data);
         el("inviteLinkValue").value = link;
         el("inviteLink").hidden = false;
 

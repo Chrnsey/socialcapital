@@ -105,7 +105,7 @@
 
   window.SCMembers = SCMembers;
 
-  // The counsellor sends a link like /alumni?invite=<token>. Fill the field
+  // The counsellor sends a link like /members?invite=<token>. Fill the field
   // from it so nobody has to copy 36 characters of hex by hand, and scroll to
   // the form so it is obvious what to do next.
   //

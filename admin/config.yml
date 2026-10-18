@@ -173,9 +173,9 @@ collections:
               - { name: body, label: "Paragraph", widget: text }
 
       # ---------------------------------------------------------------
-      - name: alumni
-        label: "Left school? (alumni) page"
-        file: "content/alumni.json"
+      - name: members
+        label: "Join page (students and past pupils)"
+        file: "content/members.json"
         format: json
         fields:
           - name: hero
@@ -186,6 +186,18 @@ collections:
               - { name: title, label: "Big headline", widget: string }
               - { name: body, label: "First paragraph", widget: text }
               - { name: body2, label: "Second paragraph", widget: text }
+          - name: routes
+            label: "How you get in (the three cards)"
+            widget: object
+            fields:
+              - { name: title, label: "Heading", widget: string }
+              - { name: body, label: "The rule, in one sentence", widget: text }
+              - { name: student_title, label: "Card 1 heading", widget: string }
+              - { name: student_body, label: "Card 1 text", widget: text }
+              - { name: past_title, label: "Card 2 heading", widget: string }
+              - { name: past_body, label: "Card 2 text", widget: text }
+              - { name: nothing_title, label: "Card 3 heading", widget: string }
+              - { name: nothing_body, label: "Card 3 text", widget: text }
           - name: signup
             label: "Sign-up box"
             widget: object

@@ -1,22 +1,32 @@
 {
   "hero": {
-    "kicker": "For people who have left school. Over 18s only.",
+    "kicker": "For students and past pupils. Over 18s only.",
     "title": "The bit where it actually matters",
     "body": "You are out of school, in college or working, and now you need a foot in the door. An internship. Someone who will read your CV. A straight answer about whether a job is worth chasing.",
     "body2": "That is what somebody else's phonebook does for them. This is yours. Once you are signed in you can see mentors' own contact details, where they have agreed to share them, and get in touch yourself. Nobody supervises it and nobody is copied in."
   },
   "signup": {
     "title": "Sign up",
-    "body": "You need the code from your school. If you did not get one, or you have lost it, email us and we will sort it out.",
+    "body": "Use the link your school sent you and this fills itself in. The email address has to be the one they sent it to.",
     "email_hint": "Use one you will still have in three years. Not your school address — those get switched off."
   },
   "login": {
-    "tag": "Former students",
+    "tag": "Members",
     "title": "Sign in",
     "body": "We email you a link and it signs you in. No password to forget."
   },
   "directory": {
     "title": "The directory",
     "body": "Browse by industry. Where a mentor has agreed to it, you can see how to reach them and contact them yourself."
+  },
+  "routes": {
+    "title": "How you get in",
+    "body": "You can join if you go to, or went to, a school registered with us, and you are 18 or over. Your school does the approving, not us.",
+    "student_title": "Still in school",
+    "student_body": "Ask your guidance counsellor. If you have had your eighteenth birthday they can send you a link, and that link is all you need.",
+    "past_title": "Left school",
+    "past_body": "Contact the school you went to and ask them to send you a link. Any year, however long ago.",
+    "nothing_title": "Your school is not registered",
+    "nothing_body": "Email us and tell us which school. We will approach them. It helps more than you would think to hear that one of their own past pupils asked."
   }
 }

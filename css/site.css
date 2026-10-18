@@ -729,3 +729,24 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 640px) {
   .load-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
 }
+
+/* The three ways in, on the Join page. Equal weight on purpose: somebody who
+   left school in 2014 should not feel like the afterthought. */
+.join-routes { max-width: var(--content-width); margin: 0 auto; padding: 0 2rem 1rem; }
+.join-routes h2 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+.join-rule { color: var(--ink-soft); margin-bottom: 1.75rem; max-width: 60ch; }
+.join-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.join-card {
+  padding: 1.25rem 1.35rem;
+  background: var(--card); border: 1px solid var(--line);
+  border-top: 3px solid var(--green); border-radius: 4px;
+}
+.join-card h3 { font-size: 1.02rem; margin-bottom: 0.4rem; }
+.join-card p { font-size: 0.88rem; color: var(--ink-soft); line-height: 1.55; }
+
+@media (max-width: 720px) {
+  .join-grid { grid-template-columns: 1fr; }
+}
+@media (max-width: 640px) {
+  .join-routes { padding-left: 1.35rem; padding-right: 1.35rem; }
+}

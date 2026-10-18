@@ -16,3 +16,9 @@
 # deploy, so Cloudflare serves them directly. No proxy rule - and crucially
 # Pages applies redirects even when a matching file exists, so leaving them
 # here would shadow the files we just built.
+
+# The alumni page became /members when the network widened to include
+# current students over 18. Invitation links already sent point at /alumni,
+# and so does anything Google has indexed.
+/alumni     /members     301
+/alumni.html /members    301

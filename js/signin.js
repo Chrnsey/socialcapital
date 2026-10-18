@@ -2,7 +2,7 @@
 // One sign-in for everybody.
 //
 // Until now there were two separate logins: one inside schools.html for
-// staff, one inside alumni.html for former students. Same code in both,
+// staff, one inside the members page for former students. Same code in both,
 // which meant visitors had to work out which one they were before they
 // could type their email.
 //
@@ -111,7 +111,7 @@
 
           window.SC.client.rpc("is_approved_member").then(function (alumnus) {
             if (!alumnus.error && alumnus.data === true) {
-              window.location.replace("alumni.html");
+              window.location.replace("members.html");
               return;
             }
 
