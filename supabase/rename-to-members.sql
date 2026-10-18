@@ -25,6 +25,12 @@
 -- so renaming a table does not update the functions that read it - they keep
 -- working right up until somebody calls them.
 --
+-- SAFE TO RUN TWICE. Every step checks whether it has already been done.
+-- That is not belt and braces: the Supabase SQL editor does not appear to
+-- honour the begin/commit wrapper around these files the way a psql session
+-- would, so a run that stops halfway leaves earlier statements applied. Being
+-- re-runnable is more reliable than assuming a rollback happened.
+--
 -- Run after mentor-bio.sql.
 -- ===========================================================================
 
@@ -36,7 +42,16 @@ begin;
 --    grants follow the column rather than its name.
 -- ---------------------------------------------------------------------------
 alter table if exists public.alumni rename to members;
-alter table public.mentors rename column alumni_contact_ok to member_contact_ok;
+do $$
+begin
+  if exists (
+    select 1 from information_schema.columns
+     where table_schema = 'public' and table_name = 'mentors'
+       and column_name = 'alumni_contact_ok'
+  ) then
+    alter table public.mentors rename column alumni_contact_ok to member_contact_ok;
+  end if;
+end $$;
 
 comment on table public.members is
   'Individuals approved by a registered school and aged 18 or over. Includes
@@ -125,6 +140,7 @@ grant execute on function public.register_member(text, text, date) to anon, auth
 -- ---------------------------------------------------------------------------
 -- 4. The policy again, against the new function name.
 -- ---------------------------------------------------------------------------
+drop policy if exists "approved schools and members read mentors" on public.mentors;
 create policy "approved schools and members read mentors"
   on public.mentors for select
   to authenticated
