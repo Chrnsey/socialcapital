@@ -11,11 +11,10 @@ The platform works. Verified end to end on socialcapital.ie:
 
 - [x] Site live on your own domain with SSL
 - [x] School registration, mentor signup and business forms saving to the database
-- [~] Passwordless school login, gated to approved schools only. **The gate
-      works. Email delivery did not** - Supabase's built-in sender only
-      delivers to addresses on the project's own team, so every school
-      address was refused with "Email address not authorized". Fixed by
-      connecting Resend as custom SMTP; see below.
+- [x] Passwordless school login, gated to approved schools only. Delivery
+      verified 18 October 2026 with an address that is NOT the Supabase
+      account's own, which is the only test that proves anything here.
+      Before that date the built-in sender refused every school address.
 - [x] Mentor directory querying real data
 - [x] Mentor contact details unreadable by the website — only by you
 - [x] You can edit all site text yourself at /admin/
@@ -160,9 +159,10 @@ host `smtp.resend.com`, port 465, username `resend`, password a Resend API
 key, sender `noreply@socialcapital.ie`. Then raise the cap under
 Authentication -> Rate Limits, which starts at 30 an hour.
 
-**How to tell it is actually fixed:** sign in with an address that is NOT the
-one the Supabase account was created with. Testing with that address proves
-nothing, because it was the one address that always worked.
+**Confirmed working 18 October 2026**, tested with an address that is not the
+Supabase account's own. If sign-in emails ever stop arriving again, check in
+this order: Resend's own logs, then Resend's suppression list, then whether
+custom SMTP is still enabled, then the rate limit.
 
 ---
 
