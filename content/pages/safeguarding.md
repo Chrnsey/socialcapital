@@ -19,12 +19,23 @@ Social Capital Ireland connects students in DEIS schools with working
 professionals who have volunteered to answer questions about their job and
 how they got it.
 
-**Who actually uses it.** Senior cycle, and in practice mostly sixth years —
-people deciding what to do after school. They are typically 17 or 18,
-depending on their birthday and whether they did Transition Year. A
-meaningful number of them are therefore children in law, and this statement
-is written on that basis. We do not treat the service as an adult one
-because most of its users have turned 18.
+**Who holds an account, and who does not.** This distinction is the whole
+shape of the service.
+
+- **Nobody under 18 has an account.** A former student registers themselves,
+  using a code issued by the school they attended, and the registration is
+  refused outright if their date of birth makes them under 18. The check is
+  in the database, not in the website, so it cannot be skipped.
+- **Schools hold a staff account.** A member of staff signs in and sees the
+  directory.
+- **Current students have no account and we hold no data about them.** They
+  encounter the service through their school: a member of staff shows them
+  the directory, or prints a profile, or arranges an introduction.
+
+So the people we hold records about are adults. The people the service is
+*for* include children — senior cycle students, typically 17 to 19 — and the
+risk assessment below is written about them, because a child who never signs
+in to anything can still be harmed by what we put in front of them.
 
 **The service runs on two levels, and the difference between them is the main
 safeguarding control in this statement.**
