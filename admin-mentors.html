@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=c60406fa">
+<link rel="stylesheet" href="/css/site.css?v=47d84512">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -248,6 +248,17 @@
       </form>
     </section>
 
+    <section class="admin-panel" id="loadPanel">
+      <h2>Who is carrying the load</h2>
+      <p class="admin-note">
+        Last fortnight. <strong>Requests</strong> is the one that matters &mdash;
+        being shown in a list costs a mentor nothing, being emailed by six
+        people does. If somebody is well ahead of the rest, hide them for a
+        couple of weeks and tell them why.
+      </p>
+      <div id="loadList"><p class="dir-empty">Loading…</p></div>
+    </section>
+
     <section class="admin-panel">
       <h2>Everyone on the list</h2>
       <p class="admin-note" id="adminCounts"></p>
@@ -260,7 +271,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=c73ce854"></script>
+<script src="js/admin-mentors.js?v=2223c044"></script>
 
 </body>
 </html>

@@ -207,6 +207,42 @@
       '</div>';
   }
 
+  // How often each mentor was shown, and how many people asked to contact
+  // them. Impressions are exposure; requests are work.
+  function loadLoad() {
+    return window.SC.client.rpc("admin_mentor_load", { p_days: 14 }).then(function (r) {
+      if (r.error) throw r.error;
+      var rows = r.data || [];
+
+      var busy = rows.filter(function (m) { return m.requests > 0; });
+      if (!rows.length) {
+        el("loadList").innerHTML = '<p class="dir-empty">Nobody on the list yet.</p>';
+        return;
+      }
+      if (!busy.length) {
+        el("loadList").innerHTML =
+          '<p class="dir-empty">No contact requests yet. Numbers appear here once ' +
+          'schools start using the directory.</p>';
+        return;
+      }
+
+      el("loadList").innerHTML = busy.map(function (m) {
+        return '' +
+          '<div class="load-row">' +
+            '<div>' +
+              '<strong>' + esc(m.full_name) + '</strong>' +
+              '<span class="load-meta">' + esc(SECTORS[m.industry] || m.industry) +
+                (m.is_published ? '' : ' \u00b7 hidden') + '</span>' +
+            '</div>' +
+            '<div class="load-figures">' +
+              '<span><b>' + m.requests + '</b> request' + (m.requests === 1 ? '' : 's') + '</span>' +
+              '<span>' + m.impressions + ' shown</span>' +
+            '</div>' +
+          '</div>';
+      }).join("");
+    });
+  }
+
   function loadPending() {
     return window.SC.client.rpc("admin_list_pending").then(function (r) {
       if (r.error) throw r.error;
@@ -517,6 +553,15 @@
 
         el("adminWho").textContent = session.user.email;
         screen("adminApp");
+
+        loadLoad().catch(function (e) {
+          // Missing function means mentor-load.sql has not been run. The rest
+          // of the page is unaffected, so say so quietly and carry on.
+          console.error("[Social Capital] load panel failed", e);
+          el("loadList").innerHTML =
+            '<p class="dir-empty">Can\'t read the figures \u2014 run ' +
+            'supabase/mentor-load.sql in Supabase, then refresh.</p>';
+        });
 
         loadPending().catch(function (e) {
           // A missing function here means admin-pending.sql has not been run.

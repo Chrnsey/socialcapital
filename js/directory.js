@@ -168,6 +168,20 @@
       })
       .join("");
 
+    // Count that these mentors were shown. Sent as one call for the whole
+    // sector rather than one per card, and it carries no identity - the
+    // database stores a daily number per mentor and nothing about who looked.
+    //
+    // Deliberately fire-and-forget: if it fails, nobody should notice. It
+    // affects the running order later, not anything on screen now.
+    if (window.SC && window.SC.ready && rows.length) {
+      window.SC.client
+        .rpc("record_impressions", { p_mentors: rows.map(function (m) { return m.id; }) })
+        .then(function () {}, function (e) {
+          console.warn("[Social Capital] impression count not recorded", e);
+        });
+    }
+
     list.querySelectorAll("[data-contact]").forEach(function (btn) {
       btn.addEventListener("click", function () {
         var id = btn.getAttribute("data-contact");

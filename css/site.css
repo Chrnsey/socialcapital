@@ -716,3 +716,16 @@ footer a:hover { color: var(--ink); }
   .invite-item { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
   .invite-item button { align-self: flex-end; }
 }
+
+/* Mentor load, on the admin page. */
+.load-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+  padding: 0.75rem 1rem; margin-bottom: 0.4rem;
+  border: 1px solid var(--line); border-radius: 4px; background: var(--card);
+}
+.load-meta { display: block; font-size: 0.78rem; color: var(--ink-soft); }
+.load-figures { display: flex; gap: 1.25rem; font-size: 0.82rem; color: var(--ink-soft); flex: 0 0 auto; }
+.load-figures b { color: var(--ink); font-size: 1rem; }
+@media (max-width: 640px) {
+  .load-row { flex-direction: column; align-items: flex-start; gap: 0.5rem; }
+}
