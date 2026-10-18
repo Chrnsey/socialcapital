@@ -44,7 +44,23 @@ comment on table public.members is
 
 
 -- ---------------------------------------------------------------------------
--- 2. The two gate functions, rebuilt against the new names.
+-- 2. The row level security policy has to come off first.
+--
+--    A policy that calls a function depends on it, so the function cannot be
+--    dropped underneath it. Postgres offers DROP ... CASCADE, and taking that
+--    offer here would be a bad mistake: it drops the policy and does not put
+--    it back. This is the policy that lets an approved school read the mentor
+--    table at all, and a table with row level security on and no select
+--    policy cannot be read by anybody. The directory would have gone blank
+--    with no error anywhere to explain it.
+--
+--    So: drop it, rebuild the functions, put it back.
+-- ---------------------------------------------------------------------------
+drop policy if exists "approved schools and alumni read mentors" on public.mentors;
+
+
+-- ---------------------------------------------------------------------------
+-- 3. The two gate functions, rebuilt against the new names.
 -- ---------------------------------------------------------------------------
 drop function if exists public.is_approved_alumnus();
 drop function if exists public.register_alumnus(text, text, date);
@@ -107,7 +123,33 @@ grant execute on function public.register_member(text, text, date) to anon, auth
 
 
 -- ---------------------------------------------------------------------------
--- 3. The contact gate.
+-- 4. The policy again, against the new function name.
+-- ---------------------------------------------------------------------------
+create policy "approved schools and members read mentors"
+  on public.mentors for select
+  to authenticated
+  using (
+    is_published
+    and (public.is_approved_school() or public.is_approved_member())
+  );
+
+-- The policy on the renamed table travels with it, but its name still said
+-- "alumnus". Renaming a policy changes nothing about what it does.
+do $$
+begin
+  if exists (
+    select 1 from pg_policies
+     where schemaname = 'public' and tablename = 'members'
+       and policyname = 'alumnus reads own record'
+  ) then
+    execute 'alter policy "alumnus reads own record" on public.members '
+         || 'rename to "member reads own record"';
+  end if;
+end $$;
+
+
+-- ---------------------------------------------------------------------------
+-- 5. The contact gate.
 -- ---------------------------------------------------------------------------
 create or replace function public.mentor_contact(p_mentor uuid)
 returns table (contact text, kind text)
@@ -136,7 +178,7 @@ grant execute on function public.mentor_contact(uuid) to authenticated;
 
 
 -- ---------------------------------------------------------------------------
--- 4. The mentor functions, regenerated from their deployed definitions with
+-- 6. The mentor functions, regenerated from their deployed definitions with
 --    only the column name changed.
 -- ---------------------------------------------------------------------------
 do $$
@@ -396,5 +438,38 @@ $$;
 
 revoke all on function public.admin_list_mentors from public, anon;
 grant execute on function public.admin_list_mentors to authenticated;
+
+-- ---------------------------------------------------------------------------
+-- 7. Refuse to finish in a broken state.
+--
+--    The failure this migration could cause is a silent one: the mentors
+--    table with row level security on and no select policy reads as empty to
+--    every school, with no error to explain it. Check before committing, so a
+--    mistake rolls the whole thing back instead of going live quietly.
+-- ---------------------------------------------------------------------------
+do $$
+begin
+  if not exists (
+    select 1 from pg_policies
+     where schemaname = 'public' and tablename = 'mentors'
+       and policyname = 'approved schools and members read mentors'
+  ) then
+    raise exception
+      'Stopping: the mentors read policy is missing, so no school could see '
+      'the directory. Nothing has been changed.';
+  end if;
+
+  if to_regclass('public.members') is null then
+    raise exception 'Stopping: public.members does not exist.';
+  end if;
+
+  if exists (
+    select 1 from pg_proc
+     where pronamespace = 'public'::regnamespace
+       and proname in ('is_approved_alumnus', 'register_alumnus')
+  ) then
+    raise exception 'Stopping: the old alumnus functions are still here.';
+  end if;
+end $$;
 
 commit;
