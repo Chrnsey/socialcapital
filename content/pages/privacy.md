@@ -1,6 +1,6 @@
 # Privacy notice
 
-*Last updated 19 September 2026*
+*Last updated 18 October 2026*
 
 This notice explains what personal information Social Capital Ireland collects, why we collect it, and what you can ask us to do with it. We have tried to write it in plain language rather than legal wording.
 
@@ -29,24 +29,68 @@ We only collect what people type into our forms. We do not buy data, and we do n
 | Your name | Shown on your profile to registered schools |
 | Your industry, experience level and job title | Shown on your profile so students can find relevant people |
 | Whether you will give school talks | So we only ask you about things you have agreed to |
+| How you got into the work — your route in, what you studied, the course name and your highest qualification | Shown on your profile. All of it is optional, and plenty of people have none of it |
+| Anything you write about yourself | Shown on your profile, in your own words. Optional |
 | Your email address, and your employer if you gave one | So we can contact you. **Not shown on your profile.** |
 
 > **Mentor contact details are deliberately kept separate.** Your personal email address and phone number are stored in a different place from your public profile, and the website cannot read it — not even a signed-in school. Only we can see it. This is why schools arrange things through us, and why school students are never given your personal details.
 >
 > If you choose to be contactable by former students over 18, we show only what you asked us to share — usually a LinkedIn profile. That is a separate, optional field, it is never your private contact record, and you can remove it at any time.
 
+### If you join as a member
+
+Members are people aged 18 or over who are connected to a registered school.
+That includes current students who have turned 18 as well as people who have
+left. A school invites you; you register yourself.
+
+| What | Why |
+|---|---|
+| The email address your school entered when inviting you | So the invitation works only for you, and so your school can see who has joined and remove anyone who should no longer have access |
+| Which school invited you, who issued the invitation, and when | So access can be traced back to a school that approved it |
+| Your date of birth | To check you are 18 or over. The database refuses anyone younger |
+| Your email address when you register | To sign you in |
+
+> **Your school holds the list, not us.** A guidance counsellor creates an
+> invitation for one address at a time and sends you the link themselves. We
+> are not sent a list of student addresses, and we do not email anyone who has
+> not been invited.
+>
+> Your school can remove your access at any time without asking us, and we
+> think that is the right way round.
+
+### When you ask for a mentor's contact details
+
+If you ask to see how to reach a mentor, **we record that you asked, which
+mentor, and when.** You are not browsing anonymously and we would rather say
+so plainly.
+
+| Why we keep it | |
+|---|---|
+| **So a concern can be answered** | If something ever goes wrong, we can establish what happened and when. Mentors are volunteers putting their name on a list; a record is part of what makes that reasonable to ask of them |
+| **So no volunteer gets buried** | A mentor who is contacted by eight people in a fortnight gets paused before they give up on us |
+
+We also count how often each mentor's profile is shown. **That count holds no
+record of who looked** — it is a daily number per mentor and nothing else,
+because spreading interest evenly needs to know how often, never by whom.
+
+We do not sell any of this, and we do not use it to build a picture of
+individual members.
+
 ## Our legal basis
 
 Under the GDPR we need a lawful reason to hold your information. Ours are:
 
 - **Consent** — you chose to fill in a form and asked us to get in touch. You can withdraw this at any time.
-- **Legitimate interests** — running the directory, keeping records of who we have approved, and preventing misuse of the service.
+- **Legitimate interests** — running the directory, keeping records of who we have approved, preventing misuse of the service, keeping a record of contact requests so that a safeguarding concern can be answered, and protecting volunteers from being overwhelmed.
 
 ## How long we keep it
 
 - **Registrations we approve** — for as long as the school or mentor is active with us, and for two years afterwards in case they return.
 - **Registrations we do not approve** — deleted within twelve months.
 - **Sign-in records** — kept while the account is active.
+- **Invitations** — kept while the member is active, so access can be traced to the school that approved it.
+- **Contact requests** — two years, then deleted.
+- **How often a profile was shown** — just over a year, then deleted. It holds no personal information anyway.
 
 You can ask us to delete your information sooner, and we will unless we are legally required to keep it.
 
@@ -57,7 +101,8 @@ We use a small number of established service providers to run the site. They pro
 | Provider | What they do |
 |---|---|
 | Supabase | Stores the database and manages sign-ins |
-| Netlify | Hosts the website |
+| Cloudflare | Hosts the website |
+| Resend | Sends our emails, including sign-in links |
 | Resend | Sends automated emails such as sign-in links |
 | Zoho | Provides our email inbox |
 | GitHub | Stores the website's code and text |
