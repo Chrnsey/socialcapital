@@ -38,21 +38,28 @@
       success: "Thanks — we'll be in touch before you're listed anywhere."
     },
 
-    // Not a plain insert: this calls a database function, which checks the
-    // school code and the date of birth without letting the browser see the
-    // list of codes.
+    // Not a plain insert: this redeems a one-time invitation issued by the
+    // school, checking the token, the address it was issued to, and the date
+    // of birth, without the browser ever seeing the list of invitations.
+    //
+    // "invalid" covers a token that does not exist, a token issued to a
+    // different address, and a revoked one. Deliberately the same answer for
+    // all three: telling somebody that their token is real but their email is
+    // wrong confirms the token is real.
     alumni_signup: {
-      rpc: "register_member",
+      rpc: "accept_invite",
       args: function (v) {
         return {
-          p_code: (v.code || "").trim().toUpperCase(),
+          p_token: (v.code || "").trim(),
           p_email: (v.email || "").trim().toLowerCase(),
           p_dob: v.date_of_birth || null
         };
       },
       outcomes: {
         ok: ["You're set up. Use \u201CSign in\u201D and we'll email you a link.", "ok"],
-        bad_code: ["We don't recognise that school code. Check it against your card, or email us and we'll sort it.", "error"],
+        invalid: ["That invitation isn't valid for this email address. Use the exact address your school sent it to, or ask them to send a new one.", "error"],
+        already_used: ["That invitation has already been used. If it wasn't you, tell your school.", "error"],
+        expired: ["That invitation has expired. Ask your school for a new one \u2014 it takes them a moment.", "error"],
         under_18: ["You need to be 18 or over to sign up here. Have a look at the guides in the meantime \u2014 they're open to everyone.", "error"]
       }
     },

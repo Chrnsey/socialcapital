@@ -117,6 +117,7 @@
               }
               showScreen("directory");
               if (window.SCDirectory) window.SCDirectory.start();
+              if (window.SCInvites) window.SCInvites.start();
             });
         });
       });

@@ -105,9 +105,33 @@
 
   window.SCMembers = SCMembers;
 
+  // The counsellor sends a link like /alumni?invite=<token>. Fill the field
+  // from it so nobody has to copy 36 characters of hex by hand, and scroll to
+  // the form so it is obvious what to do next.
+  //
+  // The token is removed from the address bar afterwards. It is single use
+  // and tied to one address, so it is not much of a secret - but it has no
+  // business sitting in browser history or being pasted into a chat along
+  // with the rest of the URL.
+  function prefillInvite() {
+    var token = new URLSearchParams(window.location.search).get("invite");
+    if (!token) return;
+
+    var box = el("a_code");
+    if (box) {
+      box.value = token.trim();
+      var signup = document.getElementById("signup") ||
+                   box.closest("section") || box.closest(".alum-box");
+      if (signup) signup.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+
+    history.replaceState(null, "", window.location.pathname);
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     var f = el("loginForm");
     if (f) f.addEventListener("submit", SCMembers.sendLink);
+    prefillInvite();
     SCMembers.init();
   });
 })();

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — For Schools</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=dc0ac33f">
+<link rel="stylesheet" href="/css/site.css?v=c60406fa">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="A directory of working people who agreed to answer questions from students and school leavers in Ireland about their job and how they got it.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-18T01:05:25.450Z -->
+<!-- built-by-build.mjs 2026-10-18T01:09:07.246Z -->
 </head>
 <body>
 
@@ -261,15 +261,53 @@
       <p class="dir-section-title">Mentors in this sector</p>
       <div class="mentor-list" id="mentorList"></div>
     </div>
+
+    <!-- Giving your own students access. Nothing here is visible to them. -->
+    <section class="invite-panel" id="invitePanel">
+      <p class="dir-section-title">Your students and past pupils</p>
+      <p class="invite-note">
+        Anyone you invite can browse this directory themselves. They must be
+        18 or over &mdash; sixth years who have had their birthday, and anyone
+        who has left. You confirm the age; we check the date of birth as well.
+      </p>
+
+      <form id="inviteForm" novalidate>
+        <div class="invite-row">
+          <input type="email" id="inviteEmail" placeholder="their@email.com"
+                 autocapitalize="none" spellcheck="false" required>
+          <button type="submit" class="btn" id="inviteSubmit">Create invitation</button>
+        </div>
+        <label class="invite-attest">
+          <input type="checkbox" id="inviteAttest">
+          I confirm this person is 18 or over
+        </label>
+        <p class="form-status" id="inviteStatus" role="status" aria-live="polite"></p>
+      </form>
+
+      <div class="invite-link" id="inviteLink" hidden>
+        <p><strong>Send them this link.</strong> It only works for the address
+          you entered, it expires in 30 days, and it can be used once.</p>
+        <input type="text" id="inviteLinkValue" readonly onclick="this.select()">
+        <button type="button" class="btn-outline admin-small" id="inviteCopy">Copy</button>
+        <p class="invite-note">
+          Send it from your own school address. We do not email your students,
+          and we do not keep a list of their addresses beyond the invitations
+          you create here.
+        </p>
+      </div>
+
+      <div id="inviteList"></div>
+    </section>
   </div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/forms.js?v=692d4c57"></script>
+<script src="js/forms.js?v=d6996507"></script>
 <script src="js/directory.js?v=d2829a8c"></script>
-<script src="js/auth.js?v=605c322b"></script>
+<script src="js/auth.js?v=878f8c65"></script>
+<script src="js/school-invites.js?v=b2d43e7d"></script>
 <script src="js/content.js?v=0f93348e"></script>
 <script>
 SCContent.load("schools");
