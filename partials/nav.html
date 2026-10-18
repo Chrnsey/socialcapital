@@ -1,0 +1,24 @@
+<!-- ===========================================================================
+     THE NAVIGATION, ONCE.
+     ===========================================================================
+     This file is the only copy. build.mjs injects it into every page, replacing
+     whatever <nav>...</nav> is there. Edit here and run `node build.mjs`.
+
+     data-page is how the current page gets marked: build.mjs adds
+     class="current" to whichever link matches the page it is writing. Leave
+     those attributes alone or nothing will be highlighted.
+
+     Links are root-relative (/guides.html) so the same markup works on a page
+     in the root and one in /routes.
+     =========================================================================== -->
+<nav>
+  <a href="/index.html" class="nav-logo" aria-label="Social Capital, home"><img class="logo-light" src="/logo-light.png" alt="Social Capital" width="318" height="120"><img class="logo-dark" src="/logo-dark.png" alt="" aria-hidden="true" width="318" height="120"></a>
+  <ul class="nav-links">
+    <li><a href="/guides.html" data-page="guides">Your options</a></li>
+    <li><a href="/mentors.html" data-page="mentors">Mentors</a></li>
+    <li><a href="/schools.html" data-page="schools">Schools</a></li>
+    <li><a href="/members.html" data-page="members">Join</a></li>
+    <li><a href="/about.html" data-page="about">About</a></li>
+  </ul>
+  <a href="/signin.html" class="nav-cta nav-signin" data-page="signin">Sign in</a>
+</nav>
