@@ -13,7 +13,13 @@
 -- the result you want.
 -- ===========================================================================
 
+-- A scratch table for the results. TEMP means it exists only for this one
+-- connection, is invisible to every other connection including the website's,
+-- and is deleted when you close the tab. Supabase's linter cannot tell a temp
+-- table from a real one and will warn about row level security anyway, so RLS
+-- is enabled below to settle the point - it changes nothing either way.
 create temp table if not exists gate_test (what text, result text);
+alter table gate_test enable row level security;
 truncate gate_test;
 
 do $$
