@@ -33,7 +33,18 @@ alter table public.pending_mentors
 
 
 -- 3. Teach approve_mentor about it.
---    Same first four arguments as before, so your old command still works.
+--
+--    WARNING, AND THIS WAS WRONG WHEN FIRST WRITTEN. This said "same first
+--    four arguments as before, so your old command still works". It does
+--    not. "create or replace function" only replaces when the argument list
+--    matches EXACTLY; adding a fifth argument creates a SECOND function
+--    beside the original, and a four-argument call then matches both:
+--
+--      ERROR: function public.approve_mentor(...) is not unique
+--
+--    Fixed by supabase/fix-approve-mentor.sql, which drops the obsolete
+--    four-argument version. If this file is ever re-run on a fresh database,
+--    run that one after it.
 create or replace function public.approve_mentor(
   pending_id       uuid,
   role_title       text,
