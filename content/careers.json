@@ -3,7 +3,7 @@
     "slug": "careers",
     "title": "Careers",
     "tag": "The jobs",
-    "intro": "What the work is actually like, and which door leads to it. Every one of these has more than one way in, whatever the person who holds it tells you."
+    "intro": "What the work is actually like, and how people get into it. Every job here has more than one way in, even if the person doing it only took one of them."
   },
   "items": [
     {
@@ -11,27 +11,27 @@
       "title": "Electrician",
       "subtitle": "Trades",
       "checked": "September 2026",
-      "summary": "Paid from your first year, no fees, qualified in four. Then you can work for anyone or nobody.",
-      "body": "Electricians install, maintain and repair electrical systems. Houses, sites, factories, and increasingly solar panels, heat pumps and car chargers. There is a formal qualification at the end of it and exams that people fail, so treat anyone describing it as unskilled labour as telling you more about them than about the job.\n\nOnce you are qualified you can work for a company, work for yourself, or end up running the site rather than being on it.",
+      "summary": "Get paid from your first year with no fees, and be fully qualified in about four. After that you can work for a company or for yourself.",
+      "body": "Electricians install and repair electrical systems in houses, building sites and factories. More and more, that includes solar panels, heat pumps and car chargers. It's a skilled trade with a formal qualification at the end, and people do fail the exams. Don't let anyone tell you it's unskilled work.\n\nOnce you're qualified you can work for a company, set up on your own, or move up to running sites.",
       "routes": [
         {
           "name": "Apprenticeship",
-          "tag": "The main road",
-          "detail": "Find an employer, they register you, and you alternate between working for them and blocks of training. You are on the payroll throughout.",
+          "tag": "The main route",
+          "detail": "Find an employer who'll register you, then you alternate between working for them and blocks of training. You're paid the whole way through.",
           "duration": "About four years",
           "cost": "No fees to speak of"
         },
         {
           "name": "PLC first, then apprenticeship",
-          "tag": "If nobody bites yet",
-          "detail": "A year of electrical training makes an employer far likelier to take you. Common route for anyone who came out of sixth year with nothing lined up.",
+          "tag": "If you can't find an employer yet",
+          "detail": "A year of electrical training makes employers far more likely to take you on. It's a common route if you finish sixth year without anything lined up.",
           "duration": "A year, usually",
           "cost": "Low or nothing"
         },
         {
           "name": "Later on",
           "tag": "No age limit",
-          "detail": "People start this at twenty-eight after five years of something they disliked. It is allowed.",
+          "detail": "Some people start at twenty-eight after five years in a job they didn't enjoy, and that's completely normal.",
           "duration": "Same",
           "cost": "Same"
         }
@@ -39,25 +39,25 @@
       "blocks": [
         {
           "heading": "What you need",
-          "text": "A Leaving Certificate at a basic grade level, or an approved equivalent, or an employer who wants you anyway. Maths and a practical subject help. High points are not the currency here. Check the current entry requirements rather than taking this paragraph as gospel."
+          "text": "A Leaving Cert at a basic grade, or an approved equivalent, or an employer who wants to take you on anyway. Maths and a practical subject help, but high points aren't what matters here. Entry requirements change, so check the current ones before you rely on this."
         },
         {
           "heading": "What you earn on the way",
-          "text": "A percentage of the qualified rate from year one, rising each year. You finish owing nothing, having been paid for four years. Compare that with the alternative honestly and not sentimentally."
+          "text": "You're paid a percentage of the qualified rate from year one, and it goes up each year. By the end you've been paid for four years and you owe nothing, which is worth comparing honestly with the college route."
         }
       ],
       "myths": [
         {
           "myth": "It's what you do if you're not academic.",
-          "reality": "The exams fail people. Different difficulty, not a lesser one."
+          "reality": "People fail the exams every year. It's a different kind of difficult, not an easier one."
         },
         {
           "myth": "You need to know someone.",
-          "reality": "It helps, which is why this site exists. Ringing round local firms also works, and hardly anyone bothers."
+          "reality": "It helps, which is why this site exists. Ringing local firms yourself also works, and hardly anyone does it, which works in your favour."
         },
         {
           "myth": "There's no progression.",
-          "reality": "Supervision, contracting, inspection, teaching, your own company. Some of them earn more than the people who looked down on it."
+          "reality": "There's plenty. Electricians move into supervision, contracting, inspection and teaching, or run their own company, and some earn more than people with degrees."
         }
       ],
       "apply": [
@@ -75,34 +75,34 @@
       "title": "Software developer",
       "subtitle": "Technology",
       "checked": "September 2026",
-      "summary": "One of the few well-paid jobs where nobody asks about your degree after the first one.",
-      "body": "Developers write the code behind apps and systems. The job is less solitary than films suggest. Most of the day goes on reading other people's code, arguing about what to build, and repairing things that worked yesterday.\n\nIreland has far more of this work than you'd expect for a country this size, across both the large foreign companies and a lot of Irish ones nobody has heard of.",
+      "summary": "A well-paid job where, after your first role, people care far more about what you can build than where you studied.",
+      "body": "Developers write the code behind apps and systems. It's more of a team job than people think. A lot of the day goes on reading other people's code, agreeing what to build, and fixing things that worked yesterday.\n\nIreland has far more of this work than you'd expect for its size. There are the big multinationals, and plenty of Irish companies you've probably never heard of.",
       "routes": [
         {
           "name": "Computer science degree",
-          "tag": "The usual",
-          "detail": "Three or four years through the CAO. Strongest grounding, and the simplest way into the graduate programmes the bigger employers recruit through.",
+          "tag": "The usual route",
+          "detail": "Three or four years through the CAO. It gives you the strongest grounding, and it's the easiest way onto the graduate programmes the bigger companies hire through.",
           "duration": "Three to four years",
           "cost": "Student contribution, often covered by SUSI"
         },
         {
           "name": "Apprenticeship",
-          "tag": "Badly under-known",
-          "detail": "Software and ICT apprenticeships exist here and hardly anyone mentions them. You work, you study alongside it, you come out with a qualification and real years behind you.",
+          "tag": "Less well known",
+          "detail": "Software and ICT apprenticeships exist in Ireland, but they don't get talked about much. You work and study at the same time, and finish with a qualification and real work experience.",
           "duration": "Two to four years",
-          "cost": "You are being paid"
+          "cost": "You get paid"
         },
         {
           "name": "PLC, then work or a degree",
-          "tag": "Second go at the points",
-          "detail": "A computing course in further education leads to junior roles directly, or into a degree through links with the universities.",
+          "tag": "Another way into a degree",
+          "detail": "A computing course in further education can lead straight into junior roles, or on to a degree through links with the universities.",
           "duration": "One to two years",
           "cost": "Usually low"
         },
         {
           "name": "Teaching yourself",
-          "tag": "Harder than the internet claims",
-          "detail": "It happens, and this industry does care more about what you can build than where you sat. But there is no structure, nobody to ask, and you need finished work to show. Easier as a second career than a first job.",
+          "tag": "Harder than it looks online",
+          "detail": "It does happen, and this industry cares more about what you can build than where you studied. But there's no structure and no one to ask, and you need finished projects to show. It works better as a second career than as a first job.",
           "duration": "Who knows",
           "cost": "Time"
         }
@@ -110,25 +110,25 @@
       "blocks": [
         {
           "heading": "What you need",
-          "text": "Points for computing courses vary enormously, and there are options well down the range, not only at the top. Maths helps and some courses require it, but it is less of a wall than people assume. Apprenticeships and further education ask for a lot less. Check the specific course."
+          "text": "Points for computing courses vary a lot, and there are good options well below the top. Maths helps and some courses need it, but it's less of a barrier than people think. Apprenticeships and further education ask for a lot less. Check the entry requirements for the specific course."
         },
         {
           "heading": "What it pays",
-          "text": "Entry salaries in this sector are high compared with most other first jobs in Ireland and they move quickly in the early years. The apprenticeship route pays from the start."
+          "text": "Starting salaries in tech are high compared with most first jobs in Ireland, and they rise quickly in the first few years. The apprenticeship route pays you from day one."
         }
       ],
       "myths": [
         {
           "myth": "You need to have been coding since you were twelve.",
-          "reality": "Plenty of working developers started at eighteen. Or thirty. Early helps, it is not a requirement."
+          "reality": "Plenty of developers started at eighteen, or thirty. Starting early helps, but it isn't a requirement."
         },
         {
           "myth": "You need honours maths.",
-          "reality": "Some courses want it, many do not, and most of the day-to-day work uses very little of it."
+          "reality": "Some courses want it, many don't, and most day-to-day work uses very little of it."
         },
         {
           "myth": "It has to be a well-known university.",
-          "reality": "After your first job nobody asks. What you have built is the whole conversation."
+          "reality": "After your first job, hardly anyone asks. What you've built matters far more."
         }
       ],
       "apply": [

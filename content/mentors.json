@@ -1,8 +1,8 @@
 {
   "hero": {
-    "title": "An hour a term, and somebody's plan changes",
-    "body": "You do not need your employer's permission and there is no minimum. Answer a couple of messages a term. Meet a student for a coffee. Give one talk and never again. You decide where it stops, and nobody chases you.",
-    "kicker": "For individuals. Your employer need never hear about it."
+    "title": "An hour a term can change a student's plans",
+    "body": "You don't need your employer's permission and there's no minimum commitment. Some mentors answer a couple of messages a term or meet a student for a coffee, others give one talk and leave it there. It's up to you how much you do, and nobody will chase you for more.",
+    "kicker": "For individuals. You don't need to go through your employer."
   },
   "quote": {
     "tag": "Why this exists",
@@ -11,28 +11,28 @@
   },
   "signup": {
     "title": "Sign up",
-    "body": "Two minutes. We talk to you before your name appears anywhere, so there is no chance of a student landing in your inbox before you have agreed to it."
+    "body": "It takes two minutes. We'll talk to you before your name goes up anywhere, so no student will contact you before you've agreed to it."
   },
   "involves": {
-    "tag": "What it actually involves",
-    "title": "Less than you are imagining",
-    "body": "No script, no quota, nobody counting. Most mentors do considerably less than they expected, and it still works.",
+    "tag": "What's involved",
+    "title": "Probably less than you think",
+    "body": "There's no script and no quota. Most mentors do a lot less than they expected, and it still helps.",
     "items": [
       {
         "title": "You decide who can reach you",
-        "body": "Your profile goes up under your industry. Your personal email and phone number never do. Anyone under 18 can only reach you through their school. Separately you can choose to be contactable directly by over-18s — sixth years who have had their birthday, and people who have left — and most share a LinkedIn profile for that."
+        "body": "Your profile goes up under your industry, but your personal email and phone number never do. Anyone under 18 can only reach you through their school. You can also choose to let over-18s contact you directly (sixth years who have turned 18, and past pupils), and most mentors share a LinkedIn profile for this."
       },
       {
-        "title": "Twenty minutes in a classroom",
-        "body": "Some mentors do this once a year. Entirely optional, and if you say yes we deal with the arranging."
+        "title": "Talks in schools",
+        "body": "Some mentors give a short talk once a year. It's entirely optional, and if you say yes we'll handle the arranging."
       },
       {
-        "title": "Three years in is not too soon",
-        "body": "If you are early on, students believe you in a way they do not quite believe the managing director. If you are fifteen years in, you have the wider view. Both are wanted and the first is harder to come by."
+        "title": "Junior staff are just as valuable",
+        "body": "If you're only a few years in, students will relate to you in a way they might not with a managing director. If you're fifteen years in, you can give them the bigger picture. We need both, and junior mentors are harder to find."
       },
       {
-        "title": "You can stop",
-        "body": "Answer a couple of questions a term, or do more later if you feel like it. You can step back whenever and nobody will ring you about it."
+        "title": "Step back whenever you like",
+        "body": "Answer a couple of questions a term, or do more later if you want to. You can step back at any time."
       }
     ]
   }
