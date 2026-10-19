@@ -89,6 +89,18 @@ begin
          else 'PASS' end
   );
 
+  -- Seeing a mentor's photo. This made-up user is neither an approved school
+  -- nor a member, so even a real photo's path must be refused.
+  insert into gate_test values (
+    'can_view_mentor_photo refuses a stranger',
+    case when public.can_view_mentor_photo(
+           coalesce((select photo_path from public.mentors
+                      where photo_path is not null limit 1),
+                    'mentors/00000000-0000-4000-8000-000000000000.jpg'))
+         then 'FAIL - A STRANGER CAN SEE MENTOR PHOTOS'
+         else 'PASS' end
+  );
+
   -- Put things back.
   perform set_config('request.jwt.claims', '', true);
 end $$;
@@ -106,6 +118,15 @@ insert into gate_test values (
          or has_column_privilege('authenticated', 'public.mentors', 'public_email', 'select')
        then 'FAIL - A SCHOOL CAN READ SHARED CONTACTS DIRECTLY'
        else 'PASS' end
+);
+
+-- The photo bucket must never be public: a public bucket ignores every rule
+-- above and hands out a permanent link to anyone.
+insert into gate_test values (
+  'mentor-photos bucket is private',
+  case when exists (select 1 from storage.buckets where id = 'mentor-photos' and not public)
+       then 'PASS'
+       else 'FAIL - THE PHOTO BUCKET IS PUBLIC OR MISSING' end
 );
 
 select what, result from gate_test order by result desc, what;

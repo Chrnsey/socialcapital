@@ -184,9 +184,11 @@
       : "";
 
     return '' +
-      '<div class="pending-row" data-id="' + esc(p.id) + '" data-kind="' + esc(p.kind) + '">' +
+      '<div class="pending-row" data-id="' + esc(p.id) + '" data-kind="' + esc(p.kind) + '"' +
+        (p.photo_path ? ' data-photo="' + esc(p.photo_path) + '"' : "") + '>' +
         '<div class="pending-head">' +
-          '<div>' +
+          (p.photo_path ? '<img class="pending-photo" data-photo-src="' + esc(p.photo_path) + '" alt="">' : "") +
+          '<div class="pending-who">' +
             '<strong>' + esc(p.name || "No name given") + '</strong>' +
             '<div class="pending-meta">' + esc(p.email) +
               (p.detail ? " \u00b7 " + esc(p.detail) : "") +
@@ -249,6 +251,7 @@
       var rows = r.data || [];
       el("pendingPanel").hidden = rows.length === 0;
       el("pendingList").innerHTML = rows.map(pendingRow).join("");
+      fillPhotos(el("pendingList"));
     });
   }
 
@@ -273,8 +276,10 @@
       card.querySelectorAll("button").forEach(function (b) { b.disabled = true; });
       note.textContent = "Saving\u2026";
       note.className = "pending-status";
+      var photo = card.getAttribute("data-photo");
       window.SC.client.rpc("admin_reject_pending", { p_kind: kind, p_pending_id: id })
-        .then(function (r) { if (r.error) throw r.error; return Promise.all([loadPending(), load()]); })
+        .then(function (r) { if (r.error) throw r.error; return window.SC_photo.remove(photo); })
+        .then(function () { return Promise.all([loadPending(), load()]); })
         .catch(function (e) { console.error(e); fail(e.message || "Didn't save"); });
       return;
     }
@@ -316,6 +321,7 @@
     if (m.is_alumnus) bits.push("past pupil" + (m.alumnus_school_name ? ", " + esc(m.alumnus_school_name) : ""));
     if (m.member_contact_ok) bits.push("over-18s may contact");
     if (m.bio) bits.push("has a bio");
+    if (m.photo_path) bits.push("has a photo");
     if (m.route_in) bits.push(esc(ROUTES[m.route_in] || m.route_in));
     if (m.study_detail) bits.push(esc(m.study_detail));
     else if (m.study_field) bits.push(esc(FIELDS[m.study_field] || m.study_field));
@@ -363,8 +369,59 @@
   // -------------------------------------------------------------------------
   // Add and edit share one form. m_id decides which.
   // -------------------------------------------------------------------------
+  // Any <img data-photo-src="path"> inside root gets a short-lived link.
+  function fillPhotos(root) {
+    var imgs = Array.prototype.slice.call(root.querySelectorAll("img[data-photo-src]"));
+    if (!imgs.length || !window.SC_photo) return;
+    window.SC_photo.links(imgs.map(function (i) { return i.getAttribute("data-photo-src"); }))
+      .then(function (urls) {
+        imgs.forEach(function (i) {
+          var u = urls[i.getAttribute("data-photo-src")];
+          if (u) i.src = u; else i.hidden = true;
+        });
+      });
+  }
+
+  function showPhoto(path) {
+    var img = el("m_photo_preview");
+    el("m_photo").value = "";
+    el("m_photo_remove").checked = false;
+    el("m_photo_remove_wrap").hidden = !path;
+    img.hidden = !path;
+    img.removeAttribute("src");
+    if (path) {
+      img.setAttribute("data-photo-src", path);
+      fillPhotos(img.parentNode);
+    } else {
+      img.removeAttribute("data-photo-src");
+    }
+  }
+
+  // After the mentor is saved: upload a new photo, or clear the old one.
+  // The replaced file is deleted so photos do not pile up.
+  function savePhoto(mentorId, file, removing) {
+    var setTo;
+    if (file) {
+      setTo = window.SC_photo.upload(file, "mentors");
+    } else if (removing) {
+      setTo = Promise.resolve(null);
+    } else {
+      return Promise.resolve();
+    }
+    return setTo
+      .then(function (path) {
+        return window.SC.client.rpc("admin_set_mentor_photo",
+          { p_mentor_id: mentorId, p_photo_path: path });
+      })
+      .then(function (r) {
+        if (r.error) throw r.error;
+        return window.SC_photo.remove(r.data);
+      });
+  }
+
   function resetForm() {
     el("mentorForm").reset();
+    showPhoto(null);
     el("m_id").value = "";
     checkBio();
     el("formHeading").textContent = "Add a mentor";
@@ -399,6 +456,7 @@
     el("m_qualification").value = m.qualification || "";
     el("m_bio").value = m.bio || "";
     checkBio();
+    showPhoto(m.photo_path);
 
     // The update function deliberately does not touch the private record.
     el("privateFields").hidden = true;
@@ -465,15 +523,26 @@
       call = window.SC.client.rpc("admin_add_mentor", shared);
     }
 
+    var photoFile = el("m_photo").files[0] || null;
+    var photoRemove = checked("m_photo_remove");
+    var photoNote = "";
+
     call
       .then(function (r) {
         if (r.error) throw r.error;
+        var mentorId = editing ? val("m_id") : r.data;
+        return savePhoto(mentorId, photoFile, photoRemove).catch(function (e) {
+          console.error("[Social Capital] photo not saved", e);
+          photoNote = " The photo didn't save" + (e && e.message ? ": " + e.message : "") + ".";
+        });
+      })
+      .then(function () {
         var name = val("m_full_name");
         resetForm();
         return load().then(function () {
           status("mentorStatus",
-            editing ? "Saved." : name + " added, hidden. Publish them below when you are ready.",
-            "ok");
+            (editing ? "Saved." : name + " added, hidden. Publish them below when you are ready.") + photoNote,
+            photoNote ? "error" : "ok");
         });
       })
       .catch(function (e) {

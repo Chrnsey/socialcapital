@@ -36,7 +36,22 @@
           source: "mentors_page"
         };
       },
-      success: "Thanks — we'll be in touch before you're listed anywhere."
+      // The photo goes up before the signup row, so the row can point at it.
+      // If it fails the signup still goes through: losing a willing mentor
+      // over a photo is not worth it, and the thank-you message says so.
+      prepare: function (v) {
+        var file = v.photo;
+        if (!file || !file.size || !window.SC_photo) return Promise.resolve({});
+        return window.SC_photo.upload(file, "pending").then(
+          function (path) { return { photo_path: path }; },
+          function (e) {
+            console.warn("[Social Capital] photo not uploaded", e);
+            return { _photoFailed: true };
+          }
+        );
+      },
+      success: "Thanks — we'll be in touch before you're listed anywhere.",
+      successNoPhoto: "Thanks, we've got your details. Your photo didn't upload, so please email it to registration@socialcapital.ie."
     },
 
     // Not a plain insert: this redeems a one-time invitation issued by the
@@ -141,7 +156,8 @@
       // the insert is rejected for an unknown column we drop the optional
       // fields and try again. The submission matters more than the extras.
       var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year",
-                      "member_contact_ok", "public_contact", "public_email"];
+                      "member_contact_ok", "public_contact", "public_email",
+                      "photo_path"];
 
       function insert(row) {
         return window.SC.client.from(config.table).insert(row);
@@ -173,8 +189,15 @@
       }
 
       var row = config.build(values);
+      var photoFailed = false;
 
-      insert(row)
+      (config.prepare ? config.prepare(values) : Promise.resolve({}))
+        .then(function (extra) {
+          photoFailed = !!extra._photoFailed;
+          delete extra._photoFailed;
+          Object.keys(extra).forEach(function (k) { row[k] = extra[k]; });
+          return insert(row);
+        })
         .then(function (result) {
           if (!result.error) return result;
           if (!looksLikeMissingColumn(result.error)) throw result.error;
@@ -191,7 +214,7 @@
         })
         .then(function (result) {
           if (result.error) throw result.error;
-          setStatus(form, config.success, "ok");
+          setStatus(form, photoFailed ? config.successNoPhoto : config.success, "ok");
           form.reset();
         })
         .catch(function (error) {

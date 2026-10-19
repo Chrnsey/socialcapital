@@ -150,11 +150,19 @@
           ? '<span class="mentor-contact"><button type="button" data-contact="' +
             escapeHtml(m.id) + '">How to reach them</button></span>'
           : "";
+        // Photo and name first, then what they do, then their own words.
+        // Without a photo the circle shows their initials - never a stock
+        // picture standing in for a real person.
         return (
           '<div class="mentor-card">' +
-            '<div class="mentor-avatar">' + escapeHtml(initials(m.full_name)) + "</div>" +
-            '<div class="mentor-info">' +
+            '<div class="mentor-head">' +
+              '<div class="mentor-avatar"' +
+                (m.photo_path ? ' data-photo="' + escapeHtml(m.photo_path) + '"' : "") + ">" +
+                escapeHtml(initials(m.full_name)) +
+              "</div>" +
               "<h4>" + escapeHtml(m.full_name) + "</h4>" +
+            "</div>" +
+            '<div class="mentor-info">' +
               "<p>" + escapeHtml(m.role_title) + "</p>" +
               '<span class="mentor-badge ' + (m.level === "junior" ? "junior" : "") + '">' +
                 badge + detail +
@@ -167,6 +175,23 @@
         );
       })
       .join("");
+
+    // Photos live in a private bucket. Ask for short-lived links for the
+    // whole sector in one go, and swap each set of initials for the photo.
+    if (window.SC_photo) {
+      var avatars = Array.prototype.slice.call(list.querySelectorAll(".mentor-avatar[data-photo]"));
+      window.SC_photo.links(avatars.map(function (a) { return a.getAttribute("data-photo"); }))
+        .then(function (urls) {
+          avatars.forEach(function (a) {
+            var url = urls[a.getAttribute("data-photo")];
+            if (!url) return;
+            var img = new Image();
+            img.alt = "";
+            img.onload = function () { a.textContent = ""; a.appendChild(img); a.classList.add("has-photo"); };
+            img.src = url;
+          });
+        });
+    }
 
     // Count that these mentors were shown. Sent as one call for the whole
     // sector rather than one per card, and it carries no identity - the
@@ -222,7 +247,7 @@
 
     window.SC.client
       .from("mentors")
-      .select("id, full_name, role_title, level, experience_label, open_to_talks, member_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification, bio")
+      .select("id, full_name, role_title, level, experience_label, open_to_talks, member_contact_ok, is_alumnus, alumnus_school_id, alumnus_school_name, route_in, study_field, study_detail, qualification, bio, photo_path")
       .eq("industry", slug)
       .eq("is_published", true)
       .then(function (res) {

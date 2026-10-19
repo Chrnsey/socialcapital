@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Become a Mentor</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=06f17639">
+<link rel="stylesheet" href="/css/site.css?v=db25bcd3">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="A directory of working people who agreed to answer questions from students and school leavers in Ireland about their job and how they got it.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-19T09:54:07.311Z -->
+<!-- built-by-build.mjs 2026-10-19T12:51:24.840Z -->
 </head>
 <body>
 
@@ -85,6 +85,10 @@
     <div class="form-group">
       <label for="m_email">Email address</label>
       <input type="email" id="m_email" name="email" placeholder="your@email.com" required autocomplete="email">
+    </div>
+    <div class="form-group">
+      <label for="m_photo">Add a photo <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
+      <input type="file" id="m_photo" name="photo" accept="image/*">
     </div>
     <div class="form-group">
       <label for="m_industry">Industry / sector</label>
@@ -182,7 +186,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/forms.js?v=63c254c6"></script>
+<script src="js/photo.js?v=0fe5efe0"></script>
+<script src="js/forms.js?v=aae39237"></script>
 <script src="js/content.js?v=0f93348e"></script>
 <script>SCContent.load("mentors");</script>
 <script src="js/nav.js?v=45b60334"></script>

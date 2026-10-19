@@ -31,6 +31,7 @@ We only collect what people type into our forms. We don't buy data, and we don't
 | Whether you will give school talks | So we only ask you about things you've agreed to |
 | How you got into the work: your route in, what you studied, the course name and your highest qualification | Shown on your profile. All of it is optional, and plenty of people have none of it |
 | Whether you went to a DEIS school yourself, and which one | Shown on your profile, and mentors who went to the viewer's own school are listed first. Optional |
+| A photo of you | Shown on your profile to registered schools and members over 18, once you're approved. Before it's uploaded we shrink it, which also removes the hidden details a camera stores, such as location. Optional |
 | Anything you write about yourself | Shown on your profile, in your own words. Optional |
 | A LinkedIn profile and an email address you choose to share | Shown only to members aged 18 or over who ask for them, and only if you agreed to be contacted. Either, both or neither. Optional |
 | Your email address, and your employer if you gave one | So we can contact you. **Not shown on your profile.** |
@@ -79,7 +80,7 @@ Under the GDPR we need a lawful reason to hold your information. Ours are:
 | What | How long |
 |---|---|
 | Registrations we approve | For as long as the school or mentor is active with us, and for two years afterwards in case they return |
-| Registrations we don't approve | Deleted within twelve months |
+| Registrations we don't approve | Deleted within twelve months. Any photo is deleted as soon as we turn the registration down |
 | Sign-in records | Kept while the account is active |
 | Invitations | Kept while the member is active, so access can be traced to the school that approved it |
 | Contact requests | Two years, then deleted |
@@ -93,7 +94,7 @@ We use a small number of established service providers to run the site. They pro
 
 | Provider | What they do |
 |---|---|
-| Supabase | Stores the database and manages sign-ins |
+| Supabase | Stores the database and mentor photos, and manages sign-ins |
 | Cloudflare | Hosts the website |
 | Resend | Sends our emails, including sign-in links |
 | Zoho | Provides our email inbox |

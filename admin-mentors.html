@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=06f17639">
+<link rel="stylesheet" href="/css/site.css?v=db25bcd3">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -148,6 +148,18 @@
           <p class="bio-warn" id="bioWarn" hidden></p>
         </div>
 
+        <div class="form-group admin-photo">
+          <label for="m_photo">Photo (optional)</label>
+          <div class="admin-photo-row">
+            <img id="m_photo_preview" class="admin-photo-preview" alt="" hidden>
+            <input type="file" id="m_photo" accept="image/*">
+          </div>
+          <label class="admin-photo-remove" id="m_photo_remove_wrap" hidden>
+            <input type="checkbox" id="m_photo_remove"> Remove their photo
+          </label>
+          <p class="admin-note">Cropped to a square from the middle. Only schools and members over 18 see it, and only once they are live.</p>
+        </div>
+
         <div class="admin-route">
           <p class="admin-private-title">How they got there &mdash; all optional</p>
           <p class="admin-note" style="margin-bottom:1rem;">
@@ -267,7 +279,8 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=54b494a7"></script>
+<script src="js/photo.js?v=0fe5efe0"></script>
+<script src="js/admin-mentors.js?v=38f8a1e8"></script>
 
 </body>
 </html>
