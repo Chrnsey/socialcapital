@@ -73,3 +73,21 @@ Your own edits show up there as "Update Page wording …".
 1. Wait a minute — the site takes about 30 seconds to update
 2. Hard-refresh the page: **⌘ + Shift + R**
 3. Still wrong? The history link above shows exactly what changed, and anything can be put back.
+
+---
+
+## Finding the lines that still sound machine-written
+
+There is a checker that reads every page and points at the lines with the usual AI tells: dashes doing a comma's job, stock phrases, lists of three, hedging, paragraphs that end on reassurance, long words, long sentences and a reading grade above 7 on student pages. It also catches DEIS on a page students can read.
+
+It only reports. It never changes a word.
+
+In Claude Code, ask for "the voice check", or run it yourself from the project folder:
+
+    node check-voice.mjs              every page, worst first
+    node check-voice.mjs routes       just one page
+    node check-voice.mjs --summary    just the table
+
+Each flag gives the CMS box it is in (for example *Ways in › Apprenticeships › Main explanation*), so you can go straight to it in the CMS. A flag is a prompt to look, not a verdict. Ignore any you disagree with.
+
+Edits you make in the CMS are saved to GitHub, not to this computer. Run `git pull` first so the checker reads your latest wording.
