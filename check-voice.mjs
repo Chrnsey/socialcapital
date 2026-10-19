@@ -11,8 +11,17 @@
 // is never said on a student-facing page.
 //
 // A flag is a prompt to look, not a verdict. Ignore any you disagree with.
+//
+// Lines Jack typed himself in the CMS are his voice, not AI, so they are
+// left out (git blame: Decap CMS commits are titled "Update ..."). The DEIS
+// rule still applies to them. --all shows them too.
+//
+// A small fix to one of his lines (a typo) would otherwise make git credit
+// the whole line to that fix. List such commits in .git-blame-ignore-revs
+// and the line stays his.
 
-import { readFileSync, readdirSync } from "node:fs";
+import { readFileSync, readdirSync, existsSync } from "node:fs";
+import { execFileSync } from "node:child_process";
 
 // ---------------------------------------------------------------------------
 // Which pages are which. Student pages get the strictest checks.
@@ -165,6 +174,27 @@ function itemName(obj, i) {
   return obj.title || obj.name || obj.heading || obj.myth || obj.label || obj.slug || `#${i + 1}`;
 }
 
+// For each line of a file: did one of Jack's CMS saves write it? Returns
+// null if git is not available, and then nothing is treated as his.
+const CMS_COMMIT = /^(?:Update|Create) /;
+function cmsLines(file) {
+  try {
+    const flags = ["blame", "--line-porcelain"];
+    if (existsSync(".git-blame-ignore-revs")) flags.push("--ignore-revs-file", ".git-blame-ignore-revs");
+    const out = execFileSync("git", [...flags, "--", file],
+      { encoding: "utf8", stdio: ["ignore", "pipe", "ignore"], maxBuffer: 1 << 26 });
+    const mine = [];
+    let summary = "";
+    for (const line of out.split("\n")) {
+      if (line.startsWith("summary ")) summary = line.slice(8);
+      else if (line.startsWith("\t")) mine.push(CMS_COMMIT.test(summary));
+    }
+    return mine;
+  } catch {
+    return null;
+  }
+}
+
 function collectJson(name) {
   const data = JSON.parse(readFileSync(`content/${name}.json`, "utf8"));
   const out = [];
@@ -185,11 +215,18 @@ function collectJson(name) {
   // Lists add the list label and then the item name; for strings the last
   // step is the field. Tidy "Points › Points" style repeats.
   for (const o of out) o.where = o.where.replace(/(\b[^›]+) › \1\b/g, "$1");
+  const lines = readFileSync(`content/${name}.json`, "utf8").split("\n");
+  const his = cmsLines(`content/${name}.json`);
+  for (const o of out) {
+    const at = lines.findIndex((l) => l.includes(JSON.stringify(o.text)));
+    o.yours = !!(his && at >= 0 && his[at]);
+  }
   return out;
 }
 
 function collectMarkdown(name) {
   const md = readFileSync(`content/pages/${name}.md`, "utf8");
+  const his = cmsLines(`content/pages/${name}.md`);
   const out = [];
   let heading = "top of page";
   let buf = [], start = 0;
@@ -204,7 +241,8 @@ function collectMarkdown(name) {
       .replace(/\[([^\]]+)\]\([^)]*\)/g, "$1")
       .replace(/[*_`]+/g, "")
       .trim();
-    if (text) out.push({ where: `under "${heading}" (line ${start})`, key: "text", text });
+    if (text) out.push({ where: `under "${heading}" (line ${start})`, key: "text", text,
+                         yours: !!(his && his[start - 1]) });
     buf = [];
   };
   md.split("\n").forEach((line, i) => {
@@ -358,6 +396,7 @@ const KINDS = {
 
 const args = process.argv.slice(2);
 const summaryOnly = args.includes("--summary");
+const showAll = args.includes("--all");
 const filter = args.find((a) => !a.startsWith("--"))?.toLowerCase();
 const tty = process.stdout.isTTY;
 const c = (code, s) => (tty ? `\x1b[${code}m${s}\x1b[0m` : s);
@@ -374,33 +413,45 @@ if (!pages.length) {
 
 const report = pages.map(([name, kind]) => {
   const entries = (kind === "json" ? collectJson(name) : collectMarkdown(name)).filter((e) => !isFounder(e.text));
-  const all = entries.map((e) => ({ ...e, hits: check(name, e) }));
-  const wc = entries.reduce((n, e) => n + words(e.text).length, 0);
+  // His lines keep only the house rule; every other flag on them is his style.
+  const all = entries.map((e) => {
+    const hits = check(name, e);
+    return { ...e, hits: e.yours && !showAll ? hits.filter((h) => h.type === "rule") : hits };
+  });
+  const theirs = entries.filter((e) => !e.yours);
+  const wc = theirs.reduce((n, e) => n + words(e.text).length, 0);
+  const yoursWc = entries.length ? entries.reduce((n, e) => n + words(e.text).length, 0) - wc : 0;
   const prose = entries.filter((e) => words(e.text).length >= 25).map((e) => e.text).join("\n");
-  const flags = all.reduce((n, e) => n + e.hits.length, 0);
+  const flags = all.filter((e) => !e.yours).reduce((n, e) => n + e.hits.length, 0);
   const file = kind === "json" ? `content/${name}.json` : `content/pages/${name}.md`;
-  return { name, file, aud: AUDIENCE[name] || "adult", all, wc, flags, per100: wc ? (flags / wc) * 100 : 0, grade: grade(prose) };
+  return { name, file, aud: AUDIENCE[name] || "adult", all, wc, yoursWc, flags,
+           per100: wc ? (flags / wc) * 100 : 0, grade: grade(prose) };
 }).sort((a, b) => b.per100 - a.per100);
 
 console.log(c(1, "\nVoice check: report only, nothing has been changed\n"));
-console.log("Worst first. 'per 100' is flags per hundred words: a rough guide, not a score.\n");
-console.log(c(2, "  page".padEnd(46) + "audience  words  flags  per 100  grade"));
+console.log("Worst first. 'per 100' is flags per hundred words: a rough guide, not a score.");
+console.log(showAll
+  ? "Including lines you wrote yourself in the CMS, marked (yours).\n"
+  : "Lines you wrote yourself in the CMS are left out ('yours' column). Add --all to include them.\n");
+console.log(c(2, "  page".padEnd(46) + "audience  words  yours  flags  per 100  grade"));
 for (const p of report) {
   const g = p.grade === null ? "  -" : p.grade.toFixed(1).padStart(5);
   const gc = p.aud === "student" && p.grade > GRADE_FLAG ? c(33, g) : g;
-  console.log(`  ${pageLabel(p.name).slice(0, 42).padEnd(44)}${p.aud.padEnd(9)}${String(p.wc).padStart(6)}${String(p.flags).padStart(7)}${p.per100.toFixed(1).padStart(9)}  ${gc}`);
+  console.log(`  ${pageLabel(p.name).slice(0, 42).padEnd(44)}${p.aud.padEnd(9)}${String(p.wc).padStart(6)}${String(p.yoursWc).padStart(7)}${String(p.flags).padStart(7)}${p.per100.toFixed(1).padStart(9)}  ${gc}`);
 }
 console.log(c(2, `\n  Grade is Flesch-Kincaid for the longer paragraphs. Student pages aim for about ${TARGET_GRADE}.`));
 console.log(c(2, "  Legal pages get the dash and stock-phrase checks only."));
+console.log(c(2, "  'words' counts copy not written by you; 'yours' counts the words you wrote."));
 
 if (summaryOnly) process.exit(0);
 
 for (const p of report) {
   const withHits = p.all.filter((e) => e.hits.length);
   if (!withHits.length) continue;
-  console.log("\n" + c(1, `━━ ${pageLabel(p.name)} `) + c(2, `(${p.flags} flags, ${p.file})`));
+  const shown = withHits.reduce((n, e) => n + e.hits.length, 0);
+  console.log("\n" + c(1, `━━ ${pageLabel(p.name)} `) + c(2, `(${shown} flags, ${p.file})`));
   for (const e of withHits) {
-    console.log("\n  " + c(36, e.where || "(top level)"));
+    console.log("\n  " + c(36, e.where || "(top level)") + (e.yours ? c(2, "  (yours)") : ""));
     for (const h of e.hits) {
       const tag = h.type === "rule" ? c(31, `[${h.type}]`) : c(33, `[${h.type}]`);
       console.log(`    ${tag} ${h.note}`);

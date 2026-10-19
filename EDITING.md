@@ -87,6 +87,9 @@ In Claude Code, ask for "the voice check", or run it yourself from the project f
     node check-voice.mjs              every page, worst first
     node check-voice.mjs routes       just one page
     node check-voice.mjs --summary    just the table
+    node check-voice.mjs --all        include the lines you wrote yourself
+
+Anything you typed yourself in the CMS is left out, because that is your voice, not AI. It works this out from the site's history, so it only knows about edits that have been saved. The one exception is the DEIS rule, which it checks everywhere.
 
 Each flag gives the CMS box it is in (for example *Ways in › Apprenticeships › Main explanation*), so you can go straight to it in the CMS. A flag is a prompt to look, not a verdict. Ignore any you disagree with.
 

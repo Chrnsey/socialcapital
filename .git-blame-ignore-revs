@@ -1,0 +1,6 @@
+# Commits that only corrected a typo or punctuation in a line Jack wrote.
+# git blame (and check-voice.mjs) skips these, so the line is still credited
+# to the CMS save that wrote it. Add one per line, full hash.
+
+# Fix two typos: counsellor, and a missing full stop on the PLC page
+0b25844c9cd44aba250d4d92516b1ddb67dfc7ed

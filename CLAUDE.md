@@ -23,7 +23,9 @@ runs as the Cloudflare build command.
   writes it himself. Build structure, let him fill it. Fixing copy that is
   factually wrong (describing a removed feature) is a correction, not a
   rewrite — do that, and say so. Voice notes are in the memory file
-  `social-capital-writing-voice`.
+  `social-capital-writing-voice`. After a typo fix in one of his lines, add
+  the commit hash to `.git-blame-ignore-revs` so `check-voice.mjs` still
+  credits the line to him.
 - **Never label students by school type.** DEIS appears on schools.html,
   businesses.html and privacy.md only. Never on student-facing pages.
 - **DEIS gating is the point, not a gap.** Access requires affiliation with a
