@@ -5,6 +5,23 @@
 // the other names below). Every input inside it is read by its `name`.
 // ===========================================================================
 (function () {
+  // Both mentor signup forms take an optional photo. It goes up before the
+  // signup row, so the row can point at it. If it fails the signup still goes
+  // through: losing a willing mentor over a photo is not worth it, and the
+  // thank-you message says so.
+  function uploadPhoto(v) {
+    var file = v.photo;
+    if (!file || !file.size || !window.SC_photo) return Promise.resolve({});
+    return window.SC_photo.upload(file, "pending").then(
+      function (path) { return { photo_path: path }; },
+      function (e) {
+        console.warn("[Social Capital] photo not uploaded", e);
+        return { _photoFailed: true };
+      }
+    );
+  }
+  var NO_PHOTO = "Thanks, we've got your details. Your photo didn't upload, so please email it to registration@socialcapital.ie.";
+
   var FORMS = {
     school_registration: {
       table: "pending_schools",
@@ -36,22 +53,9 @@
           source: "mentors_page"
         };
       },
-      // The photo goes up before the signup row, so the row can point at it.
-      // If it fails the signup still goes through: losing a willing mentor
-      // over a photo is not worth it, and the thank-you message says so.
-      prepare: function (v) {
-        var file = v.photo;
-        if (!file || !file.size || !window.SC_photo) return Promise.resolve({});
-        return window.SC_photo.upload(file, "pending").then(
-          function (path) { return { photo_path: path }; },
-          function (e) {
-            console.warn("[Social Capital] photo not uploaded", e);
-            return { _photoFailed: true };
-          }
-        );
-      },
+      prepare: uploadPhoto,
       success: "Thanks — we'll be in touch before you're listed anywhere.",
-      successNoPhoto: "Thanks, we've got your details. Your photo didn't upload, so please email it to registration@socialcapital.ie."
+      successNoPhoto: NO_PHOTO
     },
 
     // Not a plain insert: this redeems a one-time invitation issued by the
@@ -91,7 +95,9 @@
           source: "business_modal"
         };
       },
-      success: "Thanks — we'll be in touch before anyone is listed."
+      prepare: uploadPhoto,
+      success: "Thanks — we'll be in touch before anyone is listed.",
+      successNoPhoto: NO_PHOTO
     }
   };
 
