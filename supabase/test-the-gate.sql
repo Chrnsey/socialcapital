@@ -76,6 +76,19 @@ begin
         'PASS (refused: ' || sqlerrm || ')');
   end;
 
+  -- Asking for a mentor's shared LinkedIn or email. Only members over 18 may,
+  -- so a school should be handed nothing. (Passes trivially if no published
+  -- mentor has agreed to be contacted yet.)
+  insert into gate_test values (
+    'mentor_contact gives a school nothing',
+    case when exists (
+           select 1 from public.mentor_contact(
+             (select id from public.mentors
+               where is_published and member_contact_ok limit 1)))
+         then 'FAIL - A SCHOOL CAN SEE SHARED CONTACTS'
+         else 'PASS' end
+  );
+
   -- Put things back.
   perform set_config('request.jwt.claims', '', true);
 end $$;
@@ -84,5 +97,15 @@ end $$;
 -- if the gate were broken, testing them would add or alter a real mentor.
 -- Their first statement is the identical is_admin() check, so the result
 -- above covers them.
+
+-- Reading the shared LinkedIn and email straight off the table, which would
+-- skip the member check and the log. The columns must not be granted.
+insert into gate_test values (
+  'shared contact columns are not readable',
+  case when has_column_privilege('authenticated', 'public.mentors', 'public_contact', 'select')
+         or has_column_privilege('authenticated', 'public.mentors', 'public_email', 'select')
+       then 'FAIL - A SCHOOL CAN READ SHARED CONTACTS DIRECTLY'
+       else 'PASS' end
+);
 
 select what, result from gate_test order by result desc, what;

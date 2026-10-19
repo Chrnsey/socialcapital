@@ -239,7 +239,7 @@ footer a:hover { color: var(--ink); }
 .mentor-contact { display: block; margin-top: 0.5rem; }
 .mentor-contact button { background: none; border: 1px solid var(--line); border-radius: 3px; padding: 0.3rem 0.65rem; font-family: 'Public Sans', sans-serif; font-size: 0.75rem; color: var(--ink); cursor: pointer; }
 .mentor-contact button:hover { border-color: var(--green); color: var(--green-deep); }
-.mentor-contact .revealed { font-size: 0.8rem; color: var(--green-deep); word-break: break-all; }
+.mentor-contact .revealed { display: block; font-size: 0.8rem; color: var(--green-deep); word-break: break-all; }
 
 /* ---------------------------------------------------------------------------
    Guides hub

@@ -187,21 +187,23 @@
         var id = btn.getAttribute("data-contact");
         btn.disabled = true;
         btn.textContent = "Looking…";
+        // Up to two rows come back: a link (usually LinkedIn) and an email.
         window.SC.client.rpc("mentor_contact", { p_mentor: id }).then(function (res) {
-          var row = res.data && res.data[0];
-          if (res.error || !row || !row.contact) {
+          var rows = (res.data || []).filter(function (r) { return r && r.contact; });
+          if (res.error || !rows.length) {
             btn.textContent = "Not shared";
             return;
           }
-          var wrap = btn.parentNode;
-          var value = row.contact;
-          var isLink = /^https?:\/\//i.test(value);
-          var isEmail = value.indexOf("@") !== -1 && !isLink;
-          wrap.innerHTML = isLink
-            ? '<a class="revealed" href="' + escapeHtml(value) + '" rel="noopener" target="_blank">' + escapeHtml(value) + "</a>"
-            : isEmail
-              ? '<a class="revealed" href="mailto:' + escapeHtml(value) + '">' + escapeHtml(value) + "</a>"
-              : '<span class="revealed">' + escapeHtml(value) + "</span>";
+          btn.parentNode.innerHTML = rows.map(function (row) {
+            var value = row.contact;
+            var isLink = /^https?:\/\//i.test(value);
+            var isEmail = value.indexOf("@") !== -1 && !isLink;
+            return isLink
+              ? '<a class="revealed" href="' + escapeHtml(value) + '" rel="noopener" target="_blank">' + escapeHtml(value) + "</a>"
+              : isEmail
+                ? '<a class="revealed" href="mailto:' + escapeHtml(value) + '">' + escapeHtml(value) + "</a>"
+                : '<span class="revealed">' + escapeHtml(value) + "</span>";
+          }).join(" ");
         });
       });
     });

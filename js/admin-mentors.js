@@ -392,6 +392,7 @@
     el("m_member_contact_ok").checked = !!m.member_contact_ok;
     el("m_alumnus_school_name").value = m.alumnus_school_name || "";
     el("m_public_contact").value = m.public_contact || "";
+    el("m_public_email").value = m.public_email || "";
     el("m_route_in").value = m.route_in || "";
     el("m_study_field").value = m.study_field || "";
     el("m_study_detail").value = m.study_detail || "";
@@ -444,7 +445,7 @@
       p_alumnus_school_name: val("m_alumnus_school_name"),
       p_member_contact_ok: checked("m_member_contact_ok"),
       p_public_contact: val("m_public_contact"),
-      p_public_contact_kind: val("m_public_contact_kind"),
+      p_public_email: val("m_public_email"),
       p_route_in: val("m_route_in"),
       p_study_field: val("m_study_field"),
       p_study_detail: val("m_study_detail"),

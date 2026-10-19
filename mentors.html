@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Become a Mentor</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=6db99236">
+<link rel="stylesheet" href="/css/site.css?v=06f17639">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="A directory of working people who agreed to answer questions from students and school leavers in Ireland about their job and how they got it.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-19T09:36:57.124Z -->
+<!-- built-by-build.mjs 2026-10-19T09:54:07.311Z -->
 </head>
 <body>
 
@@ -50,7 +50,7 @@
   <div class="how-list" data-sc-list="involves.items"><template data-sc-item>
       <div class="how-item"><h3>{{title}}</h3><p>{{body}}</p></div>
     </template>
-      <div class="how-item"><h3>You decide who can reach you</h3><p>Your profile goes up under your industry, but your personal email and phone number never do. Anyone under 18 can only reach you through their school. You can also choose to let over-18s contact you directly (sixth years who have turned 18, and past pupils), and most mentors share a LinkedIn profile for this.</p></div>
+      <div class="how-item"><h3>You decide who can reach you</h3><p>Your profile goes up under your industry, but the email and phone number you give us stay private. Anyone under 18 can only reach you through their school. You can also choose to let over-18s contact you directly (sixth years who have turned 18, and past pupils) by sharing a LinkedIn profile, an email address, or both.</p></div>
     
       <div class="how-item"><h3>Talks in schools</h3><p>Some mentors give a short talk once a year. It&#39;s entirely optional, and if you say yes we&#39;ll handle the arranging.</p></div>
     
@@ -127,11 +127,17 @@
         <option value="yes">Yes</option>
       </select>
     </div>
-    <div class="form-group">
-      <label for="m_contact">If yes, what should we share? <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
-      <input type="text" id="m_contact" name="public_contact" placeholder="LinkedIn profile, or a work email">
+    <div class="form-row">
+      <div class="form-group">
+        <label for="m_contact">LinkedIn to share <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
+        <input type="text" id="m_contact" name="public_contact" placeholder="https://www.linkedin.com/in/...">
+      </div>
+      <div class="form-group">
+        <label for="m_public_email">Email to share <span style="font-weight:400;color:var(--ink-faint)">Optional</span></label>
+        <input type="email" id="m_public_email" name="public_email" placeholder="A work email is fine">
+      </div>
     </div>
-    <p class="form-consent" style="margin-top:0">Only shown to people we have verified as over 18 and out of school. Never to school students, and never on the public site.</p>
+    <p class="form-consent" style="margin-top:0">Share one, both or neither. They're only shown to members aged 18 or over who were invited by their school, never to students under 18, and never on the public site. The email you sign up with is never shared, only the one in this box.</p>
 
     <div class="form-group">
       <label for="m_alum">Did you go to a DEIS school yourself?</label>
@@ -176,7 +182,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/forms.js?v=d6996507"></script>
+<script src="js/forms.js?v=63c254c6"></script>
 <script src="js/content.js?v=0f93348e"></script>
 <script>SCContent.load("mentors");</script>
 <script src="js/nav.js?v=45b60334"></script>

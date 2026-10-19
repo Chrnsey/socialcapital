@@ -32,11 +32,12 @@ We only collect what people type into our forms. We don't buy data, and we don't
 | How you got into the work: your route in, what you studied, the course name and your highest qualification | Shown on your profile. All of it is optional, and plenty of people have none of it |
 | Whether you went to a DEIS school yourself, and which one | Shown on your profile, and mentors who went to the viewer's own school are listed first. Optional |
 | Anything you write about yourself | Shown on your profile, in your own words. Optional |
+| A LinkedIn profile and an email address you choose to share | Shown only to members aged 18 or over who ask for them, and only if you agreed to be contacted. Either, both or neither. Optional |
 | Your email address, and your employer if you gave one | So we can contact you. **Not shown on your profile.** |
 
 > **Mentor contact details are kept separate on purpose.** Your personal email address and phone number are stored in a different place from your public profile, and the website can't read them, not even for a signed-in school. Only we can see them. This is why schools arrange things through us, and why school students are never given your personal details.
 >
-> If you choose to be contactable by members over 18 (students and past pupils), we only show what you asked us to share, which is usually a LinkedIn profile. That is a separate, optional field. It is never your private contact details, and you can remove it at any time.
+> If you choose to be contactable by members over 18 (students and past pupils), we only show what you chose to share: a LinkedIn profile, an email address, or both. These are separate, optional fields. The private email we hold for you is never shown unless you also put it in the box to share, and you can remove either at any time.
 
 ### If you join as a member
 

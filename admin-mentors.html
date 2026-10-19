@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — Mentor admin</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=6db99236">
+<link rel="stylesheet" href="/css/site.css?v=06f17639">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="apple-touch-icon" href="/apple-touch-icon.png">
 <meta name="theme-color" content="#0E9A63">
@@ -225,19 +225,15 @@
             <input type="text" id="m_alumnus_school_name">
           </div>
           <div class="form-group">
-            <label for="m_public_contact">What over-18s may see — usually a LinkedIn URL</label>
+            <label for="m_public_contact">LinkedIn (or another link) over-18s may see</label>
             <input type="text" id="m_public_contact" placeholder="https://www.linkedin.com/in/...">
           </div>
         </div>
 
         <div class="form-group">
-          <label for="m_public_contact_kind">What kind of contact that is</label>
-          <select id="m_public_contact_kind">
-            <option value="">None</option>
-            <option value="linkedin">LinkedIn</option>
-            <option value="email">Email</option>
-            <option value="other">Other</option>
-          </select>
+          <label for="m_public_email">Email over-18s may see (optional)</label>
+          <input type="email" id="m_public_email" placeholder="Only one they have said they are happy to share">
+          <p class="admin-note">Not their private email unless they said so. Both of these only show for members over 18, and only if the box above is ticked.</p>
         </div>
 
         <div class="admin-actions">
@@ -271,7 +267,7 @@
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js?v=f1cc0164"></script>
 <script src="js/supabase.js?v=ccc6626c"></script>
-<script src="js/admin-mentors.js?v=2223c044"></script>
+<script src="js/admin-mentors.js?v=54b494a7"></script>
 
 </body>
 </html>
