@@ -3,7 +3,7 @@
     "slug": "careers",
     "title": "Careers",
     "tag": "The jobs",
-    "intro": "What the work is actually like, and how people get into it. Every job here has more than one way in, even if the person doing it only took one of them."
+    "intro": "What the work is actually like, and how people get into it. Every job here has more than one way in."
   },
   "items": [
     {
@@ -31,7 +31,7 @@
         {
           "name": "Later on",
           "tag": "No age limit",
-          "detail": "Some people start at twenty-eight after five years in a job they didn't enjoy, and that's completely normal.",
+          "detail": "Some people start at twenty-eight after five years in a different job.",
           "duration": "Same",
           "cost": "Same"
         }
@@ -43,17 +43,17 @@
         },
         {
           "heading": "What you earn on the way",
-          "text": "You're paid a percentage of the qualified rate from year one, and it goes up each year. By the end you've been paid for four years and you owe nothing, which is worth comparing honestly with the college route."
+          "text": "You're paid a percentage of the qualified rate from year one, and it goes up each year. By the end you've been paid for four years and you owe nothing in fees."
         }
       ],
       "myths": [
         {
           "myth": "It's what you do if you're not academic.",
-          "reality": "People fail the exams every year. It's a different kind of difficult, not an easier one."
+          "reality": "People fail the exams every year, so it isn't an easy option."
         },
         {
           "myth": "You need to know someone.",
-          "reality": "It helps, which is why this site exists. Ringing local firms yourself also works, and hardly anyone does it, which works in your favour."
+          "reality": "It helps, which is why this site exists. Ringing local firms yourself also works, and very few people do it."
         },
         {
           "myth": "There's no progression.",
@@ -128,7 +128,7 @@
         },
         {
           "myth": "It has to be a well-known university.",
-          "reality": "After your first job, hardly anyone asks. What you've built matters far more."
+          "reality": "After your first job, hardly anyone asks. Employers look at what you've built."
         }
       ],
       "apply": [

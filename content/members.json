@@ -1,9 +1,9 @@
 {
   "hero": {
     "kicker": "For students and past pupils. Over 18s only.",
-    "title": "Your foot in the door",
+    "title": "Contact mentors directly",
     "body": "Once you've left school, a network starts to really count. You might be looking for an internship, or just someone to read your CV and tell you honestly whether a job is worth going for.",
-    "body2": "That's what contacts do for people who have them, and this is where you get yours. Once you're signed in you can see the contact details mentors have chosen to share and get in touch with them yourself. It's just between you and the mentor, nobody else is copied in."
+    "body2": "Once you're signed in you can see the contact details mentors have chosen to share and get in touch with them yourself. It's just between you and the mentor, nobody else is copied in."
   },
   "signup": {
     "title": "Sign up",
@@ -23,7 +23,7 @@
     "title": "How to join",
     "body": "You can join if you're 18 or over and you go to, or went to, a school that's registered with us. Your school approves you, not us.",
     "student_title": "Still in school",
-    "student_body": "Ask your guidance counsellor. Once you've turned 18 they can send you a link, and that's all you need.",
+    "student_body": "Ask your guidance counsellor. Once you've turned 18 they can send you a link to sign up.",
     "past_title": "Left school",
     "past_body": "Get in touch with your old school and ask them to send you a link. It doesn't matter what year you left.",
     "nothing_title": "Your school is not registered",

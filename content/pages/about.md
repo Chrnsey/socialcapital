@@ -10,9 +10,7 @@ Social Capital is a directory of working people who have agreed to answer questi
 >
 > — Jack, founder, Social Capital
 
-Careers advice isn't really what's missing. What's missing is knowing someone. Which exams actually matter? Is a course worth the points? Who will read your CV? Does an apprenticeship pay? That kind of information gets passed on through families and contacts, so some students get it and others don't.
-
-None of that comes down to ability. It's about who you happen to know.
+Careers advice isn't really what's missing. What's missing is knowing someone. Which exams actually matter? Is a course worth the points? Who will read your CV? Does an apprenticeship pay? That kind of information gets passed on through families and contacts, so some students get it and others don't, and that has nothing to do with ability.
 
 ## What we do
 
