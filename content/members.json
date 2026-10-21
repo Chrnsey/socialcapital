@@ -1,32 +1,32 @@
 {
   "hero": {
-    "kicker": "For students and past pupils. Over 18s only.",
-    "title": "Contact mentors directly",
-    "body": "Once you've left school, a network starts to really count. You might be looking for an internship, or just someone to read your CV and tell you honestly whether a job is worth going for.",
-    "body2": "Once you're signed in you can see the contact details mentors have chosen to share and get in touch with them yourself. It's just between you and the mentor, nobody else is copied in."
+    "kicker": "For students and past pupils",
+    "title": "A support network that's actually here to help",
+    "body": "When you first leave school you'll start to notice where a network really starts to count, whether that's an internship at a big firm, or just being called for a nixer in your neighbourhood. Every person has a network which impacts them, and their work in a certain way.",
+    "body2": "Once you're signed in you can see the directory in full across a range of industries; ask questions about the job or the work involved in getting it. The volunteers are here to help, not to tell you what to do."
   },
   "signup": {
     "title": "Sign up",
-    "body": "Use the link your school sent you and this will fill itself in. Make sure you use the same email address the link was sent to.",
-    "email_hint": "Use an email you'll still have in three years, not your school one, as those get switched off."
+    "body": "Put your invitation code in below along with your passcode to gain access to the directory today",
+    "email_hint": "Use your personal email to make sure you can keep your access"
   },
   "login": {
     "tag": "Members",
     "title": "Sign in",
-    "body": "We'll email you a link that signs you in, so there's no password to remember."
+    "body": "Put your email in below and you'll receive your sign in link via email"
   },
   "directory": {
-    "title": "The directory",
-    "body": "Browse mentors by industry. Where a mentor has agreed to it, you'll see their contact details and can get in touch with them directly."
+    "title": "Network",
+    "body": "Everyone listed here is a willing volunteer, feel free to reach out to them and see what they can do to help."
   },
   "routes": {
     "title": "How to join",
-    "body": "You can join if you're 18 or over and you go to, or went to, a school that's registered with us. Your school approves you, not us.",
-    "student_title": "Still in school",
-    "student_body": "Ask your guidance counsellor. Once you've turned 18 they can send you a link to sign up.",
-    "past_title": "Left school",
-    "past_body": "Get in touch with your old school and ask them to send you a link. It doesn't matter what year you left.",
-    "nothing_title": "Your school is not registered",
-    "nothing_body": "Email us and let us know which school you went to, and we'll reach out to them. It carries a lot of weight with a school when one of their own past pupils is asking."
+    "body": "The network is limited to adults who are students or alumni approved by the website. If your school isn't registered yet feel free to reach out to them and put us in touch!",
+    "student_title": "Students",
+    "student_body": "Ask your guidance counsellor for a link to join. Over 18s are verified by school staff before being given their passkey",
+    "past_title": "Alumni",
+    "past_body": "Were you a student with one of our partner schools? Reach out to them to claim your passkey and we can get you set up on our platform.",
+    "nothing_title": "School hasn't joined yet?",
+    "nothing_body": "Email us and let us know which school you went to, and we'll reach out to them. "
   }
 }
