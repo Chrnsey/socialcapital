@@ -103,6 +103,16 @@
 
         show("signinChecking");
 
+        // Admins first. This page was built before the admin page existed and
+        // for a while did not know about them at all, so Jack - who is in the
+        // admins table but is neither a school nor a member - was told his own
+        // address was not recognised.
+        window.SC.client.rpc("is_admin").then(function (admin) {
+          if (!admin.error && admin.data === true) {
+            window.location.replace("admin-mentors.html");
+            return;
+          }
+
         window.SC.client.rpc("is_approved_school").then(function (school) {
           if (!school.error && school.data === true) {
             window.location.replace("schools.html");
@@ -121,6 +131,7 @@
             show("signinUnknown");
             history.replaceState(null, "", window.location.pathname);
           });
+        });
         });
       });
     }
