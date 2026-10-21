@@ -1,30 +1,30 @@
 {
   "hero": {
-    "title": "Your staff know things these students can't easily find out",
-    "body": "You can list employees as mentors, cover the cost of a school talk, or fund a full term of them. It also meets a CSR objective.",
+    "title": "Think you've got the perfect job? Why not tell a student how to get there?",
+    "body": "We're looking for mentors on every level of the corporate totem pole. Encourage employees to volunteer, or sponsor the cost of a school talk. Every little bit helps.",
     "kicker": "For companies and organisations"
   },
   "ways": {
-    "tag": "How it works",
-    "title": "Ways to get involved",
-    "body": "None of it needs a budget to get started. Most companies begin with four or five staff who are willing to take part.",
+    "tag": "What we need",
+    "title": "People (social) and money (capital)",
+    "body": "We're helping to bring intangible information to students, help us get there faster by supporting us.",
     "items": [
       {
-        "title": "List staff as mentors",
-        "body": "Employees who opt in are listed under their industry, and schools can ask them questions or invite them in for a visit. They only commit to what they agree to, and their contact details stay private."
+        "title": "Encourage staff to volunteer",
+        "body": "Employees who volunteer get listed under their industry, and can include their company name. Students reach out to them to learn more"
       },
       {
-        "title": "Cover a talk",
-        "body": "Pay a mentor's fee for their time and travel, usually €50 to €150, so a school can bring someone in without having to find the money itself."
+        "title": "Sponsor a School seminar",
+        "body": "Pay a mentor's fee for their time and travel, usually €50 to €150, making it easier for our volunteers to give up their time."
       },
       {
         "title": "Sponsor the platform",
-        "body": "Annual sponsorship of €2,000 to €10,000 pays for the coordination that keeps the directory free for the schools that need it. In return you're credited as a partner."
+        "body": "We are currently looking for sponsors to help fund the programme and all the work that is involved. If you would like your companies name mentioned on the website, then please get in touch to arrange a sponsorship or donation."
       }
     ]
   },
   "cta": {
-    "title": "Worth a conversation?",
-    "body": "Let us know roughly what you have in mind, even if it's just a few willing staff to start with. We'll work out what fits from there."
+    "title": "Want to learn more?",
+    "body": "We're happy to share more details, or to work with you to provide guidance for how you can make the biggest difference."
   }
 }
