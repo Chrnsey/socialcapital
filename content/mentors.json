@@ -1,38 +1,30 @@
 {
   "hero": {
-    "title": "Answer a student's questions about your job",
-    "body": "You don't need your employer's permission and there's no minimum commitment. Some mentors answer a couple of messages a term or meet a student for a coffee, others give one talk and leave it there. It's up to you how much you do.",
-    "kicker": "For individuals. You don't need to go through your employer."
+    "title": "Provide clarity to students; answer questions and advise them on how you got to where you are",
+    "body": "Mentors give the platform a further way to advance students 'social capital' rather than just giving them information about college courses. By volunteering, you provide a tangible outlet and contact to our users. From providing guidance to helping with applications, this is a network to help those who need it.",
+    "kicker": "Help to level the playing field"
   },
   "quote": {
-    "tag": "Why this exists",
+    "tag": "The idea behind the platform",
     "body": "Some of the people I met in my first job already had everything planned out. They had laid out the groundwork, with law firm trainee contracts waiting for them; these sons and daughters of solicitors knew exactly what to do to get a traineeship at a big firm (and it probably helped that they knew a few people inside those firms too). I had supportive parents, but in this job market it isn't only about wanting it. It helps to know someone who'll give you that first chance. Social Capital is for people who don't have the same phonebook.",
     "attribution": "— Jack, founder, Social Capital"
   },
   "signup": {
     "title": "Sign up",
-    "body": "It takes two minutes. We'll talk to you before your name goes up anywhere, so no student will contact you before you've agreed to it."
+    "body": "Fill in the details below, and someone on the team will review your request shortly."
   },
   "involves": {
     "tag": "What's involved",
-    "title": "Probably less than you think",
-    "body": "There's no script and no quota. Most mentors do a lot less than they expected.",
+    "title": "Every little helps",
+    "body": "There's no minimum commitment, sign up and just be available and open to speaking with 2nd and 3rd level students. ",
     "items": [
       {
-        "title": "You decide who can reach you",
-        "body": "Your profile goes up under your industry, but the email and phone number you give us stay private. Anyone under 18 can only reach you through their school. You can also choose to let over-18s contact you directly (sixth years who have turned 18, and past pupils) by sharing a LinkedIn profile, an email address, or both."
+        "title": "Talks in Schools",
+        "body": "We are hoping to extend our reach by hosting talks in schools, going over networking, job hunting and career pathways with junior students and giving them an idea about 'social capital'. Volunteers for talks are welcome but not necessary."
       },
       {
-        "title": "Talks in schools",
-        "body": "Some mentors give a short talk once a year. It's entirely optional, and if you say yes we'll handle the arranging."
-      },
-      {
-        "title": "Junior staff are just as valuable",
-        "body": "If you're only a few years in, students will relate to you in a way they might not with a managing director. If you're fifteen years in, you can give them the bigger picture. We need both, and junior mentors are harder to find."
-      },
-      {
-        "title": "Step back whenever you like",
-        "body": "Answer a couple of questions a term, or do more later if you want to. You can step back at any time."
+        "title": "Easy Commitment",
+        "body": "Once you sign up and your name is on the directory, users will be able to contact you. If it gets to the stage where you are being contacted too often, you can freeze your profile to new users"
       }
     ]
   }
