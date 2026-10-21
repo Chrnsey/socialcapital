@@ -16,26 +16,13 @@ Students aren't missing career advice. What's missing is knowing someone. Which 
 
 We focus on three things.
 
-* **[We explain the routes](guides.html).** Apprenticeships, PLCs, the CAO, studying in Europe, and the grants that often get missed. The guides are public, so anyone can use them without logging in.
-* **[We give schools a directory](schools.html).** Registered schools can browse profiles of professionals who have volunteered, and we arrange talks and introductions.
-* **[We stay useful after school](members.html).** Once someone is over 18, whether they're still in sixth year or left years ago, they can get their own account and contact mentors directly. That's usually when an internship or a first job is on the line.
+* **[We explain the routes](guides.html).** Apprenticeships, PLCs, the CAO, studying in Europe, and the grants that can be used to fund your studies. 
+* **[We provide a network](schools.html).** Registered schools and students can browse profiles of professionals who have volunteered
+* **[We stay useful after school](members.html).** Student or alumni, once someone is over 18 they can get their own account and contact mentors directly.
 
-## What we don't do
 
-* **We don't let cost keep a school out.** The first five schools to register are founding schools and stay free permanently. After that there's an annual fee of €200, but it stays free for any school where the money is genuinely the obstacle. Just let us know.
-* **We don't hold data about children.** Students browse through their school, and nobody under 18 has an account here.
-* **We don't give mentors' personal details to students.** Mentors' private contact details can't be read by this website at all, and adults over 18 only see what a mentor has chosen to share.
-* **We don't invent people.** Every profile is a real person who said yes. If the directory looks short, that's because it is.
 
-## Where we are
-
-We're early. The guides are written and open to everyone. The mentor directory is being built by asking people one at a time, so it will look thin for a while before it looks useful. We'd rather be upfront about that than pad it out.
-
-> We are in the process of incorporating as a Company Limited by Guarantee and applying for charitable status. Registered name, address and company number will appear here once that is complete, along with our directors and our child safeguarding statement.
-
-## Who is behind it
-
-Founded by Jack, working in Dublin. Directors and advisers will be listed here as the company is formed.
+## What we need
 
 > If you have experience in governance, education, youth work or child protection and you'd like to get involved, the board is being formed now, so [get in touch](mailto:registration@socialcapital.ie).
 
