@@ -35,13 +35,13 @@
       {
         "marker": "2.",
         "name": "Law",
-        "role": "Bunch of Master Debaters",
+        "role": "Bookworms",
         "quote": "It's not just the college degree, you also need to complete 8 FE1 examinations. However the big firms hand out their trainee contracts before the FE1s are complete. Landing these opportunities requires preparedness"
       },
       {
         "marker": "3.",
         "name": "Marketing",
-        "role": "An evolving field",
+        "role": "AI is changing the field",
         "quote": "AI is already hitting the marketing job market hard. So breaking into the field requires not only a good grade, but also an awareness of how businesses are adapting and operating to it."
       }
     ]
@@ -49,10 +49,10 @@
   "industries": {
     "tag": "And the rest",
     "title": "An insight into every other field",
-    "body": "<strong>Technology, healthcare, trades, media, education, engineering, public sector.</strong> Full profiles once your school signs up. "
+    "body": "<strong>Technology, healthcare, trades, media, education, engineering, public sector.</strong> We've got volunteers in every industry willing to talk to students and past pupils"
   },
   "cta": {
-    "title": "Step 1. School Registration",
-    "body": "Sounds interesting? Pass it on to your guidance counsellor or decision maker. Once the school is signed up you can be given access to the network and begin reaching out to contacts across a wide range of industries"
+    "title": "School Registration",
+    "body": "Would you like access at your school? Share the webpage with your guidance counsellor or year head. Once the school is registered you can gain access to the network and start connecting with professionals across every industry"
   }
 }
