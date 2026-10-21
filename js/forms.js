@@ -42,6 +42,7 @@
         return {
           full_name: [v.first_name, v.last_name].filter(Boolean).join(" ").trim(),
           email: (v.email || "").trim().toLowerCase(),
+          role_title: (v.role_title || "").trim() || null,
           industry: v.industry || null,
           experience_level: v.experience_level || null,
           open_to_talks: v.open_to_talks || null,

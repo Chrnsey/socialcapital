@@ -171,10 +171,11 @@
 
     var fields = p.kind === "mentor"
       ? '<div class="pending-fields">' +
-          // Deliberately empty. Pre-filling ", Employer" started the field
-          // with a comma, which reads like a bug, and the employer is already
-          // on the line above.
-          '<input type="text" data-f="role" placeholder="Job title, employer \u2014 as it should read">' +
+          // Pre-filled with what they wrote on the form. Still editable:
+          // people describe their own job in ways that do not always read well
+          // on a card, and that judgement is Jack's.
+          '<input type="text" data-f="role" value="' + esc(p.role_title || "") +
+            '" placeholder="Job title, employer \u2014 as it should read">' +
           '<select data-f="level">' +
             '<option value="junior"' + (guessLevel === "junior" ? " selected" : "") + '>Junior</option>' +
             '<option value="senior"' + (guessLevel === "senior" ? " selected" : "") + '>Senior</option>' +

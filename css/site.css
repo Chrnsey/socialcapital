@@ -758,3 +758,6 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 640px) {
   .join-routes { padding-left: 1.35rem; padding-right: 1.35rem; }
 }
+
+/* Hint under a form field, where the label alone is not enough. */
+.field-hint { margin-top: 0.3rem; font-size: 0.78rem; color: var(--ink-soft); }
