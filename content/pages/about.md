@@ -10,7 +10,9 @@ Social Capital is a network of working people who have agreed to answer question
 >
 > — Jack, founder, Social Capital
 
-Students aren't missing career advice. What's missing is knowing someone. Which exams actually matter? Is a course worth the points? How do you make your CV stand out? How well does an apprenticeship pay? That kind of information gets passed on through families and contacts, so some people get it and others don't.
+Students aren't missing career advice. What's missing is knowing someone. Which exams actually matter? Is a course worth the points? How do you make your CV stand out? How well does an apprenticeship pay? This information gets shared between families and networks, so some people invariably end up knowing more than others. We aim to make this information collectively known and shared amongst everyone to make career choices easier for all.
+
+
 
 ## What we do
 
@@ -19,8 +21,6 @@ We focus on three things.
 * **[We explain the routes](guides.html).** Apprenticeships, PLCs, the CAO, studying in Europe, and the grants that can be used to fund your studies. 
 * **[We provide a network](schools.html).** Registered schools and students can browse profiles of professionals who have volunteered
 * **[We stay useful after school](members.html).** Student or alumni, once someone is over 18 they can get their own account and contact mentors directly.
-
-
 
 ## What we need
 
