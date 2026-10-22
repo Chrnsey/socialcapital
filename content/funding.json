@@ -3,32 +3,50 @@
     "slug": "funding",
     "title": "Paying for it",
     "tag": "Money",
-    "intro": "Most of what college costs can be reduced or covered, and one route even pays you while you learn. Every year people miss out on help they would have got, just because they didn't know it was there."
+    "intro": "The most expensive part about college in Ireland isn't the tuition fees, it's the living costs. When combined, it can be expensive, and hard work to keep on top of. Thankfully there are some options which can help keep you focused on your studies."
   },
   "items": [
     {
-      "slug": "hear",
-      "title": "HEAR",
-      "subtitle": "Higher Education Access Route",
-      "checked": "September 2026",
-      "summary": "A way into college on reduced points if your circumstances qualify. A lot of the students it was set up for never apply.",
-      "body": "HEAR offers college places on reduced points, plus extra support once you're in, to school leavers from socio-economically disadvantaged backgrounds. The universities run it through the CAO.\n\nThere's a real chance you qualify. It's assessed on your household, so you need to apply and show your circumstances rather than hoping someone notices them.\n\nEvery year people who would have qualified miss out. It's nearly always for one of three reasons: nobody mentioned it, the paperwork looked like too much, or they assumed it was meant for someone worse off.",
+      "body": "HEAR offers college places on reduced points and extra support once you're in, to school leavers from disadvantaged backgrounds. It's ran by universities through the CAO.\n\nIt's assessed on your household, so you need to apply and show your circumstances.",
       "blocks": [
         {
           "heading": "What you actually get",
-          "text": "A place on lower points than the published requirement, and support once you're there, such as orientation, study help and in some cases money. It's not a lesser degree. It's the same course, the same exams and the same degree as everyone else."
+          "text": "A place on lower points than the published requirement, and support once you're there, such as study help, and in some cases money. It's the same course, exams degree as everyone else."
         },
         {
           "heading": "Check the deadline early",
-          "text": "HEAR goes in with your CAO application, but its closing date is well before the main CAO one. Supporting documents are due even earlier. Miss it and you'll have to wait a year. Look up this year's dates in the autumn of sixth year, not in the spring."
+          "text": "HEAR goes in with your CAO application, but its closing date is well before the main CAO one. Supporting documents are due even earlier. You are much better off looking for the deadlines at the start of 6th year rather than after the mocks"
         },
         {
-          "heading": "Getting the paperwork together",
-          "text": "You'll need proof of income and evidence of your circumstances. None of it is hard, it's just tedious, and that's what puts people off. Start early and ask your guidance counsellor to help, as this is part of their job."
+          "heading": "Paperwork",
+          "text": "Proof of income and evidence of your circumstances. Start early and ask your guidance counsellor to help"
         },
         {
           "heading": "Applying costs you nothing",
           "text": "If it turns out you're not eligible, your normal CAO application carries on as usual."
+        }
+      ],
+      "summary": "A way into college on reduced points if your circumstances qualify.",
+      "checked": "September 2026",
+      "related": [
+        {
+          "label": "SUSI — the grant",
+          "href": "/funding/susi"
+        },
+        {
+          "label": "CAO and college",
+          "href": "/routes/college"
+        }
+      ],
+      "slug": "hear",
+      "apply": [
+        {
+          "label": "accesscollege.ie — the official HEAR site, current eligibility and dates",
+          "url": "https://accesscollege.ie"
+        },
+        {
+          "label": "CAO — where it actually gets submitted",
+          "url": "https://www.cao.ie"
         }
       ],
       "myths": [
@@ -45,21 +63,10 @@
           "reality": "You handle it. The school can help with documents, but nobody will do it for you or chase you to get it done."
         }
       ],
-      "apply": [
-        { "label": "accesscollege.ie — the official HEAR site, current eligibility and dates", "url": "https://accesscollege.ie" },
-        { "label": "CAO — where it actually gets submitted", "url": "https://www.cao.ie" }
-      ],
-      "related": [
-        { "label": "SUSI — the grant", "href": "/funding/susi" },
-        { "label": "CAO and college", "href": "/routes/college" }
-      ]
+      "subtitle": "Higher Education Access Route",
+      "title": "HEAR"
     },
     {
-      "slug": "susi",
-      "title": "SUSI",
-      "subtitle": "The grant",
-      "checked": "September 2026",
-      "summary": "Covers fees for a lot of students and pays a maintenance grant to some. The most common mistake is assuming you won't qualify and never checking.",
       "body": "SUSI is the national student grant. Depending on your household income and circumstances, it can cover your student contribution and also pay you a maintenance grant to live on.\n\nThe income limits are higher than most people guess, and applying is free. Plenty of students end up paying for something they would have got, just because they assumed they were over the limit and never checked.",
       "blocks": [
         {
@@ -75,6 +82,25 @@
           "text": "Most colleges run a Student Assistance Fund for students hit by costs they didn't see coming. It's discretionary and confidential, and far fewer people use it than could. Ask the access office about it in your first week, before you need it."
         }
       ],
+      "summary": "Covers fees for a lot of students and pays a maintenance grant to some. The most common mistake is assuming you won't qualify and never checking.",
+      "checked": "September 2026",
+      "related": [
+        {
+          "label": "HEAR — reduced points entry",
+          "href": "/funding/hear"
+        }
+      ],
+      "slug": "susi",
+      "apply": [
+        {
+          "label": "susi.ie — check eligibility and apply",
+          "url": "https://susi.ie"
+        },
+        {
+          "label": "studentfinance.ie — a plainer map of everything available",
+          "url": "https://www.studentfinance.ie"
+        }
+      ],
       "myths": [
         {
           "myth": "My parents earn too much.",
@@ -85,13 +111,8 @@
           "reality": "There's also a maintenance grant, and it's paid directly to you."
         }
       ],
-      "apply": [
-        { "label": "susi.ie — check eligibility and apply", "url": "https://susi.ie" },
-        { "label": "studentfinance.ie — a plainer map of everything available", "url": "https://www.studentfinance.ie" }
-      ],
-      "related": [
-        { "label": "HEAR — reduced points entry", "href": "/funding/hear" }
-      ]
+      "subtitle": "The grant",
+      "title": "SUSI"
     }
   ]
 }
