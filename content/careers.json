@@ -12,7 +12,7 @@
       "subtitle": "Trades",
       "checked": "September 2026",
       "summary": "Get paid from your first year with no fees, and be fully qualified in about four. After that you can work for a company or for yourself.",
-      "body": "Electricians install and repair electrical systems in houses, building sites and factories. More and more, that includes solar panels, heat pumps and car chargers. It's a skilled trade with a formal qualification at the end, and people do fail the exams. Don't let anyone tell you it's unskilled work.\n\nOnce you're qualified you can work for a company, set up on your own, or move up to running sites.",
+      "body": "Electricians install and repair electrical systems in houses, building sites and factories. There is also a growing requirement for work on solar panels, heat pumps and car chargers. It's a skilled trade with a formal qualification at the end, and people do fail the exams.\n\nOnce qualified you can work for a company, set up your own, or move up to running sites.",
       "routes": [
         {
           "name": "Apprenticeship",
@@ -61,13 +61,28 @@
         }
       ],
       "apply": [
-        { "label": "apprenticeship.ie — how it works and what's available", "url": "https://www.apprenticeship.ie" },
-        { "label": "SOLAS — standards and entry", "url": "https://www.solas.ie" },
-        { "label": "Your local Education and Training Board", "url": "https://www.etbi.ie" }
+        {
+          "label": "apprenticeship.ie — how it works and what's available",
+          "url": "https://www.apprenticeship.ie"
+        },
+        {
+          "label": "SOLAS — standards and entry",
+          "url": "https://www.solas.ie"
+        },
+        {
+          "label": "Your local Education and Training Board",
+          "url": "https://www.etbi.ie"
+        }
       ],
       "related": [
-        { "label": "How apprenticeships work", "href": "/routes/apprenticeships" },
-        { "label": "PLC and further education", "href": "/routes/plc" }
+        {
+          "label": "How apprenticeships work",
+          "href": "/routes/apprenticeships"
+        },
+        {
+          "label": "PLC and further education",
+          "href": "/routes/plc"
+        }
       ]
     },
     {
@@ -110,7 +125,7 @@
       "blocks": [
         {
           "heading": "What you need",
-          "text": "Points for computing courses vary a lot, and there are good options well below the top. Maths helps and some courses need it, but it's less of a barrier than people think. Apprenticeships and further education ask for a lot less. Check the entry requirements for the specific course."
+          "text": "Points for computing courses vary a lot, whilst there is often a minimum Maths score required in the Leaving Cert. There has been a slowdown in graduate hiring in the computing field due to AI, which means internships and projects are highly important for getting a permanent contract after graduating."
         },
         {
           "heading": "What it pays",
@@ -132,15 +147,36 @@
         }
       ],
       "apply": [
-        { "label": "CAO — degree and higher certificate applications", "url": "https://www.cao.ie" },
-        { "label": "apprenticeship.ie — ICT and software apprenticeships", "url": "https://www.apprenticeship.ie" },
-        { "label": "Qualifax — search every course in Ireland", "url": "https://www.qualifax.ie" },
-        { "label": "SUSI — grant eligibility", "url": "https://www.susi.ie" }
+        {
+          "label": "CAO — degree and higher certificate applications",
+          "url": "https://www.cao.ie"
+        },
+        {
+          "label": "apprenticeship.ie — ICT and software apprenticeships",
+          "url": "https://www.apprenticeship.ie"
+        },
+        {
+          "label": "Qualifax — search every course in Ireland",
+          "url": "https://www.qualifax.ie"
+        },
+        {
+          "label": "SUSI — grant eligibility",
+          "url": "https://www.susi.ie"
+        }
       ],
       "related": [
-        { "label": "CAO and college", "href": "/routes/college" },
-        { "label": "How apprenticeships work", "href": "/routes/apprenticeships" },
-        { "label": "Studying in Europe", "href": "/routes/abroad" }
+        {
+          "label": "CAO and college",
+          "href": "/routes/college"
+        },
+        {
+          "label": "How apprenticeships work",
+          "href": "/routes/apprenticeships"
+        },
+        {
+          "label": "Studying in Europe",
+          "href": "/routes/abroad"
+        }
       ]
     }
   ]
