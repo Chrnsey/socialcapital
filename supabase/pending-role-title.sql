@@ -16,6 +16,16 @@ alter table public.pending_mentors
 
 
 -- Hand it to the admin page alongside everything else that is waiting.
+--
+-- The drop is not optional. This function gains a column, and Postgres will
+-- not change a RETURNS TABLE shape with create-or-replace:
+--
+--   42P13  cannot change return type of existing function
+--
+-- Same fault that broke add_mentor and approve_mentor. Any function whose
+-- returned columns change has to be dropped first.
+drop function if exists public.admin_list_pending();
+
 create or replace function public.admin_list_pending()
 returns table (
   kind          text,

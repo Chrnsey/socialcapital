@@ -67,6 +67,14 @@ sequenced plan and what is verified), `docs/CLG-SETUP.md`.
 6. **Cloudflare ignores `Cache-Control` from `_headers`** for static files.
    Asset freshness comes from the `?v=` fingerprints, not from headers.
 
+## Before handing over any SQL
+
+Run `bash supabase/check-columns.sh` after any migration is supposed to have
+been run. It asks the live database whether every column the forms write to
+actually exists. role_title was added to the mentor signup form on 21 October
+and its migration was not run for a week; every mentor who tried to register
+got an error, and the only thing that surfaced it was somebody telling Jack.
+
 ## How to check your work
 
 - `node build.mjs` then confirm it builds twice with no change but the stamp
