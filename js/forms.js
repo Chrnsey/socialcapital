@@ -162,9 +162,14 @@
       // Losing a willing mentor to a schema mismatch is not acceptable, so if
       // the insert is rejected for an unknown column we drop the optional
       // fields and try again. The submission matters more than the extras.
-      var OPTIONAL = ["is_alumnus", "alumnus_school_name", "left_school_year",
-                      "member_contact_ok", "public_contact", "public_email",
-                      "photo_path"];
+      // Every column added by a migration after the original schema belongs
+      // here. role_title was added to the form on 21 October and left off
+      // this list, so when its migration had not been run the retry dropped
+      // the other extras and failed again on the same column - a week of
+      // mentor signups rejected, by the one safety net meant to prevent it.
+      var OPTIONAL = ["role_title", "is_alumnus", "alumnus_school_name",
+                      "left_school_year", "member_contact_ok", "public_contact",
+                      "public_email", "photo_path"];
 
       function insert(row) {
         return window.SC.client.from(config.table).insert(row);
