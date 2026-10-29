@@ -835,23 +835,35 @@ footer a:hover { color: var(--ink); }
 }
 .route-map-caption strong { color: var(--ink); }
 
-/* Vertical, so it fits a phone's width with nothing to drag. Capped so the
-   drawing does not become absurdly large on a wide screen - a diagram the
-   height of two monitors is no better than one you have to scroll sideways. */
-.route-map-svg {
-  display: block; width: 100%; max-width: 440px; height: auto;
-  margin: 0 auto;
-}
+/* Six branches need width for six labels, so the drawing keeps its own and
+   scrolls inside its box on a phone. A diagram is one of the few things
+   allowed that. The words underneath carry the same content for anyone who
+   will not drag it. */
+.route-map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.route-map-svg { display: block; width: 100%; min-width: 620px; height: auto; }
 
-.rm-dots circle { fill: var(--paper); stroke: var(--ink); stroke-width: 3; }
-.rm-dots .rm-start, .rm-dots .rm-end { fill: var(--ink); stroke: var(--ink); }
-.rm-dots .rm-hub { stroke-width: 4; }
+.route-map-words { display: none; margin-top: 1.25rem; }
+.route-map-words p { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 0.5rem; }
+.route-map-words strong { color: var(--ink); }
+@media (max-width: 700px) { .route-map-words { display: block; } }
+
+/* Boxes rather than dots: a line stops at the edge instead of crossing the
+   label. The tint fills come from the route colours, so a box and the line
+   feeding it are obviously the same thing. */
+.rm-box { fill: var(--card); stroke: var(--line); stroke-width: 2; }
+.rm-box.rm-r1 { stroke: var(--green); }
+.rm-box.rm-r2 { stroke: var(--green-deep); }
+.rm-box.rm-r3 { stroke: var(--ochre); }
+.rm-box.rm-r4 { stroke: var(--ink-faint); }
+.rm-box.rm-hub { stroke-width: 3; }
+.rm-box.rm-start, .rm-box.rm-end { fill: var(--ink); stroke: var(--ink); }
 
 .rm-label text {
   font-family: 'Public Sans', sans-serif;
-  font-size: 16px; fill: var(--ink-soft);
+  font-size: 13px; fill: var(--ink);
 }
-.rm-label .rm-label-big { font-size: 18px; font-weight: 700; fill: var(--ink); }
+.rm-label .rm-label-big { font-size: 17px; font-weight: 700; fill: var(--ink); }
+.rm-label text:first-child, .rm-label text:nth-last-child(2) { fill: var(--paper); }
 .rm-label .rm-label-note {
   font-size: 13px; fill: var(--route-5);
   font-style: italic;
