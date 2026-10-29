@@ -61,6 +61,7 @@
           return (
             '<a class="guide-card" href="/' + esc(sec.slug) + "/" + esc(it.slug) + '">' +
               '<div class="guide-card-top">' +
+                (window.SCIcons ? window.SCIcons.svg(sec.slug, "guide-icon") : "") +
                 '<span class="guide-sub">' + esc(it.subtitle || "") + "</span>" +
                 '<span class="guide-arrow">›</span>' +
               "</div>" +

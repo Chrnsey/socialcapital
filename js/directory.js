@@ -38,6 +38,9 @@
           n + " mentors available";
         return (
           '<div class="industry-card" data-sector="' + escapeHtml(sector.slug) + '">' +
+            // An icon per sector, so a counsellor scanning ten cards has
+            // something to aim at other than ten paragraphs of text.
+            (window.SCIcons ? window.SCIcons.svg(sector.slug, "industry-icon") : "") +
             '<div class="industry-card-left">' +
               "<h4>" + escapeHtml(sector.title) + "</h4>" +
               "<span>" + label + "</span>" +

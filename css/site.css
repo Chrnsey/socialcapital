@@ -761,3 +761,42 @@ footer a:hover { color: var(--ink); }
 
 /* Hint under a form field, where the label alone is not enough. */
 .field-hint { margin-top: 0.3rem; font-size: 0.78rem; color: var(--ink-soft); }
+
+/* ---------------------------------------------------------------------------
+   ICONS (js/icons.js)
+
+   Lucide, drawn at 24px and scaled by font-size so an icon always matches the
+   text it sits beside. currentColor throughout, so they follow the theme with
+   no dark-mode rules of their own.
+   --------------------------------------------------------------------------- */
+.sc-icon {
+  width: 1.5em; height: 1.5em;
+  flex: 0 0 auto;
+  vertical-align: middle;
+}
+
+/* On a sector card: a green tile on the left, so ten cards read as a list of
+   things rather than ten paragraphs.
+
+   The card is justify-content: space-between and now has three children
+   instead of two, so without this the icon and the title get pushed to
+   opposite ends. Letting the text block take the slack keeps the icon
+   beside its own label and the arrow on the right where it was. */
+.industry-card { gap: 1rem; }
+.industry-card-left { margin-right: auto; }
+.industry-icon {
+  width: 42px; height: 42px; padding: 9px;
+  color: var(--green);
+  background: var(--green-tint);
+  border-radius: 8px;
+  box-sizing: border-box;
+}
+
+/* On a guide card: small and quiet, next to the subtitle. */
+.guide-card-top { display: flex; align-items: center; gap: 0.5rem; }
+.guide-icon { width: 1.15rem; height: 1.15rem; color: var(--green); }
+.guide-card-top .guide-sub { flex: 1 1 auto; min-width: 0; }
+
+@media (max-width: 640px) {
+  .industry-icon { width: 36px; height: 36px; padding: 7px; }
+}
