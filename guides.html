@@ -6,7 +6,7 @@
 <title>Social Capital — College, trades and apprenticeships in Ireland</title>
 <meta name="description" content="How to get into work and education in Ireland. Apprenticeships, PLCs, college, studying in Europe, and the grants nobody tells you about.">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=e054bd06">
+<link rel="stylesheet" href="/css/site.css?v=378a3d60">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -35,6 +35,107 @@
   <p class="pw-kicker">College, trades and apprenticeships</p>
   <h1>Your options after the Leaving Cert</h1>
   <p class="pw-summary">How to get in, how to pay for it, and what the jobs are actually like. Nothing here needs a login.</p>
+<!-- ===========================================================================
+     THE ROUTE MAP
+     ===========================================================================
+     A metro map, because the point it has to make is a metro map's point:
+     several lines reach the same station. A student is told the CAO is the
+     route; this shows three ways to a degree, two to a qualified trade, and
+     a line going back to study years later.
+
+     Hand-authored SVG rather than a library: it is one drawing, it never
+     changes shape, and a chart library would be 40KB to draw twelve lines.
+
+     Colours come from the --route-* tokens in site.css, defined in both
+     themes. Change them there, not here.
+
+     GEOMETRY. Four columns at x = 78, 300, 560, 760. Stations in the middle
+     column are 80 apart. Labels sit above their own dot. Two things will
+     break it: a longer label in the middle column (it will be crossed by the
+     line running from Study abroad down to Degree), and widening the viewBox
+     past about 840 (it then scrolls sideways on a normal desktop instead of
+     fitting the column). Keep labels short.
+     =========================================================================== -->
+<figure class="route-map">
+  <figcaption class="route-map-caption">
+    <strong>More than one line gets you there.</strong>
+    Three of these routes end in a degree. Two end in a qualified trade.
+    One of them starts years after you have left school.
+  </figcaption>
+
+  <div class="route-map-scroll">
+    <svg viewBox="0 0 840 540" class="route-map-svg" role="img"
+         aria-labelledby="rm-title rm-desc">
+      <title id="rm-title">Routes after the Leaving Certificate</title>
+      <desc id="rm-desc">A diagram of six routes from the Leaving
+        Certificate. Studying abroad, college through the CAO, and a PLC or
+        QQI course all lead to a degree. An apprenticeship and a traineeship
+        both lead to a qualified trade. Going straight into work leads
+        directly to working. A further line runs from working back to a
+        degree, taken years later as a mature student. Every route ends at
+        working.</desc>
+
+      <g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+        <!-- out of the Leaving Cert -->
+        <path d="M96 270 C 190 270, 200 60, 284 60"   stroke="var(--route-1)"/>
+        <path d="M96 270 C 190 270, 200 140, 284 140" stroke="var(--route-1)"/>
+        <path d="M96 270 C 190 270, 200 220, 284 220" stroke="var(--route-2)"/>
+        <path d="M96 270 C 190 270, 200 300, 284 300" stroke="var(--route-3)"/>
+        <path d="M96 270 C 190 270, 200 380, 284 380" stroke="var(--route-3)"/>
+        <path d="M96 270 C 190 270, 200 460, 284 460" stroke="var(--route-4)"/>
+
+        <!-- into Degree. Control points held out to x=500 so each line stays
+             in its own horizontal band until it is clear of the labels. -->
+        <path d="M316 60  C 500 60,  500 150, 544 150" stroke="var(--route-1)"/>
+        <path d="M316 140 C 500 140, 500 150, 544 150" stroke="var(--route-1)"/>
+        <path d="M316 220 C 500 220, 500 150, 544 150" stroke="var(--route-2)"/>
+
+        <!-- into Qualified trade -->
+        <path d="M316 300 C 500 300, 500 380, 544 380" stroke="var(--route-3)"/>
+        <path d="M316 380 C 500 380, 500 380, 544 380" stroke="var(--route-3)"/>
+
+        <!-- on to Working -->
+        <path d="M576 150 C 700 150, 700 265, 744 265" stroke="var(--route-1)"/>
+        <path d="M576 380 C 700 380, 700 265, 744 265" stroke="var(--route-3)"/>
+        <path d="M316 460 C 560 460, 660 265, 744 265" stroke="var(--route-4)"/>
+
+        <!-- and back again, years later -->
+        <path d="M760 292 C 760 500, 470 512, 470 420 C 470 300, 516 200, 544 166"
+              stroke="var(--route-5)" stroke-dasharray="2 12"/>
+      </g>
+
+      <g class="rm-dots">
+        <circle cx="78"  cy="270" r="11" class="rm-start"/>
+        <circle cx="300" cy="60"  r="8"/>
+        <circle cx="300" cy="140" r="8"/>
+        <circle cx="300" cy="220" r="8"/>
+        <circle cx="300" cy="300" r="8"/>
+        <circle cx="300" cy="380" r="8"/>
+        <circle cx="300" cy="460" r="8"/>
+        <circle cx="560" cy="150" r="11" class="rm-hub"/>
+        <circle cx="560" cy="380" r="11" class="rm-hub"/>
+        <circle cx="760" cy="265" r="13" class="rm-end"/>
+      </g>
+
+      <g class="rm-label">
+        <text x="78"  y="240" text-anchor="middle" class="rm-label-big">Leaving Cert</text>
+        <text x="300" y="36">Study abroad</text>
+        <text x="300" y="116">College (CAO)</text>
+        <text x="300" y="196">PLC or QQI</text>
+        <text x="300" y="276">Apprenticeship</text>
+        <text x="300" y="356">Traineeship</text>
+        <text x="300" y="436">Straight to work</text>
+        <text x="560" y="124" class="rm-label-big">Degree</text>
+        <text x="560" y="354" class="rm-label-big">Qualified trade</text>
+        <text x="760" y="236" text-anchor="middle" class="rm-label-big">Working</text>
+        <text x="470" y="530" text-anchor="middle" class="rm-label-note">back to study, later</text>
+      </g>
+    </svg>
+  </div>
+
+  <p class="route-map-hint">Scroll the diagram sideways to see all of it.</p>
+</figure>
+
   <div id="guideHub" style="margin-top:3.5rem;">
     <p class="dir-empty">Loading…</p>
   </div>

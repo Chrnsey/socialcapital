@@ -800,3 +800,56 @@ footer a:hover { color: var(--ink); }
 @media (max-width: 640px) {
   .industry-icon { width: 36px; height: 36px; padding: 7px; }
 }
+
+/* ---------------------------------------------------------------------------
+   THE ROUTE MAP (guides.html)
+
+   Line colours live here, in both themes, so the drawing itself carries no
+   hard-coded colour. If the palette changes, these five tokens are the only
+   thing to touch.
+   --------------------------------------------------------------------------- */
+:root {
+  --route-1: #0E9A63;   /* higher education */
+  --route-2: #1F7A8C;   /* further education */
+  --route-3: #C9731B;   /* trades and training */
+  --route-4: #6B6F73;   /* straight to work */
+  --route-5: #8E6BB8;   /* coming back later */
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --route-1: #37C68A; --route-2: #4FB3C9; --route-3: #E09A4A;
+  --route-4: #9AA0A6; --route-5: #B394D6;
+} }
+:root[data-theme="dark"] {
+  --route-1: #37C68A; --route-2: #4FB3C9; --route-3: #E09A4A;
+  --route-4: #9AA0A6; --route-5: #B394D6;
+}
+
+.route-map { margin: 3rem 0 0; }
+.route-map-caption {
+  font-size: 0.95rem; color: var(--ink-soft);
+  max-width: 62ch; margin-bottom: 1.25rem;
+}
+.route-map-caption strong { color: var(--ink); }
+
+/* The drawing is wider than a phone. A diagram is one of the few things
+   allowed its own sideways scroll, rather than being shrunk until the labels
+   are unreadable. */
+.route-map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.route-map-svg { display: block; width: 100%; min-width: 660px; height: auto; }
+
+.rm-dots circle { fill: var(--paper); stroke: var(--ink); stroke-width: 3; }
+.rm-dots .rm-start, .rm-dots .rm-end { fill: var(--ink); stroke: var(--ink); }
+.rm-dots .rm-hub { stroke-width: 4; }
+
+.rm-label text {
+  font-family: 'Public Sans', sans-serif;
+  font-size: 15px; fill: var(--ink-soft);
+}
+.rm-label .rm-label-big { font-size: 17px; font-weight: 700; fill: var(--ink); }
+.rm-label .rm-label-note {
+  font-size: 13px; fill: var(--route-5);
+  font-style: italic;
+}
+
+.route-map-hint { display: none; font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.5rem; }
+@media (max-width: 800px) { .route-map-hint { display: block; } }
