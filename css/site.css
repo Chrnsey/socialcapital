@@ -39,6 +39,14 @@
   --green: #0E9A63;
   --green-deep: #0B7A4F;
   --green-tint: #E9F6EF;
+  /* Second accent, chosen October 2026. Warm against a cool green, so the
+     two never compete: green stays the brand and the action, ochre marks the
+     thing worth noticing. Deliberately dark and earthy rather than flag
+     orange - green and orange together is the tricolour, and the pair is
+     never used in adjacent equal blocks for the same reason. */
+  --ochre: #C9731B;
+  --ochre-deep: #A55C12;
+  --ochre-tint: #FBF0E2;
   --line: #E3E2DD;
   --line-soft: #ECEBE6;
   --white: #FFFFFF;
@@ -54,6 +62,9 @@
   --green: #37C68A;
   --green-deep: #52D69C;
   --green-tint: #16281F;
+  --ochre: #E09A4A;
+  --ochre-deep: #EDB06A;
+  --ochre-tint: #2B2113;
   --line: #34373A;
   --line-soft: #2A2C2E;
   --white: #232527;
@@ -330,7 +341,8 @@ footer a:hover { color: var(--ink); }
    --------------------------------------------------------------------------- */
 
 @media (prefers-color-scheme: dark) {
-  :root:not([data-theme="light"]) { --paper: #17181A; --paper-dim: #121314; --card: #1E2021; --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A; --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F; --line: #34373A; --line-soft: #2A2C2E; --white: #232527; }
+  :root:not([data-theme="light"]) {
+  --ochre: #E09A4A; --ochre-deep: #EDB06A; --ochre-tint: #2B2113; --paper: #17181A; --paper-dim: #121314; --card: #1E2021; --ink: #F2F1EC; --ink-soft: #B7BAB6; --ink-faint: #82858A; --green: #37C68A; --green-deep: #52D69C; --green-tint: #16281F; --line: #34373A; --line-soft: #2A2C2E; --white: #232527; }
   :root:not([data-theme="light"]) .nav-logo .logo-light { display: none; }
   :root:not([data-theme="light"]) .nav-logo .logo-dark { display: block; }
 }
@@ -809,19 +821,11 @@ footer a:hover { color: var(--ink); }
    thing to touch.
    --------------------------------------------------------------------------- */
 :root {
-  --route-1: #0E9A63;   /* higher education */
-  --route-2: #1F7A8C;   /* further education */
-  --route-3: #C9731B;   /* trades and training */
-  --route-4: #6B6F73;   /* straight to work */
-  --route-5: #8E6BB8;   /* coming back later */
-}
-@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
-  --route-1: #37C68A; --route-2: #4FB3C9; --route-3: #E09A4A;
-  --route-4: #9AA0A6; --route-5: #B394D6;
-} }
-:root[data-theme="dark"] {
-  --route-1: #37C68A; --route-2: #4FB3C9; --route-3: #E09A4A;
-  --route-4: #9AA0A6; --route-5: #B394D6;
+  --route-1: var(--green);        /* higher education */
+  --route-2: var(--green-deep);   /* further education, into the same hub */
+  --route-3: var(--ochre);        /* trades and training */
+  --route-4: var(--ink-faint);    /* straight to work - deliberately neutral */
+  --route-5: var(--ochre-deep);   /* coming back later */
 }
 
 .route-map { margin: 3rem 0 0; }
@@ -831,11 +835,13 @@ footer a:hover { color: var(--ink); }
 }
 .route-map-caption strong { color: var(--ink); }
 
-/* The drawing is wider than a phone. A diagram is one of the few things
-   allowed its own sideways scroll, rather than being shrunk until the labels
-   are unreadable. */
-.route-map-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-.route-map-svg { display: block; width: 100%; min-width: 660px; height: auto; }
+/* Vertical, so it fits a phone's width with nothing to drag. Capped so the
+   drawing does not become absurdly large on a wide screen - a diagram the
+   height of two monitors is no better than one you have to scroll sideways. */
+.route-map-svg {
+  display: block; width: 100%; max-width: 440px; height: auto;
+  margin: 0 auto;
+}
 
 .rm-dots circle { fill: var(--paper); stroke: var(--ink); stroke-width: 3; }
 .rm-dots .rm-start, .rm-dots .rm-end { fill: var(--ink); stroke: var(--ink); }
@@ -843,13 +849,41 @@ footer a:hover { color: var(--ink); }
 
 .rm-label text {
   font-family: 'Public Sans', sans-serif;
-  font-size: 15px; fill: var(--ink-soft);
+  font-size: 16px; fill: var(--ink-soft);
 }
-.rm-label .rm-label-big { font-size: 17px; font-weight: 700; fill: var(--ink); }
+.rm-label .rm-label-big { font-size: 18px; font-weight: 700; fill: var(--ink); }
 .rm-label .rm-label-note {
   font-size: 13px; fill: var(--route-5);
   font-style: italic;
 }
 
-.route-map-hint { display: none; font-size: 0.78rem; color: var(--ink-faint); margin-top: 0.5rem; }
-@media (max-width: 800px) { .route-map-hint { display: block; } }
+/* ---------------------------------------------------------------------------
+   THE SECOND ACCENT AT WORK
+
+   Green keeps every job it has: the logo, the primary button, links, the
+   Sign in control. Ochre takes the jobs green was doing badly - the small
+   labels above a heading, the secondary link beside a primary button, and
+   the number in a fact strip. On a page where everything was green, nothing
+   stood out; now one thing does.
+   --------------------------------------------------------------------------- */
+
+/* Small labels above a heading.
+   .hero-kicker is deliberately not here: it carries a whole sentence rather
+   than a short label, and a sentence in accent colour is shouting. Worth
+   knowing that its own colour rule up at line 155 has never applied either -
+   `.hero p` outranks `.hero-kicker` on specificity, so the kicker has always
+   been --ink-soft whatever that rule says. Left alone rather than fixed
+   here; it looks right as it is. */
+.section-tag, .pw-kicker, .dir-section-title {
+  color: var(--ochre);
+}
+
+/* The quieter of two actions, so it stops competing with the green button. */
+.text-link { color: var(--ochre); }
+.text-link:hover { color: var(--ochre-deep); }
+
+/* The numbers a school is meant to notice. */
+.fact-strip strong, .founding-line strong { color: var(--ochre-deep); }
+
+/* Guide card icons, so the public hub is not a single-colour page. */
+.guide-icon { color: var(--ochre); }

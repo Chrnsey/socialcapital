@@ -6,7 +6,7 @@
 <title>Social Capital — College, trades and apprenticeships in Ireland</title>
 <meta name="description" content="How to get into work and education in Ireland. Apprenticeships, PLCs, college, studying in Europe, and the grants nobody tells you about.">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=378a3d60">
+<link rel="stylesheet" href="/css/site.css?v=0758ea9b">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -38,23 +38,20 @@
 <!-- ===========================================================================
      THE ROUTE MAP
      ===========================================================================
-     A metro map, because the point it has to make is a metro map's point:
-     several lines reach the same station. A student is told the CAO is the
-     route; this shows three ways to a degree, two to a qualified trade, and
-     a line going back to study years later.
+     Vertical, because most readers are on a phone and the horizontal version
+     had to be dragged sideways to be read at all.
 
-     Hand-authored SVG rather than a library: it is one drawing, it never
-     changes shape, and a chart library would be 40KB to draw twelve lines.
+     Three continuous tracks run the full height, so they read as parallel
+     routes rather than a sequence of steps. Stations are dots on their own
+     track; the two hubs are where several tracks reach the same place, which
+     is the whole point of the drawing. The dashed line goes back up: you can
+     return to study years later.
 
-     Colours come from the --route-* tokens in site.css, defined in both
-     themes. Change them there, not here.
+     GEOMETRY. Tracks at x = 30, 56, 82. Every label starts at x = 110.
+     Two things break it: a label long enough to pass x = 370 (it clips), and
+     moving a station without moving its dot. Keep labels short.
 
-     GEOMETRY. Four columns at x = 78, 300, 560, 760. Stations in the middle
-     column are 80 apart. Labels sit above their own dot. Two things will
-     break it: a longer label in the middle column (it will be crossed by the
-     line running from Study abroad down to Degree), and widening the viewBox
-     past about 840 (it then scrolls sideways on a normal desktop instead of
-     fitting the column). Keep labels short.
+     Colours are the --route-* tokens in site.css, both themes. Not here.
      =========================================================================== -->
 <figure class="route-map">
   <figcaption class="route-map-caption">
@@ -63,77 +60,72 @@
     One of them starts years after you have left school.
   </figcaption>
 
-  <div class="route-map-scroll">
-    <svg viewBox="0 0 840 540" class="route-map-svg" role="img"
-         aria-labelledby="rm-title rm-desc">
-      <title id="rm-title">Routes after the Leaving Certificate</title>
-      <desc id="rm-desc">A diagram of six routes from the Leaving
-        Certificate. Studying abroad, college through the CAO, and a PLC or
-        QQI course all lead to a degree. An apprenticeship and a traineeship
-        both lead to a qualified trade. Going straight into work leads
-        directly to working. A further line runs from working back to a
-        degree, taken years later as a mature student. Every route ends at
-        working.</desc>
+  <svg viewBox="0 0 380 860" class="route-map-svg" role="img"
+       aria-labelledby="rm-title rm-desc">
+    <title id="rm-title">Routes after the Leaving Certificate</title>
+    <desc id="rm-desc">A diagram of six routes from the Leaving Certificate,
+      drawn as three parallel tracks. On the first track, studying abroad,
+      college through the CAO, and a PLC or QQI course all lead to a degree.
+      On the second, an apprenticeship and a traineeship both lead to a
+      qualified trade. On the third, going straight into work leads directly
+      to working. All three tracks end at working, and a further line runs
+      from working back up to a degree, taken years later as a mature
+      student.</desc>
 
-      <g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <!-- out of the Leaving Cert -->
-        <path d="M96 270 C 190 270, 200 60, 284 60"   stroke="var(--route-1)"/>
-        <path d="M96 270 C 190 270, 200 140, 284 140" stroke="var(--route-1)"/>
-        <path d="M96 270 C 190 270, 200 220, 284 220" stroke="var(--route-2)"/>
-        <path d="M96 270 C 190 270, 200 300, 284 300" stroke="var(--route-3)"/>
-        <path d="M96 270 C 190 270, 200 380, 284 380" stroke="var(--route-3)"/>
-        <path d="M96 270 C 190 270, 200 460, 284 460" stroke="var(--route-4)"/>
+    <g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
+      <!-- out of the Leaving Cert into three tracks -->
+      <path d="M56 72 C 56 100, 30 100, 30 130" stroke="var(--route-1)"/>
+      <path d="M56 72 L 56 440"                 stroke="var(--route-3)"/>
+      <path d="M56 72 C 56 100, 82 100, 82 130" stroke="var(--route-4)"/>
 
-        <!-- into Degree. Control points held out to x=500 so each line stays
-             in its own horizontal band until it is clear of the labels. -->
-        <path d="M316 60  C 500 60,  500 150, 544 150" stroke="var(--route-1)"/>
-        <path d="M316 140 C 500 140, 500 150, 544 150" stroke="var(--route-1)"/>
-        <path d="M316 220 C 500 220, 500 150, 544 150" stroke="var(--route-2)"/>
+      <!-- track 1: higher education, down to the degree hub -->
+      <path d="M30 130 L 30 350" stroke="var(--route-1)"/>
+      <!-- the PLC leg, a different colour arriving at the same hub -->
+      <path d="M30 270 L 30 350" stroke="var(--route-2)"/>
 
-        <!-- into Qualified trade -->
-        <path d="M316 300 C 500 300, 500 380, 544 380" stroke="var(--route-3)"/>
-        <path d="M316 380 C 500 380, 500 380, 544 380" stroke="var(--route-3)"/>
+      <!-- track 2: trades, down to the qualified hub -->
+      <path d="M56 440 L 56 590" stroke="var(--route-3)"/>
 
-        <!-- on to Working -->
-        <path d="M576 150 C 700 150, 700 265, 744 265" stroke="var(--route-1)"/>
-        <path d="M576 380 C 700 380, 700 265, 744 265" stroke="var(--route-3)"/>
-        <path d="M316 460 C 560 460, 660 265, 744 265" stroke="var(--route-4)"/>
+      <!-- track 3: straight to work -->
+      <path d="M82 130 L 82 680" stroke="var(--route-4)"/>
 
-        <!-- and back again, years later -->
-        <path d="M760 292 C 760 500, 470 512, 470 420 C 470 300, 516 200, 544 166"
-              stroke="var(--route-5)" stroke-dasharray="2 12"/>
-      </g>
+      <!-- everything converges on working -->
+      <path d="M30 350 C 30 600, 56 600, 56 782" stroke="var(--route-1)"/>
+      <path d="M56 590 L 56 782"                 stroke="var(--route-3)"/>
+      <path d="M82 680 C 82 740, 56 740, 56 782" stroke="var(--route-4)"/>
 
-      <g class="rm-dots">
-        <circle cx="78"  cy="270" r="11" class="rm-start"/>
-        <circle cx="300" cy="60"  r="8"/>
-        <circle cx="300" cy="140" r="8"/>
-        <circle cx="300" cy="220" r="8"/>
-        <circle cx="300" cy="300" r="8"/>
-        <circle cx="300" cy="380" r="8"/>
-        <circle cx="300" cy="460" r="8"/>
-        <circle cx="560" cy="150" r="11" class="rm-hub"/>
-        <circle cx="560" cy="380" r="11" class="rm-hub"/>
-        <circle cx="760" cy="265" r="13" class="rm-end"/>
-      </g>
+      <!-- and back up again, years later -->
+      <path d="M68 795 C 200 810, 346 800, 346 640 C 346 420, 200 380, 44 352"
+            stroke="var(--route-5)" stroke-dasharray="2 12"/>
+    </g>
 
-      <g class="rm-label">
-        <text x="78"  y="240" text-anchor="middle" class="rm-label-big">Leaving Cert</text>
-        <text x="300" y="36">Study abroad</text>
-        <text x="300" y="116">College (CAO)</text>
-        <text x="300" y="196">PLC or QQI</text>
-        <text x="300" y="276">Apprenticeship</text>
-        <text x="300" y="356">Traineeship</text>
-        <text x="300" y="436">Straight to work</text>
-        <text x="560" y="124" class="rm-label-big">Degree</text>
-        <text x="560" y="354" class="rm-label-big">Qualified trade</text>
-        <text x="760" y="236" text-anchor="middle" class="rm-label-big">Working</text>
-        <text x="470" y="530" text-anchor="middle" class="rm-label-note">back to study, later</text>
-      </g>
-    </svg>
-  </div>
+    <g class="rm-dots">
+      <circle cx="56" cy="60"  r="11" class="rm-start"/>
+      <circle cx="30" cy="130" r="8"/>
+      <circle cx="30" cy="200" r="8"/>
+      <circle cx="30" cy="270" r="8"/>
+      <circle cx="30" cy="350" r="11" class="rm-hub"/>
+      <circle cx="56" cy="440" r="8"/>
+      <circle cx="56" cy="510" r="8"/>
+      <circle cx="56" cy="590" r="11" class="rm-hub"/>
+      <circle cx="82" cy="680" r="8"/>
+      <circle cx="56" cy="795" r="13" class="rm-end"/>
+    </g>
 
-  <p class="route-map-hint">Scroll the diagram sideways to see all of it.</p>
+    <g class="rm-label">
+      <text x="110" y="66"  class="rm-label-big">Leaving Cert</text>
+      <text x="110" y="136">Study abroad</text>
+      <text x="110" y="206">College, through the CAO</text>
+      <text x="110" y="276">PLC or QQI course</text>
+      <text x="110" y="356" class="rm-label-big">Degree</text>
+      <text x="110" y="446">Apprenticeship</text>
+      <text x="110" y="516">Traineeship</text>
+      <text x="110" y="596" class="rm-label-big">Qualified trade</text>
+      <text x="110" y="686">Straight into work</text>
+      <text x="110" y="801" class="rm-label-big">Working</text>
+      <text x="300" y="490" text-anchor="end" class="rm-label-note">back to study, later</text>
+    </g>
+  </svg>
 </figure>
 
   <div id="guideHub" style="margin-top:3.5rem;">
