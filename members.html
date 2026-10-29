@@ -6,7 +6,7 @@
 <title>Social Capital — Join</title>
 <meta name="description" content="Left school and over 18? Get access to the mentor directory and contact people directly about work, college and getting a foot in the door.">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=a10b0dcb">
+<link rel="stylesheet" href="/css/site.css?v=030291e4">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -18,7 +18,7 @@
 <meta property="og:description" content="Left school and over 18? Get access to the mentor directory and contact people directly about work, college and getting a foot in the door.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-29T00:49:10.455Z -->
+<!-- built-by-build.mjs 2026-10-29T00:51:27.597Z -->
 </head>
 <body>
 
@@ -89,8 +89,8 @@
         <p class="form-status" data-sc-status role="status" aria-live="polite"></p>
         <p class="form-consent">You must be 18 or over. We store your email, your school code and your date of birth, nothing else. See our <a href="privacy.html">privacy notice</a>.</p>
       </form>
-      <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--ink-soft)">
-        Already signed up? <span style="color:var(--ink);cursor:pointer;text-decoration:underline" onclick="SCMembers.openLogin()">Sign in instead</span>.
+      <p class="note-under">
+        Already signed up? <button type="button" class="link-button" onclick="SCMembers.openLogin()">Sign in instead</button>.
       </p>
     </div>
   </div>
@@ -125,8 +125,8 @@
       <button type="submit" class="modal-submit" style="margin-top:0.75rem;">Email me a sign-in link</button>
       <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
     </form>
-    <p style="margin-top:1rem;font-size:0.8rem;color:var(--ink-soft);text-align:center;">
-      <span style="cursor:pointer;text-decoration:underline;" onclick="SCMembers.goBack()">Back</span>
+    <p class="small-print">
+      <button type="button" class="link-button is-quiet" onclick="SCMembers.goBack()">Back</button>
     </p>
   </div>
 </div>
@@ -137,7 +137,7 @@
     <a href="#" class="dir-nav-logo" onclick="SCMembers.goBack(); return false;">Social Capital</a>
     <div class="dir-nav-user">
       <span id="schoolName">Signed in</span>
-      <span class="dir-logout" onclick="SCMembers.signOut()">Sign out</span>
+      <button type="button" class="dir-logout" onclick="SCMembers.signOut()">Sign out</button>
     </div>
   </div>
 
@@ -157,7 +157,7 @@
     <div class="mentor-view" id="mentorView">
       <div class="mentor-view-header">
         <span class="mentor-view-title" id="mentorViewTitle">Technology</span>
-        <span class="back-btn" onclick="SCDirectory.closeSector()">Back to industries</span>
+        <button type="button" class="back-btn" onclick="SCDirectory.closeSector()">Back to industries</button>
       </div>
       <div class="sector-summary" id="sectorSummary"></div>
       <p class="dir-section-title">Mentors in this sector</p>

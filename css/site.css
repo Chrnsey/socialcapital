@@ -152,7 +152,12 @@ footer a:hover { color: var(--ink); }
    --------------------------------------------------------------------------- */
 .nav-cta { text-decoration: none; color: var(--green) !important; border: 1px solid var(--green); border-radius: 3px; padding: 0.3rem 0.7rem; font-weight: 600; }
 .nav-cta:hover { background: var(--green); color: var(--white) !important; }
-.hero-kicker { font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 1.25rem; }
+/* `.hero p` (0,1,1) outranked a bare `.hero-kicker` (0,1,0), so this colour
+   never applied and the kicker silently took the body colour instead. Scoped
+   to match, which is the fix rather than an !important. */
+.hero .hero-kicker, .alum-hero .hero-kicker {
+  font-size: 0.85rem; color: var(--ink-faint); margin-bottom: 1.25rem;
+}
 .fact-strip { max-width: var(--content-width); margin: 0 auto; padding: 1.75rem 2rem; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .fact-strip p { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
 .fact-strip strong { color: var(--ink); font-weight: 700; }
@@ -881,11 +886,9 @@ footer a:hover { color: var(--ink); }
 
 /* Small labels above a heading.
    .hero-kicker is deliberately not here: it carries a whole sentence rather
-   than a short label, and a sentence in accent colour is shouting. Worth
-   knowing that its own colour rule up at line 155 has never applied either -
-   `.hero p` outranks `.hero-kicker` on specificity, so the kicker has always
-   been --ink-soft whatever that rule says. Left alone rather than fixed
-   here; it looks right as it is. */
+   than a short label, and a sentence in accent colour is shouting. Its own
+   colour rule is now scoped as `.hero .hero-kicker` so that it actually
+   applies - it had been losing to `.hero p` on specificity. */
 .section-tag, .pw-kicker, .dir-section-title {
   color: var(--ochre);
 }
@@ -899,3 +902,48 @@ footer a:hover { color: var(--ink); }
 
 /* Guide card icons, so the public hub is not a single-colour page. */
 .guide-icon { color: var(--ochre); }
+
+/* ---------------------------------------------------------------------------
+   SMALL PATTERNS THAT WERE INLINE STYLES
+
+   These were repeated style="" attributes across several pages. Pulled into
+   classes so a designer can find them, and so changing the small print in one
+   place changes it everywhere.
+   --------------------------------------------------------------------------- */
+
+/* A control that looks like a link and behaves like a button. These were
+   <span onclick> - clickable with a mouse and completely unreachable with a
+   keyboard. A real <button> is focusable, announced as a button, and fires on
+   Enter and Space without any of that being written by hand. */
+.link-button {
+  background: none; border: 0; padding: 0; margin: 0;
+  font: inherit; color: var(--ink);
+  text-decoration: underline; text-underline-offset: 3px;
+  cursor: pointer;
+}
+.link-button:hover { color: var(--green); }
+.link-button.is-quiet { color: var(--ink-soft); }
+.link-button.is-quiet:hover { color: var(--ink); }
+
+/* The grey "Optional" beside a field label. */
+.label-optional { font-weight: 400; color: var(--ink-faint); }
+
+/* Centred small print under a form. */
+.small-print {
+  margin-top: 1rem; font-size: 0.8rem;
+  color: var(--ink-soft); text-align: center;
+}
+.small-print.is-tight { margin-top: 0.5rem; }
+
+/* A note sitting under a block of content. */
+.note-under { margin-top: 1.5rem; font-size: 0.9rem; color: var(--ink-soft); }
+
+/* A hero that runs straight into the section below it. */
+.hero--flush { border-bottom: none; }
+
+/* dir-logout and back-btn were also <span onclick> - including "Sign out",
+   which a keyboard user could not reach at all. Now buttons, with the browser
+   chrome reset so they look exactly as they did. */
+.dir-logout, .back-btn {
+  background: none; border: 0; padding: 0; font: inherit; cursor: pointer;
+}

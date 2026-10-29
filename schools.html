@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — For Schools</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=a10b0dcb">
+<link rel="stylesheet" href="/css/site.css?v=030291e4">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="A directory of working people who agreed to answer questions from students and school leavers in Ireland about their job and how they got it.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-29T00:49:10.455Z -->
+<!-- built-by-build.mjs 2026-10-29T00:51:27.597Z -->
 </head>
 <body>
 
@@ -35,7 +35,7 @@
   <a href="/signin.html" class="nav-cta nav-signin" data-page="signin">Sign in</a>
 </nav>
 
-  <section class="hero" style="border-bottom: none;">
+  <section class="hero hero--flush">
     <p class="hero-kicker" data-sc-text="hero.kicker">Bringing a network to those that start with none</p>
     <h1 data-sc-text="hero.title">Every name we list is a willing volunteer</h1>
     <p data-sc-text="hero.body">the networking directory is filled with professionals, both senior and junior, who are keen to talk about their job, their route in, and what the work is actually like. Once a school is registered they get access to the registry</p>
@@ -46,7 +46,7 @@
   </section>
 
   <div class="fact-strip">
-    <p data-sc-html="facts.line"><strong>There are more than 900 DEIS schools</strong> in Ireland and roughly <strong>160,000 students</strong> in them. This platform brings a network to those students</p>
+    <p data-sc-html="facts.line"><strong>232 of Ireland's 722 post-primary schools are DEIS</strong> schools. This platform brings a network to their students</p>
     <p class="founding-line" data-sc-text="founding.line">As part of the scale up of SocialCapital.ie we are offering free access to the platform for the first 5 schools to register.</p>
   </div>
 
@@ -198,11 +198,11 @@
       <button type="submit" class="modal-submit" style="margin-top: 0.75rem;">Email me a sign-in link</button>
       <p class="form-status" id="loginStatus" role="status" aria-live="polite"></p>
     </form>
-    <p style="margin-top: 1rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
-      Not yet registered? <span style="color: var(--ink); cursor: pointer; text-decoration: underline;" onclick="goBackAndOpenSchool()">Register your school</span>
+    <p class="small-print">
+      Not yet registered? <button type="button" class="link-button" onclick="goBackAndOpenSchool()">Register your school</button>
     </p>
-    <p style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--ink-soft); text-align: center;">
-      <span style="cursor: pointer; text-decoration: underline;" onclick="goBack()">Back to site</span>
+    <p class="small-print is-tight">
+      <button type="button" class="link-button is-quiet" onclick="goBack()">Back to site</button>
     </p>
   </div>
 </div>
@@ -213,7 +213,7 @@
     <a href="#" class="dir-nav-logo" onclick="goBack()">Social Capital</a>
     <div class="dir-nav-user">
       <span id="schoolName">St. Mary's CBS</span>
-      <span class="dir-logout" onclick="goBack()">Sign out</span>
+      <button type="button" class="dir-logout" onclick="goBack()">Sign out</button>
     </div>
   </div>
 
@@ -233,7 +233,7 @@
     <div class="mentor-view" id="mentorView">
       <div class="mentor-view-header">
         <span class="mentor-view-title" id="mentorViewTitle">Technology</span>
-        <span class="back-btn" onclick="closeIndustry()">Back to industries</span>
+        <button type="button" class="back-btn" onclick="closeIndustry()">Back to industries</button>
       </div>
       <div class="sector-summary" id="sectorSummary"></div>
       <p class="dir-section-title">Mentors in this sector</p>
