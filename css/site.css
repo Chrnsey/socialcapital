@@ -861,6 +861,9 @@ footer a:hover { color: var(--ink); }
 .rm-box.rm-r3 { stroke: var(--ochre); }
 .rm-box.rm-r4 { stroke: var(--ink-faint); }
 .rm-box.rm-hub { stroke-width: 3; }
+/* A dashed BOX means "you may or may not do this". A dashed LINE means
+   "later". Two different ideas, so they must not share a treatment. */
+.rm-box.rm-optional { stroke-dasharray: 7 5; fill: var(--paper); }
 .rm-box.rm-start, .rm-box.rm-end { fill: var(--ink); stroke: var(--ink); }
 
 .rm-label text {
