@@ -45,7 +45,10 @@
           role_title: (v.role_title || "").trim() || null,
           industry: v.industry || null,
           experience_level: v.experience_level || null,
-          open_to_talks: v.open_to_talks || null,
+          // Not asked at signup any more. A mentor has no idea what a school
+          // talk involves until they have done something smaller first, so
+          // asking here just collects a cautious no. It arrives null and is
+          // ticked per mentor on the admin page once they are in.
           is_alumnus: v.is_alumnus === "yes",
           alumnus_school_name: v.alumnus_school_name || null,
           member_contact_ok: v.member_contact_ok === "yes",
