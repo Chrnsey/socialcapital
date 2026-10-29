@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Social Capital — For Schools</title>
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=5d2a59d4">
+<link rel="stylesheet" href="/css/site.css?v=9b9dd439">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -17,7 +17,7 @@
 <meta property="og:description" content="A directory of working people who agreed to answer questions from students and school leavers in Ireland about their job and how they got it.">
 <meta property="og:image" content="https://socialcapital.ie/og-image.png">
 <meta name="twitter:card" content="summary_large_image">
-<!-- built-by-build.mjs 2026-10-29T01:16:56.663Z -->
+<!-- built-by-build.mjs 2026-10-29T01:19:41.469Z -->
 </head>
 <body>
 
@@ -55,8 +55,14 @@
     <h2 data-sc-text="how.title">What does the school get?</h2>
     <p class="section-body" data-sc-text="how.body">When a school registers with Social Capital it gains access to the directory, both for itself and for associated students over 18. Here at Social Capital we are also happy to arrange talks with students to explain the concept of the platform and how &#39;social capital&#39; impacts everyone in day to day life. Guidance counsellors and designated school personnel can also give individual students and past pupils over 18 their own access, allowing them to form their own networks.</p>
     <div class="how-list" data-sc-list="how.items"><template data-sc-item>
-        <div class="how-item"><h3>{{title}}</h3><p>{{body}}</p></div>
-      </template></div>
+        <div class="how-item"><span class="how-icon" data-sc-icon="{{icon}}"></span><h3>{{title}}</h3><p>{{body}}</p></div>
+      </template>
+        <div class="how-item"><span class="how-icon" data-sc-icon="people"></span><h3>Names, not job descriptions</h3><p>Professionals across every sector, from people three years out of school to people running the place. The network is split by industry and experience level</p></div>
+      
+        <div class="how-item"><span class="how-icon" data-sc-icon="talks"></span><h3>Talks for groups - big or small</h3><p>A whole year group, or six students with a specific interest, we&#39;re here to make career advice easy to access with real life impacts</p></div>
+      
+        <div class="how-item"><span class="how-icon" data-sc-icon="lasting"></span><h3>Access for past pupils</h3><p>Anyone over 18 can be given their own account, whether they are still in sixth year or left years ago. You send them a link, they sign up with a personal email, and you can take that access back at any time without asking us.</p></div>
+      </div>
   </section>
 
   <section id="industries">
@@ -284,13 +290,13 @@
 <script src="js/supabase.js?v=ccc6626c"></script>
 <script src="js/forms.js?v=f84b83f7"></script>
 <script src="js/photo.js?v=0fe5efe0"></script>
-<script src="js/icons.js?v=28d9f3d6"></script>
+<script src="js/icons.js?v=01cc5f4c"></script>
 <script src="js/directory.js?v=5c8bd05e"></script>
 <script src="js/auth.js?v=878f8c65"></script>
 <script src="js/school-invites.js?v=64378479"></script>
 <script src="js/content.js?v=0f93348e"></script>
 <script>
-SCContent.load("schools");
+SCContent.load("schools").then(function () { if (window.SCIcons) window.SCIcons.paint(); });
 
 function openSchoolModal() { document.getElementById('schoolModal').classList.add('active'); }
 function closeModal(id) { document.getElementById(id).classList.remove('active'); }

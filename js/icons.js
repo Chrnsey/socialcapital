@@ -29,6 +29,12 @@
     public_sector: '<path d="M10 18v-7M11.12 2.198a2 2 0 0 1 1.76.006l7.866 3.847c.476.233.31.949-.22.949H3.474c-.53 0-.695-.716-.22-.949z"/><path d="M14 18v-7M18 18v-7M3 22h18M6 18v-7"/>',
     other:         '<path d="M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.6 1.1Z"/><rect x="3" y="14" width="7" height="7" rx="1"/><circle cx="17.5" cy="17.5" r="3.5"/>',
 
+    // --- things a school gets, on schools.html -----------------------------
+    people:        '<path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>',
+    talks:         '<path d="m3 11 18-5v12L3 14v-3z"/><path d="M11.6 16.8a3 3 0 1 1-5.8-1.6"/>',
+    lasting:       '<path d="M12 12c-2-2.67-4-4-6-4a4 4 0 1 0 0 8c2 0 4-1.33 6-4Zm0 0c2 2.67 4 4 6 4a4 4 0 0 0 0-8c-2 0-4 1.33-6 4Z"/>',
+    invite:        '<rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>',
+
     // --- guide sections, used on the public hub ----------------------------
     routes:        '<circle cx="6" cy="19" r="3"/><path d="M9 19h8.5a3.5 3.5 0 0 0 0-7h-11a3.5 3.5 0 0 1 0-7H15"/><circle cx="18" cy="5" r="3"/>',
     funding:       '<rect width="20" height="12" x="2" y="6" rx="2"/><circle cx="12" cy="12" r="2"/><path d="M6 12h.01M18 12h.01"/>',
@@ -37,6 +43,18 @@
 
   window.SCIcons = {
     has: function (name) { return Object.prototype.hasOwnProperty.call(P, name); },
+
+    // Fills every element carrying data-sc-icon="<name>". Used where the icon
+    // is chosen in the CMS rather than in code, so Jack can change which one a
+    // card shows without touching JavaScript. Call it after content has
+    // loaded - SCContent.load() returns a promise for exactly that.
+    paint: function (root) {
+      (root || document).querySelectorAll("[data-sc-icon]").forEach(function (el) {
+        var name = el.getAttribute("data-sc-icon");
+        if (!name) { el.remove(); return; }      // no icon chosen: take the gap back
+        el.innerHTML = window.SCIcons.svg(name);
+      });
+    },
 
     // Returns an <svg> string. aria-hidden because every icon here sits beside
     // its own text label - announcing it again would just be noise.

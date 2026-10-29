@@ -162,7 +162,14 @@ footer a:hover { color: var(--ink); }
 .fact-strip p { font-size: 1rem; color: var(--ink-soft); max-width: 62ch; }
 .fact-strip strong { color: var(--ink); font-weight: 700; }
 .how-list { display: flex; flex-direction: column; }
-.how-item { display: grid; grid-template-columns: 200px 1fr; gap: 2rem; padding: 1.5rem 0; border-top: 1px solid var(--line-soft); }
+/* Three columns now the icon is a child: icon, heading, body. Adding the
+   icon to a two-column grid pushed the body onto a second row, which is the
+   same mistake the sector cards made. */
+.how-item {
+  display: grid; grid-template-columns: 28px 190px 1fr;
+  column-gap: 1.25rem; row-gap: 0.4rem;
+  padding: 1.5rem 0; border-top: 1px solid var(--line-soft);
+}
 .how-item:first-child { border-top: 1px solid var(--line); }
 .how-item h3 { font-size: 1rem; font-weight: 600; color: var(--ink); }
 .how-item p { font-size: 0.95rem; color: var(--ink-soft); max-width: 48ch; }
@@ -950,3 +957,8 @@ footer a:hover { color: var(--ink); }
 .dir-logout, .back-btn {
   background: none; border: 0; padding: 0; font: inherit; cursor: pointer;
 }
+
+/* An icon on each "what the school gets" card. The icon name is a CMS field,
+   so which one a card shows is Jack's choice, not a code change. */
+.how-icon { display: block; color: var(--ochre); line-height: 1; }
+.how-icon .sc-icon { width: 26px; height: 26px; }
