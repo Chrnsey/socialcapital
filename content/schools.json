@@ -7,23 +7,7 @@
   "how": {
     "title": "What does the school get?",
     "body": "When a school registers with Social Capital it gains access to the directory, both for itself and for associated students over 18. Here at Social Capital we are also happy to arrange talks with students to explain the concept of the platform and how 'social capital' impacts everyone in day to day life. Guidance counsellors and designated school personnel can also give individual students and past pupils over 18 their own access, allowing them to form their own networks.",
-    "items": [
-      {
-        "icon": "people",
-        "title": "Names, not job descriptions",
-        "body": "Professionals across every sector, from people three years out of school to people running the place. The network is split by industry and experience level"
-      },
-      {
-        "icon": "talks",
-        "title": "Talks for groups - big or small",
-        "body": "A whole year group, or six students with a specific interest, we're here to make career advice easy to access with real life impacts"
-      },
-      {
-        "icon": "lasting",
-        "title": "Access for past pupils",
-        "body": "Anyone over 18 can be given their own account, whether they are still in sixth year or left years ago. You send them a link, they sign up with a personal email, and you can take that access back at any time without asking us."
-      }
-    ]
+    "items": []
   },
   "cta": {
     "title": "Registering",
