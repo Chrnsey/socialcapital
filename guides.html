@@ -6,7 +6,7 @@
 <title>Social Capital — College, trades and apprenticeships in Ireland</title>
 <meta name="description" content="How to get into work and education in Ireland. Apprenticeships, PLCs, college, studying in Europe, and the grants nobody tells you about.">
 <link rel="stylesheet" href="/fonts/fonts.css">
-<link rel="stylesheet" href="/css/site.css?v=9b9dd439">
+<link rel="stylesheet" href="/css/site.css?v=fa313a86">
 <link rel="icon" href="/favicon.ico" sizes="any">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="512x512" href="/icon-512.png">
@@ -41,26 +41,29 @@
      Top down and branching: one start, six routes fanning out, then
      converging. The convergence is the point.
 
-     THE PLC SPLIT IS THE ACCURATE BIT. A PLC is level 5 or 6. It does not
-     deliver a level 8 honours degree on its own - the usual progression is a
-     level 7 and then an add-on year. Both lines are drawn, and NEITHER is
-     weighted as the common one, because nobody has sourced that split and
-     this is a page a student may act on. If that figure is ever confirmed,
-     thicken the line it belongs to rather than guessing now.
+     NO LINE CROSSES ANOTHER, and that is a rule worth keeping. Every source
+     sits directly above the place it leads: PLC over level 7, CAO and abroad
+     over level 8, the two trade routes over qualified trade. The earlier
+     versions put PLC in the middle and its level 7 at the edge, so its line
+     had to cut across two others to get there - the tangle was caused by the
+     ORDER of the boxes, not the curves. If you add a route, put it above
+     where it ends up.
 
-     TWO KINDS OF DASH, KEPT APART. A dashed BOX means "you may or may not do
-     this" (the master's). A dashed LINE means "later" (coming back to study).
+     WORKING IS A BAR, NOT A BOX. Everything ends in work, so every route
+     drops straight down into one wide bar instead of converging on a point.
+     A single point forces six lines to meet, and meeting lines cross.
 
-     WHY BOXES. A label floating under a dot gets crossed by the line leaving
-     that dot, wherever the text sits. A box stops the line at its edge.
+     THE MAIN ROAD IS STRAIGHT. Level 8 drops vertically into Working. The
+     master's is a detour off to the side, because most people never do one
+     and a straight line reads as the normal path.
 
-     WHY IT SCROLLS ON A PHONE. Six branches need room for six labels; at
-     375px each gets about 60px. The diagram keeps its width, and the same
-     routes are written out underneath.
+     THE PLC SPLIT. A PLC is level 5 or 6; the usual way on is a level 7 then
+     an add-on year. Both the level 7 line and the direct level 8 line are
+     drawn, NEITHER weighted, because the split has not been sourced and this
+     is a page a student may act on.
 
-     GEOMETRY. Branch boxes 118 wide at x = 76, 208, 340, 472, 604, 736.
-     Rows at y = 50, 150, 330, 450, 580. A branch label over about 110px at
-     13px overflows its box.
+     TWO KINDS OF DASH. A dashed BOX means "you may or may not do this". A
+     dashed LINE means "later". Keep them apart.
 
      Colours are the --route-* tokens in site.css, both themes. Not here.
      =========================================================================== -->
@@ -74,100 +77,95 @@
   </figcaption>
 
   <div class="route-map-scroll">
-    <svg viewBox="0 0 820 680" class="route-map-svg" role="img"
+    <svg viewBox="0 0 840 660" class="route-map-svg" role="img"
          aria-labelledby="rm-title rm-desc">
       <title id="rm-title">Routes after the Leaving Certificate</title>
       <desc id="rm-desc">A branching diagram. Six routes fan out from the
-        Leaving Certificate: studying abroad, college through the CAO, a PLC
-        or QQI course, an apprenticeship, a traineeship, and going straight
-        into work. Studying abroad and the CAO lead to a level 8 honours
-        degree. A PLC leads either to a level 7 degree, which can be topped up
-        with one further year to a level 8, or in some cases to a level 8
-        directly. From a level 8 some people add an optional level 9
-        master's. An apprenticeship and a traineeship lead to a qualified
-        trade. All routes end at working, and a further line runs from working
-        back to a level 7 degree, taken years later as a mature
-        student.</desc>
+        Leaving Certificate. A PLC or QQI course leads to a level 7 degree,
+        which can be topped up with one further year to a level 8, or in some
+        cases leads to a level 8 directly. College through the CAO and
+        studying abroad lead to a level 8 honours degree. From a level 8 some
+        people take an optional level 9 master's. An apprenticeship and a
+        traineeship lead to a qualified trade. Going straight into work leads
+        directly to working. Every route ends in working, and a further line
+        runs from working back to a level 7 degree, taken years later as a
+        mature student.</desc>
 
       <g fill="none" stroke-width="5" stroke-linecap="round" stroke-linejoin="round">
-        <path d="M406 92 C 406 126, 76 116, 76 150" stroke="var(--route-1)"/>
-        <path d="M406 92 C 406 126, 208 116, 208 150" stroke="var(--route-1)"/>
-        <path d="M406 92 C 406 126, 340 116, 340 150" stroke="var(--route-2)"/>
-        <path d="M406 92 C 406 126, 472 116, 472 150" stroke="var(--route-3)"/>
-        <path d="M406 92 C 406 126, 604 116, 604 150" stroke="var(--route-3)"/>
-        <path d="M406 92 C 406 126, 736 116, 736 150" stroke="var(--route-4)"/>
-        <!-- abroad and the CAO, straight to a level 8 -->
-        <path d="M76 192  C 76 270,  330 250, 330 330" stroke="var(--route-1)"/>
-        <path d="M208 192 C 208 280, 330 260, 330 330" stroke="var(--route-1)"/>
-        <!-- the PLC split: the usual way on, and the direct one -->
-        <path d="M340 192 C 340 250, 110 250, 110 330" stroke="var(--route-2)"/>
-        <path d="M340 192 C 340 260, 352 260, 352 330" stroke="var(--route-2)"/>
-        <!-- the add-on year, level 7 up to level 8 -->
-        <path d="M185 351 L 255 351" stroke="var(--route-2)"/>
-        <!-- trades -->
-        <path d="M472 192 C 472 270, 620 250, 620 330" stroke="var(--route-3)"/>
-        <path d="M604 192 C 604 270, 620 250, 620 330" stroke="var(--route-3)"/>
-        <!-- a master is optional, and the level 8 reaches work either way -->
-        <path d="M330 372 L 330 450" stroke="var(--route-2)"/>
-        <path d="M405 351 C 470 360, 430 520, 406 580" stroke="var(--route-1)"/>
-        <path d="M330 492 C 330 540, 350 556, 362 580" stroke="var(--route-2)"/>
-        <!-- a level 7 is a finished degree too -->
-        <path d="M110 372 C 110 520, 300 540, 340 582" stroke="var(--route-2)"/>
-        <!-- trade and straight-to-work both end up at the same place -->
-        <path d="M620 372 C 620 500, 480 530, 460 582" stroke="var(--route-3)"/>
-        <path d="M736 192 C 736 520, 540 540, 481 592" stroke="var(--route-4)"/>
-        <!-- and back up again, years later -->
-        <path d="M331 601 C 120 610, 22 540, 24 430 C 26 350, 20 351, 35 351"
+        <path d="M430 92 C 430 126, 100 116, 100 150" stroke="var(--route-2)"/>
+        <path d="M430 92 C 430 126, 230 116, 230 150" stroke="var(--route-1)"/>
+        <path d="M430 92 C 430 126, 360 116, 360 150" stroke="var(--route-1)"/>
+        <path d="M430 92 C 430 126, 500 116, 500 150" stroke="var(--route-3)"/>
+        <path d="M430 92 C 430 126, 630 116, 630 150" stroke="var(--route-3)"/>
+        <path d="M430 92 C 430 126, 760 116, 760 150" stroke="var(--route-4)"/>
+        <path d="M100 192 C 100 261, 100 261, 100 330" stroke="var(--route-2)"/>
+        <path d="M100 192 C 100 261, 270 261, 270 330" stroke="var(--route-2)"/>
+        <path d="M230 192 C 230 261, 295 261, 295 330" stroke="var(--route-1)"/>
+        <path d="M360 192 C 360 261, 320 261, 320 330" stroke="var(--route-1)"/>
+        <path d="M500 192 C 500 261, 550 261, 550 330" stroke="var(--route-3)"/>
+        <path d="M630 192 C 630 261, 580 261, 580 330" stroke="var(--route-3)"/>
+        <!-- the add-on year, level 7 across to level 8 -->
+        <path d="M170 351 L 220 351" stroke="var(--route-2)"/>
+        <!-- the master's: a detour off the side of level 8, not the main road -->
+        <path d="M370 351 C 410 351, 440 380, 440 440" stroke="var(--route-1)"/>
+        <!-- everything drops straight into Working -->
+        <path d="M100 372 L 100 580" stroke="var(--route-2)"/>
+        <path d="M295 372 L 295 580" stroke="var(--route-1)"/>
+        <path d="M440 482 L 440 580" stroke="var(--route-1)"/>
+        <path d="M565 372 L 565 580" stroke="var(--route-3)"/>
+        <path d="M760 192 L 760 580" stroke="var(--route-4)"/>
+        <!-- and back up again, years later, round the outside -->
+        <path d="M30 600 C 12 600, 14 586, 14 566 L 14 372 C 14 358, 18 351, 30 351"
               stroke="var(--route-5)" stroke-dasharray="2 12"/>
       </g>
 
       <g class="rm-boxes">
-        <rect x="331" y="50"  width="150" height="42" rx="8" class="rm-box rm-start"/>
-        <rect x="17" y="150" width="118" height="42" rx="8" class="rm-box rm-r1"/>
-        <rect x="149" y="150" width="118" height="42" rx="8" class="rm-box rm-r1"/>
-        <rect x="281" y="150" width="118" height="42" rx="8" class="rm-box rm-r2"/>
-        <rect x="413" y="150" width="118" height="42" rx="8" class="rm-box rm-r3"/>
-        <rect x="545" y="150" width="118" height="42" rx="8" class="rm-box rm-r3"/>
-        <rect x="677" y="150" width="118" height="42" rx="8" class="rm-box rm-r4"/>
-        <rect x="35"  y="330" width="150" height="42" rx="8" class="rm-box rm-hub rm-r2"/>
-        <rect x="255" y="330" width="150" height="42" rx="8" class="rm-box rm-hub rm-r1"/>
-        <rect x="538" y="330" width="164" height="42" rx="8" class="rm-box rm-hub rm-r3"/>
-        <rect x="250" y="450" width="160" height="42" rx="8" class="rm-box rm-optional rm-r2"/>
-        <rect x="331" y="580" width="150" height="42" rx="8" class="rm-box rm-end"/>
+        <rect x="355" y="50"  width="150" height="42" rx="8" class="rm-box rm-start"/>
+        <rect x="41" y="150" width="118" height="42" rx="8" class="rm-box rm-r2"/>
+        <rect x="171" y="150" width="118" height="42" rx="8" class="rm-box rm-r1"/>
+        <rect x="301" y="150" width="118" height="42" rx="8" class="rm-box rm-r1"/>
+        <rect x="441" y="150" width="118" height="42" rx="8" class="rm-box rm-r3"/>
+        <rect x="571" y="150" width="118" height="42" rx="8" class="rm-box rm-r3"/>
+        <rect x="701" y="150" width="118" height="42" rx="8" class="rm-box rm-r4"/>
+        <rect x="30"  y="330" width="140" height="42" rx="8" class="rm-box rm-hub rm-r2"/>
+        <rect x="220" y="330" width="150" height="42" rx="8" class="rm-box rm-hub rm-r1"/>
+        <rect x="483" y="330" width="164" height="42" rx="8" class="rm-box rm-hub rm-r3"/>
+        <rect x="355" y="440" width="170" height="42" rx="8" class="rm-box rm-optional rm-r1"/>
+        <rect x="30"  y="580" width="780" height="40" rx="8" class="rm-box rm-end"/>
       </g>
 
       <g class="rm-label" text-anchor="middle">
-        <text x="406" y="76" class="rm-label-big">Leaving Cert</text>
-        <text x="76" y="176">Study abroad</text>
-        <text x="208" y="176">College (CAO)</text>
-        <text x="340" y="176">PLC or QQI</text>
-        <text x="472" y="176">Apprenticeship</text>
-        <text x="604" y="176">Traineeship</text>
-        <text x="736" y="176">Straight to work</text>
-        <text x="110" y="356" class="rm-label-big">Level 7 degree</text>
-        <text x="330" y="356" class="rm-label-big">Level 8 degree</text>
-        <text x="620" y="356" class="rm-label-big">Qualified trade</text>
-        <text x="220" y="392" class="rm-label-note">+ one year</text>
-        <text x="330" y="476" class="rm-label-big">Master&#8217;s &#183; level 9</text>
-        <text x="330" y="512" class="rm-label-note">optional</text>
-        <text x="406" y="606" class="rm-label-big">Working</text>
-        <text x="8" y="300" text-anchor="start" class="rm-label-note">back to study, later</text>
+        <text x="430" y="76" class="rm-label-big">Leaving Cert</text>
+        <text x="100" y="176">PLC or QQI</text>
+        <text x="230" y="176">College (CAO)</text>
+        <text x="360" y="176">Study abroad</text>
+        <text x="500" y="176">Apprenticeship</text>
+        <text x="630" y="176">Traineeship</text>
+        <text x="760" y="176">Straight to work</text>
+        <text x="100" y="356" class="rm-label-big">Level 7 degree</text>
+        <text x="295" y="356" class="rm-label-big">Level 8 degree</text>
+        <text x="565" y="356" class="rm-label-big">Qualified trade</text>
+        <text x="195" y="394" class="rm-label-note">+ one year</text>
+        <text x="440" y="466" class="rm-label-big">Master&#8217;s &#183; level 9</text>
+        <text x="390" y="502" class="rm-label-note">optional</text>
+        <text x="420" y="606" class="rm-label-big">Working</text>
+        <text x="14" y="644" text-anchor="start" class="rm-label-note">back to study, later</text>
       </g>
     </svg>
   </div>
 
   <div class="route-map-words">
-    <p><strong>Straight to a level 8 honours degree:</strong> college through the
-      CAO, or studying abroad.</p>
     <p><strong>A PLC or QQI course</strong> is level 5 or 6. The usual way on is
       a level 7 degree and then one more year to a level 8. Some courses go
       straight to a level 8.</p>
     <p><strong>A level 7 is a finished degree</strong> in its own right. You do
       not have to top it up.</p>
+    <p><strong>Straight to a level 8 honours degree:</strong> college through the
+      CAO, or studying abroad.</p>
+    <p><strong>A master&#8217;s is optional.</strong> Some people add a level 9
+      afterwards; most never do.</p>
     <p><strong>A qualified trade, two ways:</strong> an apprenticeship or a
       traineeship.</p>
-    <p><strong>A master&#8217;s is optional.</strong> Some people add a level 9
-      afterwards; plenty never do.</p>
     <p><strong>And back again:</strong> you can return to study years later.</p>
   </div>
 </figure>

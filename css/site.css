@@ -878,6 +878,7 @@ footer a:hover { color: var(--ink); }
   font-size: 13px; fill: var(--ink);
 }
 .rm-label .rm-label-big { font-size: 17px; font-weight: 700; fill: var(--ink); }
+/* Labels sitting on the two dark boxes: the start and the Working bar. */
 .rm-label text:first-child, .rm-label text:nth-last-child(2) { fill: var(--paper); }
 .rm-label .rm-label-note {
   font-size: 13px; fill: var(--route-5);
